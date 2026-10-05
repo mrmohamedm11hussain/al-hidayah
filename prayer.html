@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>
+    مواقيت الصلاة | الهداية
+  </title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/inner.css">
+
+
+  <style>
+
+    .prayer-box {
+
+      background:
+        linear-gradient(
+          135deg,
+          #0d3b2e,
+          #174f3f
+        );
+
+      color: #fff;
+
+      border-radius: 30px;
+
+      padding: 42px;
+    }
+
+
+    .prayer-box h1 {
+
+      font-size: 42px;
+
+      margin: 12px 0;
+    }
+
+
+    .prayer-box p {
+
+      color: #cbd9d2;
+
+      line-height: 2;
+    }
+
+
+    .pray-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(6, 1fr);
+
+      gap: 10px;
+
+      margin-top: 30px;
+    }
+
+
+    .pray {
+
+      background:
+        rgba(255,255,255,.08);
+
+      border:
+        1px solid rgba(255,255,255,.1);
+
+      border-radius: 18px;
+
+      padding: 18px;
+
+      text-align: center;
+    }
+
+
+    .pray b {
+
+      display: block;
+
+      font-size: 13px;
+    }
+
+
+    .pray strong {
+
+      display: block;
+
+      color: #e4c984;
+
+      font-size: 20px;
+
+      margin-top: 8px;
+    }
+
+
+    .loc-btn {
+      margin-top: 15px;
+    }
+
+
+    #status {
+
+      margin-top: 15px;
+
+      color: #d5e1db;
+
+      font-size: 12px;
+    }
+
+
+    @media (max-width: 800px) {
+
+      .pray-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+      .prayer-box h1 {
+        font-size: 32px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<header class="nav">
+
+  <a class="brand" href="index.html">
+
+    <span class="brand-mark">
+      هـ
+    </span>
+
+    <span>
+      <b>الهداية</b>
+      <small>نورٌ يُقرأ ويُسمع</small>
+    </span>
+
+  </a>
+
+
+  <nav>
+
+    <a href="index.html">
+      الرئيسية
+    </a>
+
+    <a href="stories.html">
+      القصص
+    </a>
+
+    <a href="quran.html">
+      القرآن الكريم
+    </a>
+
+    <a href="adhkar.html">
+      الأذكار
+    </a>
+
+    <a class="active" href="prayer.html">
+      مواقيت الصلاة
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="wrap inner">
+
+  <div class="prayer-box">
+
+    <span class="eyebrow">
+      مواقيت الصلاة
+    </span>
+
+
+    <h1>
+      صلاتك أولًا.
+    </h1>
+
+
+    <p>
+      يمكن للموقع حساب المواقيت حسب موقعك،
+      لكن المتصفح سيطلب إذنك أولًا.
+      لن نطلب موقعك دون موافقة.
+    </p>
+
+
+    <button
+      class="btn primary loc-btn"
+      id="loc"
+    >
+      تحديد موقعي وحساب المواقيت
+    </button>
+
+
+    <div id="status"></div>
+
+
+    <div
+      id="prayGrid"
+      class="pray-grid"
+    ></div>
+
+  </div>
+
+</main>
+
+
+<script src="js/prayer.js"></script>
+
+</body>
+      </html>
