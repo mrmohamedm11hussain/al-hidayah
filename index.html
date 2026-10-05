@@ -1,585 +1,582 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>الهداية | قصص تهدي القلب</title>
-    <meta name="description" content="الهداية — رحلة بين القصص والعبر">
+  <title>الهداية | قصص تهدي القلب</title>
+  <meta
+    name="description"
+    content="الهداية — منصة عربية عصرية لاستكشاف القصص والعبر."
+  />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<div class="app">
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-inner">
-
-            <a href="#" class="brand" data-view="home">
-                <div class="brand-mark">
-                    <span>هـ</span>
-                </div>
-
-                <div class="brand-text">
-                    <strong>الهداية</strong>
-                    <small>قصص تهدي القلب</small>
-                </div>
-            </a>
-
-            <nav class="desktop-nav">
-                <button class="nav-link active" data-view="home">الرئيسية</button>
-                <button class="nav-link" data-view="library">المكتبة</button>
-                <button class="nav-link" data-view="favorites">
-                    المفضلة
-                    <span class="nav-count" id="favoriteCount">0</span>
-                </button>
-                <button class="nav-link" data-view="about">عن الهداية</button>
-            </nav>
-
-            <div class="header-actions">
-                <button class="icon-btn" id="searchButton" aria-label="بحث">
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="11" cy="11" r="6.5"></circle>
-                        <path d="m16 16 5 5"></path>
-                    </svg>
-                </button>
-
-                <button class="icon-btn" id="themeButton" aria-label="الوضع الليلي">
-                    <svg id="themeIcon" viewBox="0 0 24 24">
-                        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"></path>
-                    </svg>
-                </button>
-
-                <button class="menu-btn" id="menuButton">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-
-        </div>
-    </header>
-
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button data-view="home">الرئيسية</button>
-        <button data-view="library">المكتبة</button>
-        <button data-view="favorites">المفضلة</button>
-        <button data-view="about">عن الهداية</button>
-    </div>
-
-
-    <main>
-
-        <!-- ================= HOME ================= -->
-        <section class="view active" id="homeView">
-
-            <!-- HERO -->
-            <section class="hero">
-                <div class="hero-glow glow-one"></div>
-                <div class="hero-glow glow-two"></div>
-
-                <div class="container hero-content">
-
-                    <div class="hero-copy reveal">
-                        <div class="eyebrow">
-                            <span class="eyebrow-line"></span>
-                            <span>رحلة بين القصص والعِبر</span>
-                        </div>
-
-                        <h1>
-                            حكايات
-                            <span>تضيء</span>
-                            الطريق
-                        </h1>
-
-                        <p>
-                            اكتشف قصص الأنبياء والرسل، وقصص القرآن،
-                            والسيرة، والصحابة في تجربة هادئة وعصرية
-                            تساعدك على القراءة والتأمل.
-                        </p>
-
-                        <div class="hero-buttons">
-                            <button class="primary-btn" data-view="library">
-                                استكشف القصص
-                                <span>←</span>
-                            </button>
-
-                            <button class="secondary-btn" data-scroll="categories">
-                                تصفح التصنيفات
-                            </button>
-                        </div>
-
-                        <div class="hero-stats">
-                            <div>
-                                <strong id="storyStat">9+</strong>
-                                <span>قصة</span>
-                            </div>
-
-                            <div class="stat-divider"></div>
-
-                            <div>
-                                <strong>4</strong>
-                                <span>تصنيفات</span>
-                            </div>
-
-                            <div class="stat-divider"></div>
-
-                            <div>
-                                <strong>∞</strong>
-                                <span>عِبرة</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="hero-art reveal delay-2">
-
-                        <div class="orbit orbit-one"></div>
-                        <div class="orbit orbit-two"></div>
-
-                        <div class="moon">
-                            <div class="moon-shadow"></div>
-                        </div>
-
-                        <div class="floating-card card-top">
-                            <span class="floating-icon">✦</span>
-                            <div>
-                                <strong>اقرأ وتأمل</strong>
-                                <small>رحلة مختلفة</small>
-                            </div>
-                        </div>
-
-                        <div class="floating-card card-bottom">
-                            <span class="floating-icon">♡</span>
-                            <div>
-                                <strong>احفظ ما تحب</strong>
-                                <small>في المفضلة</small>
-                            </div>
-                        </div>
-
-                        <div class="hero-symbol">هـ</div>
-
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- FEATURED -->
-            <section class="section featured-section">
-                <div class="container">
-
-                    <div class="section-heading reveal">
-                        <div>
-                            <span class="section-kicker">مختارات الهداية</span>
-                            <h2>قصص تستحق أن تبدأ بها</h2>
-                        </div>
-
-                        <button class="text-btn" data-view="library">
-                            عرض الكل ←
-                        </button>
-                    </div>
-
-                    <div class="featured-grid" id="featuredGrid"></div>
-
-                </div>
-            </section>
-
-
-            <!-- CATEGORIES -->
-            <section class="section categories-section" id="categories">
-                <div class="container">
-
-                    <div class="section-heading center reveal">
-                        <span class="section-kicker">اكتشف عالم الهداية</span>
-                        <h2>ماذا تريد أن تقرأ اليوم؟</h2>
-                        <p>اختر الباب الذي يناسب رحلتك.</p>
-                    </div>
-
-                    <div class="categories-grid">
-
-                        <button class="category-card prophets reveal" data-category="prophets">
-                            <div class="category-number">01</div>
-                            <div class="category-icon">☾</div>
-                            <div>
-                                <h3>قصص الأنبياء</h3>
-                                <p>قصص الأنبياء والرسل وما فيها من دروس.</p>
-                            </div>
-                            <span class="category-arrow">←</span>
-                        </button>
-
-                        <button class="category-card quran reveal delay-1" data-category="quran">
-                            <div class="category-number">02</div>
-                            <div class="category-icon">◈</div>
-                            <div>
-                                <h3>قصص القرآن</h3>
-                                <p>قصص ورد ذكرها في كتاب الله.</p>
-                            </div>
-                            <span class="category-arrow">←</span>
-                        </button>
-
-                        <button class="category-card seerah reveal delay-2" data-category="seerah">
-                            <div class="category-number">03</div>
-                            <div class="category-icon">✦</div>
-                            <div>
-                                <h3>السيرة النبوية</h3>
-                                <p>محطات من السيرة المباركة.</p>
-                            </div>
-                            <span class="category-arrow">←</span>
-                        </button>
-
-                        <button class="category-card companions reveal delay-3" data-category="companions">
-                            <div class="category-number">04</div>
-                            <div class="category-icon">♢</div>
-                            <div>
-                                <h3>قصص الصحابة</h3>
-                                <p>مواقف وشخصيات تركت أثرًا عظيمًا.</p>
-                            </div>
-                            <span class="category-arrow">←</span>
-                        </button>
-
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- LATEST -->
-            <section class="section latest-section">
-                <div class="container">
-
-                    <div class="section-heading reveal">
-                        <div>
-                            <span class="section-kicker">مكتبة الهداية</span>
-                            <h2>أحدث القصص</h2>
-                        </div>
-
-                        <button class="text-btn" data-view="library">
-                            المكتبة كاملة ←
-                        </button>
-                    </div>
-
-                    <div class="stories-grid" id="latestGrid"></div>
-
-                </div>
-            </section>
-
-
-            <!-- QUOTE -->
-            <section class="quote-section">
-                <div class="container">
-                    <div class="quote-box reveal">
-
-                        <div class="quote-decoration">“</div>
-
-                        <p>
-                            فَاقْصُصِ الْقَصَصَ لَعَلَّهُمْ يَتَفَكَّرُونَ
-                        </p>
-
-                        <span>سورة الأعراف — الآية 176</span>
-
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- ABOUT PREVIEW -->
-            <section class="section about-preview">
-                <div class="container about-layout">
-
-                    <div class="about-visual reveal">
-                        <div class="about-circle">
-                            <span>هـ</span>
-                        </div>
-
-                        <div class="about-mini one">✦</div>
-                        <div class="about-mini two">☾</div>
-                        <div class="about-mini three">◇</div>
-                    </div>
-
-                    <div class="about-copy reveal delay-1">
-                        <span class="section-kicker">عن الهداية</span>
-                        <h2>ليست مجرد قصص...</h2>
-
-                        <p>
-                            «الهداية» مساحة رقمية تجمع القصص الإسلامية
-                            في تجربة قراءة هادئة ومنظمة، لتكون كل قصة
-                            فرصة للتفكر واستخراج العبرة.
-                        </p>
-
-                        <button class="primary-btn" data-view="about">
-                            تعرف على المشروع
-                            <span>←</span>
-                        </button>
-                    </div>
-
-                </div>
-            </section>
-
-        </section>
-
-
-        <!-- ================= LIBRARY ================= -->
-        <section class="view page-view" id="libraryView">
-
-            <div class="page-hero">
-                <div class="container">
-                    <span class="section-kicker">مكتبة الهداية</span>
-                    <h1>كل القصص في مكان واحد</h1>
-                    <p>ابحث، اختر تصنيفًا، ثم ابدأ رحلة القراءة.</p>
-                </div>
-            </div>
-
-            <div class="container library-container">
-
-                <div class="library-toolbar">
-
-                    <div class="library-search">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="6.5"></circle>
-                            <path d="m16 16 5 5"></path>
-                        </svg>
-                        <input id="librarySearch" type="text" placeholder="ابحث عن قصة...">
-                    </div>
-
-                    <div class="filter-row">
-                        <button class="filter active" data-filter="all">الكل</button>
-                        <button class="filter" data-filter="prophets">الأنبياء</button>
-                        <button class="filter" data-filter="quran">القرآن</button>
-                        <button class="filter" data-filter="seerah">السيرة</button>
-                        <button class="filter" data-filter="companions">الصحابة</button>
-                    </div>
-
-                </div>
-
-                <div class="library-result-info">
-                    <span id="resultCount">0 قصة</span>
-                    <button id="clearFilter" class="clear-filter">إلغاء الفلاتر</button>
-                </div>
-
-                <div class="stories-grid large" id="libraryGrid"></div>
-
-                <div class="empty-state hidden" id="libraryEmpty">
-                    <div>⌕</div>
-                    <h3>لم نجد قصة مطابقة</h3>
-                    <p>جرّب كلمة بحث مختلفة أو ألغِ الفلتر.</p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= FAVORITES ================= -->
-        <section class="view page-view" id="favoritesView">
-
-            <div class="page-hero">
-                <div class="container">
-                    <span class="section-kicker">قصصك المحفوظة</span>
-                    <h1>المفضلة</h1>
-                    <p>كل قصة أحببتها ستجدها هنا.</p>
-                </div>
-            </div>
-
-            <div class="container library-container">
-
-                <div class="stories-grid large" id="favoritesGrid"></div>
-
-                <div class="empty-state" id="favoritesEmpty">
-                    <div>♡</div>
-                    <h3>المفضلة فارغة</h3>
-                    <p>اضغط على القلب في أي قصة لإضافتها هنا.</p>
-                    <button class="primary-btn" data-view="library">
-                        استكشف القصص
-                        <span>←</span>
-                    </button>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= ABOUT ================= -->
-        <section class="view page-view" id="aboutView">
-
-            <div class="page-hero">
-                <div class="container">
-                    <span class="section-kicker">فكرة المشروع</span>
-                    <h1>عن الهداية</h1>
-                    <p>منصة صُممت لتجعل القراءة أقرب وأسهل وأجمل.</p>
-                </div>
-            </div>
-
-            <div class="container about-page">
-
-                <div class="about-main-card reveal">
-                    <div class="about-large-symbol">هـ</div>
-
-                    <div>
-                        <span class="section-kicker">الهداية</span>
-                        <h2>قصة وراء كل قصة</h2>
-
-                        <p>
-                            تم تصميم «الهداية» كمنصة رقمية حديثة تهتم
-                            بعرض القصص الإسلامية بطريقة منظمة ومريحة
-                            للقراءة، مع إمكانية البحث والحفظ والعودة
-                            إلى القصص المفضلة في أي وقت.
-                        </p>
-
-                        <p>
-                            هدف المشروع ليس كثرة المحتوى فقط، بل تقديم
-                            تجربة تجعل القارئ يتوقف، يقرأ، ويتأمل العبرة.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="principles-grid">
-
-                    <div class="principle-card reveal">
-                        <span>01</span>
-                        <h3>الموثوقية</h3>
-                        <p>الاعتماد على مصادر موثوقة عند إضافة المحتوى.</p>
-                    </div>
-
-                    <div class="principle-card reveal delay-1">
-                        <span>02</span>
-                        <h3>البساطة</h3>
-                        <p>واجهة واضحة تجعل الوصول إلى القصة سريعًا.</p>
-                    </div>
-
-                    <div class="principle-card reveal delay-2">
-                        <span>03</span>
-                        <h3>التأمل</h3>
-                        <p>نقدم القصة كتجربة للقراءة واستخراج العبرة.</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= READER ================= -->
-        <section class="view reader-view" id="readerView">
-
-            <div class="reader-top">
-                <div class="container reader-top-inner">
-                    <button class="back-btn" id="backFromReader">
-                        → العودة للمكتبة
-                    </button>
-
-                    <button class="reader-favorite" id="readerFavorite">
-                        ♡ <span>حفظ</span>
-                    </button>
-                </div>
-            </div>
-
-            <article class="reader">
-
-                <div class="reader-header">
-
-                    <span class="reader-category" id="readerCategory"></span>
-
-                    <h1 id="readerTitle"></h1>
-
-                    <p id="readerIntro"></p>
-
-                    <div class="reader-meta">
-                        <span id="readerTime">5 دقائق قراءة</span>
-                        <span>•</span>
-                        <span>الهداية</span>
-                    </div>
-
-                </div>
-
-                <div class="reader-divider"></div>
-
-                <div class="reader-body" id="readerBody"></div>
-
-                <div class="reader-end">
-                    <div>✦</div>
-                    <span>تم بحمد الله</span>
-                </div>
-
-                <div class="next-story" id="nextStoryBox"></div>
-
-            </article>
-
-        </section>
-
-    </main>
-
-
-    <!-- SEARCH OVERLAY -->
-    <div class="search-overlay" id="searchOverlay">
-
-        <div class="search-panel">
-
-            <button class="close-search" id="closeSearch">×</button>
-
-            <span class="section-kicker">البحث في الهداية</span>
-            <h2>عن ماذا تبحث؟</h2>
-
-            <div class="big-search">
-                <svg viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="6.5"></circle>
-                    <path d="m16 16 5 5"></path>
-                </svg>
-
-                <input id="globalSearch" type="text" placeholder="اكتب اسم القصة...">
-            </div>
-
-            <div class="search-results" id="searchResults"></div>
-
+  <!-- خلفية -->
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+
+      <a href="#" class="brand" data-view="home">
+        <div class="brand-icon">
+          <span>☾</span>
         </div>
 
+        <div class="brand-text">
+          <strong>الهداية</strong>
+          <small>قصص تهدي القلب</small>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <button class="nav-link active" data-view="home">
+          الرئيسية
+        </button>
+
+        <button class="nav-link" data-view="library">
+          المكتبة
+        </button>
+
+        <button class="nav-link" data-view="favorites">
+          المفضلة
+        </button>
+
+        <button class="nav-link" data-view="about">
+          عن الهداية
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" id="searchButton" aria-label="البحث">
+          ⌕
+        </button>
+
+        <button class="icon-button" id="themeButton" aria-label="الوضع الليلي">
+          ◐
+        </button>
+
+        <button class="menu-button" id="menuButton" aria-label="القائمة">
+          ☰
+        </button>
+      </div>
+
     </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button data-view="home">الرئيسية</button>
+    <button data-view="library">المكتبة</button>
+    <button data-view="favorites">المفضلة</button>
+    <button data-view="about">عن الهداية</button>
+  </div>
 
 
-    <!-- TOAST -->
-    <div class="toast" id="toast">
-        <span id="toastIcon">✓</span>
-        <span id="toastText">تم الحفظ</span>
-    </div>
+  <!-- MAIN -->
+  <main>
+
+    <!-- HOME -->
+    <section class="view active-view" id="homeView">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-grid">
+
+          <div class="hero-content reveal">
+
+            <div class="eyebrow">
+              <span></span>
+              رحلة بين القصص والعِبر
+            </div>
+
+            <h1>
+              حكايات
+              <span>تضيء الطريق</span>
+            </h1>
+
+            <p>
+              اكتشف قصصًا تحمل في أحداثها دروسًا وعِبرًا،
+              واقرأها بطريقة عصرية هادئة وممتعة.
+            </p>
+
+            <div class="hero-buttons">
+              <button class="primary-button" data-view="library">
+                استكشف القصص
+                <span>←</span>
+              </button>
+
+              <button class="secondary-button" data-view="about">
+                تعرف على الهداية
+              </button>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <strong>01</strong>
+                <span>رحلة</span>
+              </div>
+
+              <div>
+                <strong>∞</strong>
+                <span>عِبر</span>
+              </div>
+
+              <div>
+                <strong>✦</strong>
+                <span>هداية</span>
+              </div>
+            </div>
+
+          </div>
 
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-inner">
+          <!-- HERO ART -->
+          <div class="hero-art reveal">
 
+            <div class="moon">
+              <div class="moon-shadow"></div>
+            </div>
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="floating-star star-one">✦</div>
+            <div class="floating-star star-two">✧</div>
+            <div class="floating-star star-three">·</div>
+
+            <div class="hero-card">
+              <div class="mini-icon">✦</div>
+              <div>
+                <strong>اقرأ</strong>
+                <span>وتأمل</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- FEATURED -->
+      <section class="section">
+        <div class="container">
+
+          <div class="section-heading reveal">
             <div>
-                <div class="footer-brand">الهداية</div>
-                <p>قصص تهدي القلب وتفتح باب التأمل.</p>
+              <span class="section-label">مختاراتنا</span>
+              <h2>قصص تستحق أن تُروى</h2>
             </div>
 
-            <div class="footer-links">
-                <button data-view="home">الرئيسية</button>
-                <button data-view="library">المكتبة</button>
-                <button data-view="favorites">المفضلة</button>
-                <button data-view="about">عن الهداية</button>
-            </div>
+            <button class="text-button" data-view="library">
+              عرض المكتبة
+              <span>←</span>
+            </button>
+          </div>
 
-            <div class="footer-bottom">
-                © 2026 الهداية — جميع الحقوق محفوظة
-            </div>
+          <div class="story-grid featured-grid" id="featuredStories"></div>
 
         </div>
-    </footer>
+      </section>
 
-</div>
 
-<script src="script.js"></script>
+      <!-- CATEGORIES -->
+      <section class="section categories-section">
+        <div class="container">
 
+          <div class="section-heading centered reveal">
+            <span class="section-label">اكتشف حسب القسم</span>
+            <h2>رحلتك تبدأ من هنا</h2>
+            <p>
+              اختر القسم الذي ترغب في استكشافه.
+            </p>
+          </div>
+
+          <div class="categories-grid">
+
+            <button class="category-card reveal" data-category="prophets">
+              <div class="category-symbol">☾</div>
+              <div>
+                <span>القسم الأول</span>
+                <strong>قصص الأنبياء</strong>
+              </div>
+              <b>←</b>
+            </button>
+
+            <button class="category-card reveal" data-category="quran">
+              <div class="category-symbol">✦</div>
+              <div>
+                <span>القسم الثاني</span>
+                <strong>قصص القرآن</strong>
+              </div>
+              <b>←</b>
+            </button>
+
+            <button class="category-card reveal" data-category="seerah">
+              <div class="category-symbol">◇</div>
+              <div>
+                <span>القسم الثالث</span>
+                <strong>السيرة النبوية</strong>
+              </div>
+              <b>←</b>
+            </button>
+
+            <button class="category-card reveal" data-category="companions">
+              <div class="category-symbol">✧</div>
+              <div>
+                <span>القسم الرابع</span>
+                <strong>قصص الصحابة</strong>
+              </div>
+              <b>←</b>
+            </button>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- LATEST -->
+      <section class="section">
+        <div class="container">
+
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-label">المكتبة</span>
+              <h2>قصص مختارة</h2>
+            </div>
+          </div>
+
+          <div class="story-grid" id="latestStories"></div>
+
+        </div>
+      </section>
+
+
+      <!-- QUOTE -->
+      <section class="quote-section">
+        <div class="container">
+
+          <div class="quote-box reveal">
+            <div class="quote-mark">“</div>
+
+            <p>
+              فاقصص القصص لعلهم يتفكرون
+            </p>
+
+            <span>
+              لكل قصة معنى، ولكل معنى أثر.
+            </span>
+
+            <div class="quote-decoration">✦</div>
+          </div>
+
+        </div>
+      </section>
+
+    </section>
+
+
+    <!-- LIBRARY -->
+    <section class="view" id="libraryView">
+
+      <div class="page-hero">
+        <div class="container">
+          <span class="section-label">المكتبة</span>
+          <h1>مكتبة الهداية</h1>
+          <p>
+            اختر قصة وابدأ رحلتك.
+          </p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+
+          <div class="library-toolbar">
+
+            <div class="filter-buttons">
+              <button class="filter active" data-filter="all">
+                الكل
+              </button>
+
+              <button class="filter" data-filter="prophets">
+                الأنبياء
+              </button>
+
+              <button class="filter" data-filter="quran">
+                القرآن
+              </button>
+
+              <button class="filter" data-filter="seerah">
+                السيرة
+              </button>
+
+              <button class="filter" data-filter="companions">
+                الصحابة
+              </button>
+            </div>
+
+          </div>
+
+          <div class="story-grid" id="libraryStories"></div>
+
+        </div>
+      </section>
+
+    </section>
+
+
+    <!-- FAVORITES -->
+    <section class="view" id="favoritesView">
+
+      <div class="page-hero">
+        <div class="container">
+          <span class="section-label">مكتبتي</span>
+          <h1>المفضلة</h1>
+          <p>
+            القصص التي اخترتها لتعود إليها لاحقًا.
+          </p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <div class="story-grid" id="favoriteStories"></div>
+
+          <div class="empty-state" id="emptyFavorites">
+            <div>♡</div>
+            <h3>لا توجد قصص في المفضلة</h3>
+            <p>
+              اضغط على علامة القلب بجانب أي قصة لإضافتها هنا.
+            </p>
+
+            <button class="primary-button" data-view="library">
+              تصفح القصص
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="view" id="aboutView">
+
+      <div class="page-hero">
+        <div class="container">
+          <span class="section-label">عن المنصة</span>
+          <h1>عن الهداية</h1>
+          <p>
+            مساحة هادئة للقراءة والتأمل واكتشاف العِبر.
+          </p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+
+          <div class="about-layout">
+
+            <div class="about-card main-about reveal">
+              <span class="section-label">الهداية</span>
+
+              <h2>
+                ليست مجرد قصة...
+                <br />
+                بل رحلة ومعنى.
+              </h2>
+
+              <p>
+                الهداية مشروع يهدف إلى تقديم القصص بطريقة عصرية
+                ومنظمة، مع الاهتمام بجمال التجربة وسهولة القراءة.
+              </p>
+
+              <p>
+                ومع تطور المنصة سنضيف نظامًا متكاملًا للقصص،
+                والمشاهد التوضيحية، والقراءة الآلية، والمصادر
+                الموثوقة لكل محتوى.
+              </p>
+            </div>
+
+            <div class="about-side">
+
+              <div class="about-mini reveal">
+                <strong>01</strong>
+                <span>تصميم عربي عصري</span>
+              </div>
+
+              <div class="about-mini reveal">
+                <strong>02</strong>
+                <span>تجربة قراءة هادئة</span>
+              </div>
+
+              <div class="about-mini reveal">
+                <strong>03</strong>
+                <span>محتوى موثق</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </section>
+
+
+    <!-- READER -->
+    <section class="view" id="readerView">
+
+      <div class="reader-page">
+
+        <div class="container">
+
+          <button class="back-button" id="backFromReader">
+            → العودة إلى المكتبة
+          </button>
+
+          <article class="reader">
+
+            <div class="reader-cover" id="readerCover">
+              <div class="reader-cover-symbol">✦</div>
+            </div>
+
+            <div class="reader-content">
+
+              <div class="reader-meta">
+                <span id="readerCategory">قصة</span>
+                <span>•</span>
+                <span id="readerNumber">01</span>
+              </div>
+
+              <h1 id="readerTitle">عنوان القصة</h1>
+
+              <p class="reader-intro" id="readerIntro">
+                مقدمة القصة
+              </p>
+
+              <div class="reader-divider"></div>
+
+              <div class="reader-text" id="readerText"></div>
+
+              <div class="reader-source" id="readerSource">
+                المصدر: —
+              </div>
+
+              <div class="reader-actions">
+
+                <button class="primary-button" id="readStoryButton">
+                  ▶ قراءة النص
+                </button>
+
+                <button class="secondary-button" id="favoriteReaderButton">
+                  ♡ المفضلة
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+          <div class="reader-bottom">
+
+            <button class="secondary-button" id="previousStory">
+              → السابقة
+            </button>
+
+            <button class="secondary-button" id="nextStory">
+              التالية ←
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- SEARCH -->
+  <div class="search-overlay" id="searchOverlay">
+
+    <div class="search-box">
+
+      <button class="close-search" id="closeSearch">
+        ×
+      </button>
+
+      <span class="section-label">البحث</span>
+
+      <h2>عن ماذا تبحث؟</h2>
+
+      <div class="search-input-wrap">
+        <span>⌕</span>
+
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="اكتب اسم القصة..."
+          autocomplete="off"
+        />
+      </div>
+
+      <div id="searchResults" class="search-results"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <span>✓</span>
+    <p id="toastText">تمت العملية</p>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container footer-inner">
+
+      <div>
+        <strong>الهداية</strong>
+        <span>قصص تهدي القلب</span>
+      </div>
+
+      <p>
+        تجربة عربية عصرية للقراءة والتأمل.
+      </p>
+
+      <span class="copyright">
+        © 2026 الهداية
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
 </body>
-  </html>
+                                       </html>
