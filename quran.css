@@ -1,0 +1,208 @@
+.quran-page {
+  padding: 55px 0 140px;
+}
+
+.q-head {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  align-items: end;
+
+  padding: 25px 0 30px;
+}
+
+.q-head h1 {
+  font-size: clamp(32px, 4vw, 50px);
+
+  color: var(--green);
+
+  margin: 15px 0 8px;
+}
+
+.q-head p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.q-head select {
+  width: 250px;
+
+  padding: 14px 16px;
+
+  border-radius: 15px;
+
+  border: 1px solid var(--line);
+
+  background: #fffdf8;
+
+  color: var(--green);
+
+  font: 700 13px Cairo;
+}
+
+.state {
+  padding: 18px;
+
+  border-radius: 16px;
+
+  background: #eef2e9;
+
+  color: #587067;
+
+  font-size: 12px;
+
+  margin-bottom: 15px;
+}
+
+.ayah-list {
+  background: #fffdf8;
+
+  border: 1px solid var(--line);
+
+  border-radius: 28px;
+
+  overflow: hidden;
+}
+
+.ayah-item {
+  padding: 28px 30px;
+
+  border-bottom: 1px solid #eee7da;
+
+  display: grid;
+
+  grid-template-columns: 45px 1fr auto;
+
+  gap: 15px;
+
+  align-items: start;
+}
+
+.ayah-item:last-child {
+  border-bottom: 0;
+}
+
+.ayah-num {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: #eee4cd;
+
+  color: #92703a;
+
+  display: grid;
+
+  place-items: center;
+
+  font-size: 10px;
+}
+
+.ayah-text {
+  font: 400 27px/2.1 Amiri;
+
+  color: #263f35;
+}
+
+.play-ayah {
+  border: 0;
+
+  background: #eef2e9;
+
+  color: #356052;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+}
+
+.audio-bar {
+  position: fixed;
+
+  bottom: 18px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(900px, 92%);
+
+  background: #0b3429;
+
+  color: #fff;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 20px;
+
+  padding: 13px 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+
+  z-index: 30;
+}
+
+.audio-bar b {
+  display: block;
+  font-size: 12px;
+}
+
+.audio-bar small {
+  display: block;
+  color: #a9bbb3;
+  font-size: 9px;
+}
+
+.audio-bar audio {
+  margin-right: auto;
+
+  width: min(430px, 52%);
+}
+
+
+@media (max-width: 700px) {
+
+  .q-head {
+    display: block;
+  }
+
+  .q-head select {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .ayah-item {
+    grid-template-columns: 35px 1fr;
+  }
+
+  .play-ayah {
+    grid-column: 2;
+  }
+
+  .ayah-text {
+    font-size: 24px;
+  }
+
+  .audio-bar {
+    display: block;
+  }
+
+  .audio-bar audio {
+    width: 100%;
+    margin-top: 7px;
+  }
+
+}
