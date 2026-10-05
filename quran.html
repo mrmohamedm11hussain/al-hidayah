@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>القرآن الكريم | الهداية</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Amiri:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/quran.css">
+
+</head>
+
+
+<body>
+
+<header class="nav">
+
+  <a class="brand" href="index.html">
+
+    <span class="brand-mark">
+      هـ
+    </span>
+
+    <span>
+      <b>الهداية</b>
+      <small>نورٌ يُقرأ ويُسمع</small>
+    </span>
+
+  </a>
+
+
+  <nav>
+
+    <a href="index.html">
+      الرئيسية
+    </a>
+
+    <a href="stories.html">
+      القصص
+    </a>
+
+    <a class="active" href="quran.html">
+      القرآن الكريم
+    </a>
+
+    <a href="adhkar.html">
+      الأذكار
+    </a>
+
+    <a href="prayer.html">
+      مواقيت الصلاة
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="wrap quran-page">
+
+  <div class="q-head">
+
+    <div>
+
+      <span class="eyebrow">
+        المصحف الشريف
+      </span>
+
+      <h1>
+        اقرأ واستمع إلى القرآن الكريم
+      </h1>
+
+      <p>
+        اختر السورة، ثم استمع للآيات من التلاوة.
+      </p>
+
+    </div>
+
+
+    <select id="surahSelect">
+    </select>
+
+  </div>
+
+
+  <div id="quranState" class="state">
+    جاري تحميل السورة…
+  </div>
+
+
+  <div
+    id="ayahs"
+    class="ayah-list"
+  ></div>
+
+
+  <div class="audio-bar">
+
+    <div>
+
+      <b id="audioTitle">
+        اختر آية للاستماع
+      </b>
+
+      <small id="audioMeta">
+        التلاوة من مصدر القرآن الصوتي
+      </small>
+
+    </div>
+
+
+    <audio
+      id="player"
+      controls
+      preload="none"
+    ></audio>
+
+  </div>
+
+</main>
+
+
+<script src="js/quran.js"></script>
+
+</body>
+</html>
