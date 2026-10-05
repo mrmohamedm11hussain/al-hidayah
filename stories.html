@@ -1,99 +1,645 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="utf-8">
+  <title>القصص الإسلامية | الهداية</title>
+  <meta name="description" content="قصص إسلامية مبسطة وهادفة من منصة الهداية">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-
-  <title>القصص | الهداية</title>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Amiri:wght@400;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/inner.css">
-
+  <link rel="stylesheet" href="./css/main.css">
 </head>
-
 
 <body>
 
-<header class="nav">
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-  <a class="brand" href="index.html">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">هـ</span>
 
-    <span class="brand-mark">
-      هـ
-    </span>
+        <span class="brand-text">
+          <strong>الهداية</strong>
+          <small>طريقك إلى المعرفة النافعة</small>
+        </span>
+      </a>
 
-    <span>
-      <b>الهداية</b>
-      <small>نورٌ يُقرأ ويُسمع</small>
-    </span>
+      <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="stories.html" class="active">القصص</a>
+        <a href="quran.html">القرآن الكريم</a>
+        <a href="adhkar.html">الأذكار</a>
+        <a href="prayer.html">مواقيت الصلاة</a>
+        <a href="tasbeeh.html">التسبيح</a>
+      </nav>
 
-  </a>
-
-
-  <nav>
-
-    <a href="index.html">
-      الرئيسية
-    </a>
-
-    <a class="active" href="stories.html">
-      القصص
-    </a>
-
-    <a href="quran.html">
-      القرآن الكريم
-    </a>
-
-    <a href="adhkar.html">
-      الأذكار
-    </a>
-
-    <a href="prayer.html">
-      مواقيت الصلاة
-    </a>
-
-  </nav>
-
-</header>
+    </div>
+  </header>
 
 
-<main class="wrap inner">
+  <!-- ================= PAGE HERO ================= -->
+  <main>
 
-  <div class="page-title">
+    <section class="page-hero">
+      <div class="container">
 
-    <span class="eyebrow">
-      قصص الأنبياء
-    </span>
+        <div class="page-hero-content">
 
-    <h1>
-      قصة تُقرأ، وتُفهم، وتبقى في القلب.
-    </h1>
+          <span class="eyebrow">قصص وعِبر</span>
 
-    <p>
-      اختر قصة ثم انتقل إلى صفحة كاملة للمشاهدة
-      أو القراءة والاستماع إلى النص المبسط.
-    </p>
+          <h1>
+            القصص الإسلامية
+          </h1>
 
-  </div>
+          <p>
+            قصص من القرآن والسيرة، نقدمها بطريقة سهلة وممتعة
+            تساعد على فهم الأحداث واستخلاص الدروس والعِبر.
+          </p>
 
+        </div>
 
-  <div id="storyGrid" class="story-grid big"></div>
-
-</main>
+      </div>
+    </section>
 
 
-<script src="js/stories.js"></script>
+    <!-- ================= FILTER ================= -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">اكتشف القصص</span>
+            <h2>اختر قصة وابدأ الرحلة</h2>
+          </div>
+        </div>
+
+        <div class="stories-toolbar">
+
+          <div class="search-box">
+            <span>⌕</span>
+            <input
+              type="search"
+              id="storySearch"
+              placeholder="ابحث عن قصة..."
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="story-filters">
+            <button class="filter-btn active" data-filter="all">
+              الكل
+            </button>
+
+            <button class="filter-btn" data-filter="prophets">
+              قصص الأنبياء
+            </button>
+
+            <button class="filter-btn" data-filter="quran">
+              من القرآن
+            </button>
+
+            <button class="filter-btn" data-filter="seerah">
+              السيرة
+            </button>
+          </div>
+
+        </div>
+
+
+        <!-- ================= STORIES ================= -->
+        <div class="stories-grid" id="storiesGrid">
+
+
+          <!-- آدم -->
+          <article
+            class="story-card"
+            data-category="prophets quran"
+            data-title="آدم عليه السلام"
+          >
+
+            <div class="story-card-image story-adam">
+              <span class="story-number">01</span>
+              <span class="story-icon">🌿</span>
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-category">
+                قصص الأنبياء
+              </span>
+
+              <h3>قصة آدم عليه السلام</h3>
+
+              <p>
+                بداية قصة الإنسان، وخلق آدم عليه السلام،
+                والدروس المستفادة من قصته.
+              </p>
+
+              <a
+                href="story.html?id=adam"
+                class="btn btn-primary"
+              >
+                مشاهدة القصة
+                <span>←</span>
+              </a>
+
+              <a
+                href="story.html?id=adam&mode=read"
+                class="story-read-link"
+              >
+                قراءة القصة
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- نوح -->
+          <article
+            class="story-card"
+            data-category="prophets quran"
+            data-title="نوح عليه السلام"
+          >
+
+            <div class="story-card-image story-nuh">
+              <span class="story-number">02</span>
+              <span class="story-icon">🌊</span>
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-category">
+                قصص الأنبياء
+              </span>
+
+              <h3>قصة نوح عليه السلام</h3>
+
+              <p>
+                قصة الصبر والثبات والدعوة إلى الله،
+                ورحلة سفينة نوح عليه السلام.
+              </p>
+
+              <a
+                href="story.html?id=nuh"
+                class="btn btn-primary"
+              >
+                مشاهدة القصة
+                <span>←</span>
+              </a>
+
+              <a
+                href="story.html?id=nuh&mode=read"
+                class="story-read-link"
+              >
+                قراءة القصة
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- يوسف -->
+          <article
+            class="story-card"
+            data-category="prophets quran"
+            data-title="يوسف عليه السلام"
+          >
+
+            <div class="story-card-image story-yusuf">
+              <span class="story-number">03</span>
+              <span class="story-icon">⭐</span>
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-category">
+                من القرآن الكريم
+              </span>
+
+              <h3>قصة يوسف عليه السلام</h3>
+
+              <p>
+                قصة مليئة بالصبر والعفو والثقة بالله،
+                من أجمل القصص الواردة في القرآن الكريم.
+              </p>
+
+              <a
+                href="story.html?id=yusuf"
+                class="btn btn-primary"
+              >
+                مشاهدة القصة
+                <span>←</span>
+              </a>
+
+              <a
+                href="story.html?id=yusuf&mode=read"
+                class="story-read-link"
+              >
+                قراءة القصة
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- موسى -->
+          <article
+            class="story-card"
+            data-category="prophets quran"
+            data-title="موسى عليه السلام"
+          >
+
+            <div class="story-card-image story-musa">
+              <span class="story-number">04</span>
+              <span class="story-icon">🌊</span>
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-category">
+                قصص الأنبياء
+              </span>
+
+              <h3>قصة موسى عليه السلام</h3>
+
+              <p>
+                قصة موسى عليه السلام مع فرعون،
+                وما فيها من دروس في الإيمان والثبات.
+              </p>
+
+              <a
+                href="story.html?id=musa"
+                class="btn btn-primary"
+              >
+                مشاهدة القصة
+                <span>←</span>
+              </a>
+
+              <a
+                href="story.html?id=musa&mode=read"
+                class="story-read-link"
+              >
+                قراءة القصة
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- إبراهيم -->
+          <article
+            class="story-card"
+            data-category="prophets quran"
+            data-title="إبراهيم عليه السلام"
+          >
+
+            <div class="story-card-image story-ibrahim">
+              <span class="story-number">05</span>
+              <span class="story-icon">🔥</span>
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-category">
+                قصص الأنبياء
+              </span>
+
+              <h3>قصة إبراهيم عليه السلام</h3>
+
+              <p>
+                رحلة إبراهيم عليه السلام في الإيمان
+                والدعوة إلى توحيد الله.
+              </p>
+
+              <a
+                href="story.html?id=ibrahim"
+                class="btn btn-primary"
+              >
+                مشاهدة القصة
+                <span>←</span>
+              </a>
+
+              <a
+                href="story.html?id=ibrahim&mode=read"
+                class="story-read-link"
+              >
+                قراءة القصة
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- يونس -->
+          <article
+            class="story-card"
+            data-category="prophets quran"
+            data-title="يونس عليه السلام"
+          >
+
+            <div class="story-card-image story-yunus">
+              <span class="story-number">06</span>
+              <span class="story-icon">🐋</span>
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-category">
+                من القرآن الكريم
+              </span>
+
+              <h3>قصة يونس عليه السلام</h3>
+
+              <p>
+                قصة التوبة والرجوع إلى الله،
+                والدعاء في وقت الشدة.
+              </p>
+
+              <a
+                href="story.html?id=yunus"
+                class="btn btn-primary"
+              >
+                مشاهدة القصة
+                <span>←</span>
+              </a>
+
+              <a
+                href="story.html?id=yunus&mode=read"
+                class="story-read-link"
+              >
+                قراءة القصة
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- محمد ﷺ -->
+          <article
+            class="story-card"
+            data-category="seerah"
+            data-title="سيرة النبي محمد"
+          >
+
+            <div class="story-card-image story-muhammad">
+              <span class="story-number">07</span>
+              <span class="story-icon">☪</span>
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-category">
+                السيرة النبوية
+              </span>
+
+              <h3>من سيرة النبي ﷺ</h3>
+
+              <p>
+                محطات مختارة من السيرة النبوية
+                بأسلوب مبسط وواضح.
+              </p>
+
+              <a
+                href="story.html?id=muhammad"
+                class="btn btn-primary"
+              >
+                مشاهدة القصة
+                <span>←</span>
+              </a>
+
+              <a
+                href="story.html?id=muhammad&mode=read"
+                class="story-read-link"
+              >
+                قراءة القصة
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- أصحاب الكهف -->
+          <article
+            class="story-card"
+            data-category="quran"
+            data-title="أصحاب الكهف"
+          >
+
+            <div class="story-card-image story-kahf">
+              <span class="story-number">08</span>
+              <span class="story-icon">🏔️</span>
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-category">
+                من القرآن الكريم
+              </span>
+
+              <h3>قصة أصحاب الكهف</h3>
+
+              <p>
+                قصة الفتية الذين ثبتوا على الإيمان،
+                كما وردت في سورة الكهف.
+              </p>
+
+              <a
+                href="story.html?id=kahf"
+                class="btn btn-primary"
+              >
+                مشاهدة القصة
+                <span>←</span>
+              </a>
+
+              <a
+                href="story.html?id=kahf&mode=read"
+                class="story-read-link"
+              >
+                قراءة القصة
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- لا توجد نتائج -->
+        <div
+          id="noStories"
+          class="empty-state"
+          style="display:none;"
+        >
+          <div class="empty-state-icon">⌕</div>
+          <h3>لم نجد قصة بهذا الاسم</h3>
+          <p>
+            جرّب البحث باسم آخر أو اختر تصنيفًا مختلفًا.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+    <section class="section section-soft">
+      <div class="container">
+
+        <div class="info-banner">
+
+          <div>
+            <span class="eyebrow">المزيد قادم</span>
+
+            <h2>
+              قصص أكثر، معرفة أكثر، وهداية بإذن الله
+            </h2>
+
+            <p>
+              نعمل على إضافة المزيد من القصص الإسلامية
+              بطريقة مناسبة للعائلة والأطفال.
+            </p>
+          </div>
+
+          <a href="quran.html" class="btn btn-primary">
+            انتقل إلى القرآن الكريم
+            <span>←</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <span class="brand-mark">هـ</span>
+
+        <div>
+          <strong>الهداية</strong>
+          <p>
+            منصة إسلامية تعليمية مبسطة.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-credit">
+        <span>تطوير وبرمجة</span>
+        <strong>M11 — Mr. Mohamed Hussain</strong>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= PAGE SCRIPT ================= -->
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const searchInput = document.getElementById("storySearch");
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const storyCards = document.querySelectorAll(".story-card");
+      const noStories = document.getElementById("noStories");
+
+      let currentFilter = "all";
+
+
+      function filterStories() {
+
+        const searchValue =
+          searchInput.value.trim().toLowerCase();
+
+        let visibleCount = 0;
+
+        storyCards.forEach(card => {
+
+          const title =
+            (card.dataset.title || "").toLowerCase();
+
+          const categories =
+            (card.dataset.category || "").toLowerCase();
+
+          const matchesSearch =
+            !searchValue ||
+            title.includes(searchValue);
+
+          const matchesFilter =
+            currentFilter === "all" ||
+            categories.includes(currentFilter);
+
+          if (matchesSearch && matchesFilter) {
+
+            card.style.display = "";
+
+            requestAnimationFrame(() => {
+              card.classList.add("show");
+            });
+
+            visibleCount++;
+
+          } else {
+
+            card.classList.remove("show");
+            card.style.display = "none";
+
+          }
+
+        });
+
+
+        noStories.style.display =
+          visibleCount === 0 ? "block" : "none";
+      }
+
+
+      filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+          });
+
+          button.classList.add("active");
+
+          currentFilter =
+            button.dataset.filter || "all";
+
+          filterStories();
+
+        });
+
+      });
+
+
+      searchInput.addEventListener(
+        "input",
+        filterStories
+      );
+
+
+      filterStories();
+
+    });
+
+  </script>
 
 </body>
-</html>
+            </html>
