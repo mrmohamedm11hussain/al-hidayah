@@ -2,9 +2,10 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#061812">
-<title>الهداية | قصص تهدي القلب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الهداية — قصص تهدي القلوب</title>
+<meta name="description" content="الهداية — منصة عصرية للقصص الإسلامية والسيرة وقصص الأنبياء">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,2185 +13,1838 @@
 
 <style>
 :root{
-  --bg:#061711;
-  --bg2:#0a2119;
-  --card:#0d2a20;
-  --card2:#12382b;
-  --gold:#d9b65e;
-  --gold2:#f2d98e;
-  --text:#f7f4e9;
-  --muted:#9eb2a8;
-  --line:rgba(255,255,255,.085);
-  --green:#68c995;
-  --danger:#df7777;
-  --shadow:0 30px 80px rgba(0,0,0,.32);
-  --radius:26px;
-  --header:76px;
-}
-
-body.light{
-  --bg:#f4f0e6;
-  --bg2:#ebe4d5;
-  --card:#fffdf8;
-  --card2:#f2ecdf;
-  --text:#18251f;
-  --muted:#69756f;
-  --line:rgba(20,35,28,.10);
+    --bg:#07130f;
+    --bg2:#0b1d16;
+    --card:rgba(18,43,33,.72);
+    --card2:#10291f;
+    --green:#19b878;
+    --green2:#0b8052;
+    --gold:#d9ad52;
+    --gold2:#f0cf7b;
+    --text:#f5f7f4;
+    --muted:#aebeb6;
+    --border:rgba(255,255,255,.09);
+    --danger:#ef6262;
+    --shadow:0 25px 80px rgba(0,0,0,.35);
 }
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  min-height:100vh;
-  overflow-x:hidden;
-  font-family:Cairo,sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(circle at 90% 0%,rgba(217,182,94,.10),transparent 24%),
-    radial-gradient(circle at 0 60%,rgba(39,145,102,.10),transparent 28%),
-    var(--bg);
+    font-family:"Cairo",sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(25,184,120,.12),transparent 28%),
+        radial-gradient(circle at 85% 20%,rgba(217,173,82,.08),transparent 30%),
+        linear-gradient(135deg,#04100c,#071a13 45%,#06110d);
+    color:var(--text);
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
-button,input,select{
-  font:inherit;
+button,input,textarea,select{
+    font-family:inherit;
 }
 
 button{
-  border:0;
-  cursor:pointer;
+    cursor:pointer;
 }
 
-.hidden{
-  display:none!important;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-/* ================= HEADER ================= */
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg-orb{
+    position:fixed;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(25,184,120,.10),transparent 65%);
+    pointer-events:none;
+    z-index:-2;
+    animation:floatOrb 9s ease-in-out infinite alternate;
+}
+
+.bg-orb.one{
+    top:-180px;
+    right:-120px;
+}
+
+.bg-orb.two{
+    bottom:-220px;
+    left:-130px;
+    animation-delay:2s;
+}
+
+@keyframes floatOrb{
+    from{transform:translateY(0) scale(1)}
+    to{transform:translateY(30px) scale(1.08)}
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.45;
+    background-image:
+        radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 1.5px),
+        radial-gradient(circle at 70% 20%,#fff 0 1px,transparent 1.5px),
+        radial-gradient(circle at 45% 75%,#fff 0 1px,transparent 1.5px),
+        radial-gradient(circle at 90% 65%,#fff 0 1px,transparent 1.5px),
+        radial-gradient(circle at 10% 85%,#fff 0 1px,transparent 1.5px);
+    background-size:260px 260px,340px 340px,300px 300px,390px 390px,450px 450px;
+}
+
+/* =========================
+   HEADER
+========================= */
 
 .header{
-  position:fixed;
-  z-index:1000;
-  top:0;
-  left:0;
-  right:0;
-  height:var(--header);
-  background:rgba(6,23,17,.78);
-  backdrop-filter:blur(22px);
-  border-bottom:1px solid var(--line);
-}
-
-body.light .header{
-  background:rgba(244,240,230,.84);
-}
-
-.container{
-  width:min(1260px,calc(100% - 30px));
-  margin:auto;
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    z-index:1000;
+    padding:14px 5%;
+    background:rgba(4,16,12,.72);
+    backdrop-filter:blur(22px);
+    border-bottom:1px solid var(--border);
 }
 
 .nav{
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
+    max-width:1450px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background:none;
-  color:var(--text);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:900;
+    font-size:22px;
 }
 
-.logo{
-  width:43px;
-  height:43px;
-  display:grid;
-  place-items:center;
-  border-radius:14px;
-  color:#172015;
-  font-weight:900;
-  font-size:21px;
-  background:linear-gradient(145deg,var(--gold2),var(--gold));
-  box-shadow:0 10px 30px rgba(217,182,94,.17);
-}
-
-.brand-title{
-  font-size:18px;
-  font-weight:900;
-}
-
-.brand-sub{
-  display:block;
-  color:var(--muted);
-  font-size:9px;
-  margin-top:2px;
+.brand-icon{
+    width:48px;
+    height:48px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    color:var(--gold2);
+    background:
+        radial-gradient(circle at 35% 30%,rgba(255,255,255,.2),transparent 30%),
+        linear-gradient(145deg,#185f43,#09271c);
+    border:1px solid rgba(217,173,82,.3);
+    box-shadow:0 10px 30px rgba(25,184,120,.15);
+    font-size:23px;
 }
 
 .nav-links{
-  display:flex;
-  gap:4px;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .nav-links button{
-  padding:9px 13px;
-  border-radius:12px;
-  color:var(--muted);
-  background:transparent;
-  transition:.25s;
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    padding:10px 15px;
+    border-radius:12px;
+    font-weight:700;
+    transition:.25s;
 }
 
 .nav-links button:hover,
 .nav-links button.active{
-  color:var(--text);
-  background:rgba(217,182,94,.09);
+    color:#fff;
+    background:rgba(255,255,255,.06);
 }
 
-.actions{
-  display:flex;
-  gap:7px;
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .icon-btn{
-  width:40px;
-  height:40px;
-  display:grid;
-  place-items:center;
-  border-radius:12px;
-  color:var(--text);
-  background:var(--card);
-  border:1px solid var(--line);
-  transition:.25s;
-}
-
-.icon-btn:hover{
-  transform:translateY(-2px);
-  color:var(--gold2);
-  border-color:rgba(217,182,94,.3);
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.045);
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font-size:17px;
 }
 
 .menu-btn{
-  display:none;
+    display:none;
 }
 
-/* ================= VIEWS ================= */
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    border:0;
+    border-radius:14px;
+    padding:12px 20px;
+    font-weight:800;
+    transition:.25s;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.btn-primary{
+    color:#06120d;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    box-shadow:0 12px 30px rgba(217,173,82,.18);
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+}
+
+.btn-green{
+    color:white;
+    background:linear-gradient(135deg,var(--green),var(--green2));
+}
+
+.btn-dark{
+    color:white;
+    background:rgba(255,255,255,.06);
+    border:1px solid var(--border);
+}
+
+.btn-danger{
+    background:rgba(239,98,98,.12);
+    color:#ff9d9d;
+    border:1px solid rgba(239,98,98,.2);
+}
+
+/* =========================
+   VIEWS
+========================= */
+
+main{
+    padding-top:76px;
+}
 
 .view{
-  display:none;
-  min-height:100vh;
-  padding-top:calc(var(--header) + 35px);
-  animation:viewIn .4s ease;
+    display:none;
+    min-height:calc(100vh - 76px);
 }
 
 .view.active{
-  display:block;
+    display:block;
 }
 
-@keyframes viewIn{
-  from{
-    opacity:0;
-    transform:translateY(15px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
+.container{
+    width:min(1400px,90%);
+    margin:auto;
 }
 
-/* ================= HERO ================= */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  min-height:780px;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  position:relative;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  align-items:center;
-  gap:50px;
+    min-height:650px;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    align-items:center;
+    gap:50px;
+    padding:80px 0 70px;
 }
 
 .hero-content{
-  animation:rise .8s ease both;
+    animation:fadeUp .8s ease;
 }
 
-@keyframes rise{
-  from{
-    opacity:0;
-    transform:translateY(25px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 13px;
-  border-radius:999px;
-  color:var(--gold2);
-  background:rgba(217,182,94,.07);
-  border:1px solid rgba(217,182,94,.15);
-  font-size:11px;
-  margin-bottom:22px;
-}
-
-.badge-dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 15px var(--gold);
+.hero-badge{
+    display:inline-flex;
+    padding:8px 14px;
+    border-radius:100px;
+    border:1px solid rgba(217,173,82,.25);
+    background:rgba(217,173,82,.07);
+    color:var(--gold2);
+    font-weight:800;
+    font-size:13px;
+    margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:clamp(46px,6vw,80px);
-  line-height:1.05;
-  letter-spacing:-4px;
-  font-weight:900;
+    font-family:"Amiri",serif;
+    font-size:clamp(55px,7vw,105px);
+    line-height:.95;
+    margin-bottom:25px;
 }
 
 .hero h1 span{
-  color:var(--gold);
-  display:block;
+    color:var(--gold2);
 }
 
-.hero-description{
-  max-width:620px;
-  color:var(--muted);
-  line-height:2;
-  margin:25px 0 28px;
-  font-size:16px;
+.hero p{
+    color:var(--muted);
+    font-size:18px;
+    line-height:2;
+    max-width:650px;
 }
 
 .hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
 }
-
-.btn{
-  min-height:51px;
-  padding:0 20px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border-radius:15px;
-  transition:.3s;
-}
-
-.primary{
-  color:#162017;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  font-weight:900;
-  box-shadow:0 15px 35px rgba(217,182,94,.13);
-}
-
-.primary:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 45px rgba(217,182,94,.23);
-}
-
-.secondary{
-  color:var(--text);
-  background:var(--card);
-  border:1px solid var(--line);
-}
-
-.secondary:hover{
-  transform:translateY(-3px);
-  border-color:rgba(217,182,94,.3);
-}
-
-/* ================= HERO ART ================= */
 
 .hero-art{
-  height:530px;
-  position:relative;
-  display:grid;
-  place-items:center;
-  animation:heroArt 1s .1s ease both;
-}
-
-@keyframes heroArt{
-  from{
-    opacity:0;
-    transform:scale(.85);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
+    min-height:470px;
+    display:grid;
+    place-items:center;
+    position:relative;
 }
 
 .moon{
-  width:245px;
-  height:245px;
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 25% 25%,#fff5c8 0 2%,transparent 3%),
-    radial-gradient(circle at 70% 38%,#ad8539 0 2%,transparent 3%),
-    radial-gradient(circle at 42% 70%,#c8a65c 0 2%,transparent 3%),
-    linear-gradient(145deg,#f2da96,#b78c3d);
-  box-shadow:
-    0 0 100px rgba(217,182,94,.17),
-    0 0 190px rgba(217,182,94,.05);
-  animation:float 6s ease-in-out infinite;
+    width:min(380px,70vw);
+    aspect-ratio:1;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 35% 30%,rgba(255,255,255,.2),transparent 10%),
+        radial-gradient(circle at 60% 65%,rgba(0,0,0,.2),transparent 15%),
+        linear-gradient(145deg,#e8d38d,#9d7733);
+    box-shadow:
+        0 0 80px rgba(217,173,82,.14),
+        inset -35px -30px 80px rgba(0,0,0,.25);
+    position:relative;
+    animation:moonFloat 6s ease-in-out infinite;
 }
 
-.orbit{
-  position:absolute;
-  width:390px;
-  height:390px;
-  border:1px solid rgba(217,182,94,.14);
-  border-radius:50%;
-  animation:spin 28s linear infinite;
+.moon::before{
+    content:"";
+    position:absolute;
+    inset:-50px;
+    border:1px solid rgba(217,173,82,.2);
+    border-radius:50%;
+    transform:rotate(-18deg) scaleX(1.4);
 }
 
-.orbit.second{
-  width:530px;
-  height:530px;
-  border-style:dashed;
-  opacity:.45;
-  animation-duration:40s;
-  animation-direction:reverse;
+.moon::after{
+    content:"الهداية";
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    color:#fff;
+    font-family:"Amiri",serif;
+    font-size:50px;
+    text-shadow:0 3px 20px #000;
 }
 
-.orbit i{
-  position:absolute;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 16px var(--gold);
+@keyframes moonFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-18px)}
 }
 
-.orbit i:first-child{
-  top:35px;
-  right:35px;
-}
-
-.orbit i:last-child{
-  bottom:35px;
-  left:35px;
-}
-
-.star{
-  position:absolute;
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:var(--gold2);
-  box-shadow:0 0 14px var(--gold2);
-  animation:twinkle 2.4s infinite;
-}
-
-.s1{top:13%;right:12%}
-.s2{top:28%;left:12%;animation-delay:.5s}
-.s3{bottom:18%;right:14%;animation-delay:1s}
-.s4{bottom:26%;left:18%;animation-delay:1.6s}
-
-@keyframes spin{
-  to{transform:rotate(360deg)}
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-13px)}
-}
-
-@keyframes twinkle{
-  0%,100%{opacity:.2}
-  50%{opacity:1}
-}
-
-/* ================= SECTIONS ================= */
+/* =========================
+   SECTIONS
+========================= */
 
 .section{
-  padding:90px 0;
+    padding:65px 0;
 }
 
 .section-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:20px;
-  margin-bottom:28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+    margin-bottom:28px;
 }
 
 .section-head h2{
-  font-size:clamp(28px,4vw,42px);
-  letter-spacing:-1.5px;
+    font-family:"Amiri",serif;
+    font-size:42px;
 }
 
 .section-head p{
-  color:var(--muted);
-  margin-top:5px;
+    color:var(--muted);
+    margin-top:4px;
 }
 
-.link{
-  color:var(--gold2);
-  background:none;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-/* ================= STORIES ================= */
-
-.story-grid{
-  display:grid;
-  grid-template-columns:1.25fr .9fr .9fr;
-  gap:17px;
+.card{
+    background:linear-gradient(145deg,rgba(17,46,35,.85),rgba(8,25,19,.85));
+    border:1px solid var(--border);
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.3s;
 }
 
-.story-card{
-  position:relative;
-  min-height:295px;
-  overflow:hidden;
-  border-radius:26px;
-  border:1px solid var(--line);
-  cursor:pointer;
-  background:var(--card);
-  transition:.4s;
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(217,173,82,.25);
 }
 
-.story-card.big{
-  grid-row:span 2;
-  min-height:607px;
+.story-cover{
+    height:210px;
+    display:grid;
+    place-items:center;
+    font-size:75px;
+    position:relative;
+    background:
+        radial-gradient(circle at 30% 20%,rgba(217,173,82,.18),transparent 25%),
+        linear-gradient(145deg,#123f2d,#061711);
 }
 
-.story-card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(217,182,94,.28);
-  box-shadow:var(--shadow);
+.story-cover img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.story-bg{
-  position:absolute;
-  inset:-12%;
-  background:
-    radial-gradient(circle at 55% 27%,rgba(217,182,94,.25),transparent 19%),
-    linear-gradient(145deg,#194638,#061711);
-  transition:.7s;
+.status{
+    position:absolute;
+    top:14px;
+    right:14px;
+    padding:6px 10px;
+    border-radius:100px;
+    font-size:11px;
+    font-weight:800;
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(10px);
 }
 
-.story-card:hover .story-bg{
-  transform:scale(1.08);
+.status.approved{
+    color:#80f0ba;
 }
 
-.story-symbol{
-  position:absolute;
-  z-index:1;
-  top:35%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  font-size:90px;
-  transition:.5s;
+.status.draft{
+    color:#ffd98c;
 }
 
-.story-card.big .story-symbol{
-  font-size:125px;
+.story-body{
+    padding:20px;
 }
 
-.story-card:hover .story-symbol{
-  transform:translate(-50%,-55%) scale(1.08);
+.story-body h3{
+    font-family:"Amiri",serif;
+    font-size:28px;
+    margin-bottom:8px;
 }
 
-.story-card:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:2;
-  background:linear-gradient(
-    to bottom,
-    transparent 20%,
-    rgba(2,12,8,.97) 100%
-  );
+.story-body p{
+    color:var(--muted);
+    line-height:1.9;
+    min-height:58px;
 }
 
-.story-info{
-  position:absolute;
-  z-index:3;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:24px;
+.story-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:17px;
+    color:var(--muted);
+    font-size:12px;
 }
 
-.tag{
-  display:inline-block;
-  color:var(--gold2);
-  background:rgba(217,182,94,.09);
-  border:1px solid rgba(217,182,94,.12);
-  border-radius:999px;
-  padding:5px 9px;
-  font-size:9px;
-  margin-bottom:9px;
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:7px;
+    background:rgba(255,255,255,.045);
+    border:1px solid var(--border);
+    border-radius:17px;
+    margin-bottom:24px;
 }
 
-.story-info h3{
-  font-size:20px;
-  margin-bottom:5px;
+.search-box input{
+    width:100%;
+    background:transparent;
+    border:0;
+    outline:0;
+    color:#fff;
+    padding:13px;
+    font-size:15px;
 }
 
-.story-info p{
-  color:#b6c6bf;
-  font-size:11px;
-  line-height:1.8;
-}
-
-.meta{
-  display:flex;
-  gap:12px;
-  color:#8da29a;
-  font-size:10px;
-  margin-top:10px;
-}
-
-/* ================= CATEGORIES ================= */
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.category{
-  min-height:180px;
-  padding:23px;
-  border-radius:22px;
-  background:var(--card);
-  border:1px solid var(--line);
-  transition:.35s;
-  cursor:pointer;
-}
-
-.category:hover{
-  transform:translateY(-7px);
-  border-color:rgba(217,182,94,.28);
-}
-
-.category-icon{
-  width:53px;
-  height:53px;
-  display:grid;
-  place-items:center;
-  border-radius:15px;
-  background:rgba(217,182,94,.08);
-  font-size:23px;
-  margin-bottom:18px;
-}
-
-.category h3{
-  font-size:16px;
-  margin-bottom:5px;
-}
-
-.category p{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.8;
-}
-
-/* ================= QUOTE ================= */
-
-.quote{
-  padding:60px 25px;
-  text-align:center;
-  border-radius:32px;
-  background:
-    radial-gradient(circle at 50% 0,rgba(217,182,94,.13),transparent 45%),
-    var(--card);
-  border:1px solid rgba(217,182,94,.14);
-}
-
-.quote-mark{
-  color:var(--gold);
-  font-family:Amiri,serif;
-  font-size:65px;
-}
-
-.quote p{
-  max-width:850px;
-  margin:8px auto;
-  font-family:Amiri,serif;
-  font-size:31px;
-  line-height:2;
-}
-
-.quote small{
-  color:var(--muted);
-}
-
-/* ================= PAGE ================= */
-
-.page-title{
-  margin-bottom:30px;
-}
-
-.page-title h1{
-  font-size:clamp(35px,5vw,55px);
-  letter-spacing:-2px;
-}
-
-.page-title p{
-  color:var(--muted);
-  margin-top:5px;
-}
-
-/* ================= LIBRARY ================= */
-
-.filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:24px;
-}
-
-.filter{
-  padding:9px 14px;
-  border-radius:11px;
-  color:var(--muted);
-  background:var(--card);
-  border:1px solid var(--line);
-}
-
-.filter:hover,
-.filter.active{
-  color:var(--text);
-  background:rgba(217,182,94,.08);
-  border-color:rgba(217,182,94,.28);
-}
-
-.library-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:17px;
-}
-
-.library-card{
-  padding:17px;
-  border-radius:23px;
-  background:var(--card);
-  border:1px solid var(--line);
-  transition:.35s;
-}
-
-.library-card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(217,182,94,.25);
-  box-shadow:var(--shadow);
-}
-
-.mini-art{
-  height:175px;
-  display:grid;
-  place-items:center;
-  border-radius:18px;
-  margin-bottom:16px;
-  font-size:64px;
-  background:
-    radial-gradient(circle at 50% 35%,rgba(217,182,94,.16),transparent 30%),
-    var(--card2);
-}
-
-.library-card h3{
-  font-size:17px;
-  margin-bottom:6px;
-}
-
-.library-card p{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.9;
-}
-
-.card-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-top:15px;
-}
-
-.small-btn{
-  min-height:38px;
-  padding:0 12px;
-  border-radius:10px;
-  color:var(--text);
-  background:var(--card2);
-  border:1px solid var(--line);
-}
-
-.small-btn.gold{
-  color:#182117;
-  background:var(--gold);
-  font-weight:800;
-}
-
-/* ================= READER ================= */
+/* =========================
+   READER
+========================= */
 
 .reader{
-  max-width:1080px;
-  margin:auto;
-  padding-bottom:100px;
+    padding:45px 0 80px;
 }
 
 .reader-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:25px;
 }
 
-.back-btn{
-  color:var(--muted);
-  background:none;
+.reader-title{
+    font-family:"Amiri",serif;
+    font-size:clamp(35px,5vw,65px);
 }
 
-.reader-source{
-  color:var(--gold2);
-  font-size:10px;
+.video-box{
+    border-radius:28px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:#000;
+    box-shadow:var(--shadow);
+    margin-bottom:30px;
 }
 
-.scene-card{
-  overflow:hidden;
-  border-radius:32px;
-  background:var(--card);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
+.video-box iframe{
+    width:100%;
+    aspect-ratio:16/9;
+    display:block;
+    border:0;
 }
 
-/* مساحة الصورة */
-
-.scene-visual{
-  min-height:430px;
-  position:relative;
-  overflow:hidden;
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(circle at 50% 35%,rgba(217,182,94,.20),transparent 22%),
-    linear-gradient(145deg,#173f31,#061711);
+.video-placeholder{
+    aspect-ratio:16/9;
+    display:grid;
+    place-items:center;
+    background:
+        radial-gradient(circle,rgba(25,184,120,.15),transparent 35%),
+        #030907;
+    text-align:center;
+    padding:30px;
 }
 
-/* هذه الطبقة جاهزة لاحقًا للصورة الحقيقية */
-
-.scene-image{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  font-size:120px;
-  opacity:.9;
+.video-placeholder div{
+    max-width:500px;
 }
 
-.scene-image:before{
-  content:"";
-  position:absolute;
-  width:310px;
-  height:310px;
-  border:1px solid rgba(217,182,94,.13);
-  border-radius:50%;
-  animation:spin 28s linear infinite;
+.video-placeholder .play{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    margin:0 auto 20px;
+    background:linear-gradient(135deg,var(--green),var(--green2));
+    font-size:28px;
 }
 
-.scene-image:after{
-  content:"";
-  position:absolute;
-  width:480px;
-  height:480px;
-  border:1px dashed rgba(217,182,94,.08);
-  border-radius:50%;
-  animation:spin 40s linear infinite reverse;
+.reader-layout{
+    display:grid;
+    grid-template-columns:290px 1fr;
+    gap:25px;
 }
 
-.scene-image span{
-  position:relative;
-  z-index:2;
-  filter:drop-shadow(0 25px 30px rgba(0,0,0,.45));
-  animation:float 5s ease-in-out infinite;
+.scene-list{
+    background:rgba(10,30,22,.75);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:12px;
+    height:max-content;
+    position:sticky;
+    top:100px;
 }
 
-.scene-overlay{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      to bottom,
-      transparent 45%,
-      rgba(3,14,9,.65)
-    );
+.scene-item{
+    width:100%;
+    text-align:right;
+    border:0;
+    border-radius:14px;
+    background:transparent;
+    color:var(--muted);
+    padding:13px;
+    margin-bottom:5px;
 }
 
-.scene-body{
-  padding:31px;
+.scene-item:hover,
+.scene-item.active{
+    color:#fff;
+    background:rgba(25,184,120,.12);
 }
 
-.scene-index{
-  color:var(--gold);
-  font-size:10px;
-  font-weight:900;
+.scene-number{
+    color:var(--gold2);
+    font-weight:900;
+    margin-left:7px;
 }
 
-.scene-title{
-  font-size:clamp(28px,4vw,43px);
-  margin:7px 0 14px;
+.story-text{
+    background:linear-gradient(145deg,rgba(18,43,33,.8),rgba(8,23,17,.8));
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:clamp(25px,5vw,55px);
 }
 
-.scene-text{
-  color:var(--muted);
-  font-size:16px;
-  line-height:2.3;
-  white-space:pre-line;
+.story-text h2{
+    font-family:"Amiri",serif;
+    font-size:42px;
+    margin-bottom:22px;
 }
 
-.draft-warning{
-  display:flex;
-  gap:9px;
-  align-items:flex-start;
-  margin-top:22px;
-  padding:14px;
-  border-radius:15px;
-  background:rgba(217,182,94,.055);
-  border:1px solid rgba(217,182,94,.13);
-}
-
-.draft-warning strong{
-  color:var(--gold2);
-  font-size:11px;
-  display:block;
-}
-
-.draft-warning span{
-  color:var(--muted);
-  font-size:10px;
-  line-height:1.8;
+.story-text p{
+    font-family:"Amiri",serif;
+    font-size:23px;
+    line-height:2.25;
+    color:#e7ece9;
+    white-space:pre-line;
 }
 
 .source-box{
-  margin-top:15px;
-  padding:15px;
-  border-radius:15px;
-  background:var(--card2);
-  border:1px solid var(--line);
+    margin-top:30px;
+    padding:15px;
+    border-radius:15px;
+    background:rgba(217,173,82,.06);
+    border:1px solid rgba(217,173,82,.14);
+    color:var(--muted);
+    font-size:13px;
 }
 
-.source-box strong{
-  display:block;
-  color:var(--gold2);
-  font-size:10px;
-  margin-bottom:4px;
+.reader-controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:25px;
 }
 
-.source-box span{
-  color:var(--muted);
-  font-size:10px;
+/* =========================
+   ABOUT
+========================= */
+
+.about-box{
+    padding:55px;
+    border-radius:30px;
+    background:linear-gradient(145deg,rgba(18,52,39,.85),rgba(7,23,17,.9));
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
 }
 
-/* ================= READER CONTROLS ================= */
-
-.player{
-  margin-top:14px;
-  padding:18px;
-  border-radius:23px;
-  background:var(--card);
-  border:1px solid var(--line);
+.about-box h2{
+    font-family:"Amiri",serif;
+    font-size:50px;
+    margin-bottom:15px;
 }
 
-.progress-wrap{
-  height:6px;
-  overflow:hidden;
-  border-radius:99px;
-  background:rgba(255,255,255,.08);
-  margin-bottom:17px;
+.about-box p{
+    color:var(--muted);
+    line-height:2.1;
+    font-size:17px;
 }
 
-.progress{
-  width:0;
-  height:100%;
-  background:linear-gradient(90deg,var(--gold),var(--gold2));
-  transition:.4s;
+/* =========================
+   ADMIN
+========================= */
+
+.admin-page{
+    padding:45px 0 90px;
 }
 
-.player-row{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  flex-wrap:wrap;
+.admin-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:30px;
 }
 
-.player-btn{
-  min-height:43px;
-  padding:0 14px;
-  border-radius:11px;
-  color:var(--text);
-  background:var(--card2);
-  border:1px solid var(--line);
+.admin-header h1{
+    font-family:"Amiri",serif;
+    font-size:48px;
 }
 
-.player-btn.main{
-  color:#172017;
-  background:var(--gold);
-  font-weight:900;
+.admin-header p{
+    color:var(--muted);
 }
-
-.speed-control{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  color:var(--muted);
-  font-size:10px;
-  margin-right:auto;
-}
-
-.speed-control select{
-  color:var(--text);
-  background:var(--card2);
-  border:1px solid var(--line);
-  border-radius:8px;
-  padding:6px;
-}
-
-/* ================= SCENE TIMELINE ================= */
-
-.timeline{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding:13px 2px 3px;
-  margin-top:8px;
-}
-
-.timeline::-webkit-scrollbar{
-  height:4px;
-}
-
-.timeline::-webkit-scrollbar-thumb{
-  background:rgba(217,182,94,.25);
-  border-radius:99px;
-}
-
-.timeline-item{
-  min-width:125px;
-  padding:12px;
-  text-align:right;
-  border-radius:14px;
-  background:var(--card);
-  border:1px solid var(--line);
-  color:var(--muted);
-  transition:.25s;
-}
-
-.timeline-item:hover{
-  border-color:rgba(217,182,94,.25);
-}
-
-.timeline-item.active{
-  color:var(--text);
-  border-color:rgba(217,182,94,.45);
-  background:rgba(217,182,94,.08);
-}
-
-.timeline-number{
-  color:var(--gold);
-  font-size:9px;
-}
-
-.timeline-title{
-  display:block;
-  margin-top:4px;
-  font-size:11px;
-}
-
-/* ================= SEARCH ================= */
-
-.search-overlay{
-  position:fixed;
-  z-index:3000;
-  inset:0;
-  display:none;
-  justify-content:center;
-  align-items:flex-start;
-  padding-top:110px;
-  background:rgba(1,8,5,.78);
-  backdrop-filter:blur(18px);
-}
-
-.search-overlay.open{
-  display:flex;
-}
-
-.search-box{
-  width:min(720px,calc(100% - 24px));
-  padding:17px;
-  border-radius:24px;
-  background:var(--card);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  animation:modal .3s ease;
-}
-
-.search-input{
-  width:100%;
-  height:55px;
-  padding:0 16px;
-  outline:none;
-  color:var(--text);
-  background:var(--card2);
-  border:1px solid var(--line);
-  border-radius:14px;
-}
-
-.search-results{
-  max-height:430px;
-  overflow:auto;
-  margin-top:9px;
-}
-
-.result{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  padding:10px;
-  border-radius:12px;
-  cursor:pointer;
-}
-
-.result:hover{
-  background:var(--card2);
-}
-
-.result-icon{
-  width:43px;
-  height:43px;
-  display:grid;
-  place-items:center;
-  border-radius:11px;
-  background:rgba(217,182,94,.08);
-}
-
-/* ================= EMPTY ================= */
-
-.empty{
-  grid-column:1/-1;
-  padding:70px 20px;
-  text-align:center;
-  color:var(--muted);
-  border:1px dashed var(--line);
-  border-radius:24px;
-}
-
-.empty-icon{
-  font-size:43px;
-  margin-bottom:8px;
-}
-
-/* ================= ABOUT ================= */
 
 .stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:25px;
 }
 
 .stat{
-  padding:23px;
-  border-radius:21px;
-  background:var(--card);
-  border:1px solid var(--line);
+    padding:24px;
+    border-radius:22px;
+    background:linear-gradient(145deg,rgba(18,48,37,.9),rgba(7,22,16,.9));
+    border:1px solid var(--border);
 }
 
 .stat strong{
-  display:block;
-  color:var(--gold2);
-  font-size:26px;
+    display:block;
+    font-size:35px;
+    color:var(--gold2);
 }
 
 .stat span{
-  color:var(--muted);
-  font-size:11px;
+    color:var(--muted);
+    font-size:13px;
 }
 
-/* ================= TOAST ================= */
+.admin-tabs{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.admin-tabs button{
+    border:1px solid var(--border);
+    color:var(--muted);
+    background:rgba(255,255,255,.04);
+    padding:11px 18px;
+    border-radius:13px;
+    font-weight:800;
+}
+
+.admin-tabs button.active{
+    color:#fff;
+    background:rgba(25,184,120,.14);
+    border-color:rgba(25,184,120,.3);
+}
+
+.admin-panel{
+    background:rgba(8,25,18,.8);
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:25px;
+}
+
+.admin-story-row{
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    align-items:center;
+    gap:15px;
+    padding:14px;
+    border-radius:18px;
+    background:rgba(255,255,255,.035);
+    margin-bottom:10px;
+}
+
+.admin-story-icon{
+    width:60px;
+    height:60px;
+    border-radius:15px;
+    display:grid;
+    place-items:center;
+    background:rgba(25,184,120,.1);
+    font-size:27px;
+}
+
+.admin-story-info h3{
+    font-family:"Amiri",serif;
+    font-size:23px;
+}
+
+.admin-story-info p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.admin-actions{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+/* FORM */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    font-size:13px;
+    color:var(--muted);
+    font-weight:700;
+}
+
+.field input,
+.field textarea,
+.field select{
+    width:100%;
+    border:1px solid var(--border);
+    outline:none;
+    color:#fff;
+    background:#091b14;
+    border-radius:13px;
+    padding:13px;
+}
+
+.field textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.form-actions{
+    display:flex;
+    gap:10px;
+    margin-top:22px;
+    flex-wrap:wrap;
+}
+
+.scenes-editor{
+    margin-top:30px;
+}
+
+.scenes-editor h2{
+    font-family:"Amiri",serif;
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.scene-editor{
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:18px;
+    margin-bottom:12px;
+    background:rgba(255,255,255,.025);
+}
+
+.scene-editor-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.scene-editor-head strong{
+    color:var(--gold2);
+}
+
+.scene-editor-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.scene-editor-grid .full{
+    grid-column:1/-1;
+}
+
+/* =========================
+   MODALS
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(12px);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(480px,100%);
+    border-radius:25px;
+    padding:28px;
+    background:linear-gradient(145deg,#123125,#071812);
+    border:1px solid var(--border);
+    box-shadow:0 30px 100px rgba(0,0,0,.55);
+}
+
+.modal-box h2{
+    font-family:"Amiri",serif;
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.modal-box p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+/* =========================
+   TOAST
+========================= */
 
 .toast{
-  position:fixed;
-  z-index:5000;
-  bottom:18px;
-  left:18px;
-  max-width:330px;
-  padding:13px 16px;
-  border-radius:13px;
-  background:var(--card);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  opacity:0;
-  transform:translateY(100px);
-  transition:.35s;
+    position:fixed;
+    left:25px;
+    bottom:25px;
+    z-index:5000;
+    padding:14px 18px;
+    border-radius:14px;
+    background:#10281e;
+    border:1px solid rgba(25,184,120,.25);
+    box-shadow:var(--shadow);
+    transform:translateY(120px);
+    opacity:0;
+    transition:.3s;
 }
 
 .toast.show{
-  opacity:1;
-  transform:none;
+    transform:translateY(0);
+    opacity:1;
 }
 
-/* ================= FOOTER ================= */
+/* =========================
+   FOOTER
+========================= */
 
-.footer{
-  padding:40px 0 24px;
-  border-top:1px solid var(--line);
-  margin-top:50px;
+footer{
+    border-top:1px solid var(--border);
+    margin-top:60px;
+    padding:30px 0;
+    color:var(--muted);
 }
 
 .footer-inner{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.footer p{
-  color:var(--muted);
-  font-size:10px;
-}
-
-/* ================= MODAL ================= */
-
-@keyframes modal{
-  from{
-    opacity:0;
-    transform:translateY(-15px) scale(.98);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1050px){
-
-  .hero-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero-content{
     display:flex;
-    flex-direction:column;
+    justify-content:space-between;
     align-items:center;
-  }
-
-  .hero-art{
-    height:390px;
-  }
-
-  .story-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .story-card.big{
-    grid-column:1/-1;
-    grid-row:auto;
-    min-height:430px;
-  }
-
-  .categories{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .library-grid{
-    grid-template-columns:1fr 1fr;
-  }
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-@media(max-width:720px){
+.admin-login-link{
+    border:0;
+    background:transparent;
+    color:#52655c;
+    font-size:11px;
+}
 
-  :root{
-    --header:68px;
-  }
+/* =========================
+   EMPTY
+========================= */
 
-  .container{
-    width:calc(100% - 20px);
-  }
-
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:calc(100% + 7px);
-    right:10px;
-    left:10px;
-    flex-direction:column;
-    padding:7px;
-    border-radius:18px;
-    background:var(--card);
-    border:1px solid var(--line);
-    box-shadow:var(--shadow);
-  }
-
-  .nav-links.open{
-    display:flex;
-  }
-
-  .nav-links button{
-    text-align:right;
-    padding:12px;
-  }
-
-  .menu-btn{
-    display:grid;
-  }
-
-  .brand-sub{
-    display:none;
-  }
-
-  .hero{
-    min-height:820px;
-  }
-
-  .hero h1{
-    letter-spacing:-2.5px;
-  }
-
-  .hero-description{
-    font-size:13px;
-  }
-
-  .hero-art{
-    height:320px;
-  }
-
-  .moon{
-    width:175px;
-    height:175px;
-  }
-
-  .orbit{
-    width:285px;
-    height:285px;
-  }
-
-  .orbit.second{
-    width:360px;
-    height:360px;
-  }
-
-  .section{
-    padding:65px 0;
-  }
-
-  .section-head{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .story-grid,
-  .categories,
-  .library-grid,
-  .stats{
-    grid-template-columns:1fr;
-  }
-
-  .story-card.big,
-  .story-card{
-    min-height:350px;
-  }
-
-  .quote p{
-    font-size:23px;
-  }
-
-  .scene-visual{
-    min-height:285px;
-  }
-
-  .scene-image{
-    font-size:80px;
-  }
-
-  .scene-body{
-    padding:21px;
-  }
-
-  .scene-text{
-    font-size:13px;
-  }
-
-  .speed-control{
-    margin-right:0;
-  }
-
-  .footer-inner{
-    flex-direction:column;
+.empty{
+    padding:55px 20px;
     text-align:center;
-  }
+    color:var(--muted);
+    border:1px dashed var(--border);
+    border-radius:20px;
 }
 
-@media(prefers-reduced-motion:reduce){
+.empty strong{
+    display:block;
+    color:#fff;
+    font-size:20px;
+    margin-bottom:5px;
+}
 
-  *,
-  *::before,
-  *::after{
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.01ms!important;
-    scroll-behavior:auto!important;
-  }
+/* =========================
+   ANIMATIONS
+========================= */
 
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:950px){
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-top:55px;
+    }
+
+    .hero p{
+        margin:auto;
+    }
+
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .hero-art{
+        min-height:350px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .reader-layout{
+        grid-template-columns:1fr;
+    }
+
+    .scene-list{
+        position:static;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    .header{
+        padding:10px 4%;
+    }
+
+    .brand{
+        font-size:18px;
+    }
+
+    .brand-icon{
+        width:42px;
+        height:42px;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        right:4%;
+        left:4%;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        padding:10px;
+        border:1px solid var(--border);
+        border-radius:18px;
+        background:#081a13;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:grid;
+    }
+
+    .hero h1{
+        font-size:65px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-head{
+        align-items:start;
+        flex-direction:column;
+    }
+
+    .form-grid,
+    .scene-editor-grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full,
+    .scene-editor-grid .full{
+        grid-column:auto;
+    }
+
+    .admin-story-row{
+        grid-template-columns:55px 1fr;
+    }
+
+    .admin-actions{
+        grid-column:1/-1;
+    }
+
+    .admin-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .about-box{
+        padding:30px 22px;
+    }
+
+    .story-text{
+        padding:25px 18px;
+    }
+
+    .story-text h2{
+        font-size:34px;
+    }
+
+    .story-text p{
+        font-size:20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<div class="stars"></div>
+<div class="bg-orb one"></div>
+<div class="bg-orb two"></div>
+
 <header class="header">
+    <nav class="nav">
 
-  <div class="container nav">
+        <button class="brand" onclick="showView('home')">
+            <span class="brand-icon">☪</span>
+            <span>الهداية</span>
+        </button>
 
-    <button class="brand" onclick="showView('home')">
-      <div class="logo">ه</div>
+        <div class="nav-links" id="navLinks">
+            <button onclick="showView('home')" data-nav="home">الرئيسية</button>
+            <button onclick="showView('library')" data-nav="library">المكتبة</button>
+            <button onclick="showView('favorites')" data-nav="favorites">المفضلة</button>
+            <button onclick="showView('about')" data-nav="about">عن الهداية</button>
+        </div>
 
-      <div>
-        <div class="brand-title">الهداية</div>
-        <span class="brand-sub">قصص تهدي القلب</span>
-      </div>
-    </button>
-
-
-    <nav class="nav-links" id="navLinks">
-
-      <button class="active" data-view="home">
-        الرئيسية
-      </button>
-
-      <button data-view="library">
-        المكتبة
-      </button>
-
-      <button data-view="favorites">
-        المفضلة
-      </button>
-
-      <button data-view="about">
-        عن الهداية
-      </button>
+        <div class="nav-actions">
+            <button class="icon-btn" onclick="focusSearch()" title="بحث">⌕</button>
+            <button class="icon-btn menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
 
     </nav>
-
-
-    <div class="actions">
-
-      <button class="icon-btn" id="searchBtn">
-        ⌕
-      </button>
-
-      <button class="icon-btn" id="themeBtn">
-        ☾
-      </button>
-
-      <button class="icon-btn menu-btn" id="menuBtn">
-        ☰
-      </button>
-
-    </div>
-
-  </div>
-
 </header>
 
+<main>
 
 <!-- ================= HOME ================= -->
 
-<main id="home" class="view active">
-
-  <section class="hero">
-
-    <div class="container hero-grid">
-
-      <div class="hero-content">
-
-        <div class="badge">
-          <span class="badge-dot"></span>
-          الجيل الجديد من تجربة القصص
-        </div>
-
-        <h1>
-          حكايات
-          <span>تضيء الطريق</span>
-        </h1>
-
-        <p class="hero-description">
-          منصة الهداية تجمع بين جمال التصميم،
-          تجربة المشاهدة والقراءة، وتنظيم المصادر
-          في تجربة واحدة قابلة للتوسع.
-        </p>
-
-        <div class="hero-actions">
-
-          <button
-            class="btn primary"
-            onclick="openStory('yusuf')"
-          >
-            ابدأ التجربة
-            ←
-          </button>
-
-          <button
-            class="btn secondary"
-            onclick="showView('library')"
-          >
-            استكشف المكتبة
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-art">
-
-        <div class="orbit">
-          <i></i>
-          <i></i>
-        </div>
-
-        <div class="orbit second"></div>
-
-        <div class="moon"></div>
-
-        <i class="star s1"></i>
-        <i class="star s2"></i>
-        <i class="star s3"></i>
-        <i class="star s4"></i>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="section">
+<section id="homeView" class="view active">
 
     <div class="container">
 
-      <div class="section-head">
+        <div class="hero">
 
-        <div>
-          <h2>قصص مختارة</h2>
-          <p>افتح القصة وشاهد طريقة عمل محرك المشاهد.</p>
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    ✦ منصة الهداية للقصص الإسلامية
+                </div>
+
+                <h1>
+                    قصصٌ تُقرأ<br>
+                    <span>وقلوبٌ تهتدي</span>
+                </h1>
+
+                <p>
+                    مساحة عصرية تجمع القصص الإسلامية والسيرة وقصص الأنبياء
+                    في تجربة قراءة واستماع ومشاهدة هادئة ومميزة.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="showView('library')">
+                        📚 اكتشف المكتبة
+                    </button>
+
+                    <button class="btn btn-dark" onclick="openRandomStory()">
+                        ✦ قصة عشوائية
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="hero-art">
+                <div class="moon"></div>
+            </div>
+
         </div>
 
-        <button
-          class="link"
-          onclick="showView('library')"
-        >
-          كل القصص ←
-        </button>
+        <div class="section">
 
-      </div>
+            <div class="section-head">
+                <div>
+                    <h2>قصص مختارة</h2>
+                    <p>ابدأ رحلتك من هنا</p>
+                </div>
 
-      <div id="featured" class="story-grid"></div>
+                <button class="btn btn-dark" onclick="showView('library')">
+                    عرض الكل
+                </button>
+            </div>
+
+            <div class="grid" id="featuredStories"></div>
+
+        </div>
 
     </div>
 
-  </section>
-
-
-  <section class="section">
-
-    <div class="container">
-
-      <div class="section-head">
-
-        <div>
-          <h2>الأقسام</h2>
-          <p>البنية جاهزة لإضافة آلاف القصص مستقبلًا.</p>
-        </div>
-
-      </div>
-
-
-      <div class="categories">
-
-        <div
-          class="category"
-          onclick="openCategory('prophets')"
-        >
-          <div class="category-icon">☾</div>
-          <h3>قصص الأنبياء</h3>
-          <p>قصص منظمة إلى مشاهد ومصادر.</p>
-        </div>
-
-
-        <div
-          class="category"
-          onclick="openCategory('quran')"
-        >
-          <div class="category-icon">◈</div>
-          <h3>قصص القرآن</h3>
-          <p>قسم مخصص للقصص الواردة في القرآن.</p>
-        </div>
-
-
-        <div
-          class="category"
-          onclick="openCategory('seerah')"
-        >
-          <div class="category-icon">✦</div>
-          <h3>السيرة النبوية</h3>
-          <p>محطات منظمة مع مصادر الروايات.</p>
-        </div>
-
-
-        <div
-          class="category"
-          onclick="openCategory('companions')"
-        >
-          <div class="category-icon">◇</div>
-          <h3>قصص الصحابة</h3>
-          <p>قسم مستقل قابل للتوسع.</p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="section">
-
-    <div class="container">
-
-      <div class="quote">
-
-        <div class="quote-mark">“</div>
-
-        <p>
-          إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ
-        </p>
-
-        <small>
-          الإسراء: 9
-        </small>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
+</section>
 
 
 <!-- ================= LIBRARY ================= -->
 
-<section id="library" class="view">
+<section id="libraryView" class="view">
 
-  <div class="container">
+    <div class="container section">
 
-    <div class="page-title">
-      <h1>المكتبة</h1>
-      <p>كل القصص الموجودة في المنصة.</p>
-    </div>
+        <div class="section-head">
+            <div>
+                <h2>مكتبة الهداية</h2>
+                <p>قصص مرتبة في مكان واحد</p>
+            </div>
+        </div>
 
+        <div class="search-box">
+            <span>⌕</span>
+            <input
+                id="librarySearch"
+                placeholder="ابحث عن قصة أو موضوع..."
+                oninput="renderLibrary()"
+            >
+        </div>
 
-    <div class="filters">
-
-      <button
-        class="filter active"
-        onclick="setFilter('all',this)"
-      >
-        الكل
-      </button>
-
-      <button
-        class="filter"
-        onclick="setFilter('prophets',this)"
-      >
-        الأنبياء
-      </button>
-
-      <button
-        class="filter"
-        onclick="setFilter('quran',this)"
-      >
-        القرآن
-      </button>
-
-      <button
-        class="filter"
-        onclick="setFilter('seerah',this)"
-      >
-        السيرة
-      </button>
-
-      <button
-        class="filter"
-        onclick="setFilter('companions',this)"
-      >
-        الصحابة
-      </button>
+        <div class="grid" id="libraryStories"></div>
 
     </div>
-
-
-    <div id="libraryGrid" class="library-grid"></div>
-
-  </div>
 
 </section>
 
 
 <!-- ================= FAVORITES ================= -->
 
-<section id="favorites" class="view">
+<section id="favoritesView" class="view">
 
-  <div class="container">
+    <div class="container section">
 
-    <div class="page-title">
-      <h1>المفضلة</h1>
-      <p>القصص التي حفظتها للعودة إليها.</p>
+        <div class="section-head">
+            <div>
+                <h2>المفضلة</h2>
+                <p>قصصك المحفوظة</p>
+            </div>
+        </div>
+
+        <div class="grid" id="favoriteStories"></div>
+
     </div>
-
-    <div id="favoritesGrid" class="library-grid"></div>
-
-  </div>
 
 </section>
 
 
 <!-- ================= ABOUT ================= -->
 
-<section id="about" class="view">
+<section id="aboutView" class="view">
 
-  <div class="container">
+    <div class="container section">
 
-    <div class="page-title">
-      <h1>عن الهداية</h1>
-      <p>
-        تجربة رقمية حديثة للمحتوى القصصي الهادف.
-      </p>
-    </div>
+        <div class="about-box">
 
+            <h2>عن الهداية</h2>
 
-    <div class="quote">
+            <p>
+                الهداية مشروع رقمي يهدف إلى تقديم محتوى إسلامي بطريقة عصرية
+                وهادئة، مع الاهتمام بجودة التصميم وسهولة القراءة والوصول إلى
+                القصص والمصادر.
+            </p>
 
-      <div class="quote-mark">ه</div>
+            <br>
 
-      <p>
-        جمال التصميم لا يغني عن دقة المعلومة.
-      </p>
+            <p>
+                المحتوى الديني لا يُعتمد للنشر النهائي إلا بعد مراجعته
+                والتأكد من مصدره.
+            </p>
 
-      <small>
-        لذلك صُمم محرك الهداية ليحفظ مصدر كل مشهد.
-      </small>
-
-    </div>
-
-
-    <div class="stats">
-
-      <div class="stat">
-        <strong>RTL</strong>
-        <span>واجهة عربية كاملة</span>
-      </div>
-
-      <div class="stat">
-        <strong>∞</strong>
-        <span>قابل لإضافة عدد كبير من القصص</span>
-      </div>
-
-      <div class="stat">
-        <strong>M11</strong>
-        <span>البنية البرمجية الموحدة</span>
-      </div>
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
 <!-- ================= READER ================= -->
 
-<section id="reader" class="view">
+<section id="readerView" class="view">
 
-  <div class="container reader">
+    <div class="container reader">
 
-    <div class="reader-top">
+        <div class="reader-top">
 
-      <button
-        class="back-btn"
-        onclick="showView('home')"
-      >
-        ← العودة
-      </button>
+            <button class="btn btn-dark" onclick="showView('library')">
+                ← العودة للمكتبة
+            </button>
 
-      <span
-        id="readerSource"
-        class="reader-source"
-      >
-        المصدر
-      </span>
+            <button class="btn btn-dark" id="readerFavoriteBtn">
+                ☆ المفضلة
+            </button>
+
+        </div>
+
+        <h1 class="reader-title" id="readerTitle"></h1>
+
+        <div id="readerVideo" class="video-box"></div>
+
+        <div class="reader-layout">
+
+            <aside class="scene-list" id="sceneList"></aside>
+
+            <article class="story-text">
+
+                <h2 id="sceneTitle"></h2>
+
+                <p id="sceneText"></p>
+
+                <div class="source-box">
+                    <strong>المصدر:</strong>
+                    <span id="sceneSource"></span>
+                </div>
+
+                <div class="reader-controls">
+
+                    <button class="btn btn-dark" onclick="previousScene()">
+                        ← السابق
+                    </button>
+
+                    <button class="btn btn-green" onclick="speakCurrentScene()">
+                        🔊 قراءة
+                    </button>
+
+                    <button class="btn btn-dark" onclick="stopSpeech()">
+                        ■ إيقاف
+                    </button>
+
+                    <button class="btn btn-dark" onclick="nextScene()">
+                        التالي →
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
 
     </div>
-
-
-    <div class="scene-card">
-
-      <div class="scene-visual">
-
-        <div class="scene-image">
-          <span id="sceneIcon">✦</span>
-        </div>
-
-        <div class="scene-overlay"></div>
-
-      </div>
-
-
-      <div class="scene-body">
-
-        <div
-          id="sceneIndex"
-          class="scene-index"
-        >
-          المشهد 1
-        </div>
-
-        <h1
-          id="sceneTitle"
-          class="scene-title"
-        >
-          عنوان المشهد
-        </h1>
-
-        <p
-          id="sceneText"
-          class="scene-text"
-        >
-          النص.
-        </p>
-
-
-        <div class="draft-warning">
-
-          <div>ⓘ</div>
-
-          <div>
-
-            <strong>
-              حالة المحتوى
-            </strong>
-
-            <span>
-              هذا المشهد في وضع المسودة حاليًا.
-              لا يُعتبر نصًا دينيًا منشورًا حتى تتم مراجعته واعتماد مصدره.
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="source-box">
-
-          <strong>
-            مصدر المشهد
-          </strong>
-
-          <span id="sceneSource">
-            لم يتم اعتماد المصدر النهائي بعد.
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="player">
-
-      <div class="progress-wrap">
-        <div
-          id="progress"
-          class="progress"
-        ></div>
-      </div>
-
-
-      <div class="player-row">
-
-        <button
-          class="player-btn"
-          onclick="previousScene()"
-        >
-          السابق
-        </button>
-
-        <button
-          id="playBtn"
-          class="player-btn main"
-          onclick="toggleReading()"
-        >
-          ▶ قراءة
-        </button>
-
-        <button
-          class="player-btn"
-          onclick="stopReading()"
-        >
-          ■ إيقاف
-        </button>
-
-        <button
-          class="player-btn"
-          onclick="toggleAuto()"
-          id="autoBtn"
-        >
-          ⏭ تلقائي
-        </button>
-
-        <button
-          class="player-btn"
-          onclick="nextScene()"
-        >
-          التالي
-        </button>
-
-
-        <div class="speed-control">
-
-          السرعة
-
-          <select id="speed">
-
-            <option value=".8">0.8x</option>
-            <option value="1" selected>1x</option>
-            <option value="1.15">1.15x</option>
-            <option value="1.3">1.3x</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div
-      id="timeline"
-      class="timeline"
-    ></div>
-
-  </div>
 
 </section>
 
 
-<!-- ================= SEARCH ================= -->
+<!-- ================= ADMIN ================= -->
 
-<div
-  id="searchOverlay"
-  class="search-overlay"
->
+<section id="adminView" class="view">
 
-  <div class="search-box">
+    <div class="container admin-page">
 
-    <input
-      id="searchInput"
-      class="search-input"
-      placeholder="ابحث عن قصة أو قسم..."
-    >
+        <div class="admin-header">
 
-    <div
-      id="searchResults"
-      class="search-results"
-    ></div>
+            <div>
+                <h1>لوحة إدارة الهداية</h1>
+                <p>إدارة القصص والمشاهد والفيديوهات والمصادر</p>
+            </div>
 
-  </div>
+            <div class="admin-actions">
+                <button class="btn btn-green" onclick="openNewStory()">
+                    ＋ قصة جديدة
+                </button>
 
-</div>
+                <button class="btn btn-dark" onclick="logoutAdmin()">
+                    خروج الإدارة
+                </button>
+            </div>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong id="statStories">0</strong>
+                <span>إجمالي القصص</span>
+            </div>
+
+            <div class="stat">
+                <strong id="statPublished">0</strong>
+                <span>قصص منشورة</span>
+            </div>
+
+            <div class="stat">
+                <strong id="statDrafts">0</strong>
+                <span>مسودات</span>
+            </div>
+
+            <div class="stat">
+                <strong id="statScenes">0</strong>
+                <span>إجمالي المشاهد</span>
+            </div>
+
+        </div>
+
+        <div class="admin-tabs">
+
+            <button class="active" onclick="adminTab('stories',this)">
+                القصص
+            </button>
+
+            <button onclick="adminTab('data',this)">
+                البيانات
+            </button>
+
+        </div>
+
+        <div id="adminStoriesPanel" class="admin-panel">
+
+            <div id="adminStories"></div>
+
+        </div>
+
+        <div id="adminDataPanel" class="admin-panel" style="display:none">
+
+            <h2>إدارة بيانات المنصة</h2>
+
+            <p style="color:var(--muted);margin:10px 0 20px">
+                يمكنك حفظ نسخة احتياطية من القصص واستعادتها لاحقًا.
+            </p>
+
+            <div class="admin-actions">
+
+                <button class="btn btn-green" onclick="exportData()">
+                    ↓ تصدير JSON
+                </button>
+
+                <label class="btn btn-dark">
+                    ↑ استيراد JSON
+                    <input
+                        type="file"
+                        accept=".json"
+                        onchange="importData(event)"
+                        hidden
+                    >
+                </label>
+
+                <button class="btn btn-danger" onclick="resetData()">
+                    إعادة بيانات التجربة
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
 
 
-<div id="toast" class="toast"></div>
+<footer>
 
+    <div class="container footer-inner">
 
-<footer class="footer">
+        <span>
+            © 2026 الهداية — المعرفة النافعة بأسلوب عصري
+        </span>
 
-  <div class="container footer-inner">
+        <button class="admin-login-link" onclick="openAdminLogin()">
+            دخول الإدارة
+        </button>
 
-    <p>
-      © 2026 الهداية — قصص تهدي القلب
-    </p>
-
-    <p>
-      M11
-    </p>
-
-  </div>
+    </div>
 
 </footer>
 
 
+<!-- ================= LOGIN MODAL ================= -->
+
+<div class="modal" id="loginModal">
+
+    <div class="modal-box">
+
+        <h2>دخول الإدارة</h2>
+
+        <p>
+            هذه لوحة الإدارة الخاصة بالمشروع.
+        </p>
+
+        <div class="field">
+            <label>اسم المستخدم</label>
+            <input id="adminUsername" autocomplete="username">
+        </div>
+
+        <br>
+
+        <div class="field">
+            <label>كلمة المرور</label>
+            <input id="adminPassword" type="password" autocomplete="current-password">
+        </div>
+
+        <div class="modal-actions">
+
+            <button class="btn btn-green" onclick="loginAdmin()">
+                دخول
+            </button>
+
+            <button class="btn btn-dark" onclick="closeAdminLogin()">
+                إلغاء
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= STORY EDITOR ================= -->
+
+<div class="modal" id="storyEditorModal">
+
+    <div class="modal-box" style="width:min(1000px,100%);max-height:92vh;overflow:auto">
+
+        <h2 id="editorTitle">قصة جديدة</h2>
+
+        <p>
+            املأ بيانات القصة، ثم أضف المشاهد والفيديو والمصادر.
+        </p>
+
+        <div class="form-grid">
+
+            <div class="field">
+                <label>عنوان القصة</label>
+                <input id="storyTitle">
+            </div>
+
+            <div class="field">
+                <label>التصنيف</label>
+
+                <select id="storyCategory">
+
+                    <option value="قصص الأنبياء">
+                        قصص الأنبياء
+                    </option>
+
+                    <option value="قصص القرآن">
+                        قصص القرآن
+                    </option>
+
+                    <option value="السيرة النبوية">
+                        السيرة النبوية
+                    </option>
+
+                    <option value="قصص الصحابة">
+                        قصص الصحابة
+                    </option>
+
+                    <option value="أخرى">
+                        أخرى
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="field">
+                <label>الأيقونة</label>
+                <input id="storyIcon" placeholder="📖">
+            </div>
+
+            <div class="field">
+                <label>رابط صورة الغلاف</label>
+                <input id="storyCover">
+            </div>
+
+            <div class="field full">
+                <label>وصف القصة</label>
+                <textarea id="storyDescription"></textarea>
+            </div>
+
+            <div class="field">
+                <label>المصدر العام</label>
+                <input id="storySource">
+            </div>
+
+            <div class="field">
+                <label>حالة القصة</label>
+
+                <select id="storyStatus">
+
+                    <option value="draft">
+                        مسودة
+                    </option>
+
+                    <option value="review">
+                        قيد المراجعة
+                    </option>
+
+                    <option value="approved">
+                        منشورة
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="field full">
+
+                <label>
+                    رابط الفيديو
+                </label>
+
+                <input
+                    id="storyVideo"
+                    placeholder="مثال: رابط YouTube أو رابط فيديو مباشر"
+                >
+
+            </div>
+
+            <div class="field full">
+
+                <label>
+                    مصدر الفيديو / ترخيص الاستخدام
+                </label>
+
+                <input
+                    id="storyVideoSource"
+                    placeholder="مثال: المصدر الرسمي — رابط الصفحة الأصلية"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="scenes-editor">
+
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+
+                <h2>المشاهد</h2>
+
+                <button class="btn btn-green" onclick="addSceneEditor()">
+                    ＋ إضافة مشهد
+                </button>
+
+            </div>
+
+            <div id="scenesEditor"></div>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button class="btn btn-primary" onclick="saveStory()">
+                💾 حفظ القصة
+            </button>
+
+            <button class="btn btn-dark" onclick="closeStoryEditor()">
+                إلغاء
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
 <script>
 /* =========================================================
-   M11 — HIDAYAH STORY ENGINE
+   CONFIG
 ========================================================= */
 
-/*
-  ملاحظة مهمة:
+const ADMIN_CONFIG = {
+    username: "M11",
+    password: "Hidayah@2026"
+};
 
-  textStatus = "draft"
-
-  أي نص هنا مجرد مساحة تجريبية للنظام.
-  عند اعتماد القصة سيتم استبدال النص بمحتوى مراجع
-  وربط كل مشهد بمصدره.
-*/
+const STORAGE_KEY = "hidayahStoriesV4";
+const FAVORITES_KEY = "hidayahFavoritesV2";
 
 
-const STORIES = [
+/* =========================================================
+   DEFAULT DATA
+========================================================= */
 
-  {
-    id:"yusuf",
-    title:"قصة يوسف عليه السلام",
-    category:"prophets",
-    categoryName:"قصص الأنبياء",
-    icon:"☾",
-    source:"القرآن الكريم — سيتم تحديد الآيات لكل مشهد",
-    featured:true,
+const DEFAULT_STORIES = [
 
-    description:
-      "نموذج لتجربة قصة مقسمة إلى مشاهد.",
+    {
+        id:"yusuf",
+        title:"يوسف عليه السلام",
+        category:"قصص الأنبياء",
+        icon:"🌙",
+        cover:"",
+        description:"قصة نبي الله يوسف عليه السلام.",
+        source:"يتم اعتماد المصدر النهائي قبل النشر.",
+        video:"",
+        videoSource:"",
+        status:"draft",
+        scenes:[
+            {
+                id:"yusuf-1",
+                title:"بداية القصة",
+                text:"هذا النص تجريبي مؤقت. يجب وضع النص المراجع والمعتمد من مصدر موثوق قبل نشر القصة.",
+                source:"مسودة — تحتاج مراجعة",
+                image:""
+            }
+        ]
+    },
 
-    textStatus:"draft",
-
-    scenes:[
-
-      {
-        title:"المشهد الأول",
-        icon:"☾",
-
-        text:
-`مساحة مخصصة للنص المعتمد للمشهد الأول.
-
-سيتم وضع النص النهائي هنا بعد مراجعته
-وربطه بالمصدر المناسب.`,
-
-        source:
-          "سيتم تحديد المصدر التفصيلي قبل النشر."
-      },
-
-      {
-        title:"المشهد الثاني",
-        icon:"✦",
-
-        text:
-`مساحة مخصصة للنص المعتمد للمشهد الثاني.
-
-لا يتم نشر أي حدث أو حوار هنا
-إلا بعد التحقق منه.`,
-
-        source:
-          "سيتم تحديد المصدر التفصيلي قبل النشر."
-      },
-
-      {
-        title:"المشهد الثالث",
-        icon:"◇",
-
-        text:
-`مساحة مخصصة للنص المعتمد للمشهد الثالث.
-
-محرك القصص يتعامل مع كل مشهد
-كوحدة مستقلة.`,
-
-        source:
-          "سيتم تحديد المصدر التفصيلي قبل النشر."
-      }
-
-    ]
-  },
-
-
-  {
-    id:"adam",
-    title:"قصة آدم عليه السلام",
-    category:"prophets",
-    categoryName:"قصص الأنبياء",
-    icon:"🌿",
-    source:"سيتم تحديد المصادر عند اعتماد المحتوى",
-    featured:true,
-
-    description:
-      "قصة جاهزة من ناحية النظام لإضافة المشاهد.",
-
-    textStatus:"draft",
-
-    scenes:[
-      {
-        title:"المشهد الأول",
+    {
+        id:"adam",
+        title:"آدم عليه السلام",
+        category:"قصص الأنبياء",
         icon:"🌿",
+        cover:"",
+        description:"قصة آدم عليه السلام.",
+        source:"يتم اعتماد المصدر النهائي قبل النشر.",
+        video:"",
+        videoSource:"",
+        status:"draft",
+        scenes:[
+            {
+                id:"adam-1",
+                title:"بداية القصة",
+                text:"هذا النص تجريبي مؤقت. يجب وضع النص المراجع والمعتمد من مصدر موثوق قبل نشر القصة.",
+                source:"مسودة — تحتاج مراجعة",
+                image:""
+            }
+        ]
+    },
 
-        text:
-          "مسودة غير منشورة — سيتم إدخال النص المراجع هنا.",
-
-        source:
-          "لم يعتمد المصدر بعد."
-      }
-    ]
-  },
-
-
-  {
-    id:"musa",
-    title:"قصة موسى عليه السلام",
-    category:"prophets",
-    categoryName:"قصص الأنبياء",
-    icon:"🌊",
-    source:"سيتم تحديد المصادر عند اعتماد المحتوى",
-    featured:true,
-
-    description:
-      "نموذج لقصة متعددة المشاهد.",
-
-    textStatus:"draft",
-
-    scenes:[
-      {
-        title:"المشهد الأول",
+    {
+        id:"musa",
+        title:"موسى عليه السلام",
+        category:"قصص الأنبياء",
         icon:"🌊",
+        cover:"",
+        description:"قصة موسى عليه السلام.",
+        source:"يتم اعتماد المصدر النهائي قبل النشر.",
+        video:"",
+        videoSource:"",
+        status:"draft",
+        scenes:[
+            {
+                id:"musa-1",
+                title:"بداية القصة",
+                text:"هذا النص تجريبي مؤقت. يجب وضع النص المراجع والمعتمد من مصدر موثوق.",
+                source:"مسودة — تحتاج مراجعة",
+                image:""
+            }
+        ]
+    },
 
-        text:
-          "مسودة غير منشورة — سيتم إدخال النص المراجع هنا.",
+    {
+        id:"kahf",
+        title:"أصحاب الكهف",
+        category:"قصص القرآن",
+        icon:"🏔️",
+        cover:"",
+        description:"قصة أصحاب الكهف.",
+        source:"القرآن الكريم — سورة الكهف. يتم إعداد النص التفصيلي للمراجعة.",
+        video:"",
+        videoSource:"",
+        status:"draft",
+        scenes:[
+            {
+                id:"kahf-1",
+                title:"أصحاب الكهف",
+                text:"هذا النص التجريبي لا يمثل النص النهائي المنشور.",
+                source:"مسودة — تحتاج مراجعة",
+                image:""
+            }
+        ]
+    },
 
-        source:
-          "لم يعتمد المصدر بعد."
-      },
+    {
+        id:"hijrah",
+        title:"الهجرة النبوية",
+        category:"السيرة النبوية",
+        icon:"🕌",
+        cover:"",
+        description:"محطة مهمة من السيرة النبوية.",
+        source:"يتم اعتماد المصادر التفصيلية قبل النشر.",
+        video:"",
+        videoSource:"",
+        status:"draft",
+        scenes:[
+            {
+                id:"hijrah-1",
+                title:"الهجرة",
+                text:"هذا النص تجريبي مؤقت ويحتاج إلى مراجعة وتوثيق قبل النشر.",
+                source:"مسودة — تحتاج مراجعة",
+                image:""
+            }
+        ]
+    },
 
-      {
-        title:"المشهد الثاني",
-        icon:"🌊",
-
-        text:
-          "مسودة غير منشورة — سيتم إدخال النص المراجع هنا.",
-
-        source:
-          "لم يعتمد المصدر بعد."
-      }
-    ]
-  },
-
-
-  {
-    id:"kahf",
-    title:"أصحاب الكهف",
-    category:"quran",
-    categoryName:"قصص القرآن",
-    icon:"⛰️",
-    source:"سورة الكهف",
-    featured:false,
-
-    description:
-      "نموذج لقصة مرتبطة بسورة محددة.",
-
-    textStatus:"draft",
-
-    scenes:[
-      {
-        title:"المشهد الأول",
-        icon:"⛰️",
-
-        text:
-          "مسودة غير منشورة — سيتم تحديد الآيات المرتبطة بهذا المشهد.",
-
-        source:
-          "سورة الكهف — سيتم تحديد نطاق الآيات."
-      }
-    ]
-  },
-
-
-  {
-    id:"hijrah",
-    title:"الهجرة النبوية",
-    category:"seerah",
-    categoryName:"السيرة النبوية",
-    icon:"✦",
-    source:"مصادر السيرة الموثوقة",
-    featured:false,
-
-    description:
-      "نموذج لقصة من قسم السيرة.",
-
-    textStatus:"draft",
-
-    scenes:[
-      {
-        title:"محطة من السيرة",
-        icon:"✦",
-
-        text:
-          "مسودة غير منشورة — سيتم اعتماد الرواية والمصدر قبل النشر.",
-
-        source:
-          "لم يعتمد المصدر النهائي بعد."
-      }
-    ]
-  },
-
-
-  {
-    id:"companions",
-    title:"قصص الصحابة",
-    category:"companions",
-    categoryName:"قصص الصحابة",
-    icon:"◇",
-    source:"سيتم اعتماد الروايات والمصادر",
-    featured:false,
-
-    description:
-      "قسم قابل لإضافة قصص متعددة.",
-
-    textStatus:"draft",
-
-    scenes:[
-      {
-        title:"المشهد الأول",
-        icon:"◇",
-
-        text:
-          "مسودة غير منشورة — سيتم إدخال المحتوى بعد التحقق.",
-
-        source:
-          "لم يعتمد المصدر النهائي بعد."
-      }
-    ]
-  }
+    {
+        id:"companions",
+        title:"قصص الصحابة",
+        category:"قصص الصحابة",
+        icon:"✨",
+        cover:"",
+        description:"مجموعة من القصص المختارة عن الصحابة.",
+        source:"يجب تحديد المصدر لكل قصة قبل النشر.",
+        video:"",
+        videoSource:"",
+        status:"draft",
+        scenes:[
+            {
+                id:"companions-1",
+                title:"قصة مختارة",
+                text:"هذا النص تجريبي مؤقت ويجب استبداله بمحتوى موثق.",
+                source:"مسودة — تحتاج مراجعة",
+                image:""
+            }
+        ]
+    }
 
 ];
 
@@ -2199,134 +1853,234 @@ const STORIES = [
    STATE
 ========================================================= */
 
-let currentStory = null;
-let currentScene = 0;
-let activeFilter = "all";
-let autoPlay = false;
-let speaking = false;
-let autoTimer = null;
+let STORIES = loadStories();
 
-let favorites =
-  JSON.parse(
-    localStorage.getItem("hidayahFavorites") || "[]"
-  );
+let currentStoryId = null;
+let currentSceneIndex = 0;
 
-let recent =
-  JSON.parse(
-    localStorage.getItem("hidayahRecent") || "[]"
-  );
+let editingStoryId = null;
+let editingScenes = [];
+
+let favorites = loadFavorites();
 
 
 /* =========================================================
-   VIEWS
+   STORAGE
 ========================================================= */
 
-const views = {
-  home:document.getElementById("home"),
-  library:document.getElementById("library"),
-  favorites:document.getElementById("favorites"),
-  about:document.getElementById("about"),
-  reader:document.getElementById("reader")
-};
+function loadStories(){
+
+    try{
+
+        const saved = localStorage.getItem(STORAGE_KEY);
+
+        if(saved){
+            return JSON.parse(saved);
+        }
+
+    }catch(error){
+        console.error(error);
+    }
+
+    return JSON.parse(JSON.stringify(DEFAULT_STORIES));
+}
 
 
-function showView(name){
+function saveStories(){
 
-  stopReading();
-
-  Object.values(views).forEach(view=>{
-    view.classList.remove("active");
-  });
-
-  views[name].classList.add("active");
-
-
-  document.querySelectorAll(
-    ".nav-links button"
-  ).forEach(btn=>{
-    btn.classList.toggle(
-      "active",
-      btn.dataset.view === name
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(STORIES)
     );
-  });
+
+}
 
 
-  document.getElementById("navLinks")
-    .classList.remove("open");
+function loadFavorites(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(FAVORITES_KEY)
+        ) || [];
+
+    }catch{
+        return [];
+    }
+
+}
 
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+function saveFavorites(){
 
+    localStorage.setItem(
+        FAVORITES_KEY,
+        JSON.stringify(favorites)
+    );
 
-  if(name==="library"){
-    renderLibrary();
-  }
-
-  if(name==="favorites"){
-    renderFavorites();
-  }
 }
 
 
 /* =========================================================
-   FEATURED
+   NAVIGATION
+========================================================= */
+
+function showView(name){
+
+    document
+        .querySelectorAll(".view")
+        .forEach(view => view.classList.remove("active"));
+
+    const target = document.getElementById(name + "View");
+
+    if(target){
+        target.classList.add("active");
+    }
+
+    document
+        .querySelectorAll("[data-nav]")
+        .forEach(btn => {
+            btn.classList.toggle(
+                "active",
+                btn.dataset.nav === name
+            );
+        });
+
+    document
+        .getElementById("navLinks")
+        .classList.remove("open");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    if(name === "library"){
+        renderLibrary();
+    }
+
+    if(name === "favorites"){
+        renderFavorites();
+    }
+
+    if(name === "admin"){
+        renderAdmin();
+    }
+
+}
+
+
+function toggleMenu(){
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle("open");
+
+}
+
+
+function focusSearch(){
+
+    showView("library");
+
+    setTimeout(() => {
+
+        document
+            .getElementById("librarySearch")
+            ?.focus();
+
+    },300);
+
+}
+
+
+/* =========================================================
+   HOME
 ========================================================= */
 
 function renderFeatured(){
 
-  const box =
-    document.getElementById("featured");
+    const container =
+        document.getElementById("featuredStories");
 
-  const stories =
-    STORIES.filter(story=>story.featured);
+    const list =
+        STORIES.slice(0,3);
+
+    container.innerHTML =
+        list.map(storyCard).join("");
+
+}
 
 
-  box.innerHTML =
-    stories.map((story,index)=>`
+function storyCard(story){
 
-      <article
-        class="story-card ${index===0?"big":""}"
-        onclick="openStory('${story.id}')"
-      >
+    const favorite =
+        favorites.includes(story.id);
 
-        <div class="story-bg"></div>
+    const statusText =
+        story.status === "approved"
+        ? "منشورة"
+        : story.status === "review"
+        ? "قيد المراجعة"
+        : "مسودة";
 
-        <div class="story-symbol">
-          ${story.icon}
-        </div>
+    return `
 
-        <div class="story-info">
+        <article class="card">
 
-          <span class="tag">
-            ${story.categoryName}
-          </span>
+            <div
+                class="story-cover"
+                ${story.cover ? `style="background-image:url('${escapeAttr(story.cover)}');background-size:cover;background-position:center"` : ""}
+            >
 
-          <h3>
-            ${story.title}
-          </h3>
+                ${story.cover ? "" : story.icon || "📖"}
 
-          <p>
-            ${story.description}
-          </p>
+                <span class="status ${story.status}">
+                    ${statusText}
+                </span>
 
-          <div class="meta">
-            <span>
-              ◷ ${story.scenes.length} مشاهد
-            </span>
+            </div>
 
-            <span>
-              ✦ تجربة تفاعلية
-            </span>
-          </div>
+            <div class="story-body">
 
-        </div>
+                <h3>${escapeHTML(story.title)}</h3>
 
-      </article>
+                <p>
+                    ${escapeHTML(story.description || "")}
+                </p>
 
-    `).join("");
+                <div class="story-meta">
+
+                    <span>
+                        ${escapeHTML(story.category || "")}
+                    </span>
+
+                    <button
+                        class="icon-btn"
+                        onclick="toggleFavorite('${story.id}')"
+                        title="المفضلة"
+                    >
+                        ${favorite ? "★" : "☆"}
+                    </button>
+
+                </div>
+
+                <br>
+
+                <button
+                    class="btn btn-green"
+                    style="width:100%"
+                    onclick="openStory('${story.id}')"
+                >
+                    فتح القصة
+                </button>
+
+            </div>
+
+        </article>
+
+    `;
+
 }
 
 
@@ -2336,156 +2090,43 @@ function renderFeatured(){
 
 function renderLibrary(){
 
-  const grid =
-    document.getElementById("libraryGrid");
+    const container =
+        document.getElementById("libraryStories");
 
+    const query =
+        (
+            document.getElementById("librarySearch")?.value
+            || ""
+        )
+        .trim()
+        .toLowerCase();
 
-  let list = STORIES;
+    const filtered =
+        STORIES.filter(story => {
 
+            const text =
+                `${story.title} ${story.category} ${story.description}`
+                .toLowerCase();
 
-  if(activeFilter!=="all"){
+            return text.includes(query);
 
-    list =
-      STORIES.filter(
-        story=>story.category===activeFilter
-      );
+        });
 
-  }
+    if(!filtered.length){
 
+        container.innerHTML = `
+            <div class="empty" style="grid-column:1/-1">
+                <strong>لم نجد ما تبحث عنه</strong>
+                جرّب كلمة أخرى.
+            </div>
+        `;
 
-  if(!list.length){
-
-    grid.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">⌕</div>
-        لا توجد قصص هنا.
-      </div>
-    `;
-
-    return;
-  }
-
-
-  grid.innerHTML =
-    list.map(story=>{
-
-      const saved =
-        favorites.includes(story.id);
-
-      return `
-
-        <article class="library-card">
-
-          <div class="mini-art">
-            ${story.icon}
-          </div>
-
-          <h3>
-            ${story.title}
-          </h3>
-
-          <p>
-            ${story.description}
-          </p>
-
-          <div class="meta">
-
-            <span>
-              ${story.categoryName}
-            </span>
-
-            <span>
-              ${story.scenes.length} مشاهد
-            </span>
-
-          </div>
-
-          <div class="card-buttons">
-
-            <button
-              class="small-btn gold"
-              onclick="openStory('${story.id}')"
-            >
-              فتح القصة
-            </button>
-
-            <button
-              class="small-btn"
-              onclick="toggleFavorite('${story.id}')"
-            >
-              ${saved?"★ محفوظة":"☆ مفضلة"}
-            </button>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
-}
-
-
-/* =========================================================
-   FILTER
-========================================================= */
-
-function setFilter(filter,button){
-
-  activeFilter = filter;
-
-
-  document.querySelectorAll(
-    ".filter"
-  ).forEach(btn=>{
-    btn.classList.remove("active");
-  });
-
-
-  if(button){
-    button.classList.add("active");
-  }
-
-
-  renderLibrary();
-}
-
-
-function openCategory(category){
-
-  showView("library");
-
-  activeFilter = category;
-
-
-  document.querySelectorAll(
-    ".filter"
-  ).forEach(btn=>{
-    btn.classList.remove("active");
-  });
-
-
-  const names = {
-    prophets:"الأنبياء",
-    quran:"القرآن",
-    seerah:"السيرة",
-    companions:"الصحابة"
-  };
-
-
-  document.querySelectorAll(
-    ".filter"
-  ).forEach(btn=>{
-    if(
-      btn.textContent.trim()
-      === names[category]
-    ){
-      btn.classList.add("active");
+        return;
     }
-  });
 
+    container.innerHTML =
+        filtered.map(storyCard).join("");
 
-  renderLibrary();
 }
 
 
@@ -2495,786 +2136,1257 @@ function openCategory(category){
 
 function toggleFavorite(id){
 
-  if(favorites.includes(id)){
+    if(favorites.includes(id)){
 
-    favorites =
-      favorites.filter(
-        item=>item!==id
-      );
+        favorites =
+            favorites.filter(x => x !== id);
 
-    toast("تمت إزالة القصة من المفضلة");
+        toast("تمت إزالة القصة من المفضلة");
 
-  }else{
+    }else{
 
-    favorites.push(id);
+        favorites.push(id);
 
-    toast("تمت إضافة القصة للمفضلة");
+        toast("تمت إضافة القصة إلى المفضلة");
 
-  }
+    }
 
+    saveFavorites();
 
-  localStorage.setItem(
-    "hidayahFavorites",
-    JSON.stringify(favorites)
-  );
+    renderFeatured();
+    renderLibrary();
+    renderFavorites();
 
-
-  renderLibrary();
-  renderFavorites();
 }
 
 
 function renderFavorites(){
 
-  const grid =
-    document.getElementById("favoritesGrid");
+    const container =
+        document.getElementById("favoriteStories");
 
+    const list =
+        STORIES.filter(
+            story => favorites.includes(story.id)
+        );
 
-  const list =
-    STORIES.filter(
-      story=>favorites.includes(story.id)
-    );
+    if(!list.length){
 
+        container.innerHTML = `
+            <div class="empty" style="grid-column:1/-1">
+                <strong>المفضلة فارغة</strong>
+                اضغط ☆ على أي قصة لحفظها هنا.
+            </div>
+        `;
 
-  if(!list.length){
+        return;
+    }
 
-    grid.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">☆</div>
-        لا توجد قصص محفوظة حتى الآن.
-      </div>
-    `;
+    container.innerHTML =
+        list.map(storyCard).join("");
 
-    return;
-  }
-
-
-  grid.innerHTML =
-    list.map(story=>`
-
-      <article class="library-card">
-
-        <div class="mini-art">
-          ${story.icon}
-        </div>
-
-        <h3>
-          ${story.title}
-        </h3>
-
-        <p>
-          ${story.description}
-        </p>
-
-        <div class="card-buttons">
-
-          <button
-            class="small-btn gold"
-            onclick="openStory('${story.id}')"
-          >
-            فتح
-          </button>
-
-          <button
-            class="small-btn"
-            onclick="toggleFavorite('${story.id}')"
-          >
-            إزالة
-          </button>
-
-        </div>
-
-      </article>
-
-    `).join("");
 }
 
 
 /* =========================================================
-   OPEN STORY
+   STORY READER
 ========================================================= */
 
 function openStory(id){
 
-  const story =
-    STORIES.find(
-      item=>item.id===id
-    );
-
-
-  if(!story) return;
-
-
-  currentStory = story;
-  currentScene = 0;
-  autoPlay = false;
-
-
-  addRecent(id);
-
-
-  showView("reader");
-
-  renderReader();
-
-}
-
-
-/* =========================================================
-   RECENT
-========================================================= */
-
-function addRecent(id){
-
-  recent =
-    recent.filter(
-      item=>item!==id
-    );
-
-  recent.unshift(id);
-
-  recent =
-    recent.slice(0,6);
-
-
-  localStorage.setItem(
-    "hidayahRecent",
-    JSON.stringify(recent)
-  );
-}
-
-
-/* =========================================================
-   RENDER READER
-========================================================= */
-
-function renderReader(){
-
-  if(!currentStory) return;
-
-
-  const scene =
-    currentStory.scenes[currentScene];
-
-
-  document.getElementById("readerSource")
-    .textContent =
-      currentStory.source;
-
-
-  document.getElementById("sceneIndex")
-    .textContent =
-      `المشهد ${currentScene+1} من ${currentStory.scenes.length}`;
-
-
-  document.getElementById("sceneTitle")
-    .textContent =
-      scene.title;
-
-
-  document.getElementById("sceneText")
-    .textContent =
-      scene.text;
-
-
-  document.getElementById("sceneSource")
-    .textContent =
-      scene.source;
-
-
-  document.getElementById("sceneIcon")
-    .textContent =
-      scene.icon || currentStory.icon;
-
-
-  const percentage =
-    ((currentScene+1) /
-    currentStory.scenes.length) * 100;
-
-
-  document.getElementById("progress")
-    .style.width =
-      percentage + "%";
-
-
-  renderTimeline();
-
-
-  document.getElementById("playBtn")
-    .textContent =
-      "▶ قراءة";
-
-
-  document.getElementById("autoBtn")
-    .textContent =
-      autoPlay
-      ? "⏭ تلقائي: يعمل"
-      : "⏭ تلقائي";
-
-
-  localStorage.setItem(
-    "hidayahLastStory",
-    currentStory.id
-  );
-
-  localStorage.setItem(
-    "hidayahLastScene",
-    currentScene
-  );
-}
-
-
-/* =========================================================
-   TIMELINE
-========================================================= */
-
-function renderTimeline(){
-
-  const timeline =
-    document.getElementById("timeline");
-
-
-  timeline.innerHTML =
-    currentStory.scenes.map(
-      (scene,index)=>`
-
-        <button
-          class="timeline-item ${index===currentScene?"active":""}"
-          onclick="jumpToScene(${index})"
-        >
-
-          <span class="timeline-number">
-            المشهد ${index+1}
-          </span>
-
-          <span class="timeline-title">
-            ${scene.title}
-          </span>
-
-        </button>
-
-      `
-    ).join("");
-}
-
-
-function jumpToScene(index){
-
-  stopReading();
-
-  currentScene = index;
-
-  renderReader();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-
-/* =========================================================
-   NEXT / PREVIOUS
-========================================================= */
-
-function nextScene(){
-
-  if(!currentStory) return;
-
-
-  stopSpeechOnly();
-
-
-  if(
-    currentScene <
-    currentStory.scenes.length-1
-  ){
-
-    currentScene++;
-
-    renderReader();
-
-    if(autoPlay){
-
-      setTimeout(
-        ()=>startReading(),
-        500
-      );
+    const story =
+        STORIES.find(x => x.id === id);
+
+    if(!story){
+        toast("القصة غير موجودة");
+        return;
     }
 
-    return;
-  }
+    currentStoryId = id;
+    currentSceneIndex = 0;
+
+    showView("reader");
+
+    document.getElementById("readerTitle").textContent =
+        story.title;
+
+    const favoriteButton =
+        document.getElementById("readerFavoriteBtn");
+
+    favoriteButton.textContent =
+        favorites.includes(id)
+        ? "★ في المفضلة"
+        : "☆ المفضلة";
+
+    favoriteButton.onclick =
+        () => {
+            toggleFavorite(id);
+
+            favoriteButton.textContent =
+                favorites.includes(id)
+                ? "★ في المفضلة"
+                : "☆ المفضلة";
+        };
+
+    renderVideo(story);
+    renderSceneList();
+    renderCurrentScene();
+
+}
 
 
-  autoPlay = false;
+function renderVideo(story){
 
-  document.getElementById("autoBtn")
-    .textContent =
-      "⏭ تلقائي";
+    const container =
+        document.getElementById("readerVideo");
 
-  toast("انتهت القصة");
+    const url =
+        (story.video || "").trim();
+
+    if(!url){
+
+        container.innerHTML = `
+
+            <div class="video-placeholder">
+
+                <div>
+
+                    <div class="play">▶</div>
+
+                    <h2>لا يوجد فيديو لهذه القصة حتى الآن</h2>
+
+                    <p style="color:var(--muted);margin-top:10px">
+                        يمكن لمدير المنصة إضافة فيديو موثوق
+                        من لوحة الإدارة.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+    const embed =
+        getEmbedUrl(url);
+
+    if(embed){
+
+        container.innerHTML = `
+
+            <iframe
+                src="${escapeAttr(embed)}"
+                title="${escapeAttr(story.title)}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+
+        `;
+
+        return;
+    }
+
+    container.innerHTML = `
+
+        <video
+            controls
+            playsinline
+            preload="metadata"
+            style="width:100%;display:block"
+        >
+            <source src="${escapeAttr(url)}">
+            المتصفح لا يدعم تشغيل هذا الفيديو.
+        </video>
+
+    `;
+
+}
+
+
+/* =========================================================
+   VIDEO URL
+========================================================= */
+
+function getEmbedUrl(url){
+
+    try{
+
+        const u = new URL(url);
+
+        if(
+            u.hostname.includes("youtube.com") ||
+            u.hostname.includes("youtu.be")
+        ){
+
+            let id = "";
+
+            if(u.hostname.includes("youtu.be")){
+
+                id = u.pathname.replace("/","");
+
+            }else{
+
+                id = u.searchParams.get("v") || "";
+
+                if(!id && u.pathname.includes("/embed/")){
+
+                    id =
+                        u.pathname
+                        .split("/embed/")[1]
+                        .split("/")[0];
+
+                }
+
+            }
+
+            if(id){
+
+                return
+                    "https://www.youtube.com/embed/"
+                    + encodeURIComponent(id)
+                    + "?rel=0";
+            }
+
+        }
+
+        if(
+            u.hostname.includes("vimeo.com")
+        ){
+
+            const id =
+                u.pathname.split("/").filter(Boolean).pop();
+
+            if(id){
+
+                return
+                    "https://player.vimeo.com/video/"
+                    + encodeURIComponent(id);
+
+            }
+
+        }
+
+    }catch(error){
+
+        return null;
+
+    }
+
+    return null;
+
+}
+
+
+/* =========================================================
+   SCENES
+========================================================= */
+
+function renderSceneList(){
+
+    const story =
+        STORIES.find(x => x.id === currentStoryId);
+
+    const container =
+        document.getElementById("sceneList");
+
+    if(!story || !story.scenes.length){
+
+        container.innerHTML =
+            `<div class="empty">لا توجد مشاهد.</div>`;
+
+        return;
+    }
+
+    container.innerHTML =
+        story.scenes.map((scene,index) => `
+
+            <button
+                class="scene-item ${index === currentSceneIndex ? "active" : ""}"
+                onclick="selectScene(${index})"
+            >
+
+                <span class="scene-number">
+                    ${String(index + 1).padStart(2,"0")}
+                </span>
+
+                ${escapeHTML(scene.title)}
+
+            </button>
+
+        `).join("");
+
+}
+
+
+function selectScene(index){
+
+    currentSceneIndex = index;
+
+    renderSceneList();
+    renderCurrentScene();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function renderCurrentScene(){
+
+    const story =
+        STORIES.find(x => x.id === currentStoryId);
+
+    if(!story) return;
+
+    const scene =
+        story.scenes[currentSceneIndex];
+
+    if(!scene) return;
+
+    document.getElementById("sceneTitle").textContent =
+        scene.title;
+
+    document.getElementById("sceneText").textContent =
+        scene.text;
+
+    document.getElementById("sceneSource").textContent =
+        scene.source || story.source || "غير محدد";
 
 }
 
 
 function previousScene(){
 
-  if(!currentStory) return;
+    if(currentSceneIndex > 0){
 
+        currentSceneIndex--;
 
-  stopReading();
+        renderSceneList();
+        renderCurrentScene();
 
+    }else{
 
-  if(currentScene>0){
-
-    currentScene--;
-
-    renderReader();
-
-  }
-}
-
-
-/* =========================================================
-   TEXT TO SPEECH
-========================================================= */
-
-function toggleReading(){
-
-  if(!currentStory) return;
-
-
-  if(
-    !("speechSynthesis" in window)
-  ){
-
-    toast(
-      "متصفحك لا يدعم القراءة الآلية."
-    );
-
-    return;
-  }
-
-
-  if(speaking){
-
-    window.speechSynthesis.pause();
-
-    speaking = false;
-
-    document.getElementById("playBtn")
-      .textContent =
-        "▶ متابعة";
-
-    return;
-  }
-
-
-  startReading();
-}
-
-
-function startReading(){
-
-  if(!currentStory) return;
-
-
-  if(
-    !("speechSynthesis" in window)
-  ){
-
-    toast(
-      "القراءة الآلية غير مدعومة."
-    );
-
-    return;
-  }
-
-
-  stopSpeechOnly();
-
-
-  const scene =
-    currentStory.scenes[currentScene];
-
-
-  const utterance =
-    new SpeechSynthesisUtterance(
-      scene.text
-    );
-
-
-  utterance.lang = "ar-SA";
-
-  utterance.rate =
-    Number(
-      document.getElementById("speed").value
-    );
-
-  utterance.pitch = 1;
-
-
-  utterance.onstart = ()=>{
-
-    speaking = true;
-
-    document.getElementById("playBtn")
-      .textContent =
-        "Ⅱ إيقاف مؤقت";
-
-  };
-
-
-  utterance.onend = ()=>{
-
-    speaking = false;
-
-    document.getElementById("playBtn")
-      .textContent =
-        "▶ قراءة";
-
-
-    if(autoPlay){
-
-      setTimeout(
-        ()=>{
-          nextScene();
-        },
-        700
-      );
+        toast("أنت في أول مشهد");
 
     }
 
-  };
-
-
-  utterance.onerror = ()=>{
-
-    speaking = false;
-
-    document.getElementById("playBtn")
-      .textContent =
-        "▶ قراءة";
-
-  };
-
-
-  window.speechSynthesis
-    .speak(utterance);
 }
 
 
-function stopSpeechOnly(){
+function nextScene(){
 
-  if(
-    "speechSynthesis" in window
-  ){
+    const story =
+        STORIES.find(x => x.id === currentStoryId);
 
-    window.speechSynthesis.cancel();
+    if(!story) return;
 
-  }
+    if(currentSceneIndex < story.scenes.length - 1){
 
-  speaking = false;
-}
+        currentSceneIndex++;
 
+        renderSceneList();
+        renderCurrentScene();
 
-function stopReading(){
+    }else{
 
-  stopSpeechOnly();
+        toast("انتهت مشاهد القصة");
 
-  clearTimeout(autoTimer);
+    }
 
-  document.getElementById("playBtn")
-    ?.setAttribute(
-      "data-state",
-      "stopped"
-    );
 }
 
 
 /* =========================================================
-   AUTO PLAY
+   SPEECH
 ========================================================= */
 
-function toggleAuto(){
+function speakCurrentScene(){
 
-  autoPlay = !autoPlay;
+    const story =
+        STORIES.find(x => x.id === currentStoryId);
+
+    if(!story) return;
+
+    const scene =
+        story.scenes[currentSceneIndex];
+
+    if(!scene) return;
+
+    if(!("speechSynthesis" in window)){
+
+        toast("المتصفح لا يدعم القراءة الآلية");
+
+        return;
+
+    }
+
+    speechSynthesis.cancel();
+
+    const utterance =
+        new SpeechSynthesisUtterance(scene.text);
+
+    utterance.lang = "ar-SA";
+    utterance.rate = .9;
+    utterance.pitch = 1;
+
+    speechSynthesis.speak(utterance);
+
+}
 
 
-  const button =
-    document.getElementById("autoBtn");
+function stopSpeech(){
 
+    if("speechSynthesis" in window){
 
-  button.textContent =
-    autoPlay
-    ? "⏭ تلقائي: يعمل"
-    : "⏭ تلقائي";
+        speechSynthesis.cancel();
 
+    }
 
-  if(autoPlay){
-
-    toast(
-      "التشغيل التلقائي مفعل"
-    );
-
-    startReading();
-
-  }else{
-
-    stopReading();
-
-    toast(
-      "التشغيل التلقائي متوقف"
-    );
-
-  }
 }
 
 
 /* =========================================================
-   SEARCH
+   ADMIN LOGIN
 ========================================================= */
 
-const searchOverlay =
-  document.getElementById(
-    "searchOverlay"
-  );
+function openAdminLogin(){
 
-const searchInput =
-  document.getElementById(
-    "searchInput"
-  );
+    document
+        .getElementById("loginModal")
+        .classList.add("show");
 
-const searchResults =
-  document.getElementById(
-    "searchResults"
-  );
-
-
-document.getElementById("searchBtn")
-  .addEventListener(
-    "click",
-    openSearch
-  );
-
-
-function openSearch(){
-
-  searchOverlay.classList.add(
-    "open"
-  );
-
-  setTimeout(
-    ()=>searchInput.focus(),
-    100
-  );
 }
 
 
-searchOverlay.addEventListener(
-  "click",
-  event=>{
+function closeAdminLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList.remove("show");
+
+}
+
+
+function loginAdmin(){
+
+    const username =
+        document.getElementById("adminUsername").value.trim();
+
+    const password =
+        document.getElementById("adminPassword").value;
 
     if(
-      event.target === searchOverlay
+        username === ADMIN_CONFIG.username &&
+        password === ADMIN_CONFIG.password
     ){
 
-      searchOverlay.classList.remove(
-        "open"
-      );
-
-    }
-
-  }
-);
-
-
-searchInput.addEventListener(
-  "input",
-  searchStories
-);
-
-
-function searchStories(){
-
-  const query =
-    searchInput.value
-      .trim()
-      .toLowerCase();
-
-
-  if(!query){
-
-    searchResults.innerHTML = "";
-
-    return;
-  }
-
-
-  const results =
-    STORIES.filter(
-      story=>
-
-        story.title
-          .toLowerCase()
-          .includes(query)
-
-        ||
-
-        story.categoryName
-          .toLowerCase()
-          .includes(query)
-
-    );
-
-
-  if(!results.length){
-
-    searchResults.innerHTML = `
-      <div class="empty">
-        لا توجد نتائج.
-      </div>
-    `;
-
-    return;
-  }
-
-
-  searchResults.innerHTML =
-    results.map(story=>`
-
-      <div
-        class="result"
-        onclick="
-          searchOverlay.classList.remove('open');
-          openStory('${story.id}');
-        "
-      >
-
-        <div class="result-icon">
-          ${story.icon}
-        </div>
-
-        <div>
-
-          <strong>
-            ${story.title}
-          </strong>
-
-          <div
-            style="
-              color:var(--muted);
-              font-size:10px;
-              margin-top:3px;
-            "
-          >
-            ${story.categoryName}
-          </div>
-
-        </div>
-
-      </div>
-
-    `).join("");
-}
-
-
-/* =========================================================
-   THEME
-========================================================= */
-
-const savedTheme =
-  localStorage.getItem(
-    "hidayahTheme"
-  );
-
-
-if(savedTheme==="light"){
-
-  document.body.classList.add(
-    "light"
-  );
-
-  document.getElementById("themeBtn")
-    .textContent =
-      "☀";
-
-}
-
-
-document.getElementById("themeBtn")
-  .addEventListener(
-    "click",
-    ()=>{
-
-      document.body.classList.toggle(
-        "light"
-      );
-
-
-      const light =
-        document.body.classList.contains(
-          "light"
+        sessionStorage.setItem(
+            "hidayahAdmin",
+            "1"
         );
 
+        closeAdminLogin();
 
-      localStorage.setItem(
-        "hidayahTheme",
-        light
-        ? "light"
-        : "dark"
-      );
+        document.getElementById("adminUsername").value = "";
+        document.getElementById("adminPassword").value = "";
 
+        showView("admin");
 
-      document.getElementById("themeBtn")
-        .textContent =
-          light
-          ? "☀"
-          : "☾";
+        toast("تم الدخول إلى لوحة الإدارة");
+
+    }else{
+
+        toast("بيانات الدخول غير صحيحة");
 
     }
-  );
+
+}
+
+
+function isAdmin(){
+
+    return sessionStorage.getItem("hidayahAdmin") === "1";
+
+}
+
+
+function logoutAdmin(){
+
+    sessionStorage.removeItem("hidayahAdmin");
+
+    showView("home");
+
+    toast("تم تسجيل الخروج");
+
+}
+
+
+function requireAdmin(){
+
+    if(!isAdmin()){
+
+        openAdminLogin();
+
+        return false;
+
+    }
+
+    return true;
+
+}
 
 
 /* =========================================================
-   MOBILE MENU
+   ADMIN DASHBOARD
 ========================================================= */
 
-document.getElementById("menuBtn")
-  .addEventListener(
-    "click",
-    ()=>{
+function renderAdmin(){
 
-      document.getElementById(
-        "navLinks"
-      ).classList.toggle(
-        "open"
-      );
+    if(!requireAdmin()) return;
 
-    }
-  );
+    const published =
+        STORIES.filter(x => x.status === "approved").length;
+
+    const drafts =
+        STORIES.filter(x => x.status !== "approved").length;
+
+    const scenes =
+        STORIES.reduce(
+            (sum,x) => sum + (x.scenes?.length || 0),
+            0
+        );
+
+    document.getElementById("statStories").textContent =
+        STORIES.length;
+
+    document.getElementById("statPublished").textContent =
+        published;
+
+    document.getElementById("statDrafts").textContent =
+        drafts;
+
+    document.getElementById("statScenes").textContent =
+        scenes;
+
+    document.getElementById("adminStories").innerHTML =
+        STORIES.map(adminStoryRow).join("");
+
+}
+
+
+function adminStoryRow(story){
+
+    const status =
+        story.status === "approved"
+        ? "منشورة"
+        : story.status === "review"
+        ? "قيد المراجعة"
+        : "مسودة";
+
+    return `
+
+        <div class="admin-story-row">
+
+            <div class="admin-story-icon">
+                ${story.icon || "📖"}
+            </div>
+
+            <div class="admin-story-info">
+
+                <h3>
+                    ${escapeHTML(story.title)}
+                </h3>
+
+                <p>
+                    ${escapeHTML(story.category || "")}
+                    ·
+                    ${story.scenes?.length || 0} مشاهد
+                    ·
+                    ${story.video ? "🎬 فيديو" : "بدون فيديو"}
+                    ·
+                    ${status}
+                </p>
+
+            </div>
+
+            <div class="admin-actions">
+
+                <button
+                    class="btn btn-dark"
+                    onclick="previewAdminStory('${story.id}')"
+                >
+                    👁 معاينة
+                </button>
+
+                <button
+                    class="btn btn-green"
+                    onclick="openStoryEditor('${story.id}')"
+                >
+                    تعديل
+                </button>
+
+                <button
+                    class="btn btn-danger"
+                    onclick="deleteStory('${story.id}')"
+                >
+                    حذف
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
 
 
 /* =========================================================
-   NAV
+   STORY EDITOR
 ========================================================= */
 
-document.querySelectorAll(
-  ".nav-links button"
-).forEach(button=>{
+function openNewStory(){
 
-  button.addEventListener(
-    "click",
-    ()=>{
+    if(!requireAdmin()) return;
 
-      showView(
-        button.dataset.view
-      );
+    editingStoryId = null;
+
+    editingScenes = [];
+
+    document.getElementById("editorTitle").textContent =
+        "إضافة قصة جديدة";
+
+    document.getElementById("storyTitle").value = "";
+    document.getElementById("storyCategory").value = "قصص الأنبياء";
+    document.getElementById("storyIcon").value = "📖";
+    document.getElementById("storyCover").value = "";
+    document.getElementById("storyDescription").value = "";
+    document.getElementById("storySource").value = "";
+    document.getElementById("storyStatus").value = "draft";
+    document.getElementById("storyVideo").value = "";
+    document.getElementById("storyVideoSource").value = "";
+
+    renderSceneEditors();
+
+    document
+        .getElementById("storyEditorModal")
+        .classList.add("show");
+
+}
+
+
+function openStoryEditor(id){
+
+    if(!requireAdmin()) return;
+
+    const story =
+        STORIES.find(x => x.id === id);
+
+    if(!story) return;
+
+    editingStoryId = id;
+
+    editingScenes =
+        JSON.parse(
+            JSON.stringify(story.scenes || [])
+        );
+
+    document.getElementById("editorTitle").textContent =
+        "تعديل: " + story.title;
+
+    document.getElementById("storyTitle").value =
+        story.title || "";
+
+    document.getElementById("storyCategory").value =
+        story.category || "أخرى";
+
+    document.getElementById("storyIcon").value =
+        story.icon || "📖";
+
+    document.getElementById("storyCover").value =
+        story.cover || "";
+
+    document.getElementById("storyDescription").value =
+        story.description || "";
+
+    document.getElementById("storySource").value =
+        story.source || "";
+
+    document.getElementById("storyStatus").value =
+        story.status || "draft";
+
+    document.getElementById("storyVideo").value =
+        story.video || "";
+
+    document.getElementById("storyVideoSource").value =
+        story.videoSource || "";
+
+    renderSceneEditors();
+
+    document
+        .getElementById("storyEditorModal")
+        .classList.add("show");
+
+}
+
+
+function closeStoryEditor(){
+
+    document
+        .getElementById("storyEditorModal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   SCENE EDITOR
+========================================================= */
+
+function addSceneEditor(){
+
+    editingScenes.push({
+
+        id:
+            "scene-" +
+            Date.now() +
+            "-" +
+            Math.random()
+            .toString(36)
+            .slice(2,7),
+
+        title:"مشهد جديد",
+
+        text:"",
+
+        source:"",
+
+        image:""
+
+    });
+
+    renderSceneEditors();
+
+}
+
+
+function renderSceneEditors(){
+
+    const container =
+        document.getElementById("scenesEditor");
+
+    if(!editingScenes.length){
+
+        container.innerHTML = `
+            <div class="empty">
+                <strong>لا توجد مشاهد</strong>
+                اضغط "إضافة مشهد".
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML =
+        editingScenes.map((scene,index) => `
+
+            <div class="scene-editor">
+
+                <div class="scene-editor-head">
+
+                    <strong>
+                        المشهد ${index + 1}
+                    </strong>
+
+                    <div class="admin-actions">
+
+                        <button
+                            class="btn btn-dark"
+                            onclick="moveScene(${index},-1)"
+                            ${index === 0 ? "disabled" : ""}
+                        >
+                            ↑
+                        </button>
+
+                        <button
+                            class="btn btn-dark"
+                            onclick="moveScene(${index},1)"
+                            ${index === editingScenes.length-1 ? "disabled" : ""}
+                        >
+                            ↓
+                        </button>
+
+                        <button
+                            class="btn btn-danger"
+                            onclick="removeScene(${index})"
+                        >
+                            حذف
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="scene-editor-grid">
+
+                    <div class="field">
+
+                        <label>عنوان المشهد</label>
+
+                        <input
+                            value="${escapeAttr(scene.title || "")}"
+                            oninput="updateScene(${index},'title',this.value)"
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label>رابط صورة المشهد — اختياري</label>
+
+                        <input
+                            value="${escapeAttr(scene.image || "")}"
+                            oninput="updateScene(${index},'image',this.value)"
+                        >
+
+                    </div>
+
+                    <div class="field full">
+
+                        <label>نص المشهد</label>
+
+                        <textarea
+                            oninput="updateScene(${index},'text',this.value)"
+                        >${escapeHTML(scene.text || "")}</textarea>
+
+                    </div>
+
+                    <div class="field full">
+
+                        <label>مصدر المشهد</label>
+
+                        <input
+                            value="${escapeAttr(scene.source || "")}"
+                            oninput="updateScene(${index},'source',this.value)"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+function updateScene(index,key,value){
+
+    if(editingScenes[index]){
+
+        editingScenes[index][key] = value;
 
     }
-  );
 
-});
+}
+
+
+function removeScene(index){
+
+    if(!confirm("حذف هذا المشهد؟")) return;
+
+    editingScenes.splice(index,1);
+
+    renderSceneEditors();
+
+}
+
+
+function moveScene(index,direction){
+
+    const newIndex =
+        index + direction;
+
+    if(
+        newIndex < 0 ||
+        newIndex >= editingScenes.length
+    ) return;
+
+    [
+        editingScenes[index],
+        editingScenes[newIndex]
+    ] =
+    [
+        editingScenes[newIndex],
+        editingScenes[index]
+    ];
+
+    renderSceneEditors();
+
+}
+
+
+/* =========================================================
+   SAVE STORY
+========================================================= */
+
+function saveStory(){
+
+    if(!requireAdmin()) return;
+
+    const title =
+        document.getElementById("storyTitle").value.trim();
+
+    if(!title){
+
+        toast("اكتب عنوان القصة أولًا");
+
+        return;
+
+    }
+
+    const storyData = {
+
+        id:
+            editingStoryId ||
+            createSlug(title),
+
+        title,
+
+        category:
+            document.getElementById("storyCategory").value,
+
+        icon:
+            document.getElementById("storyIcon").value.trim()
+            || "📖",
+
+        cover:
+            document.getElementById("storyCover").value.trim(),
+
+        description:
+            document.getElementById("storyDescription").value.trim(),
+
+        source:
+            document.getElementById("storySource").value.trim(),
+
+        video:
+            document.getElementById("storyVideo").value.trim(),
+
+        videoSource:
+            document.getElementById("storyVideoSource").value.trim(),
+
+        status:
+            document.getElementById("storyStatus").value,
+
+        scenes:
+            JSON.parse(
+                JSON.stringify(editingScenes)
+            )
+
+    };
+
+
+    if(editingStoryId){
+
+        const index =
+            STORIES.findIndex(
+                x => x.id === editingStoryId
+            );
+
+        if(index !== -1){
+
+            STORIES[index] = storyData;
+
+        }
+
+    }else{
+
+        STORIES.unshift(storyData);
+
+    }
+
+
+    saveStories();
+
+    closeStoryEditor();
+
+    renderAdmin();
+
+    renderFeatured();
+
+    renderLibrary();
+
+    toast("تم حفظ القصة بنجاح");
+
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+function deleteStory(id){
+
+    if(!requireAdmin()) return;
+
+    const story =
+        STORIES.find(x => x.id === id);
+
+    if(!story) return;
+
+    if(
+        !confirm(
+            `هل تريد حذف "${story.title}" نهائيًا؟`
+        )
+    ) return;
+
+    STORIES =
+        STORIES.filter(
+            x => x.id !== id
+        );
+
+    saveStories();
+
+    renderAdmin();
+    renderFeatured();
+    renderLibrary();
+
+    toast("تم حذف القصة");
+
+}
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+function previewAdminStory(id){
+
+    openStory(id);
+
+}
+
+
+/* =========================================================
+   ADMIN TABS
+========================================================= */
+
+function adminTab(tab,button){
+
+    document
+        .querySelectorAll(".admin-tabs button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document.getElementById("adminStoriesPanel").style.display =
+        tab === "stories" ? "block" : "none";
+
+    document.getElementById("adminDataPanel").style.display =
+        tab === "data" ? "block" : "none";
+
+}
+
+
+/* =========================================================
+   DATA EXPORT
+========================================================= */
+
+function exportData(){
+
+    if(!requireAdmin()) return;
+
+    const data =
+        JSON.stringify(
+            STORIES,
+            null,
+            2
+        );
+
+    const blob =
+        new Blob(
+            [data],
+            {type:"application/json"}
+        );
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const a =
+        document.createElement("a");
+
+    a.href = url;
+
+    a.download =
+        "hidayah-backup.json";
+
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+    toast("تم تصدير نسخة احتياطية");
+
+}
+
+
+function importData(event){
+
+    if(!requireAdmin()) return;
+
+    const file =
+        event.target.files?.[0];
+
+    if(!file) return;
+
+    const reader =
+        new FileReader();
+
+    reader.onload =
+        function(){
+
+            try{
+
+                const data =
+                    JSON.parse(reader.result);
+
+                if(!Array.isArray(data)){
+
+                    throw new Error("invalid");
+
+                }
+
+                STORIES = data;
+
+                saveStories();
+
+                renderAdmin();
+                renderFeatured();
+                renderLibrary();
+
+                toast("تم استيراد البيانات");
+
+            }catch{
+
+                toast("ملف JSON غير صالح");
+
+            }
+
+        };
+
+    reader.readAsText(file);
+
+}
+
+
+function resetData(){
+
+    if(!requireAdmin()) return;
+
+    if(
+        !confirm(
+            "سيتم حذف التعديلات المحلية وإعادة قصص التجربة. هل أنت متأكد؟"
+        )
+    ) return;
+
+    STORIES =
+        JSON.parse(
+            JSON.stringify(DEFAULT_STORIES)
+        );
+
+    saveStories();
+
+    renderAdmin();
+    renderFeatured();
+    renderLibrary();
+
+    toast("تمت إعادة بيانات التجربة");
+
+}
+
+
+/* =========================================================
+   RANDOM
+========================================================= */
+
+function openRandomStory(){
+
+    if(!STORIES.length) return;
+
+    const story =
+        STORIES[
+            Math.floor(
+                Math.random() * STORIES.length
+            )
+        ];
+
+    openStory(story.id);
+
+}
+
+
+/* =========================================================
+   UTILITIES
+========================================================= */
+
+function createSlug(title){
+
+    return (
+        title
+        .toLowerCase()
+        .trim()
+        .replace(/[^\u0600-\u06FFa-z0-9]+/g,"-")
+        .replace(/^-+|-+$/g,"")
+        +
+        "-" +
+        Date.now()
+    );
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+    return escapeHTML(value);
+
+}
+
+
+function toast(message){
+
+    const el =
+        document.getElementById("toast");
+
+    el.textContent = message;
+
+    el.classList.add("show");
+
+    clearTimeout(window.__toastTimer);
+
+    window.__toastTimer =
+        setTimeout(
+            () => el.classList.remove("show"),
+            2800
+        );
+
+}
 
 
 /* =========================================================
@@ -3282,136 +3394,69 @@ document.querySelectorAll(
 ========================================================= */
 
 document.addEventListener(
-  "keydown",
-  event=>{
+    "keydown",
+    event => {
 
-    if(event.key==="/"){
+        if(event.key === "Escape"){
 
-      event.preventDefault();
+            closeAdminLogin();
+            closeStoryEditor();
 
-      openSearch();
+        }
+
+        if(
+            event.key === "/" &&
+            !["INPUT","TEXTAREA"].includes(
+                document.activeElement.tagName
+            )
+        ){
+
+            focusSearch();
+
+            event.preventDefault();
+
+        }
+
+        if(
+            document.getElementById("readerView")
+                .classList.contains("active")
+        ){
+
+            if(event.key === "ArrowRight"){
+
+                nextScene();
+
+            }
+
+            if(event.key === "ArrowLeft"){
+
+                previousScene();
+
+            }
+
+            if(event.key === " "){
+
+                event.preventDefault();
+
+                speakCurrentScene();
+
+            }
+
+        }
 
     }
-
-
-    if(event.key==="Escape"){
-
-      searchOverlay.classList.remove(
-        "open"
-      );
-
-    }
-
-
-    if(
-      views.reader.classList.contains(
-        "active"
-      )
-    ){
-
-      if(event.key==="ArrowRight"){
-        nextScene();
-      }
-
-      if(event.key==="ArrowLeft"){
-        previousScene();
-      }
-
-      if(event.key===" "){
-        event.preventDefault();
-        toggleReading();
-      }
-
-    }
-
-  }
 );
 
 
 /* =========================================================
-   TOAST
-========================================================= */
-
-let toastTimer;
-
-
-function toast(message){
-
-  const box =
-    document.getElementById(
-      "toast"
-    );
-
-
-  box.textContent =
-    message;
-
-
-  box.classList.add(
-    "show"
-  );
-
-
-  clearTimeout(
-    toastTimer
-  );
-
-
-  toastTimer =
-    setTimeout(
-      ()=>{
-        box.classList.remove(
-          "show"
-        );
-      },
-      2600
-    );
-}
-
-
-/* =========================================================
-   INITIALIZE
+   INIT
 ========================================================= */
 
 renderFeatured();
 renderLibrary();
 renderFavorites();
 
-
-/* =========================================================
-   RESTORE LAST STORY
-========================================================= */
-
-const lastStory =
-  localStorage.getItem(
-    "hidayahLastStory"
-  );
-
-
-const lastScene =
-  Number(
-    localStorage.getItem(
-      "hidayahLastScene"
-    )
-  );
-
-
-if(lastStory){
-
-  const exists =
-    STORIES.some(
-      story=>story.id===lastStory
-    );
-
-  if(exists){
-
-    // يتم الحفظ فقط، ولا نفتح القصة تلقائيًا
-    // حتى يبدأ المستخدم من الصفحة الرئيسية.
-  }
-
-}
-
 </script>
 
 </body>
-   </html>
+  </html> 
