@@ -1,416 +1,2351 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>الهداية | نورٌ يُقرأ ويُسمع</title>
+<title>الهداية | طريقك إلى الخير</title>
+<meta name="description" content="الهداية - منصة إسلامية مبسطة للقصص والقرآن والأذكار ومواقيت الصلاة">
 
-  <meta
-    name="description"
-    content="منصة الهداية للقرآن الكريم والقصص والأذكار ومواقيت الصلاة"
-  >
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+/* =========================================================
+   الهداية - ALL IN ONE
+   لا تحتاج إلى CSS أو JS خارجي
+========================================================= */
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap"
-    rel="stylesheet"
-  >
+:root{
+  --green:#123c2c;
+  --green2:#1c5941;
+  --green3:#287356;
+  --gold:#c9a45c;
+  --gold2:#e1c681;
+  --cream:#f8f4ea;
+  --white:#ffffff;
+  --ink:#18251f;
+  --muted:#6f7b74;
+  --line:#e6e0d3;
+  --shadow:0 18px 55px rgba(18,60,44,.10);
+  --radius:24px;
+}
 
-  <link rel="stylesheet" href="css/main.css">
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Cairo",sans-serif;
+  background:
+    radial-gradient(circle at 10% 5%,rgba(201,164,92,.12),transparent 25%),
+    radial-gradient(circle at 90% 20%,rgba(40,115,86,.09),transparent 25%),
+    var(--cream);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+button,
+input,
+select{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* =========================
+   BACKGROUND DECORATION
+========================= */
+
+.bg-pattern{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.38;
+  background-image:
+    linear-gradient(30deg,rgba(18,60,44,.025) 12%,transparent 12.5%,transparent 87%,rgba(18,60,44,.025) 87.5%),
+    linear-gradient(150deg,rgba(18,60,44,.025) 12%,transparent 12.5%,transparent 87%,rgba(18,60,44,.025) 87.5%);
+  background-size:70px 120px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(248,244,234,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(18,60,44,.08);
+}
+
+.nav-inner{
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-family:"Amiri",serif;
+  font-size:32px;
+  background:
+    linear-gradient(145deg,var(--gold2),var(--gold));
+  box-shadow:0 8px 25px rgba(201,164,92,.25);
+  position:relative;
+  overflow:hidden;
+}
+
+.logo:after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  border:1px solid rgba(255,255,255,.45);
+  transform:rotate(45deg);
+}
+
+.brand-text strong{
+  display:block;
+  color:var(--green);
+  font-size:19px;
+}
+
+.brand-text span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.nav-links{
+  display:flex;
+  gap:5px;
+  align-items:center;
+}
+
+.nav-links button{
+  border:0;
+  background:transparent;
+  color:#53615a;
+  padding:10px 13px;
+  border-radius:12px;
+  font-size:14px;
+  transition:.25s;
+}
+
+.nav-links button:hover{
+  background:#fff;
+  color:var(--green);
+  transform:translateY(-2px);
+}
+
+.mobile-menu{
+  display:none;
+  border:0;
+  background:#fff;
+  width:45px;
+  height:45px;
+  border-radius:13px;
+  font-size:21px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  padding:75px 0 55px;
+  position:relative;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:55px;
+  align-items:center;
+}
+
+.hero-text{
+  animation:fadeUp .8s ease both;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--green2);
+  background:rgba(40,115,86,.08);
+  border:1px solid rgba(40,115,86,.12);
+  padding:8px 14px;
+  border-radius:100px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  color:var(--green);
+  font-size:clamp(38px,6vw,70px);
+  line-height:1.08;
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero p{
+  color:var(--muted);
+  line-height:2;
+  font-size:17px;
+  max-width:650px;
+  margin-bottom:28px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  border:0;
+  border-radius:15px;
+  padding:13px 21px;
+  font-weight:700;
+  font-size:14px;
+  transition:.25s;
+}
+
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--green),var(--green3));
+  box-shadow:0 12px 30px rgba(18,60,44,.18);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 35px rgba(18,60,44,.25);
+}
+
+.btn-secondary{
+  background:#fff;
+  color:var(--green);
+  border:1px solid var(--line);
+}
+
+.btn-secondary:hover{
+  transform:translateY(-3px);
+  border-color:var(--gold);
+}
+
+.hero-art{
+  min-height:430px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  animation:fadeIn 1s ease both;
+}
+
+.moon{
+  width:310px;
+  height:310px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%,#fffdf5 0 7%,transparent 7.5%),
+    radial-gradient(circle at 65% 58%,rgba(201,164,92,.25) 0 7%,transparent 7.5%),
+    radial-gradient(circle at 45% 70%,rgba(18,60,44,.13) 0 10%,transparent 10.5%),
+    linear-gradient(145deg,#fffaf0,#e9dcc0);
+  box-shadow:
+    0 0 0 20px rgba(201,164,92,.06),
+    0 0 0 45px rgba(201,164,92,.035),
+    0 35px 90px rgba(18,60,44,.18);
+  position:relative;
+  display:grid;
+  place-items:center;
+  animation:float 5s ease-in-out infinite;
+}
+
+.moon:before,
+.moon:after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(201,164,92,.35);
+  border-radius:50%;
+}
+
+.moon:before{
+  inset:-25px;
+}
+
+.moon:after{
+  inset:-50px;
+}
+
+.moon-text{
+  text-align:center;
+  z-index:2;
+}
+
+.moon-text .arabic{
+  font-family:"Amiri",serif;
+  color:var(--green);
+  font-size:39px;
+  font-weight:700;
+}
+
+.moon-text small{
+  display:block;
+  color:var(--gold);
+  font-weight:700;
+  margin-top:3px;
+}
+
+.star{
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 15px rgba(201,164,92,.8);
+  animation:pulse 2s infinite alternate;
+}
+
+.star.s1{top:18%;left:12%}
+.star.s2{top:24%;right:10%;animation-delay:.5s}
+.star.s3{bottom:15%;left:18%;animation-delay:1s}
+.star.s4{bottom:25%;right:13%;animation-delay:1.4s}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  padding:55px 0;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-head .mini{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:5px;
+}
+
+.section-head h2{
+  color:var(--green);
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.section-head p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.feature{
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(18,60,44,.07);
+  border-radius:22px;
+  padding:25px 20px;
+  box-shadow:var(--shadow);
+  transition:.3s;
+  cursor:pointer;
+}
+
+.feature:hover{
+  transform:translateY(-7px);
+  border-color:rgba(201,164,92,.45);
+}
+
+.feature-icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  background:#f5efe1;
+  color:var(--green);
+  font-size:25px;
+  margin-bottom:17px;
+}
+
+.feature h3{
+  color:var(--green);
+  margin-bottom:8px;
+  font-size:17px;
+}
+
+.feature p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+}
+
+/* =========================
+   STORIES
+========================= */
+
+.stories-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.story-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+
+.story-card:hover{
+  transform:translateY(-7px);
+}
+
+.story-cover{
+  height:180px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+.story-cover:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(255,255,255,.2),transparent 20%),
+    radial-gradient(circle at 80% 60%,rgba(255,255,255,.13),transparent 25%);
+}
+
+.cover-1{background:linear-gradient(135deg,#183f31,#38745b)}
+.cover-2{background:linear-gradient(135deg,#344a41,#a17c43)}
+.cover-3{background:linear-gradient(135deg,#173d52,#34768c)}
+
+.story-symbol{
+  font-family:"Amiri",serif;
+  font-size:65px;
+  position:relative;
+  z-index:2;
+}
+
+.story-content{
+  padding:20px;
+}
+
+.story-content h3{
+  color:var(--green);
+  margin-bottom:8px;
+}
+
+.story-content p{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:13px;
+  margin-bottom:16px;
+}
+
+.story-actions{
+  display:flex;
+  gap:8px;
+}
+
+.story-actions button{
+  flex:1;
+  border:0;
+  border-radius:12px;
+  padding:10px 6px;
+  font-weight:700;
+  font-size:12px;
+}
+
+.watch{
+  background:var(--green);
+  color:#fff;
+}
+
+.read{
+  background:#f4efe3;
+  color:var(--green);
+}
+
+/* =========================
+   QURAN
+========================= */
+
+.quran-box{
+  background:
+    linear-gradient(135deg,#123c2c,#1d5c43);
+  color:#fff;
+  border-radius:30px;
+  padding:38px;
+  box-shadow:0 25px 70px rgba(18,60,44,.18);
+  position:relative;
+  overflow:hidden;
+}
+
+.quran-box:after{
+  content:"هُدًى";
+  position:absolute;
+  left:-20px;
+  bottom:-55px;
+  font-family:"Amiri",serif;
+  font-size:200px;
+  color:rgba(255,255,255,.035);
+}
+
+.quran-content{
+  position:relative;
+  z-index:2;
+}
+
+.quran-content h2{
+  font-family:"Amiri",serif;
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.quran-content p{
+  color:rgba(255,255,255,.72);
+  line-height:2;
+  max-width:650px;
+  font-size:14px;
+}
+
+.quran-controls{
+  margin-top:22px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.quran-select{
+  border:0;
+  border-radius:12px;
+  padding:12px 15px;
+  color:var(--green);
+  background:#fff;
+  font-weight:700;
+  min-width:200px;
+}
+
+.quran-btn{
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.1);
+  color:#fff;
+  border-radius:12px;
+  padding:12px 17px;
+  font-weight:700;
+}
+
+.quran-btn:hover{
+  background:rgba(255,255,255,.18);
+}
+
+.quran-reader{
+  display:none;
+  margin-top:25px;
+  background:#fff;
+  color:var(--ink);
+  border-radius:20px;
+  padding:25px;
+  max-height:520px;
+  overflow:auto;
+}
+
+.quran-reader.show{
+  display:block;
+  animation:fadeUp .4s ease;
+}
+
+.surah-title{
+  text-align:center;
+  color:var(--green);
+  font-family:"Amiri",serif;
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.ayah{
+  padding:18px 8px;
+  border-bottom:1px solid var(--line);
+  font-family:"Amiri",serif;
+  font-size:23px;
+  line-height:2.1;
+}
+
+.ayah-number{
+  display:inline-grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:#f0e7d4;
+  color:var(--green);
+  font-family:"Cairo",sans-serif;
+  font-size:11px;
+  margin-left:8px;
+}
+
+.ayah-play{
+  border:0;
+  background:#edf4f0;
+  color:var(--green);
+  border-radius:10px;
+  padding:7px 9px;
+  font-family:"Cairo",sans-serif;
+  margin-right:7px;
+}
+
+/* =========================
+   ADHKAR
+========================= */
+
+.adhkar-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.dhikr-category{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:21px;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.dhikr-category:hover{
+  transform:translateY(-5px);
+  border-color:rgba(201,164,92,.55);
+}
+
+.dhikr-icon{
+  font-size:28px;
+  margin-bottom:9px;
+}
+
+.dhikr-category h3{
+  color:var(--green);
+  font-size:15px;
+}
+
+.dhikr-category p{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+}
+
+.dhikr-reader{
+  display:none;
+  margin-top:25px;
+  background:#fff;
+  border-radius:25px;
+  border:1px solid var(--line);
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.dhikr-reader.show{
+  display:block;
+  animation:fadeUp .4s ease;
+}
+
+.dhikr-reader-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.dhikr-reader-head h3{
+  color:var(--green);
+}
+
+.close-reader{
+  border:0;
+  background:#f3eee3;
+  color:var(--green);
+  border-radius:10px;
+  padding:8px 13px;
+}
+
+.dhikr-item{
+  background:#faf8f2;
+  border:1px solid #eee7d9;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:12px;
+}
+
+.dhikr-item p{
+  font-family:"Amiri",serif;
+  font-size:22px;
+  line-height:2;
+  color:#26352e;
+}
+
+.dhikr-item .count{
+  display:inline-block;
+  margin-top:10px;
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
+}
+
+/* =========================
+   PRAYER
+========================= */
+
+.prayer-section{
+  background:linear-gradient(145deg,#f0eadc,#fff);
+}
+
+.location-status{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:20px;
+  font-size:13px;
+}
+
+.prayer-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:13px;
+}
+
+.prayer-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px 10px;
+  text-align:center;
+}
+
+.prayer-card.active{
+  background:var(--green);
+  color:#fff;
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(18,60,44,.18);
+}
+
+.prayer-card h3{
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.prayer-card strong{
+  font-size:20px;
+}
+
+.location-btn{
+  display:block;
+  margin:20px auto 0;
+  border:0;
+  background:var(--green);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:13px;
+  font-weight:700;
+}
+
+/* =========================
+   TASBEEH
+========================= */
+
+.tasbeeh{
+  text-align:center;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:35px 20px;
+  box-shadow:var(--shadow);
+}
+
+.tasbeeh h2{
+  color:var(--green);
+}
+
+.counter{
+  width:180px;
+  height:180px;
+  margin:25px auto;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle,#fff 55%,#f1e7d3 56%,#f1e7d3 63%,#fff 64%);
+  border:10px solid #f5efe3;
+  box-shadow:0 15px 45px rgba(18,60,44,.1);
+}
+
+.counter span{
+  font-size:48px;
+  font-weight:800;
+  color:var(--green);
+}
+
+.tasbeeh-actions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+.tasbeeh-actions button{
+  border:0;
+  border-radius:13px;
+  padding:12px 20px;
+  font-weight:800;
+}
+
+.plus{
+  background:var(--green);
+  color:#fff;
+}
+
+.reset{
+  background:#f1ece1;
+  color:var(--green);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  margin-top:60px;
+  padding:45px 0 25px;
+  background:#102f24;
+  color:#fff;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:35px;
+}
+
+footer h3{
+  margin-bottom:10px;
+  color:#fff;
+}
+
+footer p{
+  color:rgba(255,255,255,.62);
+  font-size:13px;
+  line-height:2;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:30px;
+  padding-top:18px;
+  text-align:center;
+  color:rgba(255,255,255,.5);
+  font-size:11px;
+}
+
+.m11{
+  color:var(--gold2);
+  font-weight:800;
+}
+
+/* =========================
+   MODAL / STORY
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(8,25,19,.72);
+  backdrop-filter:blur(8px);
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(850px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:28px;
+  box-shadow:0 30px 100px rgba(0,0,0,.25);
+  animation:scaleIn .3s ease;
+}
+
+.modal-top{
+  padding:20px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+}
+
+.modal-top h2{
+  color:var(--green);
+}
+
+.modal-close{
+  border:0;
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:#f3eee4;
+  color:var(--green);
+  font-size:20px;
+}
+
+.modal-body{
+  padding:25px;
+}
+
+.story-full-text{
+  font-family:"Amiri",serif;
+  font-size:23px;
+  line-height:2.15;
+  color:#27362f;
+}
+
+.story-full-text p{
+  margin-bottom:18px;
+}
+
+.story-note{
+  background:#f7f2e7;
+  border-right:4px solid var(--gold);
+  padding:17px;
+  border-radius:12px;
+  font-size:13px;
+  line-height:2;
+  margin:20px 0;
+}
+
+.read-controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.read-controls button{
+  border:0;
+  border-radius:12px;
+  padding:11px 15px;
+  font-weight:700;
+}
+
+.speak{
+  background:var(--green);
+  color:#fff;
+}
+
+.stop{
+  background:#f0e9dc;
+  color:var(--green);
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  z-index:3000;
+  background:#102f24;
+  color:#fff;
+  padding:13px 17px;
+  border-radius:13px;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+  transform:translateY(100px);
+  opacity:0;
+  transition:.35s;
+  font-size:13px;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-13px)}
+}
+
+@keyframes pulse{
+  from{opacity:.3;transform:scale(.7)}
+  to{opacity:1;transform:scale(1.3)}
+}
+
+@keyframes scaleIn{
+  from{
+    opacity:0;
+    transform:scale(.94);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:78px;
+    right:4%;
+    left:4%;
+    background:#fff;
+    padding:10px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    flex-direction:column;
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links button{
+    width:100%;
+    text-align:right;
+  }
+
+  .mobile-menu{
+    display:block;
+  }
+
+  .hero{
+    padding-top:45px;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero-art{
+    min-height:350px;
+  }
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stories-grid{
+    grid-template-columns:1fr;
+  }
+
+  .adhkar-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .prayer-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:550px){
+
+  .brand-text strong{
+    font-size:16px;
+  }
+
+  .brand-text span{
+    font-size:9px;
+  }
+
+  .logo{
+    width:43px;
+    height:43px;
+    font-size:27px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .moon{
+    width:245px;
+    height:245px;
+  }
+
+  .moon-text .arabic{
+    font-size:32px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .adhkar-grid{
+    grid-template-columns:1fr;
+  }
+
+  .prayer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .quran-box{
+    padding:24px 17px;
+  }
+
+  .ayah{
+    font-size:20px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header class="nav">
+<div class="bg-pattern"></div>
 
-  <a class="brand" href="index.html">
-    <span class="brand-mark">هـ</span>
+<!-- ========================= NAV ========================= -->
 
-    <span>
-      <b>الهداية</b>
-      <small>نورٌ يُقرأ ويُسمع</small>
-    </span>
-  </a>
+<header class="navbar">
+  <div class="container nav-inner">
 
-  <nav>
-    <a class="active" href="index.html">الرئيسية</a>
-    <a href="stories.html">القصص</a>
-    <a href="quran.html">القرآن الكريم</a>
-    <a href="adhkar.html">الأذكار</a>
-    <a href="prayer.html">مواقيت الصلاة</a>
-  </nav>
+    <a href="#home" class="brand">
+      <div class="logo">هـ</div>
+      <div class="brand-text">
+        <strong>الهداية</strong>
+        <span>طريقك إلى الخير</span>
+      </div>
+    </a>
 
+    <nav class="nav-links" id="navLinks">
+      <button onclick="goTo('home')">الرئيسية</button>
+      <button onclick="goTo('stories')">القصص</button>
+      <button onclick="goTo('quran')">القرآن</button>
+      <button onclick="goTo('adhkar')">الأذكار</button>
+      <button onclick="goTo('prayer')">الصلاة</button>
+      <button onclick="goTo('tasbeeh')">التسبيح</button>
+    </nav>
+
+    <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+
+  </div>
 </header>
 
+<!-- ========================= HERO ========================= -->
 
-<main>
+<main id="home">
 
-<section class="hero wrap">
+<section class="hero">
+  <div class="container hero-grid">
 
-  <div class="hero-copy">
+    <div class="hero-text">
 
-    <span class="eyebrow">
-      منصة إسلامية تعليمية
-    </span>
-
-    <h1>
-      خذ من النور ما
-      <em>يهديك</em>،
-      ومن العلم ما ينفعك.
-    </h1>
-
-    <p>
-      مكان هادئ يجمع القصص، والقرآن الكريم، والأذكار،
-      ومواقيت الصلاة في تجربة عربية بسيطة وجميلة.
-    </p>
-
-    <div class="actions">
-
-      <a class="btn primary" href="stories.html">
-        ابدأ بالقصص
-        <span>←</span>
-      </a>
-
-      <a class="btn ghost" href="quran.html">
-        افتح المصحف
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <div class="hero-art">
-
-    <div class="halo"></div>
-
-    <div class="mushaf">
-
-      <div class="mushaf-cover">
-        هـ
+      <div class="eyebrow">
+        ✦ منصة إسلامية مبسطة
       </div>
 
-      <div class="mushaf-pages"></div>
+      <h1>
+        أهلاً بك في<br>
+        <span>الهداية</span>
+      </h1>
+
+      <p>
+        مساحة هادئة تجمع القصص الإسلامية، وقراءة القرآن الكريم،
+        والأذكار، ومواقيت الصلاة، والتسبيح في تجربة بسيطة وأنيقة.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="goTo('stories')">
+          استكشف القصص
+        </button>
+
+        <button class="btn btn-secondary" onclick="goTo('quran')">
+          افتح القرآن الكريم
+        </button>
+      </div>
 
     </div>
 
-    <div class="spark s1">✦</div>
-    <div class="spark s2">✧</div>
+    <div class="hero-art">
 
-    <div class="orb o1"></div>
-    <div class="orb o2"></div>
+      <div class="star s1"></div>
+      <div class="star s2"></div>
+      <div class="star s3"></div>
+      <div class="star s4"></div>
+
+      <div class="moon">
+        <div class="moon-text">
+          <div class="arabic">المعرفة نور</div>
+          <small>والهداية طريق</small>
+        </div>
+      </div>
+
+    </div>
 
   </div>
-
 </section>
 
+<!-- ========================= FEATURES ========================= -->
 
-<section class="wrap section">
+<section class="section">
+<div class="container">
 
   <div class="section-head">
+    <div class="mini">في مكان واحد</div>
+    <h2>كل ما تحتاجه في الهداية</h2>
+    <p>اختر القسم الذي تريد وابدأ مباشرة.</p>
+  </div>
 
-    <div>
+  <div class="features">
 
-      <span class="eyebrow">
-        اكتشف
-      </span>
+    <div class="feature" onclick="goTo('stories')">
+      <div class="feature-icon">📖</div>
+      <h3>القصص الإسلامية</h3>
+      <p>قصص مبسطة مع القراءة الآلية ومعلومات تساعد على فهم القصة.</p>
+    </div>
 
-      <h2>
-        كل ما تحتاجه في مكان واحد
-      </h2>
+    <div class="feature" onclick="goTo('quran')">
+      <div class="feature-icon">☪</div>
+      <h3>القرآن الكريم</h3>
+      <p>اختر السورة واقرأ الآيات واستمع إلى التلاوة آية بآية.</p>
+    </div>
 
+    <div class="feature" onclick="goTo('adhkar')">
+      <div class="feature-icon">🤲</div>
+      <h3>الأذكار</h3>
+      <p>الصباح والمساء والنوم والاستيقاظ وبعد الصلاة وغيرها.</p>
+    </div>
+
+    <div class="feature" onclick="goTo('prayer')">
+      <div class="feature-icon">🕌</div>
+      <h3>مواقيت الصلاة</h3>
+      <p>استخدم موقعك بعد السماح للمتصفح لمعرفة المواقيت المحلية.</p>
     </div>
 
   </div>
 
-
-  <div class="feature-grid">
-
-    <a class="feature feature-quran" href="quran.html">
-
-      <span class="icon">
-        ۞
-      </span>
-
-      <div>
-
-        <h3>
-          القرآن الكريم
-        </h3>
-
-        <p>
-          تصفح السور والآيات واستمع إلى التلاوة آيةً آية.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ←
-      </span>
-
-    </a>
-
-
-    <a class="feature" href="stories.html">
-
-      <span class="icon">
-        ✦
-      </span>
-
-      <div>
-
-        <h3>
-          قصص الأنبياء
-        </h3>
-
-        <p>
-          قصص عربية مبسطة مع المشاهدة والقراءة وفهم الدروس.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ←
-      </span>
-
-    </a>
-
-
-    <a class="feature" href="adhkar.html">
-
-      <span class="icon">
-        ☾
-      </span>
-
-      <div>
-
-        <h3>
-          الأذكار
-        </h3>
-
-        <p>
-          صباح، مساء، نوم، صلاة، سفر وغيرها في صفحات منظمة.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ←
-      </span>
-
-    </a>
-
-
-    <a class="feature" href="prayer.html">
-
-      <span class="icon">
-        ⌖
-      </span>
-
-      <div>
-
-        <h3>
-          مواقيت الصلاة
-        </h3>
-
-        <p>
-          احسب المواقيت حسب موقعك بعد موافقة المتصفح.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ←
-      </span>
-
-    </a>
-
-  </div>
-
+</div>
 </section>
 
+<!-- ========================= STORIES ========================= -->
 
-<section class="wrap section story-strip">
+<section class="section" id="stories">
+<div class="container">
 
   <div class="section-head">
+    <div class="mini">قصص وعبر</div>
+    <h2>قصص إسلامية مبسطة</h2>
+    <p>اقرأ القصة أو شاهد محتوى مناسباً للتعلم.</p>
+  </div>
 
-    <div>
+  <div class="stories-grid">
 
-      <span class="eyebrow">
-        مختارات
-      </span>
+    <article class="story-card">
 
-      <h2>
-        قصص تستحق أن تُروى
-      </h2>
+      <div class="story-cover cover-1">
+        <div class="story-symbol">نوح</div>
+      </div>
+
+      <div class="story-content">
+        <h3>قصة نبي الله نوح</h3>
+        <p>
+          قصة الصبر والثبات والدعوة إلى الله، بأسلوب مبسط.
+        </p>
+
+        <div class="story-actions">
+          <button class="watch" onclick="openVideo('قصة سيدنا نوح للأطفال')">
+            مشاهدة القصة
+          </button>
+
+          <button class="read" onclick="openStory('نوح')">
+            قراءة القصة
+          </button>
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="story-card">
+
+      <div class="story-cover cover-2">
+        <div class="story-symbol">يوسف</div>
+      </div>
+
+      <div class="story-content">
+        <h3>قصة نبي الله يوسف</h3>
+        <p>
+          قصة الصبر والعفو وحسن الظن بالله في أصعب الظروف.
+        </p>
+
+        <div class="story-actions">
+          <button class="watch" onclick="openVideo('قصة سيدنا يوسف للأطفال')">
+            مشاهدة القصة
+          </button>
+
+          <button class="read" onclick="openStory('يوسف')">
+            قراءة القصة
+          </button>
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="story-card">
+
+      <div class="story-cover cover-3">
+        <div class="story-symbol">محمد ﷺ</div>
+      </div>
+
+      <div class="story-content">
+        <h3>من السيرة النبوية</h3>
+        <p>
+          محطات مبسطة من السيرة النبوية للتعلم والتدبر.
+        </p>
+
+        <div class="story-actions">
+          <button class="watch" onclick="openVideo('السيرة النبوية للأطفال')">
+            مشاهدة القصة
+          </button>
+
+          <button class="read" onclick="openStory('محمد')">
+            قراءة القصة
+          </button>
+        </div>
+      </div>
+
+    </article>
+
+  </div>
+
+</div>
+</section>
+
+<!-- ========================= QURAN ========================= -->
+
+<section class="section" id="quran">
+<div class="container">
+
+  <div class="quran-box">
+
+    <div class="quran-content">
+
+      <h2>القرآن الكريم</h2>
+
+      <p>
+        اختر سورة من القائمة لفتحها داخل الموقع.
+        يمكنك قراءة الآيات والاستماع إلى التلاوة آية بآية.
+      </p>
+
+      <div class="quran-controls">
+
+        <select class="quran-select" id="surahSelect">
+          <option value="">اختر السورة...</option>
+        </select>
+
+        <button class="quran-btn" onclick="loadSurah()">
+          فتح السورة
+        </button>
+
+        <button class="quran-btn" onclick="stopQuran()">
+          إيقاف التلاوة
+        </button>
+
+      </div>
+
+      <div class="quran-reader" id="quranReader">
+        <div class="surah-title" id="surahTitle"></div>
+        <div id="ayahList"></div>
+      </div>
 
     </div>
 
-    <a href="stories.html" class="text-link">
-      عرض كل القصص ←
-    </a>
-
   </div>
 
-
-  <div class="story-grid">
-
-    <a class="story-card" href="story.html?id=adam">
-
-      <div class="story-art art-adam">
-        آدم
-      </div>
-
-      <div>
-
-        <span>
-          قصة نبي
-        </span>
-
-        <h3>
-          آدم عليه السلام
-        </h3>
-
-        <p>
-          بداية الخلق والتوبة والطاعة.
-        </p>
-
-      </div>
-
-    </a>
-
-
-    <a class="story-card" href="story.html?id=yunus">
-
-      <div class="story-art art-yunus">
-        يونس
-      </div>
-
-      <div>
-
-        <span>
-          قصة نبي
-        </span>
-
-        <h3>
-          يونس عليه السلام
-        </h3>
-
-        <p>
-          الرجوع إلى الله والثقة برحمته.
-        </p>
-
-      </div>
-
-    </a>
-
-
-    <a class="story-card" href="story.html?id=musa">
-
-      <div class="story-art art-musa">
-        موسى
-      </div>
-
-      <div>
-
-        <span>
-          قصة نبي
-        </span>
-
-        <h3>
-          موسى عليه السلام
-        </h3>
-
-        <p>
-          الثبات أمام الخوف والظلم.
-        </p>
-
-      </div>
-
-    </a>
-
-  </div>
-
+</div>
 </section>
 
+<!-- ========================= ADHKAR ========================= -->
 
-<section class="quote wrap">
+<section class="section" id="adhkar">
+<div class="container">
 
-  <div class="quote-mark">
-    “
+  <div class="section-head">
+    <div class="mini">ذكر الله</div>
+    <h2>الأذكار</h2>
+    <p>اختر القسم الذي تريد قراءته.</p>
   </div>
 
-  <div>
+  <div class="adhkar-grid">
 
-    <p>
-      وَقُل رَّبِّ زِدْنِي عِلْمًا
-    </p>
+    <div class="dhikr-category" onclick="openDhikr('الصباح')">
+      <div class="dhikr-icon">🌅</div>
+      <h3>أذكار الصباح</h3>
+      <p>ابدأ يومك بذكر الله</p>
+    </div>
 
-    <small>
-      سورة طه — آية 114
-    </small>
+    <div class="dhikr-category" onclick="openDhikr('المساء')">
+      <div class="dhikr-icon">🌇</div>
+      <h3>أذكار المساء</h3>
+      <p>اختم يومك بالذكر</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('النوم')">
+      <div class="dhikr-icon">🌙</div>
+      <h3>أذكار النوم</h3>
+      <p>قبل النوم</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('الاستيقاظ')">
+      <div class="dhikr-icon">☀️</div>
+      <h3>أذكار الاستيقاظ</h3>
+      <p>عند الاستيقاظ</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('بعد الصلاة')">
+      <div class="dhikr-icon">🕌</div>
+      <h3>بعد الصلاة</h3>
+      <p>أذكار ما بعد الصلاة</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('البيت')">
+      <div class="dhikr-icon">🏠</div>
+      <h3>أذكار البيت</h3>
+      <p>دخول وخروج</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('السفر')">
+      <div class="dhikr-icon">🧳</div>
+      <h3>أذكار السفر</h3>
+      <p>للمسافر</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('الطعام')">
+      <div class="dhikr-icon">🍃</div>
+      <h3>أذكار الطعام</h3>
+      <p>قبل وبعد الطعام</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('المسجد')">
+      <div class="dhikr-icon">🕌</div>
+      <h3>أذكار المسجد</h3>
+      <p>دخول وخروج المسجد</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('الوضوء')">
+      <div class="dhikr-icon">💧</div>
+      <h3>أذكار الوضوء</h3>
+      <p>ما يتعلق بالوضوء</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('المرض')">
+      <div class="dhikr-icon">🤲</div>
+      <h3>أذكار المرض</h3>
+      <p>أدعية وأذكار</p>
+    </div>
+
+    <div class="dhikr-category" onclick="openDhikr('كل الأذكار')">
+      <div class="dhikr-icon">📚</div>
+      <h3>كل الأذكار</h3>
+      <p>المجموعة الكاملة داخل المنصة</p>
+    </div>
 
   </div>
 
+  <div class="dhikr-reader" id="dhikrReader">
+
+    <div class="dhikr-reader-head">
+      <h3 id="dhikrTitle">الأذكار</h3>
+      <button class="close-reader" onclick="closeDhikr()">إغلاق</button>
+    </div>
+
+    <div id="dhikrList"></div>
+
+  </div>
+
+</div>
+</section>
+
+<!-- ========================= PRAYER ========================= -->
+
+<section class="section prayer-section" id="prayer">
+<div class="container">
+
+  <div class="section-head">
+    <div class="mini">مواقيت الصلاة</div>
+    <h2>صلاتك في وقتها</h2>
+    <p>اسمح للموقع باستخدام موقعك لمعرفة مواقيت منطقتك.</p>
+  </div>
+
+  <div class="location-status" id="locationStatus">
+    لم يتم تحديد موقعك بعد.
+  </div>
+
+  <div class="prayer-grid" id="prayerGrid">
+
+    <div class="prayer-card">
+      <h3>الفجر</h3>
+      <strong>--:--</strong>
+    </div>
+
+    <div class="prayer-card">
+      <h3>الظهر</h3>
+      <strong>--:--</strong>
+    </div>
+
+    <div class="prayer-card">
+      <h3>العصر</h3>
+      <strong>--:--</strong>
+    </div>
+
+    <div class="prayer-card">
+      <h3>المغرب</h3>
+      <strong>--:--</strong>
+    </div>
+
+    <div class="prayer-card">
+      <h3>العشاء</h3>
+      <strong>--:--</strong>
+    </div>
+
+  </div>
+
+  <button class="location-btn" onclick="getPrayerTimes()">
+    📍 تحديد موقعي وحساب المواقيت
+  </button>
+
+</div>
+</section>
+
+<!-- ========================= TASBEEH ========================= -->
+
+<section class="section" id="tasbeeh">
+<div class="container">
+
+  <div class="tasbeeh">
+
+    <h2>التسبيح الإلكتروني</h2>
+
+    <div class="counter">
+      <span id="counter">0</span>
+    </div>
+
+    <div class="tasbeeh-actions">
+
+      <button class="plus" onclick="addTasbeeh()">
+        تسبيحة +1
+      </button>
+
+      <button class="reset" onclick="resetTasbeeh()">
+        تصفير
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 </section>
 
 </main>
 
+<!-- ========================= FOOTER ========================= -->
 
-<footer class="footer">
+<footer>
 
-  <div>
+<div class="container">
 
-    <b>
-      الهداية
-    </b>
+  <div class="footer-grid">
 
-    <p>
-      منصة تعليمية إسلامية تهدف إلى تقديم محتوى واضح ونافع.
-    </p>
+    <div>
+      <h3>الهداية</h3>
+      <p>
+        منصة إسلامية تعليمية مبسطة، هدفها تقديم تجربة هادئة
+        وسهلة للوصول إلى القرآن والقصص والأذكار.
+      </p>
+    </div>
 
-  </div>
+    <div>
+      <h3>أقسام المنصة</h3>
+      <p>القصص الإسلامية</p>
+      <p>القرآن الكريم</p>
+      <p>الأذكار</p>
+      <p>مواقيت الصلاة</p>
+    </div>
 
-
-  <div>
-
-    <b>
-      روابط
-    </b>
-
-    <a href="stories.html">
-      القصص
-    </a>
-
-    <a href="quran.html">
-      القرآن
-    </a>
-
-    <a href="adhkar.html">
-      الأذكار
-    </a>
+    <div>
+      <h3>تطوير</h3>
+      <p>
+        تم التصميم والتطوير بواسطة
+        <span class="m11">M11 / Mr. Mohamed Hussain</span>
+      </p>
+    </div>
 
   </div>
 
-
-  <div class="credit">
-
-    <b>
-      M11
-    </b>
-
-    <p>
-      تصميم وبرمجة
-      <br>
-      Mr. Mohamed Hussain
-    </p>
-
+  <div class="footer-bottom">
+    © 2026 الهداية — جميع الحقوق محفوظة
   </div>
+
+</div>
 
 </footer>
+
+<!-- ========================= STORY MODAL ========================= -->
+
+<div class="modal" id="storyModal">
+
+  <div class="modal-box">
+
+    <div class="modal-top">
+
+      <h2 id="storyTitle">القصة</h2>
+
+      <button class="modal-close" onclick="closeStory()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <div class="story-full-text" id="storyText"></div>
+
+      <div class="story-note" id="storyLesson"></div>
+
+      <div class="read-controls">
+
+        <button class="speak" onclick="speakStory()">
+          🔊 قراءة القصة آلياً
+        </button>
+
+        <button class="stop" onclick="stopSpeaking()">
+          ⏹ إيقاف القراءة
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+/* =========================================================
+   الهداية - JAVASCRIPT
+========================================================= */
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function goTo(id){
+
+  const element=document.getElementById(id);
+
+  if(element){
+    element.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+  }
+
+  document.getElementById("navLinks").classList.remove("open");
+}
+
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("open");
+}
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+  const toast=document.getElementById("toast");
+
+  toast.textContent=message;
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },3000);
+}
+
+/* =========================
+   STORIES
+========================= */
+
+const storiesData={
+
+  "نوح":{
+    title:"قصة نبي الله نوح عليه السلام",
+    text:[
+      "كان نوح عليه السلام نبياً يدعو قومه إلى عبادة الله وحده وترك عبادة غيره.",
+      "استمر نوح عليه السلام في دعوة قومه بصبر طويل، ولم يتوقف عن نصحهم وتذكيرهم.",
+      "وأمره الله تعالى ببناء السفينة، فبناها بأمر الله، وحمل فيها من آمن معه ومن كل زوجين اثنين.",
+      "ثم جاء أمر الله، وحدث الطوفان، فنجّى الله نوحاً ومن آمن معه.",
+      "وتعلمنا قصة نوح عليه السلام أن الصبر على الخير والثبات على الحق من أعظم أسباب النجاة."
+    ],
+    lesson:"فهم مبسط: القصة تعلمنا الصبر والثبات وعدم اليأس عند فعل الخير."
+  },
+
+  "يوسف":{
+    title:"قصة نبي الله يوسف عليه السلام",
+    text:[
+      "كان يوسف عليه السلام ابناً ليعقوب عليه السلام، وقد مر في حياته باختبارات صعبة.",
+      "تعرض يوسف للأذى من إخوته، ثم انتقل إلى حياة جديدة مليئة بالابتلاءات.",
+      "ومع ذلك بقي يوسف عليه السلام ثابتاً على الخير والعفة والإيمان بالله.",
+      "ثم أكرمه الله ومكّنه في الأرض، وبعد سنوات اجتمع بأسرته.",
+      "وكان من أعظم ما ظهر في قصته العفو والإحسان وحسن الظن بالله."
+    ],
+    lesson:"فهم مبسط: مهما كانت الظروف صعبة، لا يعني ذلك أن الخير انتهى؛ فالله قادر على تغيير الحال."
+  },
+
+  "محمد":{
+    title:"من السيرة النبوية",
+    text:[
+      "كان محمد ﷺ رسول الله وخاتم الأنبياء والمرسلين.",
+      "دعا الناس إلى توحيد الله وإلى مكارم الأخلاق والرحمة والعدل.",
+      "واجه النبي ﷺ وأصحابه صعوبات كثيرة في طريق الدعوة، لكنه ثبت وصبر.",
+      "وكان من أخلاقه الرحمة والصدق والأمانة وحسن التعامل مع الناس.",
+      "وتبقى سيرته ﷺ مدرسة عظيمة في الأخلاق والصبر والرحمة."
+    ],
+    lesson:"فهم مبسط: من أهم دروس السيرة الاقتداء بالأخلاق الحسنة والرحمة والصدق."
+  }
+
+};
+
+let currentStory="";
+
+function openStory(name){
+
+  currentStory=name;
+
+  const story=storiesData[name];
+
+  if(!story)return;
+
+  document.getElementById("storyTitle").textContent=story.title;
+
+  document.getElementById("storyText").innerHTML=
+    story.text.map(p=>`<p>${p}</p>`).join("");
+
+  document.getElementById("storyLesson").textContent=story.lesson;
+
+  document.getElementById("storyModal").classList.add("show");
+
+  document.body.style.overflow="hidden";
+}
+
+function closeStory(){
+
+  stopSpeaking();
+
+  document.getElementById("storyModal").classList.remove("show");
+
+  document.body.style.overflow="";
+}
+
+function speakStory(){
+
+  if(!("speechSynthesis" in window)){
+    showToast("المتصفح الحالي لا يدعم القراءة الآلية.");
+    return;
+  }
+
+  stopSpeaking();
+
+  const story=storiesData[currentStory];
+
+  if(!story)return;
+
+  const text=story.title+" . "+story.text.join(" . ");
+
+  const utterance=new SpeechSynthesisUtterance(text);
+
+  utterance.lang="ar-SA";
+  utterance.rate=.82;
+  utterance.pitch=1;
+
+  speechSynthesis.speak(utterance);
+
+  showToast("بدأت قراءة القصة آلياً 🔊");
+}
+
+function stopSpeaking(){
+
+  if("speechSynthesis" in window){
+    speechSynthesis.cancel();
+  }
+}
+
+function openVideo(search){
+
+  const url=
+    "https://www.youtube.com/results?search_query="+
+    encodeURIComponent(search);
+
+  window.open(url,"_blank");
+
+  showToast("تم فتح نتائج البحث عن القصة.");
+}
+
+/* =========================
+   QURAN
+========================= */
+
+const surahs=[
+["الفاتحة",1],["البقرة",2],["آل عمران",3],["النساء",4],["المائدة",5],
+["الأنعام",6],["الأعراف",7],["الأنفال",8],["التوبة",9],["يونس",10],
+["هود",11],["يوسف",12],["الرعد",13],["إبراهيم",14],["الحجر",15],
+["النحل",16],["الإسراء",17],["الكهف",18],["مريم",19],["طه",20],
+["الأنبياء",21],["الحج",22],["المؤمنون",23],["النور",24],["الفرقان",25],
+["الشعراء",26],["النمل",27],["القصص",28],["العنكبوت",29],["الروم",30],
+["لقمان",31],["السجدة",32],["الأحزاب",33],["سبأ",34],["فاطر",35],
+["يس",36],["الصافات",37],["ص",38],["الزمر",39],["غافر",40],
+["فصلت",41],["الشورى",42],["الزخرف",43],["الدخان",44],["الجاثية",45],
+["الأحقاف",46],["محمد",47],["الفتح",48],["الحجرات",49],["ق",50],
+["الذاريات",51],["الطور",52],["النجم",53],["القمر",54],["الرحمن",55],
+["الواقعة",56],["الحديد",57],["المجادلة",58],["الحشر",59],["الممتحنة",60],
+["الصف",61],["الجمعة",62],["المنافقون",63],["التغابن",64],["الطلاق",65],
+["التحريم",66],["الملك",67],["القلم",68],["الحاقة",69],["المعارج",70],
+["نوح",71],["الجن",72],["المزمل",73],["المدثر",74],["القيامة",75],
+["الإنسان",76],["المرسلات",77],["النبأ",78],["النازعات",79],["عبس",80],
+["التكوير",81],["الانفطار",82],["المطففين",83],["الانشقاق",84],["البروج",85],
+["الطارق",86],["الأعلى",87],["الغاشية",88],["الفجر",89],["البلد",90],
+["الشمس",91],["الليل",92],["الضحى",93],["الشرح",94],["التين",95],
+["العلق",96],["القدر",97],["البينة",98],["الزلزلة",99],["العاديات",100],
+["القارعة",101],["التكاثر",102],["العصر",103],["الهمزة",104],["الفيل",105],
+["قريش",106],["الماعون",107],["الكوثر",108],["الكافرون",109],["النصر",110],
+["المسد",111],["الإخلاص",112],["الفلق",113],["الناس",114]
+];
+
+const surahSelect=document.getElementById("surahSelect");
+
+surahs.forEach(s=>{
+  const option=document.createElement("option");
+  option.value=s[1];
+  option.textContent=s[1]+" — سورة "+s[0];
+  surahSelect.appendChild(option);
+});
+
+let currentAyahs=[];
+
+async function loadSurah(){
+
+  const number=surahSelect.value;
+
+  if(!number){
+    showToast("اختر سورة أولاً.");
+    return;
+  }
+
+  const reader=document.getElementById("quranReader");
+  const list=document.getElementById("ayahList");
+  const title=document.getElementById("surahTitle");
+
+  reader.classList.add("show");
+
+  list.innerHTML=
+    '<div style="text-align:center;padding:25px;color:#6f7b74">جارٍ تحميل السورة...</div>';
+
+  try{
+
+    const response=
+      await fetch(
+        "https://api.alquran.cloud/v1/surah/"+number+"/ar.quran-uthmani"
+      );
+
+    if(!response.ok){
+      throw new Error("Network");
+    }
+
+    const data=await response.json();
+
+    currentAyahs=data.data.ayahs;
+
+    title.textContent="سورة "+data.data.name;
+
+    list.innerHTML="";
+
+    currentAyahs.forEach((ayah,index)=>{
+
+      const div=document.createElement("div");
+
+      div.className="ayah";
+
+      div.innerHTML=`
+        <span class="ayah-number">${ayah.numberInSurah}</span>
+        ${ayah.text}
+        <button class="ayah-play" onclick="playAyah(${index})">
+          🔊
+        </button>
+      `;
+
+      list.appendChild(div);
+
+    });
+
+    showToast("تم فتح السورة بنجاح.");
+
+    reader.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+  }catch(error){
+
+    list.innerHTML=`
+      <div style="text-align:center;padding:25px;line-height:2">
+        تعذر تحميل السورة حالياً.<br>
+        تأكد من اتصال الإنترنت ثم حاول مرة أخرى.
+      </div>
+    `;
+
+    showToast("تعذر تحميل القرآن حالياً.");
+  }
+}
+
+function playAyah(index){
+
+  if(!currentAyahs[index])return;
+
+  const ayah=currentAyahs[index];
+
+  stopSpeaking();
+
+  const utterance=
+    new SpeechSynthesisUtterance(ayah.text);
+
+  utterance.lang="ar-SA";
+  utterance.rate=.75;
+
+  speechSynthesis.speak(utterance);
+
+  showToast("جاري قراءة الآية "+ayah.numberInSurah);
+}
+
+function stopQuran(){
+  stopSpeaking();
+  showToast("تم إيقاف التلاوة.");
+}
+
+/* =========================
+   ADHKAR
+========================= */
+
+const adhkarData={
+
+"الصباح":[
+["أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.","مرة واحدة"],
+["رضيت بالله رباً، وبالإسلام ديناً، وبمحمد ﷺ نبياً.","ثلاث مرات"],
+["سبحان الله وبحمده.","100 مرة"]
+],
+
+"المساء":[
+["أمسينا وأمسى الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له.","مرة واحدة"],
+["رضيت بالله رباً، وبالإسلام ديناً، وبمحمد ﷺ نبياً.","ثلاث مرات"],
+["سبحان الله وبحمده.","100 مرة"]
+],
+
+"النوم":[
+["باسمك اللهم أموت وأحيا.","مرة واحدة"],
+["قراءة آية الكرسي قبل النوم.","مرة واحدة"],
+["قراءة الإخلاص والفلق والناس.","ثلاث مرات"]
+],
+
+"الاستيقاظ":[
+["الحمد لله الذي أحيانا بعدما أماتنا وإليه النشور.","مرة واحدة"]
+],
+
+"بعد الصلاة":[
+["أستغفر الله.","ثلاث مرات"],
+["اللهم أنت السلام ومنك السلام تباركت يا ذا الجلال والإكرام.","مرة واحدة"],
+["سبحان الله، والحمد لله، والله أكبر.","33 مرة"]
+],
+
+"البيت":[
+["بسم الله ولجنا، وبسم الله خرجنا، وعلى ربنا توكلنا.","عند الدخول"],
+["بسم الله.","عند الخروج"]
+],
+
+"السفر":[
+["سبحان الذي سخر لنا هذا وما كنا له مقرنين وإنا إلى ربنا لمنقلبون.","عند الركوب"]
+],
+
+"الطعام":[
+["بسم الله.","قبل الطعام"],
+["الحمد لله الذي أطعمنا وسقانا وجعلنا مسلمين.","بعد الطعام"]
+],
+
+"المسجد":[
+["اللهم افتح لي أبواب رحمتك.","عند الدخول"],
+["اللهم إني أسألك من فضلك.","عند الخروج"]
+],
+
+"الوضوء":[
+["أشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن محمداً عبده ورسوله.","بعد الوضوء"]
+],
+
+"المرض":[
+["أسأل الله العظيم رب العرش العظيم أن يشفيك.","دعاء للمريض"]
+]
+
+};
+
+adhkarData["كل الأذكار"]=
+Object.keys(adhkarData)
+.filter(k=>k!=="كل الأذكار")
+.flatMap(k=>adhkarData[k]);
+
+function openDhikr(category){
+
+  const reader=document.getElementById("dhikrReader");
+  const title=document.getElementById("dhikrTitle");
+  const list=document.getElementById("dhikrList");
+
+  title.textContent="أذكار "+category;
+
+  const data=adhkarData[category] || [];
+
+  list.innerHTML=data.map((item,index)=>`
+
+    <div class="dhikr-item">
+
+      <p>${item[0]}</p>
+
+      <span class="count">
+        ${item[1]}
+      </span>
+
+    </div>
+
+  `).join("");
+
+  reader.classList.add("show");
+
+  reader.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+function closeDhikr(){
+
+  stopSpeaking();
+
+  document.getElementById("dhikrReader").classList.remove("show");
+}
+
+/* =========================
+   TASBEEH
+========================= */
+
+let tasbeehCount=
+  Number(localStorage.getItem("hidayah_tasbeeh")||0);
+
+function updateCounter(){
+
+  document.getElementById("counter").textContent=
+    tasbeehCount;
+}
+
+function addTasbeeh(){
+
+  tasbeehCount++;
+
+  localStorage.setItem(
+    "hidayah_tasbeeh",
+    tasbeehCount
+  );
+
+  updateCounter();
+}
+
+function resetTasbeeh(){
+
+  tasbeehCount=0;
+
+  localStorage.setItem(
+    "hidayah_tasbeeh",
+    0
+  );
+
+  updateCounter();
+}
+
+updateCounter();
+
+/* =========================
+   PRAYER TIMES
+========================= */
+
+async function getPrayerTimes(){
+
+  const status=document.getElementById("locationStatus");
+
+  if(!navigator.geolocation){
+
+    status.textContent=
+      "المتصفح لا يدعم تحديد الموقع.";
+
+    return;
+  }
+
+  status.textContent=
+    "جارٍ طلب إذن الموقع...";
+
+  navigator.geolocation.getCurrentPosition(
+
+    async position=>{
+
+      const lat=position.coords.latitude;
+      const lon=position.coords.longitude;
+
+      status.textContent=
+        "تم تحديد الموقع. جارٍ حساب المواقيت...";
+
+      try{
+
+        const date=new Date();
+
+        const day=date.getDate();
+        const month=date.getMonth()+1;
+        const year=date.getFullYear();
+
+        const url=
+          "https://api.aladhan.com/v1/timings/"+
+          day+"-"+month+"-"+year+
+          "?latitude="+lat+
+          "&longitude="+lon+
+          "&method=5";
+
+        const response=await fetch(url);
+
+        const data=await response.json();
+
+        const times=data.data.timings;
+
+        const names=[
+          ["Fajr","الفجر"],
+          ["Dhuhr","الظهر"],
+          ["Asr","العصر"],
+          ["Maghrib","المغرب"],
+          ["Isha","العشاء"]
+        ];
+
+        const grid=document.getElementById("prayerGrid");
+
+        grid.innerHTML=names.map(item=>`
+
+          <div class="prayer-card">
+
+            <h3>${item[1]}</h3>
+
+            <strong>
+              ${times[item[0]]}
+            </strong>
+
+          </div>
+
+        `).join("");
+
+        status.textContent=
+          "تم حساب مواقيت الصلاة حسب موقعك الحالي.";
+
+        showToast("تم تحديث مواقيت الصلاة.");
+
+      }catch(error){
+
+        status.textContent=
+          "حدث خطأ أثناء حساب المواقيت. حاول مرة أخرى.";
+
+      }
+
+    },
+
+    error=>{
+
+      if(error.code===1){
+
+        status.textContent=
+          "لم تسمح بتحديد الموقع. يمكنك استخدام المنصة بدون الموقع.";
+
+      }else{
+
+        status.textContent=
+          "تعذر تحديد موقعك حالياً.";
+
+      }
+
+    },
+
+    {
+      enableHighAccuracy:true,
+      timeout:10000,
+      maximumAge:300000
+    }
+
+  );
+}
+
+/* =========================
+   CLOSE MODAL BY OUTSIDE CLICK
+========================= */
+
+document.getElementById("storyModal").addEventListener(
+  "click",
+  function(e){
+
+    if(e.target===this){
+      closeStory();
+    }
+
+  }
+);
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key==="Escape"){
+
+    closeStory();
+
+    document.getElementById("dhikrReader")
+      .classList.remove("show");
+
+  }
+
+});
+
+/* =========================
+   INITIAL MESSAGE
+========================= */
+
+window.addEventListener("load",function(){
+
+  console.log("الهداية تعمل بنجاح — M11");
+
+});
+</script>
 
 </body>
   </html>
