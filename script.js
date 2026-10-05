@@ -1,813 +1,1258 @@
 /* =========================================================
-   AL-HIDAYAH
-   Main JavaScript
+   الهداية — المرحلة الثانية
    ========================================================= */
+
+
+/* ================= DATA ================= */
+
+const stories = [
+
+    {
+        id: "adam",
+        title: "آدم عليه السلام",
+        category: "prophets",
+        categoryName: "قصص الأنبياء",
+        symbol: "آ",
+        coverA: "#496f5a",
+        coverB: "#142f25",
+        description: "بداية قصة الإنسان وخليفته في الأرض.",
+        time: "6 دقائق قراءة",
+
+        intro:
+            "قصة آدم عليه السلام تحمل بدايات عظيمة عن خلق الإنسان والتوبة والرجوع إلى الله.",
+
+        body: `
+            <p>
+                هذه الصفحة مخصصة لعرض القصة بصورة منظمة، مع الحفاظ على
+                التمييز بين النصوص الثابتة وبين الشروحات الإضافية.
+            </p>
+
+            <h2>بداية الرحلة</h2>
+
+            <p>
+                تبدأ قصة الإنسان بقصة آدم عليه السلام، الذي خلقه الله
+                وكرمه وعلّمه، وكانت قصته بداية رحلة الإنسان في الأرض.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                الإنسان يخطئ، ولكن باب التوبة والرجوع إلى الله مفتوح.
+            </div>
+
+            <h2>التوبة والرجوع</h2>
+
+            <p>
+                من أهم المعاني التي نتأملها في القصة أن الخطأ لا ينبغي
+                أن يكون نهاية الطريق، بل يمكن أن يكون بداية للرجوع
+                والإصلاح.
+            </p>
+        `
+    },
+
+    {
+        id: "ibrahim",
+        title: "إبراهيم عليه السلام",
+        category: "prophets",
+        categoryName: "قصص الأنبياء",
+        symbol: "إ",
+        coverA: "#7b6642",
+        coverB: "#302519",
+        description: "قصة التوحيد والثبات أمام الابتلاء.",
+        time: "7 دقائق قراءة",
+
+        intro:
+            "من أعظم القصص التي تعلمنا معنى الثبات على الحق والثقة بالله.",
+
+        body: `
+            <p>
+                قصة إبراهيم عليه السلام من القصص التي يظهر فيها معنى
+                الإيمان والتوحيد والثبات أمام الابتلاء.
+            </p>
+
+            <h2>الثبات على الحق</h2>
+
+            <p>
+                كان إبراهيم عليه السلام مثالًا في قوة اليقين، فلم يكن
+                يبحث عن رضا الناس عندما يتعارض ذلك مع الحق.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                قوة الإنسان الحقيقية ليست في عدد من حوله، بل في ثباته
+                على ما يعتقد أنه حق.
+            </div>
+
+            <h2>الابتلاء</h2>
+
+            <p>
+                تتكرر في قصة إبراهيم عليه السلام معاني الابتلاء والصبر
+                والثقة بالله، وهي معانٍ يحتاج إليها الإنسان في حياته.
+            </p>
+        `
+    },
+
+    {
+        id: "yusuf",
+        title: "يوسف عليه السلام",
+        category: "prophets",
+        categoryName: "قصص الأنبياء",
+        symbol: "ي",
+        coverA: "#586a65",
+        coverB: "#182b27",
+        description: "قصة الصبر والعفو وتدبير الله.",
+        time: "9 دقائق قراءة",
+
+        intro:
+            "قصة يوسف عليه السلام رحلة طويلة من الابتلاء إلى التمكين، ومن الألم إلى الفرج.",
+
+        body: `
+            <p>
+                قصة يوسف عليه السلام من أجمل القصص التي وردت في القرآن،
+                وتظهر فيها معاني الصبر والعفو وحسن الظن بالله.
+            </p>
+
+            <h2>ابتلاءات متتابعة</h2>
+
+            <p>
+                مرت حياة يوسف عليه السلام بمراحل صعبة ومتغيرة، لكن
+                الأحداث لم تكن نهاية القصة، بل كانت أجزاء من طريق طويل.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                قد لا نفهم الحكمة من بعض الأحداث أثناء وقوعها، لكن ذلك
+                لا يعني أنها بلا حكمة.
+            </div>
+
+            <h2>العفو عند المقدرة</h2>
+
+            <p>
+                من المعاني العظيمة في القصة القدرة على العفو عندما تتغير
+                الظروف ويصبح الإنسان قادرًا على الرد.
+            </p>
+        `
+    },
+
+    {
+        id: "yunus",
+        title: "يونس عليه السلام",
+        category: "prophets",
+        categoryName: "قصص الأنبياء",
+        symbol: "ي",
+        coverA: "#315b67",
+        coverB: "#102b35",
+        description: "قصة الدعاء والرجوع إلى الله.",
+        time: "5 دقائق قراءة",
+
+        intro:
+            "قصة تعلمنا أن الرجوع إلى الله لا يغلق بابه، وأن الدعاء طريق من طرق الأمل.",
+
+        body: `
+            <p>
+                تحمل قصة يونس عليه السلام معاني عظيمة عن الدعاء والرجوع
+                إلى الله وعدم اليأس من رحمته.
+            </p>
+
+            <h2>الدعاء</h2>
+
+            <p>
+                عندما يمر الإنسان بضيق شديد قد يشعر أن الأبواب أغلقت،
+                لكن القصة تذكرنا بأن باب الله لا يغلق أمام من يرجع إليه.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                لا تجعل شدة الموقف تمنعك من الدعاء والرجوع إلى الله.
+            </div>
+        `
+    },
+
+    {
+        id: "nuh",
+        title: "نوح عليه السلام",
+        category: "prophets",
+        categoryName: "قصص الأنبياء",
+        symbol: "ن",
+        coverA: "#496c75",
+        coverB: "#172e35",
+        description: "سنوات من الدعوة والصبر والثبات.",
+        time: "7 دقائق قراءة",
+
+        intro:
+            "قصة نوح عليه السلام مثال واضح على الصبر الطويل والثبات على الدعوة.",
+
+        body: `
+            <p>
+                عاش نوح عليه السلام مرحلة طويلة من الدعوة والصبر،
+                وتظهر قصته قيمة الاستمرار في العمل الصالح حتى عندما
+                تكون النتائج بطيئة.
+            </p>
+
+            <h2>الصبر</h2>
+
+            <p>
+                الصبر ليس مجرد انتظار، بل هو الاستمرار في الطريق الصحيح
+                رغم صعوبة الظروف.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                النجاح الحقيقي ليس دائمًا في سرعة النتائج، بل في الثبات
+                على الطريق الصحيح.
+            </div>
+        `
+    },
+
+    {
+        id: "musa",
+        title: "موسى عليه السلام",
+        category: "quran",
+        categoryName: "قصص القرآن",
+        symbol: "م",
+        coverA: "#496850",
+        coverB: "#162d23",
+        description: "قصة المواجهة والثقة بنصر الله.",
+        time: "8 دقائق قراءة",
+
+        intro:
+            "من القصص التي تجمع بين الخوف والشجاعة، وبين الأخذ بالأسباب والثقة بالله.",
+
+        body: `
+            <p>
+                قصة موسى عليه السلام مليئة بالمواقف التي يظهر فيها
+                معنى الشجاعة والثقة بالله مع الأخذ بالأسباب.
+            </p>
+
+            <h2>مواجهة الخوف</h2>
+
+            <p>
+                الإنسان قد يشعر بالخوف حتى وهو يسير في الطريق الصحيح،
+                لكن وجود الخوف لا يعني بالضرورة التراجع.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                الشجاعة ليست غياب الخوف، وإنما الاستمرار في الحق رغم الخوف.
+            </div>
+        `
+    },
+
+    {
+        id: "cave",
+        title: "أصحاب الكهف",
+        category: "quran",
+        categoryName: "قصص القرآن",
+        symbol: "ك",
+        coverA: "#564d67",
+        coverB: "#201a2a",
+        description: "قصة الفتية والثبات على الإيمان.",
+        time: "6 دقائق قراءة",
+
+        intro:
+            "قصة أصحاب الكهف من القصص القرآنية التي تحمل معاني الثبات والإيمان.",
+
+        body: `
+            <p>
+                يروي القرآن قصة مجموعة من الفتية الذين تمسكوا بإيمانهم
+                في ظروف صعبة، واختاروا الابتعاد عن الفتنة حفاظًا على دينهم.
+            </p>
+
+            <h2>الثبات</h2>
+
+            <p>
+                من أهم المعاني التي نتوقف عندها أن الإيمان قد يحتاج إلى
+                موقف واضح عندما تتعارض البيئة المحيطة مع القناعة.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                الحفاظ على المبادئ يحتاج أحيانًا إلى شجاعة ووضوح.
+            </div>
+        `
+    },
+
+    {
+        id: "saba",
+        title: "قصة سبأ",
+        category: "quran",
+        categoryName: "قصص القرآن",
+        symbol: "س",
+        coverA: "#765d38",
+        coverB: "#302315",
+        description: "قصة النعمة والشكر وتغير الأحوال.",
+        time: "5 دقائق قراءة",
+
+        intro:
+            "قصة تحمل معاني مهمة حول النعم والشكر وعدم الاغترار بما نملك.",
+
+        body: `
+            <p>
+                تذكر قصة سبأ جانبًا مهمًا من علاقة الإنسان بالنعم
+                وكيف يمكن أن يتغير حال المجتمعات عندما تتغير طريقة
+                تعاملها مع ما أنعم الله به عليها.
+            </p>
+
+            <h2>الشكر</h2>
+
+            <p>
+                النعمة ليست فقط شيئًا نملكه، بل مسؤولية تحتاج إلى شكر
+                وحسن استخدام.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                المحافظة على النعمة تبدأ بمعرفة فضل الله وشكره.
+            </div>
+        `
+    },
+
+    {
+        id: "migration",
+        title: "الهجرة النبوية",
+        category: "seerah",
+        categoryName: "السيرة النبوية",
+        symbol: "هـ",
+        coverA: "#345d4b",
+        coverB: "#112a20",
+        description: "محطة عظيمة من السيرة النبوية.",
+        time: "8 دقائق قراءة",
+
+        intro:
+            "الهجرة محطة تاريخية عظيمة في السيرة، تجمع بين التخطيط والتوكل والصبر.",
+
+        body: `
+            <p>
+                الهجرة النبوية واحدة من أبرز المحطات في السيرة النبوية،
+                وفيها تظهر أهمية التخطيط مع التوكل على الله.
+            </p>
+
+            <h2>الأخذ بالأسباب</h2>
+
+            <p>
+                التوكل لا يعني ترك الأسباب، بل يجمع بين الثقة بالله
+                والعمل بما يستطيع الإنسان فعله.
+            </p>
+
+            <div class="lesson">
+                <strong>العبرة:</strong>
+                خطط جيدًا، وابذل ما تستطيع، ثم توكل على الله.
+            </div>
+        `
+    }
+];
+
+
+/* ================= STATE ================= */
+
+let currentView = "home";
+let currentStory = null;
+
+let currentFilter = "all";
+let searchTerm = "";
+
+let favorites = JSON.parse(
+    localStorage.getItem("alhidayah-favorites") || "[]"
+);
+
+
+/* ================= ELEMENTS ================= */
+
+const views = {
+    home: document.getElementById("homeView"),
+    library: document.getElementById("libraryView"),
+    favorites: document.getElementById("favoritesView"),
+    about: document.getElementById("aboutView"),
+    reader: document.getElementById("readerView")
+};
+
+const featuredGrid = document.getElementById("featuredGrid");
+const latestGrid = document.getElementById("latestGrid");
+const libraryGrid = document.getElementById("libraryGrid");
+const favoritesGrid = document.getElementById("favoritesGrid");
+
+const favoritesEmpty = document.getElementById("favoritesEmpty");
+const libraryEmpty = document.getElementById("libraryEmpty");
+
+const resultCount = document.getElementById("resultCount");
+const favoriteCount = document.getElementById("favoriteCount");
+
+const searchOverlay = document.getElementById("searchOverlay");
+const globalSearch = document.getElementById("globalSearch");
+const searchResults = document.getElementById("searchResults");
+
+const librarySearch = document.getElementById("librarySearch");
+
+const toast = document.getElementById("toast");
+const toastText = document.getElementById("toastText");
+const toastIcon = document.getElementById("toastIcon");
+
+
+/* ================= INIT ================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =======================================================
-     STORY DATABASE
-     ======================================================= */
+    renderFeatured();
+    renderLatest();
+    renderLibrary();
+    renderFavorites();
 
-  const stories = {
+    updateFavoriteCount();
 
-    adam: {
-      title: "قصة آدم عليه السلام",
-      subtitle: "نبي الله",
-      category: "قصص الأنبياء",
-      text: `
-        <h3>بداية قصة الإنسان</h3>
+    setupNavigation();
+    setupCategories();
+    setupFilters();
+    setupSearch();
+    setupTheme();
+    setupMenu();
+    setupReader();
 
-        <p>
-          آدم عليه السلام هو أبو البشر، وقد أخبرنا القرآن الكريم
-          عن خلقه وابتلاءه وما جرى له في الجنة ثم هبوطه إلى الأرض.
-        </p>
+    setupReveal();
 
-        <p>
-          وتعلمنا قصته معاني عظيمة من أهمها طاعة الله، والاعتراف
-          بالخطأ، والرجوع إليه سبحانه وتعالى.
-        </p>
-
-        <div class="story-note">
-          هذه الصفحة نموذج لتصميم مكتبة القصص. سيتم لاحقًا
-          إدخال النصوص الكاملة من مصادر موثوقة ومراجعتها قبل نشرها.
-        </div>
-      `
-    },
-
-    ibrahim: {
-      title: "قصة إبراهيم عليه السلام",
-      subtitle: "نبي الله وخليله",
-      category: "قصص الأنبياء",
-      text: `
-        <h3>رحلة التوحيد</h3>
-
-        <p>
-          إبراهيم عليه السلام من الأنبياء الذين ذكر القرآن الكريم
-          قصصهم ومواقفهم في الدعوة إلى توحيد الله سبحانه وتعالى.
-        </p>
-
-        <p>
-          وتظهر في قصته معاني الثبات والشجاعة في الحق، والتوكل
-          على الله، والصبر أمام الابتلاء.
-        </p>
-
-        <div class="story-note">
-          سيتم تطوير هذه القصة وإضافة أحداثها ومصادرها الموثوقة
-          في النسخة القادمة من المنصة.
-        </div>
-      `
-    },
-
-    yunus: {
-      title: "قصة يونس عليه السلام",
-      subtitle: "نبي الله",
-      category: "قصص الأنبياء",
-      text: `
-        <h3>قصة الدعاء والرجوع إلى الله</h3>
-
-        <p>
-          ذكر القرآن الكريم قصة يونس عليه السلام، وهي قصة تحمل
-          معاني عظيمة في الصبر والرجوع إلى الله سبحانه وتعالى.
-        </p>
-
-        <p>
-          وتذكرنا القصة بأهمية الدعاء، والافتقار إلى الله،
-          وعدم اليأس من رحمته.
-        </p>
-
-        <div class="story-note">
-          النص الكامل سيضاف بعد تجهيز المحتوى من مصادر موثوقة.
-        </div>
-      `
-    },
-
-    yusuf: {
-      title: "قصة يوسف عليه السلام",
-      subtitle: "نبي الله",
-      category: "قصص الأنبياء",
-      text: `
-        <h3>قصة الصبر والعفو</h3>
-
-        <p>
-          قصة يوسف عليه السلام من القصص التي وردت بتفصيل كبير
-          في القرآن الكريم، وتحمل أحداثًا كثيرة من الابتلاء
-          والصبر ثم الفرج.
-        </p>
-
-        <p>
-          ومن أبرز المعاني التي تظهر فيها الصبر، وحسن الظن بالله،
-          والعفو عند القدرة.
-        </p>
-
-        <div class="story-note">
-          ستتم إضافة القصة كاملة بصورة منظمة مع الإشارة إلى
-          الآيات والمصادر ذات الصلة.
-        </div>
-      `
-    },
-
-    musa: {
-      title: "قصة موسى عليه السلام",
-      subtitle: "نبي الله",
-      category: "قصص الأنبياء",
-      text: `
-        <h3>رحلة مليئة بالابتلاء</h3>
-
-        <p>
-          من أكثر قصص الأنبياء حضورًا في القرآن الكريم قصة موسى
-          عليه السلام، وقد تضمنت مراحل متعددة من حياته ودعوته.
-        </p>
-
-        <p>
-          وتظهر في قصته معاني الثبات والصبر والتوكل على الله
-          ومواجهة الصعوبات في سبيل الحق.
-        </p>
-
-        <div class="story-note">
-          هذه نسخة مختصرة للعرض التجريبي. سيتم وضع المحتوى الكامل
-          والمراجع عند بناء مكتبة القصص النهائية.
-        </div>
-      `
-    },
-
-    nuh: {
-      title: "قصة نوح عليه السلام",
-      subtitle: "نبي الله",
-      category: "قصص الأنبياء",
-      text: `
-        <h3>سنوات من الصبر</h3>
-
-        <p>
-          ذكر القرآن الكريم دعوة نوح عليه السلام إلى قومه،
-          وصبره الطويل في دعوتهم إلى عبادة الله وحده.
-        </p>
-
-        <p>
-          وتعلمنا قصته أن النتائج ليست دائمًا بيد الإنسان،
-          وأن واجبه أن يؤدي ما عليه ويثبت على الحق.
-        </p>
-
-        <div class="story-note">
-          سيتم توسيع القصة وإضافة المصادر والآيات المتعلقة بها
-          في مرحلة إعداد المحتوى.
-        </div>
-      `
-    },
-
-    cave: {
-      title: "أصحاب الكهف",
-      subtitle: "قصة من القرآن الكريم",
-      category: "قصص من القرآن",
-      text: `
-        <h3>فتية آمنوا بربهم</h3>
-
-        <p>
-          ذكر القرآن الكريم قصة أصحاب الكهف، وهم فتية آمنوا بربهم
-          وتمسكوا بإيمانهم في مواجهة قومهم.
-        </p>
-
-        <p>
-          وتظهر في القصة معاني الثبات على الإيمان واللجوء إلى الله
-          والثقة برحمته.
-        </p>
-
-        <div class="story-note">
-          ستتم إضافة تفاصيل القصة ومراجع الآيات بصورة دقيقة
-          في النسخة النهائية.
-        </div>
-      `
-    },
-
-    saba: {
-      title: "قصة أصحاب سبأ",
-      subtitle: "قصة من القرآن الكريم",
-      category: "قصص من القرآن",
-      text: `
-        <h3>النعمة والشكر</h3>
-
-        <p>
-          تحدث القرآن الكريم عن قوم سبأ وما أنعم الله عليهم به،
-          ثم ذكر ما حدث لهم عندما أعرضوا عن شكر النعمة.
-        </p>
-
-        <p>
-          وتحمل القصة تذكيرًا بأهمية شكر نعم الله وعدم الاغترار
-          بها.
-        </p>
-
-        <div class="story-note">
-          المحتوى التفصيلي سيضاف بعد تجهيز المادة العلمية
-          ومراجعتها.
-        </div>
-      `
-    },
-
-    migration: {
-      title: "الهجرة النبوية",
-      subtitle: "من السيرة النبوية",
-      category: "السيرة النبوية",
-      text: `
-        <h3>رحلة إلى المدينة</h3>
-
-        <p>
-          الهجرة النبوية حدث عظيم في السيرة النبوية، انتقل فيه
-          النبي ﷺ وأصحابه من مكة إلى المدينة في مرحلة مهمة من
-          تاريخ الدعوة الإسلامية.
-        </p>
-
-        <p>
-          وتحمل أحداث الهجرة معاني عظيمة في الأخذ بالأسباب،
-          والتوكل على الله، والصبر والثبات.
-        </p>
-
-        <div class="story-note">
-          سيتم إعداد صفحة كاملة للهجرة تتضمن الأحداث والمراجع
-          بصورة مرتبة وموثوقة.
-        </div>
-      `
-    }
-
-  };
+});
 
 
-  /* =======================================================
-     ELEMENTS
-     ======================================================= */
+/* ================= NAVIGATION ================= */
 
-  const header = document.getElementById("header");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const mainNav = document.getElementById("mainNav");
+function setupNavigation() {
 
-  const themeButton = document.getElementById("themeButton");
+    document.addEventListener("click", (event) => {
 
-  const searchButton = document.getElementById("searchButton");
-  const searchOverlay = document.getElementById("searchOverlay");
-  const closeSearch = document.getElementById("closeSearch");
-  const searchInput = document.getElementById("searchInput");
-  const searchResults = document.getElementById("searchResults");
+        const viewButton = event.target.closest("[data-view]");
 
-  const storyModal = document.getElementById("storyModal");
-  const modalClose = document.getElementById("modalClose");
-  const modalCloseBottom = document.getElementById("modalCloseBottom");
+        if (viewButton) {
 
-  const modalTitle = document.getElementById("modalTitle");
-  const modalSubtitle = document.getElementById("modalSubtitle");
-  const modalCategory = document.getElementById("modalCategory");
-  const modalContent = document.getElementById("modalContent");
-  const modalFavorite = document.getElementById("modalFavorite");
+            const view = viewButton.dataset.view;
 
-  const toast = document.getElementById("toast");
-  const toastText = document.getElementById("toastText");
+            if (views[view]) {
+                switchView(view);
+            }
 
-  let currentStoryId = null;
+        }
 
+        const scrollButton = event.target.closest("[data-scroll]");
 
-  /* =======================================================
-     HEADER SCROLL
-     ======================================================= */
+        if (scrollButton) {
 
-  function updateHeader() {
+            const target = document.getElementById(
+                scrollButton.dataset.scroll
+            );
 
-    if (window.scrollY > 30) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
+            if (target) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
 
-  }
-
-  window.addEventListener("scroll", updateHeader);
-
-  updateHeader();
-
-
-  /* =======================================================
-     MOBILE MENU
-     ======================================================= */
-
-  mobileMenu.addEventListener("click", () => {
-
-    mainNav.classList.toggle("open");
-
-  });
-
-
-  document.querySelectorAll(".nav-link").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-      mainNav.classList.remove("open");
+        }
 
     });
 
-  });
+}
 
 
-  /* =======================================================
-     DARK MODE
-     ======================================================= */
+function switchView(viewName) {
 
-  const savedTheme = localStorage.getItem("hidayah-theme");
+    if (!views[viewName]) {
+        return;
+    }
 
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-  }
+    currentView = viewName;
 
-  themeButton.addEventListener("click", () => {
+    Object.values(views).forEach(view => {
+        view.classList.remove("active");
+    });
 
-    document.body.classList.toggle("dark");
+    views[viewName].classList.add("active");
 
-    const isDark = document.body.classList.contains("dark");
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.classList.toggle(
+            "active",
+            link.dataset.view === viewName
+        );
+    });
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    closeMobileMenu();
+
+    if (viewName === "library") {
+        renderLibrary();
+    }
+
+    if (viewName === "favorites") {
+        renderFavorites();
+    }
+
+    setTimeout(setupReveal, 50);
+}
+
+
+/* ================= FEATURED ================= */
+
+function renderFeatured() {
+
+    const featured = [
+        "yusuf",
+        "musa",
+        "ibrahim"
+    ];
+
+    featuredGrid.innerHTML = featured
+        .map(id => createFeaturedCard(findStory(id)))
+        .join("");
+
+}
+
+
+function createFeaturedCard(story) {
+
+    return `
+        <article
+            class="featured-card"
+            style="--card-image: linear-gradient(145deg, ${story.coverA}, ${story.coverB});"
+            data-story="${story.id}"
+        >
+
+            <span class="card-tag">
+                ${story.categoryName}
+            </span>
+
+            <h3>${story.title}</h3>
+
+            <p>${story.description}</p>
+
+            <span class="read-card">
+                ابدأ القراءة ←
+            </span>
+
+        </article>
+    `;
+
+}
+
+
+/* ================= LATEST ================= */
+
+function renderLatest() {
+
+    const latest = [
+        "adam",
+        "yunus",
+        "cave",
+        "saba",
+        "migration",
+        "nuh"
+    ];
+
+    latestGrid.innerHTML = latest
+        .map(id => createStoryCard(findStory(id)))
+        .join("");
+
+    attachStoryEvents(latestGrid);
+}
+
+
+/* ================= LIBRARY ================= */
+
+function renderLibrary() {
+
+    let filtered = [...stories];
+
+    if (currentFilter !== "all") {
+        filtered = filtered.filter(
+            story => story.category === currentFilter
+        );
+    }
+
+    if (searchTerm.trim()) {
+
+        const query = searchTerm
+            .trim()
+            .toLowerCase();
+
+        filtered = filtered.filter(story => {
+
+            return (
+                story.title.toLowerCase().includes(query) ||
+                story.description.toLowerCase().includes(query) ||
+                story.categoryName.toLowerCase().includes(query)
+            );
+
+        });
+
+    }
+
+    resultCount.textContent = `${filtered.length} قصة`;
+
+    libraryEmpty.classList.toggle(
+        "hidden",
+        filtered.length !== 0
+    );
+
+    libraryGrid.innerHTML = filtered
+        .map(createStoryCard)
+        .join("");
+
+    attachStoryEvents(libraryGrid);
+
+}
+
+
+/* ================= FAVORITES ================= */
+
+function renderFavorites() {
+
+    const savedStories = stories.filter(
+        story => favorites.includes(story.id)
+    );
+
+    favoritesEmpty.style.display =
+        savedStories.length ? "none" : "block";
+
+    favoritesGrid.innerHTML = savedStories
+        .map(createStoryCard)
+        .join("");
+
+    attachStoryEvents(favoritesGrid);
+
+}
+
+
+function updateFavoriteCount() {
+
+    favoriteCount.textContent = favorites.length;
+
+}
+
+
+function isFavorite(id) {
+
+    return favorites.includes(id);
+
+}
+
+
+function toggleFavorite(id) {
+
+    const index = favorites.indexOf(id);
+
+    if (index === -1) {
+
+        favorites.push(id);
+
+        showToast(
+            "تمت إضافة القصة إلى المفضلة",
+            "♥"
+        );
+
+    } else {
+
+        favorites.splice(index, 1);
+
+        showToast(
+            "تم حذف القصة من المفضلة",
+            "✓"
+        );
+
+    }
 
     localStorage.setItem(
-      "hidayah-theme",
-      isDark ? "dark" : "light"
+        "alhidayah-favorites",
+        JSON.stringify(favorites)
     );
 
-    showToast(
-      isDark
-        ? "تم تفعيل الوضع الليلي"
-        : "تم تفعيل الوضع النهاري"
+    updateFavoriteCount();
+
+    renderLatest();
+    renderLibrary();
+    renderFavorites();
+
+    updateReaderFavorite();
+
+}
+
+
+/* ================= STORY CARD ================= */
+
+function createStoryCard(story) {
+
+    const saved = isFavorite(story.id);
+
+    return `
+        <article class="story-card">
+
+            <div
+                class="story-cover"
+                style="
+                    --cover-a: ${story.coverA};
+                    --cover-b: ${story.coverB};
+                "
+            >
+
+                <div class="story-symbol">
+                    ${story.symbol}
+                </div>
+
+                <span class="story-tag">
+                    ${story.categoryName}
+                </span>
+
+                <button
+                    class="favorite-btn ${saved ? "saved" : ""}"
+                    data-favorite="${story.id}"
+                    aria-label="حفظ القصة"
+                >
+                    ${saved ? "♥" : "♡"}
+                </button>
+
+            </div>
+
+            <div class="story-info">
+
+                <h3>${story.title}</h3>
+
+                <p>
+                    ${story.description}
+                </p>
+
+                <div class="story-footer">
+
+                    <span>
+                        ${story.time}
+                    </span>
+
+                    <button
+                        class="read-btn"
+                        data-story="${story.id}"
+                    >
+                        قراءة القصة ←
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+    `;
+
+}
+
+
+function attachStoryEvents(container) {
+
+    container.querySelectorAll("[data-story]")
+        .forEach(button => {
+
+            button.addEventListener("click", event => {
+
+                event.stopPropagation();
+
+                openStory(
+                    button.dataset.story
+                );
+
+            });
+
+        });
+
+
+    container.querySelectorAll("[data-favorite]")
+        .forEach(button => {
+
+            button.addEventListener("click", event => {
+
+                event.stopPropagation();
+
+                toggleFavorite(
+                    button.dataset.favorite
+                );
+
+            });
+
+        });
+
+}
+
+
+/* ================= OPEN STORY ================= */
+
+function openStory(id) {
+
+    const story = findStory(id);
+
+    if (!story) {
+        return;
+    }
+
+    currentStory = story;
+
+    document.getElementById("readerCategory")
+        .textContent = story.categoryName;
+
+    document.getElementById("readerTitle")
+        .textContent = story.title;
+
+    document.getElementById("readerIntro")
+        .textContent = story.intro;
+
+    document.getElementById("readerTime")
+        .textContent = story.time;
+
+    document.getElementById("readerBody")
+        .innerHTML = story.body;
+
+    updateReaderFavorite();
+
+    renderNextStory();
+
+    switchView("reader");
+
+}
+
+
+function updateReaderFavorite() {
+
+    if (!currentStory) {
+        return;
+    }
+
+    const button =
+        document.getElementById("readerFavorite");
+
+    const saved =
+        isFavorite(currentStory.id);
+
+    button.classList.toggle("saved", saved);
+
+    button.innerHTML =
+        saved
+            ? "♥ <span>محفوظة</span>"
+            : "♡ <span>حفظ</span>";
+
+}
+
+
+function setupReader() {
+
+    document
+        .getElementById("backFromReader")
+        .addEventListener("click", () => {
+
+            switchView("library");
+
+        });
+
+
+    document
+        .getElementById("readerFavorite")
+        .addEventListener("click", () => {
+
+            if (currentStory) {
+                toggleFavorite(currentStory.id);
+            }
+
+        });
+
+}
+
+
+function renderNextStory() {
+
+    if (!currentStory) {
+        return;
+    }
+
+    const index =
+        stories.findIndex(
+            story => story.id === currentStory.id
+        );
+
+    const next =
+        stories[(index + 1) % stories.length];
+
+    document.getElementById("nextStoryBox")
+        .innerHTML = `
+            <small>القصة التالية</small>
+
+            <button data-next-story="${next.id}">
+                ${next.title} ←
+            </button>
+        `;
+
+    const button =
+        document.querySelector("[data-next-story]");
+
+    if (button) {
+
+        button.addEventListener("click", () => {
+            openStory(button.dataset.nextStory);
+        });
+
+    }
+
+}
+
+
+/* ================= FIND STORY ================= */
+
+function findStory(id) {
+
+    return stories.find(
+        story => story.id === id
     );
 
-  });
+}
 
 
-  /* =======================================================
-     SEARCH
-     ======================================================= */
+/* ================= CATEGORIES ================= */
 
-  function openSearch() {
+function setupCategories() {
+
+    document
+        .querySelectorAll("[data-category]")
+        .forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                currentFilter =
+                    button.dataset.category;
+
+                searchTerm = "";
+
+                librarySearch.value = "";
+
+                document
+                    .querySelectorAll(".filter")
+                    .forEach(filter => {
+
+                        filter.classList.toggle(
+                            "active",
+                            filter.dataset.filter === currentFilter
+                        );
+
+                    });
+
+                switchView("library");
+
+            });
+
+        });
+
+}
+
+
+/* ================= FILTERS ================= */
+
+function setupFilters() {
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                currentFilter =
+                    button.dataset.filter;
+
+                document
+                    .querySelectorAll(".filter")
+                    .forEach(filter => {
+
+                        filter.classList.toggle(
+                            "active",
+                            filter === button
+                        );
+
+                    });
+
+                renderLibrary();
+
+            });
+
+        });
+
+
+    document
+        .getElementById("clearFilter")
+        .addEventListener("click", () => {
+
+            currentFilter = "all";
+            searchTerm = "";
+
+            librarySearch.value = "";
+
+            document
+                .querySelectorAll(".filter")
+                .forEach(filter => {
+
+                    filter.classList.toggle(
+                        "active",
+                        filter.dataset.filter === "all"
+                    );
+
+                });
+
+            renderLibrary();
+
+        });
+
+
+    librarySearch.addEventListener(
+        "input",
+        () => {
+
+            searchTerm =
+                librarySearch.value;
+
+            renderLibrary();
+
+        }
+    );
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function setupSearch() {
+
+    document
+        .getElementById("searchButton")
+        .addEventListener("click", openSearch);
+
+    document
+        .getElementById("closeSearch")
+        .addEventListener("click", closeSearch);
+
+
+    searchOverlay.addEventListener(
+        "click",
+        event => {
+
+            if (event.target === searchOverlay) {
+                closeSearch();
+            }
+
+        }
+    );
+
+
+    globalSearch.addEventListener(
+        "input",
+        () => {
+
+            renderSearchResults(
+                globalSearch.value
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "/" &&
+                document.activeElement.tagName !== "INPUT"
+            ) {
+
+                event.preventDefault();
+
+                openSearch();
+
+            }
+
+            if (event.key === "Escape") {
+                closeSearch();
+            }
+
+        }
+    );
+
+}
+
+
+function openSearch() {
 
     searchOverlay.classList.add("open");
 
     setTimeout(() => {
-      searchInput.focus();
+        globalSearch.focus();
     }, 200);
 
-    document.body.classList.add("modal-open");
-
-  }
+}
 
 
-  function closeSearchOverlay() {
+function closeSearch() {
 
     searchOverlay.classList.remove("open");
 
-    document.body.classList.remove("modal-open");
-
-    searchInput.value = "";
+    globalSearch.value = "";
 
     searchResults.innerHTML = "";
 
-  }
+}
 
 
-  searchButton.addEventListener("click", openSearch);
+function renderSearchResults(value) {
 
-  closeSearch.addEventListener(
-    "click",
-    closeSearchOverlay
-  );
-
-
-  searchOverlay.addEventListener("click", event => {
-
-    if (event.target === searchOverlay) {
-      closeSearchOverlay();
-    }
-
-  });
-
-
-  document.addEventListener("keydown", event => {
-
-    if (event.key === "Escape") {
-
-      closeSearchOverlay();
-      closeStoryModal();
-
-    }
-
-  });
-
-
-  searchInput.addEventListener("input", () => {
-
-    const query = searchInput.value.trim().toLowerCase();
+    const query =
+        value.trim().toLowerCase();
 
     if (!query) {
-      searchResults.innerHTML = "";
-      return;
-    }
 
-    const matches = Object.entries(stories)
-      .filter(([id, story]) => {
-
-        return (
-          story.title.toLowerCase().includes(query) ||
-          story.category.toLowerCase().includes(query)
-        );
-
-      });
-
-
-    if (matches.length === 0) {
-
-      searchResults.innerHTML = `
-        <div style="padding:20px;text-align:center;color:var(--text-secondary);font-size:12px;">
-          لا توجد نتائج مطابقة.
-        </div>
-      `;
-
-      return;
-
-    }
-
-
-    searchResults.innerHTML = matches
-      .map(([id, story]) => {
-
-        return `
-          <div class="search-result">
-
-            <div>
-              <strong>${story.title}</strong>
-              <small>${story.category}</small>
+        searchResults.innerHTML = `
+            <div class="search-result">
+                <span>ابدأ بكتابة اسم القصة</span>
+                <small>${stories.length} قصص متاحة</small>
             </div>
-
-            <button
-              type="button"
-              data-search-story="${id}">
-              قراءة
-            </button>
-
-          </div>
         `;
 
-      })
-      .join("");
-
-  });
-
-
-  searchResults.addEventListener("click", event => {
-
-    const button =
-      event.target.closest("[data-search-story]");
-
-    if (!button) return;
-
-    const id = button.dataset.searchStory;
-
-    closeSearchOverlay();
-
-    openStory(id);
-
-  });
-
-
-  /* =======================================================
-     STORY MODAL
-     ======================================================= */
-
-  function openStory(id) {
-
-    const story = stories[id];
-
-    if (!story) return;
-
-    currentStoryId = id;
-
-    modalTitle.textContent = story.title;
-    modalSubtitle.textContent = story.subtitle;
-    modalCategory.textContent = story.category;
-    modalContent.innerHTML = story.text;
-
-    updateModalFavoriteButton();
-
-    storyModal.classList.add("open");
-    document.body.classList.add("modal-open");
-
-  }
-
-
-  function closeStoryModal() {
-
-    storyModal.classList.remove("open");
-
-    document.body.classList.remove("modal-open");
-
-    currentStoryId = null;
-
-  }
-
-
-  document.querySelectorAll("[data-story]").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      const id = button.dataset.story;
-
-      openStory(id);
-
-    });
-
-  });
-
-
-  modalClose.addEventListener(
-    "click",
-    closeStoryModal
-  );
-
-  modalCloseBottom.addEventListener(
-    "click",
-    closeStoryModal
-  );
-
-
-  storyModal.addEventListener("click", event => {
-
-    if (event.target === storyModal) {
-      closeStoryModal();
+        return;
     }
 
-  });
+
+    const results =
+        stories.filter(story => {
+
+            return (
+                story.title.toLowerCase().includes(query) ||
+                story.description.toLowerCase().includes(query) ||
+                story.categoryName.toLowerCase().includes(query)
+            );
+
+        });
 
 
-  /* =======================================================
-     FAVORITES
-     ======================================================= */
+    if (!results.length) {
 
-  function getFavorites() {
+        searchResults.innerHTML = `
+            <div class="search-result">
+                <span>لا توجد نتائج</span>
+                <small>جرّب كلمة أخرى</small>
+            </div>
+        `;
 
-    try {
-
-      return JSON.parse(
-        localStorage.getItem("hidayah-favorites") || "[]"
-      );
-
-    } catch {
-
-      return [];
-
+        return;
     }
 
-  }
+
+    searchResults.innerHTML =
+        results
+            .map(story => `
+                <button
+                    class="search-result"
+                    data-search-story="${story.id}"
+                >
+                    <span>${story.title}</span>
+                    <small>${story.categoryName}</small>
+                </button>
+            `)
+            .join("");
 
 
-  function saveFavorites(favorites) {
+    searchResults
+        .querySelectorAll("[data-search-story]")
+        .forEach(button => {
 
-    localStorage.setItem(
-      "hidayah-favorites",
-      JSON.stringify(favorites)
-    );
+            button.addEventListener("click", () => {
 
-  }
+                closeSearch();
+
+                openStory(
+                    button.dataset.searchStory
+                );
+
+            });
+
+        });
+
+}
 
 
-  function isFavorite(id) {
+/* ================= THEME ================= */
 
-    return getFavorites().includes(id);
+function setupTheme() {
 
-  }
+    const savedTheme =
+        localStorage.getItem("alhidayah-theme");
 
-
-  function toggleFavorite(id) {
-
-    let favorites = getFavorites();
-
-    if (favorites.includes(id)) {
-
-      favorites = favorites.filter(
-        item => item !== id
-      );
-
-      showToast("تمت إزالة القصة من المفضلة");
-
-    } else {
-
-      favorites.push(id);
-
-      showToast("تم حفظ القصة في المفضلة");
-
+    if (savedTheme === "dark") {
+        document.documentElement.dataset.theme = "dark";
     }
 
-    saveFavorites(favorites);
-
-    updateFavoriteButtons();
-
-    updateModalFavoriteButton();
-
-  }
-
-
-  function updateFavoriteButtons() {
-
-    const favorites = getFavorites();
 
     document
-      .querySelectorAll("[data-favorite]")
-      .forEach(button => {
+        .getElementById("themeButton")
+        .addEventListener("click", () => {
 
-        const id = button.dataset.favorite;
+            const dark =
+                document.documentElement.dataset.theme === "dark";
 
-        const saved = favorites.includes(id);
+            if (dark) {
 
-        button.classList.toggle("saved", saved);
+                delete document.documentElement.dataset.theme;
 
-        button.textContent = saved ? "♥" : "♡";
+                localStorage.setItem(
+                    "alhidayah-theme",
+                    "light"
+                );
 
-      });
+            } else {
 
-  }
+                document.documentElement.dataset.theme = "dark";
 
+                localStorage.setItem(
+                    "alhidayah-theme",
+                    "dark"
+                );
 
-  function updateModalFavoriteButton() {
-
-    if (!currentStoryId) return;
-
-    const saved = isFavorite(currentStoryId);
-
-    modalFavorite.textContent = saved
-      ? "♥ إزالة من المفضلة"
-      : "♡ حفظ في المفضلة";
-
-  }
-
-
-  document
-    .querySelectorAll("[data-favorite]")
-    .forEach(button => {
-
-      button.addEventListener("click", event => {
-
-        event.stopPropagation();
-
-        toggleFavorite(
-          button.dataset.favorite
-        );
-
-      });
-
-    });
-
-
-  modalFavorite.addEventListener("click", () => {
-
-    if (currentStoryId) {
-      toggleFavorite(currentStoryId);
-    }
-
-  });
-
-
-  updateFavoriteButtons();
-
-
-  /* =======================================================
-     FILTERS
-     ======================================================= */
-
-  const filterButtons =
-    document.querySelectorAll(".filter-button");
-
-  const storyCards =
-    document.querySelectorAll(".story-card");
-
-  const emptyState =
-    document.getElementById("emptyState");
-
-
-  function filterStories(filter) {
-
-    let visibleCount = 0;
-
-    storyCards.forEach(card => {
-
-      const category = card.dataset.category;
-
-      const shouldShow =
-        filter === "all" ||
-        category === filter;
-
-      if (shouldShow) {
-
-        card.style.display = "";
-
-        setTimeout(() => {
-          card.style.opacity = "1";
-          card.style.transform = "translateY(0)";
-        }, 10);
-
-        visibleCount++;
-
-      } else {
-
-        card.style.display = "none";
-
-      }
-
-    });
-
-
-    emptyState.classList.toggle(
-      "show",
-      visibleCount === 0
-    );
-
-  }
-
-
-  filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      filterButtons.forEach(btn =>
-        btn.classList.remove("active")
-      );
-
-      button.classList.add("active");
-
-      filterStories(
-        button.dataset.filter
-      );
-
-      document
-        .getElementById("stories")
-        .scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-    });
-
-  });
-
-
-  /* =======================================================
-     CATEGORY CARDS
-     ======================================================= */
-
-  document
-    .querySelectorAll("[data-filter]")
-    .forEach(button => {
-
-      if (
-        !button.classList.contains("filter-button")
-      ) {
-
-        button.addEventListener("click", () => {
-
-          const filter =
-            button.dataset.filter;
-
-          const targetButton =
-            document.querySelector(
-              `.filter-button[data-filter="${filter}"]`
-            );
-
-          if (targetButton) {
-
-            targetButton.click();
-
-          } else {
-
-            filterButtons.forEach(btn =>
-              btn.classList.remove("active")
-            );
-
-            const allButton =
-              document.querySelector(
-                '.filter-button[data-filter="all"]'
-              );
-
-            if (allButton) {
-              allButton.classList.add("active");
             }
 
-            filterStories("all");
+        });
 
-          }
+}
+
+
+/* ================= MENU ================= */
+
+function setupMenu() {
+
+    document
+        .getElementById("menuButton")
+        .addEventListener("click", () => {
+
+            document
+                .getElementById("mobileMenu")
+                .classList.toggle("open");
 
         });
 
-      }
-
-    });
+}
 
 
-  /* =======================================================
-     TOAST
-     ======================================================= */
+function closeMobileMenu() {
 
-  let toastTimer = null;
+    document
+        .getElementById("mobileMenu")
+        .classList.remove("open");
 
-  function showToast(message) {
+}
+
+
+/* ================= TOAST ================= */
+
+let toastTimer;
+
+function showToast(message, icon = "✓") {
 
     toastText.textContent = message;
+    toastIcon.textContent = icon;
 
     toast.classList.add("show");
 
@@ -815,127 +1260,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toastTimer = setTimeout(() => {
 
-      toast.classList.remove("show");
+        toast.classList.remove("show");
 
-    }, 2600);
+    }, 2500);
 
-  }
-
-
-  /* =======================================================
-     REVEAL ANIMATION
-     ======================================================= */
-
-  const revealElements =
-    document.querySelectorAll(".reveal");
+}
 
 
-  const revealObserver =
-    new IntersectionObserver(
-      entries => {
+/* ================= REVEAL ================= */
 
-        entries.forEach(entry => {
+function setupReveal() {
 
-          if (entry.isIntersecting) {
+    const elements =
+        document.querySelectorAll(".reveal");
 
-            entry.target.classList.add("visible");
+    const observer =
+        new IntersectionObserver(
+            entries => {
 
-            revealObserver.unobserve(
-              entry.target
-            );
+                entries.forEach(entry => {
 
-          }
+                    if (entry.isIntersecting) {
 
-        });
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-      },
-      {
-        threshold: 0.12
-      }
-    );
+                        observer.unobserve(
+                            entry.target
+                        );
 
+                    }
 
-  revealElements.forEach(element => {
+                });
 
-    revealObserver.observe(element);
-
-  });
-
-
-  /* =======================================================
-     ACTIVE NAVIGATION
-     ======================================================= */
-
-  const sections =
-    document.querySelectorAll("main section[id]");
-
-  const navLinks =
-    document.querySelectorAll(".nav-link");
-
-
-  const sectionObserver =
-    new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-
-            navLinks.forEach(link =>
-              link.classList.remove("active")
-            );
-
-            const activeLink =
-              document.querySelector(
-                `.nav-link[href="#${entry.target.id}"]`
-              );
-
-            if (activeLink) {
-              activeLink.classList.add("active");
+            },
+            {
+                threshold: .08
             }
-
-          }
-
-        });
-
-      },
-      {
-        rootMargin: "-35% 0px -55% 0px"
-      }
-    );
+        );
 
 
-  sections.forEach(section => {
+    elements.forEach(element => {
 
-    sectionObserver.observe(section);
+        if (!element.classList.contains("visible")) {
+            observer.observe(element);
+        }
 
-  });
+    });
+
+}
 
 
-  /* =======================================================
-     KEYBOARD SEARCH
-     ======================================================= */
+/* ================= CARD GLOBAL CLICK ================= */
 
-  document.addEventListener("keydown", event => {
+document.addEventListener("click", event => {
 
-    if (
-      event.key === "/" &&
-      document.activeElement.tagName !== "INPUT"
-    ) {
+    const card =
+        event.target.closest(".featured-card");
 
-      event.preventDefault();
-
-      openSearch();
-
+    if (!card) {
+        return;
     }
 
-  });
+    openStory(card.dataset.story);
 
-
-  /* =======================================================
-     INITIAL STATE
-     ======================================================= */
-
-  filterStories("all");
-
-});
+}); 
