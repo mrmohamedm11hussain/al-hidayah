@@ -1,1364 +1,642 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#063c2c">
-<meta name="description" content="الهداية — منصة إسلامية للقصص والقرآن والأذكار">
-<title>الهداية | نورٌ يهدي الطريق</title>
+    <meta charset="UTF-8">
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-:root{
-  --green:#063c2c;
-  --green2:#0a5b43;
-  --green3:#0f7355;
-  --gold:#c9a55a;
-  --gold2:#e3c77d;
-  --cream:#f8f4e8;
-  --white:#fff;
-  --text:#17372d;
-  --muted:#718178;
-  --border:rgba(6,60,44,.12);
-  --shadow:0 20px 60px rgba(6,60,44,.10);
-}
+    <meta name="theme-color"
+          content="#063c2c">
 
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Cairo,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 10% 10%,rgba(201,165,90,.10),transparent 25%),
-    radial-gradient(circle at 90% 20%,rgba(15,115,85,.08),transparent 25%),
-    var(--cream);
-  color:var(--text);
-  overflow-x:hidden;
-}
+    <meta name="description"
+          content="الهداية — منصة إسلامية تعليمية للقرآن الكريم والقصص والأذكار ومواقيت الصلاة">
 
-button,input,select{font-family:inherit}
-button{cursor:pointer}
-a{text-decoration:none;color:inherit}
+    <title>الهداية | نورٌ يهدي الطريق</title>
 
-.bg-pattern{
- position:fixed;inset:0;pointer-events:none;opacity:.25;z-index:-1;
- background-image:
- radial-gradient(circle,rgba(201,165,90,.25) 1px,transparent 1px);
- background-size:35px 35px;
-}
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.nav{
- position:sticky;top:0;z-index:1000;
- background:rgba(6,60,44,.94);
- backdrop-filter:blur(18px);
- border-bottom:1px solid rgba(255,255,255,.08);
- color:white;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
-.nav-inner{
- max-width:1250px;margin:auto;padding:13px 20px;
- display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
+    <!-- التصميم الرئيسي -->
+    <link rel="stylesheet" href="./css/main.css">
 
-.brand{display:flex;align-items:center;gap:12px}
-.logo{
- width:50px;height:50px;border-radius:16px;
- display:grid;place-items:center;
- background:linear-gradient(145deg,var(--gold2),var(--gold));
- color:var(--green);
- font-family:Amiri,serif;font-size:34px;font-weight:bold;
- box-shadow:0 8px 25px rgba(201,165,90,.25);
-}
-.brand-text strong{display:block;font-size:20px}
-.brand-text span{font-size:11px;color:#d9e8e1}
-
-.nav-links{display:flex;gap:5px;flex-wrap:wrap}
-.nav-links button{
- border:0;background:transparent;color:#dce9e4;
- padding:10px 13px;border-radius:12px;
- transition:.25s;font-size:13px;
-}
-.nav-links button:hover,
-.nav-links button.active{
- background:rgba(255,255,255,.1);color:white;
-}
-
-.hero{
- min-height:650px;max-width:1250px;margin:auto;padding:75px 20px;
- display:grid;grid-template-columns:1.1fr .9fr;
- align-items:center;gap:40px;
-}
-
-.hero-content{animation:rise .8s ease}
-.kicker{
- display:inline-flex;align-items:center;gap:8px;
- padding:8px 14px;border:1px solid rgba(201,165,90,.4);
- border-radius:30px;color:#9b7a34;background:rgba(201,165,90,.08);
- font-size:13px;font-weight:bold;
-}
-.hero h1{
- font-size:clamp(42px,7vw,78px);
- line-height:1.05;margin:22px 0 18px;color:var(--green);
-}
-.hero h1 span{color:var(--gold)}
-.hero p{
- max-width:650px;color:#63756d;font-size:18px;line-height:2;
-}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-
-.btn{
- border:0;border-radius:15px;padding:13px 21px;
- font-weight:700;transition:.25s;display:inline-flex;
- align-items:center;justify-content:center;gap:8px;
-}
-.btn-primary{
- background:linear-gradient(135deg,var(--green2),var(--green));
- color:white;box-shadow:0 10px 25px rgba(6,60,44,.18);
-}
-.btn-primary:hover{transform:translateY(-3px)}
-.btn-gold{
- background:linear-gradient(135deg,var(--gold2),var(--gold));
- color:var(--green);
-}
-.btn-light{background:white;color:var(--green);border:1px solid var(--border)}
-.btn-danger{background:#fff0f0;color:#a33b3b}
-
-.hero-art{
- height:440px;display:grid;place-items:center;position:relative;
-}
-.moon{
- width:320px;height:320px;border-radius:50%;
- background:
- radial-gradient(circle at 35% 30%,#fff8dc 0 4%,transparent 5%),
- radial-gradient(circle at 60% 55%,rgba(255,255,255,.4) 0 5%,transparent 6%),
- linear-gradient(145deg,#e6d18d,#a9813e);
- box-shadow:0 0 0 35px rgba(201,165,90,.05),
- 0 0 100px rgba(201,165,90,.25);
- position:relative;animation:float 5s ease-in-out infinite;
-}
-.moon:after{
- content:"هـ";
- position:absolute;inset:0;display:grid;place-items:center;
- font-family:Amiri,serif;font-size:170px;color:var(--green);
- opacity:.9;
-}
-.star{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--gold);animation:twinkle 2s infinite}
-.s1{top:15%;left:20%}.s2{top:25%;right:12%;animation-delay:.4s}
-.s3{bottom:20%;left:12%;animation-delay:.8s}.s4{bottom:12%;right:20%;animation-delay:1.2s}
-
-.section{max-width:1250px;margin:auto;padding:75px 20px}
-.section-head{text-align:center;margin-bottom:35px}
-.section-head .eyebrow{color:var(--gold);font-weight:800;font-size:13px}
-.section-head h2{font-size:38px;color:var(--green);margin:8px 0}
-.section-head p{color:var(--muted);line-height:1.9}
-
-.features{
- display:grid;grid-template-columns:repeat(4,1fr);gap:17px;
-}
-.feature{
- background:rgba(255,255,255,.8);border:1px solid var(--border);
- padding:25px;border-radius:22px;box-shadow:var(--shadow);
- transition:.3s;
-}
-.feature:hover{transform:translateY(-7px)}
-.icon{
- width:50px;height:50px;border-radius:15px;
- background:#edf5f0;display:grid;place-items:center;
- font-size:25px;margin-bottom:15px;
-}
-.feature h3{font-size:17px;margin-bottom:7px;color:var(--green)}
-.feature p{font-size:13px;color:var(--muted);line-height:1.8}
-
-.story-grid{
- display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
-}
-.story-card{
- background:white;border:1px solid var(--border);
- border-radius:22px;overflow:hidden;
- box-shadow:0 12px 35px rgba(6,60,44,.07);
- transition:.3s;
-}
-.story-card:hover{transform:translateY(-8px);box-shadow:0 22px 50px rgba(6,60,44,.13)}
-.story-cover{
- height:150px;display:grid;place-items:center;
- background:
- radial-gradient(circle at 50% 30%,rgba(255,255,255,.18),transparent 25%),
- linear-gradient(145deg,#0a6047,#063c2c);
- color:#e6cc83;
- font-family:Amiri,serif;font-size:58px;
- position:relative;
-}
-.story-cover small{
- position:absolute;bottom:12px;right:14px;
- font-family:Cairo;font-size:11px;color:#d9e8e1;
-}
-.story-body{padding:18px}
-.story-body h3{color:var(--green);font-size:18px;margin-bottom:8px}
-.story-body p{font-size:12px;color:var(--muted);line-height:1.8;min-height:45px}
-.story-actions{display:flex;gap:7px;margin-top:15px}
-.story-actions button{flex:1;padding:9px 5px;border-radius:11px;border:0;font-size:11px;font-weight:bold}
-
-.page{display:none;animation:rise .45s ease}
-.page.active{display:block}
-
-.search-box{
- max-width:700px;margin:0 auto 30px;display:flex;gap:8px;
-}
-.search-box input{
- flex:1;padding:15px 18px;border:1px solid var(--border);
- border-radius:15px;outline:0;background:white;
-}
-.search-box input:focus{border-color:var(--gold)}
-
-.filter-row{
- display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:30px
-}
-.filter-row button{
- border:1px solid var(--border);background:white;color:var(--green);
- padding:9px 15px;border-radius:30px;
-}
-.filter-row button.active{background:var(--green);color:white}
-
-.quran-box{
- background:white;border-radius:28px;padding:25px;
- box-shadow:var(--shadow);border:1px solid var(--border);
-}
-.quran-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-.quran-controls select{
- flex:1;min-width:220px;padding:13px;border:1px solid var(--border);
- border-radius:13px;background:#fafbf8;
-}
-.quran-title{
- text-align:center;padding:25px;background:linear-gradient(135deg,#f8f1dc,#fff);
- border-radius:20px;margin-bottom:20px;
-}
-.quran-title h2{font-family:Amiri;font-size:35px;color:var(--green)}
-.quran-title p{font-size:12px;color:var(--muted)}
-.ayah{
- padding:24px 15px;border-bottom:1px solid #edf0eb;
- font-family:Amiri,serif;font-size:27px;line-height:2.2;
- transition:.3s;border-radius:15px;
-}
-.ayah:hover{background:#fbfcf8}
-.ayah.playing{background:#edf6f0;box-shadow:inset -4px 0 var(--gold)}
-.ayah-num{
- display:inline-grid;place-items:center;width:34px;height:34px;
- border-radius:50%;background:var(--green);color:white;
- font-family:Cairo;font-size:12px;margin-left:10px;
-}
-.ayah-tools{margin-top:12px;display:flex;gap:7px}
-.ayah-tools button{
- border:0;border-radius:10px;padding:7px 11px;
- background:#edf5f0;color:var(--green);font-size:11px;
-}
-
-.player{
- position:sticky;bottom:15px;z-index:20;
- background:rgba(6,60,44,.97);color:white;
- padding:14px;border-radius:18px;margin-top:20px;
- display:flex;align-items:center;gap:12px;flex-wrap:wrap;
- box-shadow:0 15px 40px rgba(0,0,0,.2);
-}
-.player audio{flex:1;min-width:220px}
-
-.dhikr-grid{
- display:grid;grid-template-columns:repeat(4,1fr);gap:15px;
-}
-.dhikr-cat{
- background:white;border:1px solid var(--border);
- border-radius:20px;padding:22px;text-align:center;
- transition:.3s;cursor:pointer;
-}
-.dhikr-cat:hover{transform:translateY(-5px);border-color:rgba(201,165,90,.5)}
-.dhikr-cat .big{font-size:35px}
-.dhikr-cat h3{margin:8px;color:var(--green);font-size:16px}
-.dhikr-cat p{font-size:11px;color:var(--muted)}
-
-.dhikr-reader{
- background:white;border-radius:28px;padding:30px;
- box-shadow:var(--shadow);
-}
-.dhikr-item{
- padding:25px;border:1px solid var(--border);
- border-radius:18px;margin-bottom:15px;
- background:#fcfdf9;
-}
-.dhikr-item .arabic{
- font-family:Amiri;font-size:27px;line-height:2;
- color:#17372d;
-}
-.dhikr-item .count{
- display:inline-block;margin-top:12px;
- background:#edf5f0;color:var(--green);
- padding:6px 12px;border-radius:20px;font-size:11px;font-weight:bold;
-}
-
-.prayer-card{
- max-width:850px;margin:auto;background:linear-gradient(135deg,#063c2c,#0a6047);
- color:white;border-radius:30px;padding:35px;
- box-shadow:var(--shadow);position:relative;overflow:hidden;
-}
-.prayer-card:after{
- content:"";position:absolute;width:280px;height:280px;
- border-radius:50%;border:1px solid rgba(255,255,255,.1);
- left:-100px;bottom:-150px;
-}
-.prayer-status{text-align:center;margin-bottom:25px}
-.prayer-status h2{font-size:35px}
-.prayer-status p{color:#c7ddd4}
-.prayers{
- display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
-}
-.prayer{
- background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);
- border-radius:15px;padding:17px;text-align:center;
-}
-.prayer strong{display:block;color:#e4c87c}
-.prayer span{font-size:20px}
-
-.tasbeeh{
- max-width:550px;margin:auto;text-align:center;
- background:white;border-radius:30px;padding:35px;box-shadow:var(--shadow);
-}
-.counter{
- width:210px;height:210px;border-radius:50%;margin:25px auto;
- display:grid;place-items:center;
- background:radial-gradient(circle,#fff,#eef5ef);
- border:12px solid #d8e6df;
- box-shadow:inset 0 0 30px rgba(6,60,44,.08);
-}
-.counter span{font-size:60px;font-weight:800;color:var(--green)}
-.tas-actions{display:flex;gap:10px;justify-content:center}
-.tas-actions button{min-width:120px}
-
-.story-reader{
- position:fixed;inset:0;background:rgba(4,29,22,.72);
- backdrop-filter:blur(10px);z-index:2000;
- display:none;padding:20px;overflow:auto;
-}
-.story-reader.show{display:block}
-.story-panel{
- max-width:900px;margin:30px auto;background:#fffdf7;
- border-radius:28px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.3);
-}
-.story-head{
- padding:30px;text-align:center;
- background:linear-gradient(135deg,#063c2c,#0a6047);color:white;
-}
-.story-head h2{font-family:Amiri;font-size:42px;color:#e4c87c}
-.story-content{padding:35px}
-.story-content p{
- font-family:Amiri;font-size:25px;line-height:2.25;margin-bottom:22px;color:#30443d;
-}
-.story-content .lesson{
- background:#edf5f0;border-right:5px solid var(--gold);
- padding:20px;border-radius:15px;font-size:15px;line-height:2;
- font-family:Cairo;
-}
-.story-video{
- margin:25px 0;border-radius:20px;overflow:hidden;background:#061e17;
-}
-.story-video iframe{width:100%;height:420px;border:0}
-.close{
- position:fixed;top:18px;left:18px;
- width:45px;height:45px;border:0;border-radius:50%;
- background:white;color:var(--green);font-size:20px;z-index:2010;
-}
-
-.footer{
- background:#063c2c;color:#d8e7e0;padding:45px 20px;margin-top:60px;text-align:center;
-}
-.footer strong{color:#e3c77d}
-.footer p{font-size:12px;margin-top:8px}
-
-.toast{
- position:fixed;bottom:25px;left:25px;z-index:3000;
- background:#063c2c;color:white;padding:13px 18px;border-radius:13px;
- transform:translateY(100px);opacity:0;transition:.3s;
-}
-.toast.show{transform:translateY(0);opacity:1}
-
-@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-@keyframes twinkle{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.3)}}
-
-@media(max-width:950px){
- .hero{grid-template-columns:1fr;text-align:center}
- .hero p{margin:auto}
- .hero-actions{justify-content:center}
- .hero-art{height:330px}
- .moon{width:240px;height:240px}
- .moon:after{font-size:120px}
- .features{grid-template-columns:repeat(2,1fr)}
- .story-grid{grid-template-columns:repeat(2,1fr)}
- .dhikr-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:650px){
- .nav-inner{align-items:flex-start}
- .nav-links{display:none}
- .hero{padding-top:45px}
- .hero h1{font-size:48px}
- .features,.story-grid,.dhikr-grid{grid-template-columns:1fr}
- .prayers{grid-template-columns:repeat(2,1fr)}
- .ayah{font-size:22px}
- .story-content p{font-size:21px}
- .story-video iframe{height:230px}
- .section{padding:55px 15px}
-}
-</style>
 </head>
 
 <body>
-<div class="bg-pattern"></div>
-
-<nav class="nav">
-<div class="nav-inner">
-  <div class="brand">
-    <div class="logo">هـ</div>
-    <div class="brand-text">
-      <strong>الهداية</strong>
-      <span>نورٌ يهدي الطريق</span>
-    </div>
-  </div>
-
-  <div class="nav-links">
-    <button class="active" onclick="showPage('home',this)">الرئيسية</button>
-    <button onclick="showPage('stories',this)">القصص</button>
-    <button onclick="showPage('quran',this)">القرآن</button>
-    <button onclick="showPage('adhkar',this)">الأذكار</button>
-    <button onclick="showPage('prayer',this)">مواقيت الصلاة</button>
-    <button onclick="showPage('tasbeeh',this)">التسبيح</button>
-  </div>
-</div>
-</nav>
-
-<main>
-
-<!-- HOME -->
-<section id="home" class="page active">
-
-<div class="hero">
- <div class="hero-content">
-   <span class="kicker">✦ منصة إسلامية تعليمية</span>
-   <h1>طريقك إلى <span>الهداية</span></h1>
-   <p>
-     مكان واحد للقرآن الكريم، والقصص الإسلامية، والأذكار،
-     ومواقيت الصلاة، والتسبيح — بتجربة بسيطة وهادئة للجميع.
-   </p>
-
-   <div class="hero-actions">
-     <button class="btn btn-primary" onclick="showPage('quran')">📖 افتح القرآن</button>
-     <button class="btn btn-gold" onclick="showPage('stories')">✨ استكشف القصص</button>
-   </div>
- </div>
-
- <div class="hero-art">
-   <div class="moon"></div>
-   <i class="star s1"></i><i class="star s2"></i>
-   <i class="star s3"></i><i class="star s4"></i>
- </div>
-</div>
-
-<div class="section">
- <div class="section-head">
-   <div class="eyebrow">كل ما تحتاجه</div>
-   <h2>في مكان واحد</h2>
-   <p>تجربة هادئة ومنظمة للوصول إلى أهم أقسام المنصة.</p>
- </div>
-
- <div class="features">
-  <div class="feature" onclick="showPage('quran')">
-   <div class="icon">📖</div>
-   <h3>القرآن الكريم</h3>
-   <p>قراءة السور والاستماع إلى التلاوة آية بآية.</p>
-  </div>
-  <div class="feature" onclick="showPage('stories')">
-   <div class="icon">🌙</div>
-   <h3>قصص الأنبياء</h3>
-   <p>قصص مبسطة مع شرح وفائدة ومشاهدة.</p>
-  </div>
-  <div class="feature" onclick="showPage('adhkar')">
-   <div class="icon">🤲</div>
-   <h3>الأذكار</h3>
-   <p>صباح ومساء ونوم وصلاة وسفر وغيرها.</p>
-  </div>
-  <div class="feature" onclick="showPage('prayer')">
-   <div class="icon">🕌</div>
-   <h3>الصلاة</h3>
-   <p>مواقيت الصلاة حسب موقعك بعد السماح بالموقع.</p>
-  </div>
- </div>
-</div>
-
-<div class="section">
- <div class="section-head">
-   <div class="eyebrow">ابدأ الآن</div>
-   <h2>رحلة من القصص</h2>
- </div>
- <div id="homeStories" class="story-grid"></div>
-</div>
-
-</section>
-
-<!-- STORIES -->
-<section id="stories" class="page">
-<div class="section">
- <div class="section-head">
-   <div class="eyebrow">قصص وعِبر</div>
-   <h2>قصص الأنبياء</h2>
-   <p>اختر قصة واقرأها أو استمع إليها واستكشف الدروس المستفادة منها.</p>
- </div>
-
- <div class="search-box">
-   <input id="storySearch" placeholder="ابحث عن قصة..." oninput="renderStories()">
- </div>
-
- <div class="story-grid" id="storiesGrid"></div>
-</div>
-</section>
-
-<!-- QURAN -->
-<section id="quran" class="page">
-<div class="section">
- <div class="section-head">
-   <div class="eyebrow">كتاب الله</div>
-   <h2>القرآن الكريم</h2>
-   <p>اختر السورة واقرأ الآيات واستمع إلى التلاوة الحقيقية.</p>
- </div>
-
- <div class="quran-box">
-
-  <div class="quran-controls">
-   <select id="surahSelect" onchange="loadSurah(this.value)"></select>
-   <button class="btn btn-primary" onclick="playWholeSurah()">▶ تلاوة السورة</button>
-   <button class="btn btn-light" onclick="stopQuran()">■ إيقاف</button>
-  </div>
-
-  <div id="quranTitle" class="quran-title">
-    <h2>اختر سورة</h2>
-    <p>سيظهر المصحف هنا</p>
-  </div>
-
-  <div id="ayahs"></div>
-
-  <div class="player">
-    <span id="playerName">التلاوة</span>
-    <audio id="quranAudio" controls preload="none"></audio>
-  </div>
-
- </div>
-</div>
-</section>
-
-<!-- ADHKAR -->
-<section id="adhkar" class="page">
-<div class="section">
-
- <div class="section-head">
-  <div class="eyebrow">ذكر الله</div>
-  <h2>الأذكار</h2>
-  <p>اختر القسم الذي تريد قراءته.</p>
- </div>
-
- <div class="dhikr-grid" id="dhikrCategories"></div>
-
- <div id="dhikrReader" style="display:none;margin-top:30px"></div>
-
-</div>
-</section>
-
-<!-- PRAYER -->
-<section id="prayer" class="page">
-<div class="section">
-
- <div class="section-head">
-  <div class="eyebrow">مواقيت اليوم</div>
-  <h2>مواقيت الصلاة</h2>
-  <p>اضغط على الزر للسماح للموقع بحساب المواقيت حسب موقعك.</p>
- </div>
-
- <div class="prayer-card">
-  <div class="prayer-status">
-   <h2 id="nextPrayer">جاهز</h2>
-   <p id="locationStatus">لم يتم تحديد موقعك بعد</p>
-  </div>
-
-  <div class="prayers" id="prayers">
-   <div class="prayer"><strong>الفجر</strong><span>--:--</span></div>
-   <div class="prayer"><strong>الظهر</strong><span>--:--</span></div>
-   <div class="prayer"><strong>العصر</strong><span>--:--</span></div>
-   <div class="prayer"><strong>المغرب</strong><span>--:--</span></div>
-   <div class="prayer"><strong>العشاء</strong><span>--:--</span></div>
-  </div>
-
-  <div style="text-align:center;margin-top:25px">
-   <button class="btn btn-gold" onclick="getPrayerTimes()">📍 تحديد المواقيت</button>
-  </div>
- </div>
-
-</div>
-</section>
-
-<!-- TASBEEH -->
-<section id="tasbeeh" class="page">
-<div class="section">
- <div class="section-head">
-  <div class="eyebrow">اذكر الله</div>
-  <h2>المسبحة الإلكترونية</h2>
-  <p>العدد محفوظ على جهازك تلقائياً.</p>
- </div>
-
- <div class="tasbeeh">
-  <h3>سبحان الله</h3>
-  <div class="counter"><span id="counter">0</span></div>
-
-  <div class="tas-actions">
-   <button class="btn btn-primary" onclick="increment()">تسبيح</button>
-   <button class="btn btn-light" onclick="resetCounter()">تصفير</button>
-  </div>
- </div>
-</div>
-</section>
-
-</main>
-
-<footer class="footer">
- <strong>الهداية</strong>
- <p>منصة إسلامية تعليمية — نسأل الله أن يجعلها نافعة.</p>
- <p style="margin-top:15px">تصميم وبرمجة <strong>M11 — Mr. Mohamed Hussain</strong></p>
- <p>© 2026</p>
-</footer>
-
-<!-- STORY READER -->
-<div class="story-reader" id="storyReader">
-<button class="close" onclick="closeStory()">×</button>
-<div class="story-panel">
- <div class="story-head">
-  <div style="font-size:13px;color:#cfe0d9">قصة من قصص الهداية</div>
-  <h2 id="storyTitle"></h2>
-  <div id="storySubtitle"></div>
- </div>
-
- <div class="story-content">
-  <div id="storyText"></div>
-
-  <div class="lesson">
-   <strong>💡 فهم مبسط</strong>
-   <p id="storyLesson" style="margin:7px 0 0;font-family:Cairo;font-size:15px"></p>
-  </div>
-
-  <div class="story-video" id="storyVideo"></div>
-
-  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
-   <button class="btn btn-primary" onclick="speakStory()">🔊 قراءة آلية</button>
-   <button class="btn btn-light" onclick="stopStorySpeech()">■ إيقاف القراءة</button>
-  </div>
- </div>
-</div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-/* =========================
-   NAVIGATION
-========================= */
-function showPage(id,btn){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- const page=document.getElementById(id);
- if(page) page.classList.add('active');
-
- document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
- if(btn) btn.classList.add('active');
-
- window.scrollTo({top:0,behavior:'smooth'});
-}
-
-/* =========================
-   STORIES
-========================= */
-
-const stories=[
-{
- title:"آدم عليه السلام",
- letter:"آ",
- subtitle:"بداية خلق الإنسان",
- text:[
- "خلق الله آدم عليه السلام وكرّمه وعلّمه وأمر الملائكة بالسجود له تكريماً، فسجدوا إلا إبليس أبى واستكبر.",
- "أسكن الله آدم وزوجه الجنة، ونهاهما عن الاقتراب من شجرة معينة، لكن إبليس وسوس لهما، فأكلا منها.",
- "ثم تاب آدم عليه السلام إلى الله، فتاب الله عليه، وبدأت رحلة الإنسان في الأرض."
- ],
- lesson:"من قصة آدم نتعلم أن الإنسان قد يخطئ، لكن باب التوبة والرجوع إلى الله مفتوح.",
- video:"قصة آدم عليه السلام للأطفال رسوم متحركة"
-},
-{
- title:"نوح عليه السلام",
- letter:"ن",
- subtitle:"الصبر والثبات",
- text:[
- "أرسل الله نوحاً عليه السلام إلى قومه ليدعوهم إلى عبادة الله وحده.",
- "ظل نوح يدعو قومه زمناً طويلاً، لكن كثيراً منهم رفضوا دعوته وسخروا منه.",
- "أوحى الله إليه أن يصنع السفينة، فجاء الطوفان ونجا نوح ومن آمن معه."
- ],
- lesson:"الصبر على الخير وعدم اليأس من أهم الدروس المستفادة من قصة نوح عليه السلام.",
- video:"قصة نوح عليه السلام للأطفال رسوم متحركة"
-},
-{
- title:"هود عليه السلام",
- letter:"هـ",
- subtitle:"القوة لا تغني عن الحق",
- text:[
- "أرسل الله هوداً عليه السلام إلى قوم عاد، وكانوا أقوياء أصحاب حضارة وقوة.",
- "دعاهم هود إلى عبادة الله وترك الكبر والظلم، لكنهم رفضوا واستكبروا.",
- "فأهلك الله الظالمين ونجّى هوداً والذين آمنوا معه."
- ],
- lesson:"القوة الحقيقية ليست في المال أو الجسد، وإنما في الإيمان والحق.",
- video:"قصة هود عليه السلام للأطفال"
-},
-{
- title:"صالح عليه السلام",
- letter:"ص",
- subtitle:"آية الناقة",
- text:[
- "أرسل الله صالحاً عليه السلام إلى قوم ثمود، وكانوا يعيشون في قوة وعمران.",
- "طلب قومه آية، فجعل الله لهم الناقة آية واضحة، وأمرهم ألا يمسوها بسوء.",
- "لكنهم اعتدوا عليها، فجاءهم العذاب ونجّى الله صالحاً والمؤمنين."
- ],
- lesson:"احترام أوامر الله وعدم الاستهانة بالآيات من الدروس المهمة في القصة.",
- video:"قصة صالح عليه السلام للأطفال الناقة"
-},
-{
- title:"إبراهيم عليه السلام",
- letter:"إ",
- subtitle:"خليل الرحمن",
- text:[
- "نشأ إبراهيم عليه السلام رافضاً عبادة الأصنام، ودعا قومه إلى عبادة الله وحده.",
- "واجه قومه بالحجة، ولم يتراجع عن الحق رغم ما تعرض له.",
- "وجعل الله النار برداً وسلاماً عليه، ورفع شأنه وجعله من أئمة الهدى."
- ],
- lesson:"الثبات على الحق والشجاعة في قول الصواب من أبرز دروس قصة إبراهيم عليه السلام.",
- video:"قصة إبراهيم عليه السلام للأطفال رسوم متحركة"
-},
-{
- title:"إسماعيل عليه السلام",
- letter:"س",
- subtitle:"الطاعة والصبر",
- text:[
- "كان إسماعيل عليه السلام مثالاً في الطاعة والصبر.",
- "ابتُلي إبراهيم وإسماعيل عليهما السلام بأمر عظيم، فأظهرا التسليم لأمر الله.",
- "فجعل الله لهما فرجاً، وبقيت قصتهما درساً في الطاعة والثقة بالله."
- ],
- lesson:"الثقة بالله والصبر والطاعة من المعاني الجميلة في قصة إسماعيل.",
- video:"قصة إسماعيل عليه السلام للأطفال"
-},
-{
- title:"يوسف عليه السلام",
- letter:"ي",
- subtitle:"من البئر إلى التمكين",
- text:[
- "رأى يوسف عليه السلام رؤيا عظيمة في صغره، فحسده بعض إخوته وألقوه في البئر.",
- "ثم انتقل من محنة إلى أخرى حتى مكّنه الله في الأرض وأصبح صاحب مكانة.",
- "وعندما عاد إليه إخوته، اختار العفو ولم ينتقم منهم."
- ],
- lesson:"قد تبدأ الرحلة بمحنة، لكن الصبر والإيمان قد يقودان إلى الفرج، والعفو خلق عظيم.",
- video:"قصة يوسف عليه السلام للأطفال رسوم متحركة"
-},
-{
- title:"أيوب عليه السلام",
- letter:"أ",
- subtitle:"نموذج الصبر",
- text:[
- "ابتُلي أيوب عليه السلام في جسده وحاله، ومع ذلك بقي صابراً محتسباً.",
- "لم يفقد ثقته بالله، ودعا ربه بأدب وتضرع.",
- "فاستجاب الله له وكشف عنه الضر."
- ],
- lesson:"الصبر لا يعني عدم الحزن، بل يعني عدم فقدان الثقة بالله.",
- video:"قصة أيوب عليه السلام للأطفال"
-},
-{
- title:"يونس عليه السلام",
- letter:"ي",
- subtitle:"الدعاء والرجوع إلى الله",
- text:[
- "خرج يونس عليه السلام من قومه قبل أن يؤذن له، فكانت له محنة عظيمة.",
- "دعا ربه وتضرع إليه، فاستجاب الله له ونجّاه.",
- "عاد يونس إلى قومه فآمنوا وانتفعوا بدعوته."
- ],
- lesson:"إذا أخطأنا، فالرجوع إلى الله والدعاء والتوبة طريق النجاة.",
- video:"قصة يونس عليه السلام للأطفال الحوت"
-},
-{
- title:"موسى عليه السلام",
- letter:"م",
- subtitle:"الحق أمام الطغيان",
- text:[
- "أرسل الله موسى عليه السلام إلى فرعون يدعوه إلى توحيد الله وترك الظلم.",
- "واجه موسى فرعون بثبات، وأيده الله بالآيات.",
- "وعندما خرج بنو إسرائيل، شق الله لهم البحر ونجّاهم وأهلك فرعون."
- ],
- lesson:"لا تجعل قوة الظالمين سبباً لترك الحق؛ فالله أقوى من كل شيء.",
- video:"قصة موسى عليه السلام للأطفال رسوم متحركة"
-},
-{
- title:"داود عليه السلام",
- letter:"د",
- subtitle:"الملك والعبادة",
- text:[
- "آتَى الله داود عليه السلام الملك والحكمة، وعلّمه مما يشاء.",
- "كان عبداً كثير العبادة والذكر، وأكرمه الله بصوت حسن.",
- "وكان يحكم بين الناس بالعدل."
- ],
- lesson:"النعمة الحقيقية تحتاج إلى شكر، والسلطة تحتاج إلى عدل.",
- video:"قصة داود عليه السلام للأطفال"
-},
-{
- title:"سليمان عليه السلام",
- letter:"س",
- subtitle:"الملك والشكر",
- text:[
- "آتَى الله سليمان عليه السلام ملكاً عظيماً وسخّر له من خلقه ما شاء.",
- "ومع عظمة ملكه كان يعرف أن الفضل كله من الله.",
- "وكان يدعو الله أن يعينه على شكر نعمه."
- ],
- lesson:"كلما زادت النعمة زادت الحاجة إلى الشكر والتواضع.",
- video:"قصة سليمان عليه السلام للأطفال"
-},
-{
- title:"زكريا عليه السلام",
- letter:"ز",
- subtitle:"الأمل في رحمة الله",
- text:[
- "كان زكريا عليه السلام عبداً صالحاً يدعو ربه ويرجوه.",
- "دعا الله أن يرزقه ذرية طيبة، فاستجاب الله دعاءه.",
- "وجاءت البشرى بيحيى عليه السلام."
- ],
- lesson:"لا نيأس من رحمة الله، فالدعاء باب عظيم من أبواب الأمل.",
- video:"قصة زكريا عليه السلام للأطفال"
-},
-{
- title:"يحيى عليه السلام",
- letter:"ي",
- subtitle:"الطهر والاستقامة",
- text:[
- "كان يحيى عليه السلام نبياً صالحاً آتاه الله الحكمة منذ صغره.",
- "عُرف بالطهارة والتقوى والرحمة.",
- "وكان مثالاً في الاستقامة والبعد عن الفساد."
- ],
- lesson:"صلاح القلب والأخلاق الحسنة يمكن أن يبدأا من الصغر.",
- video:"قصة يحيى عليه السلام للأطفال"
-},
-{
- title:"عيسى عليه السلام",
- letter:"ع",
- subtitle:"آية من آيات الله",
- text:[
- "أرسل الله عيسى عليه السلام إلى بني إسرائيل، وأيده بالآيات بإذن الله.",
- "دعا قومه إلى عبادة الله وحده.",
- "وكان من أولي العزم من الرسل."
- ],
- lesson:"الأنبياء جميعاً دعوا إلى توحيد الله وعبادته.",
- video:"قصة عيسى عليه السلام للأطفال"
-},
-{
- title:"محمد ﷺ",
- letter:"م",
- subtitle:"رحمة للعالمين",
- text:[
- "أرسل الله محمداً ﷺ رسولاً خاتماً للأنبياء والمرسلين.",
- "دعا الناس إلى عبادة الله وحده وإلى مكارم الأخلاق والرحمة والعدل.",
- "واجه الأذى والصعوبات بالصبر، ثم أظهر الله دينه وانتشر الخير."
- ],
- lesson:"من السيرة نتعلم الرحمة والصبر والصدق وحسن التعامل مع الناس.",
- video:"السيرة النبوية للأطفال رسول الله محمد رسوم متحركة"
-},
-{
- title:"لقمان الحكيم",
- letter:"ل",
- subtitle:"وصايا عظيمة",
- text:[
- "ذكر الله في القرآن وصايا لقمان لابنه، ومن بينها التوحيد وبر الوالدين والصلاة والأخلاق الحسنة.",
- "كانت وصاياه تجمع بين الإيمان والسلوك الطيب.",
- "وهي دروس يحتاج إليها كل إنسان في حياته."
- ],
- lesson:"الإيمان يظهر في الأخلاق والعمل وليس في الكلام فقط.",
- video:"قصة لقمان الحكيم للأطفال"
-},
-{
- title:"أصحاب الكهف",
- letter:"ك",
- subtitle:"الثبات على الإيمان",
- text:[
- "كان أصحاب الكهف فتية آمنوا بربهم ورفضوا الشرك والباطل.",
- "لجؤوا إلى الكهف حفاظاً على دينهم، فحفظهم الله.",
- "وبقيت قصتهم آية عظيمة في الثبات على الإيمان."
- ],
- lesson:"الشجاعة ليست في القوة فقط، بل في الثبات على ما نؤمن أنه حق.",
- video:"قصة أصحاب الكهف للأطفال"
-},
-{
- title:"ذو القرنين",
- letter:"ذ",
- subtitle:"القوة مع العدل",
- text:[
- "ذكر القرآن ذا القرنين وما آتاه الله من أسباب القوة والتمكين.",
- "كان يستخدم قوته في الإصلاح ومساعدة الناس.",
- "وأقام سداً لحماية قوم من يأجوج ومأجوج."
- ],
- lesson:"القوة عندما تستخدم في الخير والإصلاح تصبح نعمة عظيمة.",
- video:"قصة ذو القرنين للأطفال"
-}
-];
-
-function storyCard(s,i){
- return `
- <div class="story-card">
-  <div class="story-cover">
-   ${s.letter}
-   <small>قصة إسلامية</small>
-  </div>
-  <div class="story-body">
-   <h3>${s.title}</h3>
-   <p>${s.subtitle}</p>
-   <div class="story-actions">
-    <button style="background:#063c2c;color:white" onclick="openStory(${i})">📖 قراءة</button>
-    <button style="background:#e8f1ec;color:#063c2c" onclick="openStory(${i})">▶ مشاهدة</button>
-   </div>
-  </div>
- </div>`;
-}
-
-function renderStories(){
- const q=(document.getElementById('storySearch')?.value||'').trim();
- const filtered=stories.filter(s=>s.title.includes(q)||s.subtitle.includes(q));
- document.getElementById('storiesGrid').innerHTML=
-  filtered.map((s,i)=>storyCard(s,stories.indexOf(s))).join('');
-}
-
-function renderHomeStories(){
- document.getElementById('homeStories').innerHTML=
-  stories.slice(0,8).map((s,i)=>storyCard(s,i)).join('');
-}
-
-function openStory(i){
- const s=stories[i];
- document.getElementById('storyTitle').textContent=s.title;
- document.getElementById('storySubtitle').textContent=s.subtitle;
-
- document.getElementById('storyText').innerHTML=
-  s.text.map(x=>`<p>${x}</p>`).join('');
-
- document.getElementById('storyLesson').textContent=s.lesson;
-
- const query=encodeURIComponent(s.video+" عربي");
- document.getElementById('storyVideo').innerHTML=`
-  <iframe
-   src="https://www.youtube.com/embed?listType=search&list=${query}"
-   title="${s.title}"
-   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-   allowfullscreen></iframe>`;
-
- document.getElementById('storyReader').classList.add('show');
- document.body.style.overflow='hidden';
- window.currentStory=s;
-}
-
-function closeStory(){
- document.getElementById('storyReader').classList.remove('show');
- document.body.style.overflow='';
- stopStorySpeech();
-}
-
-function speakStory(){
- if(!window.currentStory)return;
- stopStorySpeech();
-
- const text=window.currentStory.text.join(" ");
- const u=new SpeechSynthesisUtterance(text);
- u.lang="ar-SA";
- u.rate=.88;
- u.pitch=1;
- window.storySpeech=u;
- speechSynthesis.speak(u);
-}
-
-function stopStorySpeech(){
- if('speechSynthesis' in window)speechSynthesis.cancel();
-}
-
-/* =========================
-   QURAN
-========================= */
-
-const surahs=[
-"الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس",
-"هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه",
-"الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم",
-"لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر",
-"فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق",
-"الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة",
-"الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج",
-"نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس",
-"التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد",
-"الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات",
-"القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر",
-"المسد","الإخلاص","الفلق","الناس"
-];
-
-const select=document.getElementById('surahSelect');
-
-surahs.forEach((name,i)=>{
- const op=document.createElement('option');
- op.value=i+1;
- op.textContent=`${i+1} — سورة ${name}`;
- select.appendChild(op);
-});
-
-let quranData=[];
-let currentAyahIndex=0;
-let quranAudio=document.getElementById('quranAudio');
-
-async function loadSurah(num){
- document.getElementById('ayahs').innerHTML=
-  `<div style="text-align:center;padding:50px;color:#718178">جاري تحميل السورة...</div>`;
-
- try{
-  const res=await fetch(`https://api.alquran.cloud/v1/surah/${num}/quran-uthmani`);
-  const json=await res.json();
-
-  if(!json.data)throw new Error();
-
-  quranData=json.data.ayahs||[];
-  currentAyahIndex=0;
-
-  document.getElementById('quranTitle').innerHTML=`
-   <h2>${json.data.name}</h2>
-   <p>${json.data.englishName} — ${json.data.numberOfAyahs} آية</p>`;
-
-  renderAyahs();
-
- }catch(e){
-  document.getElementById('ayahs').innerHTML=
-   `<div style="text-align:center;padding:40px;color:#a33b3b">
-    تعذر تحميل السورة الآن. تأكد من اتصال الإنترنت ثم جرّب مرة أخرى.
-   </div>`;
- }
-}
-
-function renderAyahs(){
- const box=document.getElementById('ayahs');
-
- box.innerHTML=quranData.map((a,i)=>`
-  <div class="ayah" id="ayah-${i}">
-   <span class="ayah-num">${a.numberInSurah}</span>
-   ${a.text}
-
-   <div class="ayah-tools">
-    <button onclick="playAyah(${i})">▶ استماع</button>
-    <button onclick="shareAyah(${i})">↗ مشاركة</button>
-   </div>
-  </div>
- `).join('');
-}
-
-function audioUrl(globalNumber){
- return `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${globalNumber}.mp3`;
-}
-
-function playAyah(i){
- if(!quranData[i])return;
-
- currentAyahIndex=i;
-
- document.querySelectorAll('.ayah').forEach(x=>x.classList.remove('playing'));
- const el=document.getElementById(`ayah-${i}`);
- if(el){
-  el.classList.add('playing');
-  el.scrollIntoView({behavior:'smooth',block:'center'});
- }
-
- quranAudio.src=audioUrl(quranData[i].number);
- document.getElementById('playerName').textContent=
-  `سورة ${surahs[Number(select.value)-1]} — آية ${quranData[i].numberInSurah}`;
-
- quranAudio.play().catch(()=>{
-  showToast("اضغط زر التشغيل ▶ في مشغل التلاوة");
- });
-}
-
-function playWholeSurah(){
- if(!quranData.length){
-  showToast("اختر سورة أولاً");
-  return;
- }
- playAyah(currentAyahIndex);
-}
-
-function stopQuran(){
- quranAudio.pause();
- quranAudio.currentTime=0;
- document.querySelectorAll('.ayah').forEach(x=>x.classList.remove('playing'));
-}
-
-quranAudio.addEventListener('ended',()=>{
- if(currentAyahIndex<quranData.length-1){
-  currentAyahIndex++;
-  playAyah(currentAyahIndex);
- }
-});
-
-function shareAyah(i){
- const a=quranData[i];
- const text=`${a.text} — سورة ${surahs[Number(select.value)-1]}، الآية ${a.numberInSurah}`;
-
- if(navigator.share){
-  navigator.share({title:"آية من القرآن الكريم",text});
- }else{
-  navigator.clipboard?.writeText(text);
-  showToast("تم نسخ الآية");
- }
-}
-
-/* =========================
-   ADHKAR
-========================= */
-
-const adhkar={
- "الصباح":[
-  ["أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.","مرة واحدة"],
-  ["اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور.","مرة واحدة"],
-  ["رضيت بالله رباً، وبالإسلام ديناً، وبمحمد ﷺ نبياً.","3 مرات"],
-  ["حسبي الله لا إله إلا هو عليه توكلت وهو رب العرش العظيم.","7 مرات"]
- ],
- "المساء":[
-  ["أمسينا وأمسى الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له.","مرة واحدة"],
-  ["اللهم بك أمسينا وبك أصبحنا وبك نحيا وبك نموت وإليك المصير.","مرة واحدة"],
-  ["رضيت بالله رباً، وبالإسلام ديناً، وبمحمد ﷺ نبياً.","3 مرات"],
-  ["أعوذ بكلمات الله التامات من شر ما خلق.","3 مرات"]
- ],
- "النوم":[
-  ["باسمك اللهم أموت وأحيا.","مرة واحدة"],
-  ["اللهم قني عذابك يوم تبعث عبادك.","3 مرات"],
-  ["سبحان الله.","33 مرة"],
-  ["الحمد لله.","33 مرة"],
-  ["الله أكبر.","34 مرة"]
- ],
- "الاستيقاظ":[
-  ["الحمد لله الذي أحيانا بعدما أماتنا وإليه النشور.","مرة واحدة"],
-  ["لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.","مرة واحدة"]
- ],
- "بعد الصلاة":[
-  ["أستغفر الله.","3 مرات"],
-  ["اللهم أنت السلام ومنك السلام تباركت يا ذا الجلال والإكرام.","مرة واحدة"],
-  ["سبحان الله.","33 مرة"],
-  ["الحمد لله.","33 مرة"],
-  ["الله أكبر.","33 مرة"]
- ],
- "دخول المسجد":[
-  ["اللهم افتح لي أبواب رحمتك.","مرة واحدة"]
- ],
- "الخروج من المسجد":[
-  ["اللهم إني أسألك من فضلك.","مرة واحدة"]
- ],
- "دخول المنزل":[
-  ["بسم الله ولجنا، وبسم الله خرجنا، وعلى ربنا توكلنا.","مرة واحدة"]
- ],
- "الخروج من المنزل":[
-  ["بسم الله، توكلت على الله، ولا حول ولا قوة إلا بالله.","مرة واحدة"]
- ],
- "الطعام":[
-  ["بسم الله.","قبل الطعام"],
-  ["الحمد لله الذي أطعمنا وسقانا وجعلنا مسلمين.","بعد الطعام"]
- ],
- "السفر":[
-  ["سبحان الذي سخر لنا هذا وما كنا له مقرنين وإنا إلى ربنا لمنقلبون.","عند الركوب"],
-  ["اللهم إنا نسألك في سفرنا هذا البر والتقوى ومن العمل ما ترضى.","في السفر"]
- ],
- "الوضوء":[
-  ["أشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن محمداً عبده ورسوله.","بعد الوضوء"]
- ],
- "المرض":[
-  ["أسأل الله العظيم رب العرش العظيم أن يشفيك.","7 مرات"],
-  ["اللهم رب الناس، أذهب البأس، واشف أنت الشافي، لا شفاء إلا شفاؤك، شفاء لا يغادر سقماً.","مرة واحدة"]
- ],
- "عام":[
-  ["سبحان الله وبحمده.","100 مرة"],
-  ["سبحان الله، والحمد لله، والله أكبر.","قدر الاستطاعة"],
-  ["لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.","100 مرة"],
-  ["أستغفر الله وأتوب إليه.","قدر الاستطاعة"]
- ]
-};
-
-const categoryIcons={
- "الصباح":"🌅","المساء":"🌇","النوم":"🌙","الاستيقاظ":"☀️",
- "بعد الصلاة":"🕌","دخول المسجد":"🚪","الخروج من المسجد":"🚶",
- "دخول المنزل":"🏠","الخروج من المنزل":"🚪","الطعام":"🍽️",
- "السفر":"🧳","الوضوء":"💧","المرض":"🤲","عام":"✨"
-};
-
-function renderDhikrCategories(){
- const box=document.getElementById('dhikrCategories');
-
- box.innerHTML=Object.keys(adhkar).map(cat=>`
-  <div class="dhikr-cat" onclick="openDhikr('${cat}')">
-   <div class="big">${categoryIcons[cat]||"🤲"}</div>
-   <h3>${cat}</h3>
-   <p>${adhkar[cat].length} أذكار</p>
-  </div>
- `).join('');
-}
-
-function openDhikr(category){
- const items=adhkar[category];
-
- document.getElementById('dhikrReader').style.display='block';
- document.getElementById('dhikrReader').innerHTML=`
-  <div class="dhikr-reader">
-   <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:25px">
-    <div>
-     <h2 style="color:#063c2c">${categoryIcons[category]} أذكار ${category}</h2>
-     <p style="color:#718178;font-size:12px;margin-top:5px">اقرأ الذكر بهدوء وطمأنينة.</p>
-    </div>
-    <button class="btn btn-light" onclick="closeDhikr()">إغلاق</button>
-   </div>
-
-   ${items.map((item,i)=>`
-    <div class="dhikr-item">
-      <div class="arabic">${item[0]}</div>
-      <span class="count">${item[1]}</span>
-    </div>
-   `).join('')}
-  </div>`;
-
- document.getElementById('dhikrReader').scrollIntoView({behavior:'smooth'});
-}
-
-function closeDhikr(){
- document.getElementById('dhikrReader').style.display='none';
-}
-
-/* =========================
-   PRAYER
-========================= */
-
-async function getPrayerTimes(){
- if(!navigator.geolocation){
-  showToast("المتصفح لا يدعم تحديد الموقع");
-  return;
- }
-
- document.getElementById('locationStatus').textContent=
-  "جاري طلب السماح بالموقع...";
-
- navigator.geolocation.getCurrentPosition(async pos=>{
-  const lat=pos.coords.latitude;
-  const lon=pos.coords.longitude;
-
-  try{
-   const date=new Date();
-   const day=date.getDate();
-   const month=date.getMonth()+1;
-   const year=date.getFullYear();
-
-   const url=
-    `https://api.aladhan.com/v1/timings/${day}-${month}-${year}?latitude=${lat}&longitude=${lon}&method=5`;
-
-   const res=await fetch(url);
-   const json=await res.json();
-
-   const t=json.data.timings;
-
-   const names=[
-    ["الفجر",t.Fajr],
-    ["الظهر",t.Dhuhr],
-    ["العصر",t.Asr],
-    ["المغرب",t.Maghrib],
-    ["العشاء",t.Isha]
-   ];
-
-   document.getElementById('prayers').innerHTML=
-    names.map(x=>`
-     <div class="prayer">
-      <strong>${x[0]}</strong>
-      <span>${x[1]}</span>
-     </div>
-    `).join('');
-
-   document.getElementById('locationStatus').textContent=
-    "تم حساب المواقيت حسب موقعك الحالي";
-
-   calculateNextPrayer(names);
-
-  }catch(e){
-   document.getElementById('locationStatus').textContent=
-    "حدث خطأ أثناء جلب المواقيت";
-  }
-
- },()=>{
-  document.getElementById('locationStatus').textContent=
-   "لم يتم السماح بالموقع — يمكنك استخدام باقي المنصة بشكل طبيعي.";
- });
-}
-
-function calculateNextPrayer(names){
- const now=new Date();
- let next=null;
-
- for(const p of names){
-  const [h,m]=p[1].split(':').map(Number);
-  const d=new Date();
-  d.setHours(h,m,0,0);
-
-  if(d>now){
-   next={name:p[0],time:p[1]};
-   break;
-  }
- }
-
- if(!next)next={name:"الفجر",time:names[0][1]};
-
- document.getElementById('nextPrayer').textContent=
-  `الصلاة القادمة: ${next.name} — ${next.time}`;
-}
-
-/* =========================
-   TASBEEH
-========================= */
-
-let count=Number(localStorage.getItem("hidayah_tasbeeh")||0);
-document.getElementById('counter').textContent=count;
-
-function increment(){
- count++;
- localStorage.setItem("hidayah_tasbeeh",count);
- document.getElementById('counter').textContent=count;
-}
-
-function resetCounter(){
- count=0;
- localStorage.setItem("hidayah_tasbeeh",0);
- document.getElementById('counter').textContent=0;
-}
-
-/* =========================
-   TOAST
-========================= */
-
-function showToast(msg){
- const t=document.getElementById('toast');
- t.textContent=msg;
- t.classList.add('show');
- clearTimeout(window.toastTimer);
- window.toastTimer=setTimeout(()=>t.classList.remove('show'),2500);
-}
-
-/* =========================
-   START
-========================= */
-
-renderStories();
-renderHomeStories();
-renderDhikrCategories();
-
-</script>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <a href="./index.html"
+               class="brand"
+               aria-label="الهداية">
+
+                <div class="logo">
+                    هـ
+                </div>
+
+                <div>
+
+                    <div class="brand-title">
+                        الهداية
+                    </div>
+
+                    <div class="brand-subtitle">
+                        نورٌ يهدي الطريق
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <nav>
+
+                <ul>
+
+                    <li>
+                        <a href="./index.html"
+                           class="active">
+                            الرئيسية
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./stories.html">
+                            القصص
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./quran.html">
+                            القرآن الكريم
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./adhkar.html">
+                            الأذكار
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./prayer.html">
+                            مواقيت الصلاة
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./tasbeeh.html">
+                            التسبيح
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-badge">
+                    ✦ منصة إسلامية تعليمية
+                </span>
+
+
+                <h1>
+                    طريقك إلى
+                    <span>الهداية</span>
+                </h1>
+
+
+                <p>
+
+                    القرآن الكريم، وقصص الأنبياء،
+                    والأذكار، ومواقيت الصلاة،
+                    والتسبيح — في تجربة بسيطة
+                    وهادئة تجمع الخير في مكان واحد.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="./quran.html"
+                       class="btn btn-primary">
+
+                        📖
+                        افتح القرآن الكريم
+
+                    </a>
+
+
+                    <a href="./stories.html"
+                       class="btn btn-gold">
+
+                        ✨
+                        استكشف القصص
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- الشكل الجانبي -->
+
+            <div class="hero-visual">
+
+                <div class="hero-moon">
+
+                    <span>
+                        هـ
+                    </span>
+
+                </div>
+
+                <div class="hero-star star-one"></div>
+                <div class="hero-star star-two"></div>
+                <div class="hero-star star-three"></div>
+                <div class="hero-star star-four"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FEATURES
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="section-head">
+
+                <span class="eyebrow">
+                    كل ما تحتاجه
+                </span>
+
+                <h2>
+                    في مكان واحد
+                </h2>
+
+                <p>
+                    أقسام منظمة تساعدك على الوصول
+                    إلى المحتوى بسهولة.
+                </p>
+
+            </div>
+
+
+            <div class="grid grid-4">
+
+
+                <!-- القرآن -->
+
+                <a href="./quran.html"
+                   class="feature-card"
+                   style="padding:25px;">
+
+                    <div class="icon">
+                        📖
+                    </div>
+
+                    <h3 style="margin-top:15px;color:var(--green-900);">
+                        القرآن الكريم
+                    </h3>
+
+                    <p style="margin-top:7px;color:var(--muted);line-height:1.9;font-size:13px;">
+                        اقرأ القرآن الكريم واستمع إلى التلاوة.
+                    </p>
+
+                </a>
+
+
+
+                <!-- القصص -->
+
+                <a href="./stories.html"
+                   class="feature-card"
+                   style="padding:25px;">
+
+                    <div class="icon">
+                        🌙
+                    </div>
+
+                    <h3 style="margin-top:15px;color:var(--green-900);">
+                        القصص الإسلامية
+                    </h3>
+
+                    <p style="margin-top:7px;color:var(--muted);line-height:1.9;font-size:13px;">
+                        قصص الأنبياء والسيرة بأسلوب مبسط.
+                    </p>
+
+                </a>
+
+
+
+                <!-- الأذكار -->
+
+                <a href="./adhkar.html"
+                   class="feature-card"
+                   style="padding:25px;">
+
+                    <div class="icon">
+                        🤲
+                    </div>
+
+                    <h3 style="margin-top:15px;color:var(--green-900);">
+                        الأذكار
+                    </h3>
+
+                    <p style="margin-top:7px;color:var(--muted);line-height:1.9;font-size:13px;">
+                        أذكار الصباح والمساء والنوم وغيرها.
+                    </p>
+
+                </a>
+
+
+
+                <!-- الصلاة -->
+
+                <a href="./prayer.html"
+                   class="feature-card"
+                   style="padding:25px;">
+
+                    <div class="icon">
+                        🕌
+                    </div>
+
+                    <h3 style="margin-top:15px;color:var(--green-900);">
+                        مواقيت الصلاة
+                    </h3>
+
+                    <p style="margin-top:7px;color:var(--muted);line-height:1.9;font-size:13px;">
+                        اعرف مواقيت الصلاة حسب موقعك.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             STORIES PREVIEW
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="section-head">
+
+                <span class="eyebrow">
+                    قصص وعِبر
+                </span>
+
+                <h2>
+                    من قصص الهداية
+                </h2>
+
+                <p>
+                    تعرّف على قصص الأنبياء واستخرج منها الفوائد.
+                </p>
+
+            </div>
+
+
+            <div class="story-grid">
+
+
+                <!-- آدم -->
+
+                <a href="./story.html?id=adam"
+                   class="story-card">
+
+                    <div class="story-cover">
+                        آ
+                    </div>
+
+                    <div class="story-body">
+
+                        <h3>
+                            آدم عليه السلام
+                        </h3>
+
+                        <p>
+                            بداية خلق الإنسان وقصة التوبة والرجوع إلى الله.
+                        </p>
+
+                        <div class="story-actions">
+
+                            <span class="btn btn-primary">
+                                قراءة القصة
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- نوح -->
+
+                <a href="./story.html?id=nuh"
+                   class="story-card">
+
+                    <div class="story-cover">
+                        ن
+                    </div>
+
+                    <div class="story-body">
+
+                        <h3>
+                            نوح عليه السلام
+                        </h3>
+
+                        <p>
+                            قصة الصبر والثبات والدعوة إلى الله.
+                        </p>
+
+                        <div class="story-actions">
+
+                            <span class="btn btn-primary">
+                                قراءة القصة
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- يوسف -->
+
+                <a href="./story.html?id=yusuf"
+                   class="story-card">
+
+                    <div class="story-cover">
+                        ي
+                    </div>
+
+                    <div class="story-body">
+
+                        <h3>
+                            يوسف عليه السلام
+                        </h3>
+
+                        <p>
+                            من المحنة إلى التمكين والعفو عن الإخوة.
+                        </p>
+
+                        <div class="story-actions">
+
+                            <span class="btn btn-primary">
+                                قراءة القصة
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- موسى -->
+
+                <a href="./story.html?id=musa"
+                   class="story-card">
+
+                    <div class="story-cover">
+                        م
+                    </div>
+
+                    <div class="story-body">
+
+                        <h3>
+                            موسى عليه السلام
+                        </h3>
+
+                        <p>
+                            قصة مواجهة الطغيان والثبات على الحق.
+                        </p>
+
+                        <div class="story-actions">
+
+                            <span class="btn btn-primary">
+                                قراءة القصة
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div style="text-align:center;margin-top:25px;">
+
+                <a href="./stories.html"
+                   class="btn btn-light">
+
+                    عرض جميع القصص ←
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             QUICK ACCESS
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="section-head">
+
+                <span class="eyebrow">
+                    الوصول السريع
+                </span>
+
+                <h2>
+                    اختر ما تريد
+                </h2>
+
+            </div>
+
+
+            <div class="grid grid-3">
+
+
+                <a href="./adhkar.html"
+                   class="card"
+                   style="padding:25px;">
+
+                    <div class="icon">
+                        🌅
+                    </div>
+
+                    <h3 style="margin-top:14px;color:var(--green-900);">
+                        أذكار الصباح والمساء
+                    </h3>
+
+                    <p style="color:var(--muted);font-size:13px;line-height:1.9;margin-top:7px;">
+                        ابدأ يومك واختمه بذكر الله.
+                    </p>
+
+                </a>
+
+
+
+                <a href="./prayer.html"
+                   class="card"
+                   style="padding:25px;">
+
+                    <div class="icon">
+                        🕋
+                    </div>
+
+                    <h3 style="margin-top:14px;color:var(--green-900);">
+                        مواقيت الصلاة
+                    </h3>
+
+                    <p style="color:var(--muted);font-size:13px;line-height:1.9;margin-top:7px;">
+                        احسب المواقيت حسب موقعك.
+                    </p>
+
+                </a>
+
+
+
+                <a href="./tasbeeh.html"
+                   class="card"
+                   style="padding:25px;">
+
+                    <div class="icon">
+                        📿
+                    </div>
+
+                    <h3 style="margin-top:14px;color:var(--green-900);">
+                        المسبحة الإلكترونية
+                    </h3>
+
+                    <p style="color:var(--muted);font-size:13px;line-height:1.9;margin-top:7px;">
+                        سبح الله واحفظ عدد التسبيحات.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div style="max-width:900px;margin:auto;">
+
+            <div style="font-family:Amiri;font-size:34px;color:var(--gold-light);">
+                الهداية
+            </div>
+
+            <p>
+                نورٌ يهدي الطريق
+            </p>
+
+            <p style="margin-top:15px;">
+                منصة إسلامية تعليمية تهدف إلى تقديم
+                محتوى نافع في تجربة بسيطة ومنظمة.
+            </p>
+
+            <p style="margin-top:20px;">
+                تصميم وبرمجة
+                <strong>
+                    M11 — Mr. Mohamed Hussain
+                </strong>
+            </p>
+
+            <p>
+                © 2026
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         MAIN JS
+    ====================================================== -->
+
+    <script>
+
+        /*
+         * لا نعيد كتابة وظائف المنصة هنا.
+         * ملفات JS القديمة الموجودة عندك هي المسؤولة
+         * عن وظائف الصفحات الداخلية.
+         */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // إضافة حركة بسيطة للكروت
+            const cards = document.querySelectorAll(
+                ".feature-card, .story-card, .category-card, .dhikr-card, .card"
+            );
+
+            cards.forEach(function (card) {
+
+                card.addEventListener("mouseenter", function () {
+                    card.style.transition =
+                        "transform .3s ease, box-shadow .3s ease";
+                });
+
+            });
+
+        });
+
+    </script>
+
 </body>
-   </html>
+</html>
