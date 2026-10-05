@@ -1,77 +1,1474 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-  <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>القصة | الهداية</title>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Amiri:wght@400;700&display=swap"
-    rel="stylesheet"
+  <meta
+    name="description"
+    content="قصص إسلامية مبسطة من منصة الهداية"
   >
 
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/inner.css">
+  <link rel="stylesheet" href="./css/main.css">
 
+  <style>
+    /* ===============================
+       STORY PAGE
+    =============================== */
+
+    .story-page {
+      min-height: 100vh;
+    }
+
+    .story-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 70px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(198,157,72,.14), transparent 30%),
+        radial-gradient(circle at 85% 70%, rgba(25,91,68,.12), transparent 35%),
+        linear-gradient(135deg, #f9f6ee, #eef5ef);
+    }
+
+    .story-hero::before,
+    .story-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .story-hero::before {
+      width: 280px;
+      height: 280px;
+      top: -140px;
+      right: -80px;
+      border: 1px solid rgba(180,140,55,.18);
+    }
+
+    .story-hero::after {
+      width: 220px;
+      height: 220px;
+      bottom: -120px;
+      left: -70px;
+      border: 1px solid rgba(26,91,68,.15);
+    }
+
+    .story-hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .story-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 20px;
+      color: #7b806f;
+      font-size: .9rem;
+    }
+
+    .story-breadcrumb a {
+      color: #176044;
+      text-decoration: none;
+    }
+
+    .story-breadcrumb span {
+      opacity: .55;
+    }
+
+    .story-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(190,157,83,.25);
+      color: #876b2f;
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .story-kicker::before {
+      content: "✦";
+    }
+
+    .story-title {
+      margin: 0 0 18px;
+      color: #123e2f;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.15;
+    }
+
+    .story-intro {
+      max-width: 700px;
+      margin: 0 0 28px;
+      color: #59665f;
+      font-size: 1.08rem;
+      line-height: 2;
+    }
+
+    .story-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .story-action {
+      border: 0;
+      cursor: pointer;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-weight: 800;
+      transition: .25s ease;
+    }
+
+    .story-action.primary {
+      color: #fff;
+      background: linear-gradient(135deg,#176044,#0e4935);
+      box-shadow: 0 12px 28px rgba(23,96,68,.18);
+    }
+
+    .story-action.secondary {
+      color: #765d2a;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(180,140,55,.3);
+    }
+
+    .story-action:hover {
+      transform: translateY(-3px);
+    }
+
+    .story-visual {
+      position: relative;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+    }
+
+    .story-visual-card {
+      position: relative;
+      width: min(100%, 390px);
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(255,255,255,.95), transparent 25%),
+        linear-gradient(145deg,#184f3b,#0b3026);
+      box-shadow:
+        0 35px 80px rgba(13,58,43,.2),
+        inset 0 1px 0 rgba(255,255,255,.16);
+    }
+
+    .story-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: 25px;
+      border: 1px solid rgba(216,183,104,.35);
+      border-radius: 28px;
+    }
+
+    .story-visual-card::after {
+      content: "هـ";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(221,192,116,.85);
+      font-size: 9rem;
+      font-family: Georgia, serif;
+      text-shadow: 0 10px 40px rgba(0,0,0,.25);
+    }
+
+    .story-orbit {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(226,195,119,.22);
+      border-radius: 50%;
+      animation: storySpin 18s linear infinite;
+    }
+
+    .story-orbit::after {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      top: -4px;
+      left: 50%;
+      border-radius: 50%;
+      background: #d5ad58;
+      box-shadow: 0 0 18px #d5ad58;
+    }
+
+    @keyframes storySpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ===============================
+       CONTENT
+    =============================== */
+
+    .story-content-section {
+      padding: 75px 0;
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .story-main {
+      min-width: 0;
+    }
+
+    .story-panel {
+      padding: 32px;
+      margin-bottom: 25px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(22,70,52,.08);
+      box-shadow: 0 15px 45px rgba(20,58,43,.07);
+    }
+
+    .story-panel-title {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 22px;
+      color: #164b38;
+      font-size: 1.45rem;
+    }
+
+    .story-panel-title span {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: #eef5ef;
+      color: #9b762f;
+    }
+
+    .story-text {
+      color: #384740;
+      font-size: 1.08rem;
+      line-height: 2.25;
+    }
+
+    .story-text p {
+      margin: 0 0 20px;
+    }
+
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===============================
+       AUDIO
+    =============================== */
+
+    .reading-box {
+      padding: 25px;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, #f1f7f3, #fbfaf5);
+      border: 1px solid rgba(23,96,68,.1);
+    }
+
+    .reading-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 18px;
+    }
+
+    .reading-head strong {
+      color: #174b38;
+    }
+
+    .reading-status {
+      color: #7b806f;
+      font-size: .85rem;
+    }
+
+    .reading-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .reading-controls button {
+      min-height: 44px;
+      padding: 0 16px;
+      border: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      color: #174b38;
+      background: #fff;
+      border: 1px solid rgba(23,96,68,.12);
+      transition: .2s ease;
+    }
+
+    .reading-controls button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(23,96,68,.28);
+    }
+
+    .reading-progress {
+      height: 6px;
+      margin-top: 18px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: #dfe9e2;
+    }
+
+    .reading-progress-bar {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg,#bd9650,#176044);
+      transition: width .15s linear;
+    }
+
+    /* ===============================
+       VERSE
+    =============================== */
+
+    .verse-card {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border-radius: 24px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(216,183,104,.12), transparent 28%),
+        linear-gradient(135deg,#123e2f,#0c2f24);
+      box-shadow: 0 18px 45px rgba(13,58,43,.13);
+    }
+
+    .verse-card::before {
+      content: "﴿";
+      position: absolute;
+      top: -20px;
+      right: 20px;
+      color: rgba(221,192,116,.12);
+      font-size: 8rem;
+    }
+
+    .verse-label {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: #d9b66c;
+      font-weight: 800;
+    }
+
+    .verse-text {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 2.2;
+    }
+
+    .verse-source {
+      margin-top: 18px;
+      color: #cbd8d0;
+      font-size: .9rem;
+    }
+
+    /* ===============================
+       SIDEBAR
+    =============================== */
+
+    .story-sidebar {
+      position: sticky;
+      top: 25px;
+    }
+
+    .side-card {
+      padding: 23px;
+      margin-bottom: 18px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(22,70,52,.08);
+      box-shadow: 0 12px 35px rgba(20,58,43,.06);
+    }
+
+    .side-card h3 {
+      margin: 0 0 15px;
+      color: #164b38;
+      font-size: 1.1rem;
+    }
+
+    .side-links {
+      display: grid;
+      gap: 9px;
+    }
+
+    .side-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 13px;
+      border-radius: 12px;
+      color: #536159;
+      background: #f7f9f7;
+      text-decoration: none;
+      transition: .2s ease;
+    }
+
+    .side-links a:hover {
+      color: #176044;
+      transform: translateX(-3px);
+      background: #eef5ef;
+    }
+
+    .simple-note {
+      color: #66736b;
+      font-size: .92rem;
+      line-height: 1.9;
+    }
+
+    /* ===============================
+       SOURCES
+    =============================== */
+
+    .sources-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sources-list li {
+      padding: 13px 15px;
+      border-radius: 12px;
+      background: #f7f8f5;
+      color: #59665f;
+    }
+
+    /* ===============================
+       ERROR
+    =============================== */
+
+    .story-error {
+      max-width: 700px;
+      margin: 100px auto;
+      padding: 45px 30px;
+      text-align: center;
+      border-radius: 25px;
+      background: #fff;
+      box-shadow: 0 20px 50px rgba(0,0,0,.08);
+    }
+
+    .story-error-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .story-error h2 {
+      color: #164b38;
+    }
+
+    .story-error p {
+      color: #68746d;
+      line-height: 1.9;
+    }
+
+    /* ===============================
+       MOBILE
+    =============================== */
+
+    @media (max-width: 900px) {
+
+      .story-hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-visual {
+        order: -1;
+        min-height: 280px;
+      }
+
+      .story-visual-card {
+        width: min(100%, 310px);
+      }
+
+      .story-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .story-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .story-hero {
+        padding: 55px 0 45px;
+      }
+
+      .story-title {
+        font-size: 2.15rem;
+      }
+
+      .story-intro {
+        font-size: 1rem;
+      }
+
+      .story-panel {
+        padding: 22px;
+      }
+
+      .story-text {
+        font-size: 1rem;
+      }
+
+      .verse-card {
+        padding: 24px;
+      }
+
+      .verse-text {
+        font-size: 1.1rem;
+      }
+
+      .story-actions {
+        display: grid;
+      }
+
+      .story-action {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<header class="nav">
+  <!-- ================= HEADER ================= -->
 
-  <a class="brand" href="index.html">
+  <header class="site-header">
 
-    <span class="brand-mark">
-      هـ
-    </span>
+    <div class="container header-inner">
 
-    <span>
-      <b>الهداية</b>
-      <small>نورٌ يُقرأ ويُسمع</small>
-    </span>
+      <a href="index.html" class="brand">
+        <span class="brand-mark">هـ</span>
 
-  </a>
+        <span class="brand-text">
+          <strong>الهداية</strong>
+          <small>طريقك إلى المعرفة النافعة</small>
+        </span>
+      </a>
 
+      <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="stories.html" class="active">القصص</a>
+        <a href="quran.html">القرآن الكريم</a>
+        <a href="adhkar.html">الأذكار</a>
+        <a href="prayer.html">مواقيت الصلاة</a>
+        <a href="tasbeeh.html">التسبيح</a>
+      </nav>
 
-  <nav>
+    </div>
 
-    <a href="index.html">
-      الرئيسية
-    </a>
-
-    <a class="active" href="stories.html">
-      القصص
-    </a>
-
-    <a href="quran.html">
-      القرآن الكريم
-    </a>
-
-    <a href="adhkar.html">
-      الأذكار
-    </a>
-
-    <a href="prayer.html">
-      مواقيت الصلاة
-    </a>
-
-  </nav>
-
-</header>
+  </header>
 
 
-<main class="wrap inner" id="story"></main>
+  <!-- ================= PAGE ================= -->
+
+  <main id="storyPage" class="story-page">
+
+    <!-- سيتم ملؤه بواسطة JavaScript -->
+
+    <section class="story-error">
+
+      <div class="story-error-icon">⌛</div>
+
+      <h2>جاري تحميل القصة...</h2>
+
+      <p>
+        لحظات ونجهز لك القصة.
+      </p>
+
+    </section>
+
+  </main>
 
 
-<script src="js/story.js"></script>
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+
+        <span class="brand-mark">هـ</span>
+
+        <div>
+          <strong>الهداية</strong>
+          <p>
+            منصة إسلامية تعليمية مبسطة.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-credit">
+        <span>تطوير وبرمجة</span>
+        <strong>M11 — Mr. Mohamed Hussain</strong>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= STORY DATA ================= -->
+
+  <script>
+
+    const stories = {
+
+      adam: {
+        category: "قصص الأنبياء",
+        title: "قصة آدم عليه السلام",
+        intro:
+          "قصة بداية خلق الإنسان، وما تحمله من دروس في الطاعة والتوبة والرجوع إلى الله.",
+
+        text: [
+          "خلق الله سبحانه وتعالى آدم عليه السلام، وعلّمه وأكرمه، ثم أسكنه الجنة مع زوجته.",
+          "وأمر الله آدم وزوجه أن يأكلا من نعيم الجنة، ونهاهما عن شجرة معينة. فوسوس لهما الشيطان، فأكلا منها.",
+          "ثم تاب آدم عليه السلام إلى الله، فقبل الله توبته. وفي ذلك درس عظيم في أن باب التوبة مفتوح لمن رجع إلى الله بصدق.",
+          "وتبدأ من قصة آدم عليه السلام رحلة الإنسان في الأرض، ليعبد الله ويعمر الأرض بالخير."
+        ],
+
+        verse:
+          "وَقُلْنَا يَا آدَمُ اسْكُنْ أَنتَ وَزَوْجُكَ الْجَنَّةَ وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا",
+        source:
+          "سورة البقرة، الآية 35",
+
+        lessons: [
+          "الطاعة والالتزام بأوامر الله.",
+          "الشيطان عدو للإنسان.",
+          "التوبة الصادقة سبب للرجوع إلى الله.",
+          "رحمة الله بعباده."
+        ]
+      },
+
+
+      nuh: {
+        category: "قصص الأنبياء",
+        title: "قصة نوح عليه السلام",
+        intro:
+          "قصة نبي كريم دعا قومه إلى عبادة الله وصبر على دعوته سنوات طويلة.",
+
+        text: [
+          "أرسل الله نوحًا عليه السلام إلى قومه ليدعوهم إلى عبادة الله وحده وترك الشرك.",
+          "ظل نوح عليه السلام يدعو قومه بالصبر والحكمة، ولم يتوقف عن دعوتهم رغم ما واجهه من رفض.",
+          "وأوحى الله إليه أن يصنع السفينة، فبدأ في بنائها بأمر الله، حتى جاء أمر الله وحدث الطوفان.",
+          "نجّى الله نوحًا ومن آمن معه، وكانت قصته مثالًا عظيمًا في الصبر والثبات على الحق."
+        ],
+
+        verse:
+          "وَاصْنَعِ الْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا",
+        source:
+          "سورة هود، الآية 37",
+
+        lessons: [
+          "الصبر على الدعوة إلى الخير.",
+          "الثبات على الحق.",
+          "طاعة أمر الله.",
+          "النجاة بالإيمان والطاعة."
+        ]
+      },
+
+
+      yusuf: {
+        category: "من القرآن الكريم",
+        title: "قصة يوسف عليه السلام",
+        intro:
+          "قصة مليئة بالصبر والابتلاء والعفو، وهي من أعظم القصص التي وردت في القرآن الكريم.",
+
+        text: [
+          "كان يوسف عليه السلام نبيًا كريمًا، وقد رأى في صغره رؤيا عظيمة، وقصها على أبيه يعقوب عليه السلام.",
+          "تعرض يوسف عليه السلام للابتلاء، وانتقل من محنة إلى أخرى، لكنه ظل متمسكًا بالله.",
+          "ومع مرور الأحداث تغيّرت أحوال يوسف عليه السلام حتى أصبح في مكانة عظيمة.",
+          "وفي نهاية القصة ظهر جمال العفو والصبر، وعرف يوسف عليه السلام أن ما مر به كان جزءًا من قدر الله وحكمته."
+        ],
+
+        verse:
+          "إِنَّهُ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",
+        source:
+          "سورة يوسف، الآية 90",
+
+        lessons: [
+          "الصبر وقت الابتلاء.",
+          "الثقة بحكمة الله.",
+          "العفو عند القدرة.",
+          "التقوى والصبر من أسباب الخير."
+        ]
+      },
+
+
+      musa: {
+        category: "قصص الأنبياء",
+        title: "قصة موسى عليه السلام",
+        intro:
+          "قصة نبي الله موسى عليه السلام، وما فيها من دروس في الشجاعة والثقة بالله.",
+
+        text: [
+          "أرسل الله موسى عليه السلام إلى فرعون وقومه، ودعاه إلى توحيد الله وترك الظلم.",
+          "واجه موسى عليه السلام فرعون بثبات، وأيده الله بالآيات والمعجزات.",
+          "وعندما خرج موسى ومن معه، لحق بهم فرعون وجنوده، فكان البحر أمامهم والعدو خلفهم.",
+          "أظهر الله قدرته، ونجّى موسى ومن معه، وكانت القصة درسًا عظيمًا في الثقة بالله."
+        ],
+
+        verse:
+          "كَلَّا إِنَّ مَعِيَ رَبِّي سَيَهْدِينِ",
+        source:
+          "سورة الشعراء، الآية 62",
+
+        lessons: [
+          "الثقة بالله وقت الشدة.",
+          "الشجاعة أمام الظلم.",
+          "الاستعانة بالله.",
+          "النصر بيد الله."
+        ]
+      },
+
+
+      ibrahim: {
+        category: "قصص الأنبياء",
+        title: "قصة إبراهيم عليه السلام",
+        intro:
+          "قصة خليل الله إبراهيم عليه السلام، وما فيها من دروس في التوحيد والثبات.",
+
+        text: [
+          "كان إبراهيم عليه السلام يدعو قومه إلى عبادة الله وحده، وينكر عليهم عبادة ما لا ينفع ولا يضر.",
+          "واجه إبراهيم عليه السلام قومه بالحجة، ودعاهم إلى التفكير في حقيقة ما يعبدون.",
+          "ثبت إبراهيم عليه السلام على التوحيد، ولم يتراجع أمام ما واجهه من أذى.",
+          "وأصبحت قصته مثالًا عظيمًا في الإيمان والتوحيد والثبات على الحق."
+        ],
+
+        verse:
+          "إِنِّي وَجَّهْتُ وَجْهِيَ لِلَّذِي فَطَرَ السَّمَاوَاتِ وَالْأَرْضَ حَنِيفًا",
+        source:
+          "سورة الأنعام، الآية 79",
+
+        lessons: [
+          "توحيد الله.",
+          "استخدام العقل في معرفة الحق.",
+          "الثبات على الإيمان.",
+          "الشجاعة في قول الحق."
+        ]
+      },
+
+
+      yunus: {
+        category: "من القرآن الكريم",
+        title: "قصة يونس عليه السلام",
+        intro:
+          "قصة تعلمنا الرجوع إلى الله والدعاء والتوبة عند الشدة.",
+
+        text: [
+          "كان يونس عليه السلام نبيًا يدعو قومه إلى الله.",
+          "مر يونس عليه السلام بابتلاء شديد، فكان في ظلمات البحر والليل وبطن الحوت.",
+          "دعا يونس عليه السلام ربه، واعترف بضعفه، فاستجاب الله له ونجّاه.",
+          "وتبقى قصته تذكيرًا للمؤمن بأهمية الدعاء والرجوع إلى الله."
+        ],
+
+        verse:
+          "فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",
+        source:
+          "سورة الأنبياء، الآية 87",
+
+        lessons: [
+          "الدعاء وقت الشدة.",
+          "الرجوع إلى الله.",
+          "الاعتراف بالخطأ.",
+          "رحمة الله بعباده."
+        ]
+      },
+
+
+      muhammad: {
+        category: "السيرة النبوية",
+        title: "من سيرة النبي ﷺ",
+        intro:
+          "محطات مختارة من السيرة النبوية الشريفة، نتعلم منها الأخلاق والصبر والرحمة.",
+
+        text: [
+          "كان النبي محمد ﷺ مثالًا في الصدق والأمانة وحسن الخلق.",
+          "دعا الناس إلى عبادة الله وحده، وتحمل في سبيل ذلك الكثير من الصعوبات.",
+          "كان رحيمًا بالناس، ويعاملهم بالحكمة والرفق، ويحرص على تعليمهم الخير.",
+          "وتبقى سيرته ﷺ مدرسة عظيمة نتعلم منها الصبر والرحمة وحسن التعامل."
+        ],
+
+        verse:
+          "وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ",
+        source:
+          "سورة القلم، الآية 4",
+
+        lessons: [
+          "الصدق والأمانة.",
+          "الرحمة بالناس.",
+          "الصبر على الصعوبات.",
+          "حسن الخلق."
+        ]
+      },
+
+
+      kahf: {
+        category: "من القرآن الكريم",
+        title: "قصة أصحاب الكهف",
+        intro:
+          "قصة فتية آمنوا بربهم وثبتوا على إيمانهم، كما وردت في سورة الكهف.",
+
+        text: [
+          "كان أصحاب الكهف فتية آمنوا بربهم، ورفضوا الشرك الذي كان منتشرًا حولهم.",
+          "اختاروا الابتعاد عن الفتنة واللجوء إلى الكهف، ودعوا الله أن يرحمهم ويهيئ لهم من أمرهم رشدًا.",
+          "أنامهم الله في الكهف مدة طويلة، ثم بعثهم ليكون أمرهم آية للناس.",
+          "وتعلمنا قصتهم أهمية الثبات على الإيمان واللجوء إلى الله."
+        ],
+
+        verse:
+          "إِنَّهُمْ فِتْيَةٌ آمَنُوا بِرَبِّهِمْ وَزِدْنَاهُمْ هُدًى",
+        source:
+          "سورة الكهف، الآية 13",
+
+        lessons: [
+          "الثبات على الإيمان.",
+          "الابتعاد عن الفتنة.",
+          "اللجوء إلى الله.",
+          "الثقة برحمة الله."
+        ]
+      }
+
+    };
+
+
+    /* ===============================
+       GET STORY
+    =============================== */
+
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const storyId =
+      params.get("id") || "adam";
+
+    const story =
+      stories[storyId];
+
+
+    /* ===============================
+       PAGE
+    =============================== */
+
+    const page =
+      document.getElementById("storyPage");
+
+
+    if (!story) {
+
+      page.innerHTML = `
+
+        <section class="story-error">
+
+          <div class="story-error-icon">⌕</div>
+
+          <h2>القصة غير موجودة</h2>
+
+          <p>
+            يبدو أن القصة التي تبحث عنها غير متاحة حاليًا.
+          </p>
+
+          <a
+            href="stories.html"
+            class="btn btn-primary"
+          >
+            العودة إلى القصص
+          </a>
+
+        </section>
+
+      `;
+
+    } else {
+
+      document.title =
+        story.title + " | الهداية";
+
+
+      page.innerHTML = `
+
+        <!-- ================= HERO ================= -->
+
+        <section class="story-hero">
+
+          <div class="container story-hero-grid">
+
+            <div>
+
+              <div class="story-breadcrumb">
+                <a href="index.html">الرئيسية</a>
+                <span>›</span>
+                <a href="stories.html">القصص</a>
+                <span>›</span>
+                <span>${story.title}</span>
+              </div>
+
+              <span class="story-kicker">
+                ${story.category}
+              </span>
+
+              <h1 class="story-title">
+                ${story.title}
+              </h1>
+
+              <p class="story-intro">
+                ${story.intro}
+              </p>
+
+              <div class="story-actions">
+
+                <button
+                  class="story-action primary"
+                  id="startReading"
+                >
+                  ▶ قراءة القصة آليًا
+                </button>
+
+                <button
+                  class="story-action secondary"
+                  id="stopReading"
+                >
+                  ■ إيقاف القراءة
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <div class="story-visual">
+
+              <div class="story-orbit"></div>
+
+              <div class="story-visual-card"></div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="story-content-section">
+
+          <div class="container story-layout">
+
+
+            <div class="story-main">
+
+
+              <!-- القراءة -->
+
+              <article class="story-panel">
+
+                <h2 class="story-panel-title">
+                  <span>📖</span>
+                  القصة
+                </h2>
+
+                <div
+                  class="story-text"
+                  id="storyText"
+                >
+
+                  ${story.text
+                    .map(paragraph => `<p>${paragraph}</p>`)
+                    .join("")}
+
+                </div>
+
+              </article>
+
+
+              <!-- القراءة الآلية -->
+
+              <article class="story-panel">
+
+                <h2 class="story-panel-title">
+                  <span>🔊</span>
+                  القراءة الآلية
+                </h2>
+
+                <div class="reading-box">
+
+                  <div class="reading-head">
+
+                    <strong>
+                      استمع إلى القصة
+                    </strong>
+
+                    <span
+                      class="reading-status"
+                      id="readingStatus"
+                    >
+                      جاهز للقراءة
+                    </span>
+
+                  </div>
+
+                  <div class="reading-controls">
+
+                    <button id="playButton">
+                      ▶ تشغيل
+                    </button>
+
+                    <button id="pauseButton">
+                      ⏸ إيقاف مؤقت
+                    </button>
+
+                    <button id="resumeButton">
+                      ▶ متابعة
+                    </button>
+
+                    <button id="cancelButton">
+                      ■ إنهاء
+                    </button>
+
+                  </div>
+
+                  <div class="reading-progress">
+                    <div
+                      class="reading-progress-bar"
+                      id="readingProgress"
+                    ></div>
+                  </div>
+
+                </div>
+
+              </article>
+
+
+              <!-- الآية -->
+
+              <article class="story-panel">
+
+                <div class="verse-card">
+
+                  <span class="verse-label">
+                    آية مرتبطة بالقصة
+                  </span>
+
+                  <p class="verse-text">
+                    ﴿ ${story.verse} ﴾
+                  </p>
+
+                  <div class="verse-source">
+                    ${story.source}
+                  </div>
+
+                </div>
+
+              </article>
+
+
+              <!-- فهم مبسط -->
+
+              <article class="story-panel">
+
+                <h2 class="story-panel-title">
+                  <span>💡</span>
+                  فهم مبسط
+                </h2>
+
+                <div class="story-text">
+
+                  <p>
+                    هذا القسم يقدم الفكرة العامة للقصة
+                    بطريقة تعليمية مبسطة، وليس تفسيرًا للقرآن
+                    أو فتوى شرعية.
+                  </p>
+
+                  <p>
+                    أهم ما نتعلمه من القصة:
+                  </p>
+
+                  <ul>
+                    ${story.lessons
+                      .map(
+                        lesson =>
+                          `<li style="margin-bottom:10px;">${lesson}</li>`
+                      )
+                      .join("")}
+                  </ul>
+
+                </div>
+
+              </article>
+
+
+              <!-- المصادر -->
+
+              <article class="story-panel">
+
+                <h2 class="story-panel-title">
+                  <span>📚</span>
+                  المصادر
+                </h2>
+
+                <ul class="sources-list">
+
+                  <li>
+                    القرآن الكريم
+                  </li>
+
+                  <li>
+                    كتب ومصادر السيرة والقصص الإسلامية
+                  </li>
+
+                  <li>
+                    الآيات المذكورة موضحة بسورة ورقم الآية
+                  </li>
+
+                </ul>
+
+              </article>
+
+
+            </div>
+
+
+            <!-- ================= SIDEBAR ================= -->
+
+            <aside class="story-sidebar">
+
+
+              <div class="side-card">
+
+                <h3>
+                  قصص أخرى
+                </h3>
+
+                <div class="side-links">
+
+                  <a href="story.html?id=adam">
+                    <span>آدم عليه السلام</span>
+                    <span>←</span>
+                  </a>
+
+                  <a href="story.html?id=nuh">
+                    <span>نوح عليه السلام</span>
+                    <span>←</span>
+                  </a>
+
+                  <a href="story.html?id=yusuf">
+                    <span>يوسف عليه السلام</span>
+                    <span>←</span>
+                  </a>
+
+                  <a href="story.html?id=musa">
+                    <span>موسى عليه السلام</span>
+                    <span>←</span>
+                  </a>
+
+                  <a href="story.html?id=ibrahim">
+                    <span>إبراهيم عليه السلام</span>
+                    <span>←</span>
+                  </a>
+
+                  <a href="story.html?id=yunus">
+                    <span>يونس عليه السلام</span>
+                    <span>←</span>
+                  </a>
+
+                </div>
+
+              </div>
+
+
+              <div class="side-card">
+
+                <h3>
+                  تذكير
+                </h3>
+
+                <p class="simple-note">
+                  المقصود من القصص ليس معرفة الأحداث فقط،
+                  بل التأمل في العبر والدروس والاستفادة منها
+                  في حياتنا.
+                </p>
+
+              </div>
+
+
+              <div class="side-card">
+
+                <h3>
+                  العودة
+                </h3>
+
+                <a
+                  href="stories.html"
+                  class="btn btn-primary"
+                  style="width:100%;"
+                >
+                  كل القصص
+                </a>
+
+              </div>
+
+
+            </aside>
+
+          </div>
+
+        </section>
+
+      `;
+
+
+      /* ===============================
+         TEXT TO SPEECH
+      =============================== */
+
+      const fullText =
+        story.text.join(" ");
+
+      const playButton =
+        document.getElementById("playButton");
+
+      const pauseButton =
+        document.getElementById("pauseButton");
+
+      const resumeButton =
+        document.getElementById("resumeButton");
+
+      const cancelButton =
+        document.getElementById("cancelButton");
+
+      const startReading =
+        document.getElementById("startReading");
+
+      const stopReading =
+        document.getElementById("stopReading");
+
+      const status =
+        document.getElementById("readingStatus");
+
+      const progress =
+        document.getElementById("readingProgress");
+
+
+      let utterance = null;
+      let progressTimer = null;
+
+
+      function stopProgress() {
+
+        if (progressTimer) {
+          clearInterval(progressTimer);
+          progressTimer = null;
+        }
+
+      }
+
+
+      function startSpeech() {
+
+        if (!("speechSynthesis" in window)) {
+
+          status.textContent =
+            "المتصفح لا يدعم القراءة الآلية.";
+
+          return;
+
+        }
+
+        speechSynthesis.cancel();
+
+        utterance =
+          new SpeechSynthesisUtterance(fullText);
+
+        utterance.lang = "ar-SA";
+        utterance.rate = .88;
+        utterance.pitch = 1;
+
+        utterance.onstart = () => {
+
+          status.textContent =
+            "جاري قراءة القصة...";
+
+          progress.style.width = "5%";
+
+          stopProgress();
+
+          let value = 5;
+
+          progressTimer =
+            setInterval(() => {
+
+              value += .35;
+
+              if (value >= 96) {
+                value = 96;
+              }
+
+              progress.style.width =
+                value + "%";
+
+            }, 1000);
+
+        };
+
+
+        utterance.onend = () => {
+
+          status.textContent =
+            "اكتملت القراءة";
+
+          progress.style.width = "100%";
+
+          stopProgress();
+
+        };
+
+
+        utterance.onerror = () => {
+
+          status.textContent =
+            "حدثت مشكلة أثناء القراءة.";
+
+          stopProgress();
+
+        };
+
+
+        speechSynthesis.speak(utterance);
+
+      }
+
+
+      function pauseSpeech() {
+
+        if (
+          "speechSynthesis" in window &&
+          speechSynthesis.speaking
+        ) {
+
+          speechSynthesis.pause();
+
+          status.textContent =
+            "تم إيقاف القراءة مؤقتًا";
+
+        }
+
+      }
+
+
+      function resumeSpeech() {
+
+        if (
+          "speechSynthesis" in window &&
+          speechSynthesis.paused
+        ) {
+
+          speechSynthesis.resume();
+
+          status.textContent =
+            "جاري متابعة القراءة";
+
+        }
+
+      }
+
+
+      function cancelSpeech() {
+
+        if ("speechSynthesis" in window) {
+
+          speechSynthesis.cancel();
+
+          status.textContent =
+            "تم إيقاف القراءة";
+
+          progress.style.width = "0%";
+
+          stopProgress();
+
+        }
+
+      }
+
+
+      playButton.addEventListener(
+        "click",
+        startSpeech
+      );
+
+      startReading.addEventListener(
+        "click",
+        startSpeech
+      );
+
+      pauseButton.addEventListener(
+        "click",
+        pauseSpeech
+      );
+
+      resumeButton.addEventListener(
+        "click",
+        resumeSpeech
+      );
+
+      cancelButton.addEventListener(
+        "click",
+        cancelSpeech
+      );
+
+      stopReading.addEventListener(
+        "click",
+        cancelSpeech
+      );
+
+
+      window.addEventListener(
+        "beforeunload",
+        () => {
+          speechSynthesis.cancel();
+        }
+      );
+
+    }
+
+  </script>
 
 </body>
-</html>
+  </html>
