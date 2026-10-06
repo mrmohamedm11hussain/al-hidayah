@@ -1,235 +1,492 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <meta charset="utf-8">
+<title>أوقات الصلاة — الهداية</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
 
-  <title>
-    مواقيت الصلاة | الهداية
-  </title>
+:root{
+ --green:#123c2b;
+ --green2:#1d6044;
+ --gold:#c9a44c;
+ --cream:#f8f4e8;
+ --paper:#fffdf7;
+ --text:#24352c;
+ --muted:#718078;
+ --border:#e7dfcc;
+}
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+*{box-sizing:border-box}
 
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/inner.css">
+body{
+ margin:0;
+ font-family:Cairo,Arial,sans-serif;
+ color:var(--text);
+ background:
+ radial-gradient(circle at 10% 5%,rgba(201,164,76,.11),transparent 28%),
+ radial-gradient(circle at 90% 15%,rgba(29,96,68,.08),transparent 28%),
+ var(--cream);
+}
 
+nav{
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:rgba(18,60,43,.96);
+ backdrop-filter:blur(18px);
+}
 
-  <style>
+.nav{
+ max-width:1250px;
+ min-height:72px;
+ margin:auto;
+ padding:0 22px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
 
-    .prayer-box {
+.brand{
+ color:white;
+ text-decoration:none;
+ font-size:23px;
+ font-weight:800;
+}
 
-      background:
-        linear-gradient(
-          135deg,
-          #0d3b2e,
-          #174f3f
-        );
+.brand span{color:#e3c66e}
 
-      color: #fff;
+.links{
+ display:flex;
+ gap:8px;
+}
 
-      border-radius: 30px;
+.links a{
+ color:white;
+ text-decoration:none;
+ padding:9px 14px;
+ border-radius:12px;
+}
 
-      padding: 42px;
-    }
+.links a:hover,
+.links a.active{
+ background:rgba(255,255,255,.12);
+}
 
+.hero{
+ max-width:1250px;
+ margin:35px auto 25px;
+ padding:48px 28px;
+ border-radius:30px;
+ color:white;
+ background:
+ radial-gradient(circle at 15% 20%,rgba(201,164,76,.25),transparent 28%),
+ linear-gradient(135deg,#103b2a,#1d6044);
+}
 
-    .prayer-box h1 {
+.hero h1{
+ margin:0 0 8px;
+ font-size:clamp(35px,6vw,58px);
+}
 
-      font-size: 42px;
+.hero p{
+ margin:0;
+ color:#e9eadc;
+}
 
-      margin: 12px 0;
-    }
+.container{
+ max-width:1250px;
+ margin:auto;
+ padding:0 22px 60px;
+}
 
+.location-card{
+ background:var(--paper);
+ border:1px solid var(--border);
+ border-radius:22px;
+ padding:20px;
+ margin-bottom:20px;
+}
 
-    .prayer-box p {
+.location{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ flex-wrap:wrap;
+}
 
-      color: #cbd9d2;
+.location strong{
+ color:var(--green);
+ font-size:20px;
+}
 
-      line-height: 2;
-    }
+.btn{
+ border:0;
+ border-radius:13px;
+ padding:12px 17px;
+ cursor:pointer;
+ font-weight:700;
+}
 
+.primary{
+ background:var(--green);
+ color:white;
+}
 
-    .pray-grid {
+.grid{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:15px;
+}
 
-      display: grid;
+.card{
+ background:var(--paper);
+ border:1px solid var(--border);
+ border-radius:22px;
+ padding:22px 15px;
+ text-align:center;
+ transition:.25s;
+}
 
-      grid-template-columns:
-        repeat(6, 1fr);
+.card:hover{
+ transform:translateY(-5px);
+}
 
-      gap: 10px;
+.icon{
+ font-size:28px;
+}
 
-      margin-top: 30px;
-    }
+.name{
+ margin-top:8px;
+ color:var(--muted);
+}
 
+.time{
+ margin-top:7px;
+ font-size:30px;
+ font-weight:800;
+ color:var(--green);
+}
 
-    .pray {
+.next{
+ margin-top:20px;
+ background:linear-gradient(135deg,#123c2b,#1d6044);
+ color:white;
+ border-radius:24px;
+ padding:28px;
+}
 
-      background:
-        rgba(255,255,255,.08);
+.next h2{
+ margin-top:0;
+}
 
-      border:
-        1px solid rgba(255,255,255,.1);
+.loading,
+.error{
+ background:var(--paper);
+ border:1px solid var(--border);
+ border-radius:22px;
+ padding:25px;
+ text-align:center;
+}
 
-      border-radius: 18px;
+.error{
+ color:#8e3832;
+}
 
-      padding: 18px;
+footer{
+ background:#0d2d21;
+ color:#ddd8c8;
+ text-align:center;
+ padding:30px 20px;
+}
 
-      text-align: center;
-    }
+@media(max-width:900px){
+ .grid{grid-template-columns:repeat(3,1fr)}
+}
 
-
-    .pray b {
-
-      display: block;
-
-      font-size: 13px;
-    }
-
-
-    .pray strong {
-
-      display: block;
-
-      color: #e4c984;
-
-      font-size: 20px;
-
-      margin-top: 8px;
-    }
-
-
-    .loc-btn {
-      margin-top: 15px;
-    }
-
-
-    #status {
-
-      margin-top: 15px;
-
-      color: #d5e1db;
-
-      font-size: 12px;
-    }
-
-
-    @media (max-width: 800px) {
-
-      .pray-grid {
-
-        grid-template-columns:
-          repeat(2, 1fr);
-
-      }
-
-      .prayer-box h1 {
-        font-size: 32px;
-      }
-
-    }
-
-  </style>
-
+@media(max-width:600px){
+ .links{display:none}
+ .hero{margin:15px 12px;padding:35px 20px}
+ .container{padding:0 12px 40px}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .time{font-size:25px}
+}
+</style>
 </head>
-
 
 <body>
 
-<header class="nav">
+<nav>
+<div class="nav">
 
-  <a class="brand" href="index.html">
+<a class="brand" href="index.html">
+الهداية <span>✦</span>
+</a>
 
-    <span class="brand-mark">
-      هـ
-    </span>
+<div class="links">
+<a href="index.html">الرئيسية</a>
+<a href="stories.html">القصص</a>
+<a href="quran.html">القرآن</a>
+<a href="adhkar.html">الأذكار</a>
+<a class="active" href="prayer.html">الصلاة</a>
+</div>
 
-    <span>
-      <b>الهداية</b>
-      <small>نورٌ يُقرأ ويُسمع</small>
-    </span>
+</div>
+</nav>
 
-  </a>
+<section class="hero">
+<h1>أوقات الصلاة</h1>
+<p>اعرف مواقيت الصلاة اليومية حسب موقعك.</p>
+</section>
 
+<main class="container">
 
-  <nav>
+<div class="location-card">
 
-    <a href="index.html">
-      الرئيسية
-    </a>
+<div class="location">
 
-    <a href="stories.html">
-      القصص
-    </a>
+<div>
+<strong id="locationText">
+لم يتم تحديد الموقع
+</strong>
 
-    <a href="quran.html">
-      القرآن الكريم
-    </a>
+<div id="dateText" style="color:var(--muted);margin-top:5px"></div>
+</div>
 
-    <a href="adhkar.html">
-      الأذكار
-    </a>
+<button class="btn primary" id="locationBtn">
+📍 تحديد موقعي
+</button>
 
-    <a class="active" href="prayer.html">
-      مواقيت الصلاة
-    </a>
+</div>
 
-  </nav>
+</div>
 
-</header>
-
-
-<main class="wrap inner">
-
-  <div class="prayer-box">
-
-    <span class="eyebrow">
-      مواقيت الصلاة
-    </span>
-
-
-    <h1>
-      صلاتك أولًا.
-    </h1>
-
-
-    <p>
-      يمكن للموقع حساب المواقيت حسب موقعك،
-      لكن المتصفح سيطلب إذنك أولًا.
-      لن نطلب موقعك دون موافقة.
-    </p>
-
-
-    <button
-      class="btn primary loc-btn"
-      id="loc"
-    >
-      تحديد موقعي وحساب المواقيت
-    </button>
-
-
-    <div id="status"></div>
-
-
-    <div
-      id="prayGrid"
-      class="pray-grid"
-    ></div>
-
-  </div>
+<div id="content">
+<div class="loading">
+جاري محاولة تحديد موقعك...
+</div>
+</div>
 
 </main>
 
+<footer>
+<strong>الهداية</strong><br>
+تطوير وبرمجة M11 — Mr. Mohamed Hussain
+</footer>
 
-<script src="js/prayer.js"></script>
+<script>
+
+const content = document.getElementById("content");
+const locationText = document.getElementById("locationText");
+const dateText = document.getElementById("dateText");
+
+const prayers = [
+ ["Fajr","الفجر","🌙"],
+ ["Sunrise","الشروق","🌅"],
+ ["Dhuhr","الظهر","☀️"],
+ ["Asr","العصر","🌤️"],
+ ["Maghrib","المغرب","🌇"],
+ ["Isha","العشاء","🌙"]
+];
+
+function today(){
+ const d = new Date();
+
+ const dd = String(d.getDate()).padStart(2,"0");
+ const mm = String(d.getMonth()+1).padStart(2,"0");
+ const yyyy = d.getFullYear();
+
+ return `${dd}-${mm}-${yyyy}`;
+}
+
+function arabicDate(){
+
+ const d = new Date();
+
+ return new Intl.DateTimeFormat(
+   "ar-EG",
+   {
+     weekday:"long",
+     year:"numeric",
+     month:"long",
+     day:"numeric"
+   }
+ ).format(d);
+}
+
+dateText.textContent = arabicDate();
+
+function requestLocation(){
+
+ content.innerHTML =
+   `<div class="loading">📍 جاري تحديد موقعك...</div>`;
+
+ if(!navigator.geolocation){
+
+   showManualError(
+     "المتصفح لا يدعم تحديد الموقع."
+   );
+
+   return;
+ }
+
+ navigator.geolocation.getCurrentPosition(
+   position=>{
+     loadPrayerTimes(
+       position.coords.latitude,
+       position.coords.longitude
+     );
+   },
+   ()=>{
+     showManualError(
+       "لم يتم السماح بالموقع. يمكنك الضغط على «تحديد موقعي» والمحاولة مرة أخرى."
+     );
+   },
+   {
+     enableHighAccuracy:true,
+     timeout:10000,
+     maximumAge:600000
+   }
+ );
+}
+
+async function loadPrayerTimes(lat,lon){
+
+ try{
+
+   const url =
+     `https://api.aladhan.com/v1/timings/${today()}?latitude=${lat}&longitude=${lon}&method=5`;
+
+   const res = await fetch(url);
+
+   if(!res.ok) throw new Error();
+
+   const json = await res.json();
+
+   if(json.code !== 200) throw new Error();
+
+   const timings = json.data.timings;
+
+   const meta = json.data.meta;
+
+   locationText.textContent =
+     meta.timezone || "الموقع الحالي";
+
+   renderTimes(timings);
+
+ }catch(e){
+
+   showManualError(
+     "تعذر تحميل أوقات الصلاة الآن. تحقق من اتصال الإنترنت."
+   );
+ }
+}
+
+function renderTimes(t){
+
+ content.innerHTML = "";
+
+ const grid = document.createElement("div");
+ grid.className = "grid";
+
+ prayers.forEach(p=>{
+
+   const card = document.createElement("div");
+
+   card.className = "card";
+
+   card.innerHTML = `
+     <div class="icon">${p[2]}</div>
+     <div class="name">${p[1]}</div>
+     <div class="time">${t[p[0]]}</div>
+   `;
+
+   grid.appendChild(card);
+ });
+
+ content.appendChild(grid);
+
+ const next = getNextPrayer(t);
+
+ if(next){
+
+   const box = document.createElement("div");
+
+   box.className = "next";
+
+   box.innerHTML = `
+     <h2>🕌 الصلاة القادمة</h2>
+     <div style="font-size:34px;font-weight:800">
+       ${next.name}
+     </div>
+     <div style="font-size:24px;margin-top:5px">
+       ${next.time}
+     </div>
+   `;
+
+   content.appendChild(box);
+ }
+}
+
+function getNextPrayer(t){
+
+ const now = new Date();
+
+ const currentMinutes =
+   now.getHours()*60 + now.getMinutes();
+
+ for(const p of prayers){
+
+   if(p[0] === "Sunrise") continue;
+
+   const parts = t[p[0]].split(":");
+
+   const h = Number(parts[0]);
+   const m = Number(parts[1]);
+
+   const total = h*60+m;
+
+   if(total > currentMinutes){
+
+     return {
+       name:p[1],
+       time:t[p[0]]
+     };
+   }
+ }
+
+ return {
+   name:"الفجر",
+   time:t.Fajr
+ };
+}
+
+function showManualError(message){
+
+ content.innerHTML = `
+ <div class="error">
+   <strong>تنبيه</strong>
+   <p>${message}</p>
+
+   <button
+     class="btn primary"
+     onclick="requestLocation()">
+     المحاولة مرة أخرى
+   </button>
+ </div>
+ `;
+}
+
+document.getElementById("locationBtn")
+ .addEventListener("click",requestLocation);
+
+requestLocation();
+
+</script>
 
 </body>
-      </html>
+  </html>
