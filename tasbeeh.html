@@ -1,557 +1,621 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0b3d32">
 <title>التسبيح — الهداية</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-
 :root{
-  --green:#0b3d2e;
-  --green2:#145c45;
-  --gold:#c9a227;
-  --gold2:#e5c75b;
-  --cream:#f7f3e8;
-  --text:#17382d;
+  --green:#0b3d32;
+  --green2:#125746;
+  --green3:#174f43;
+  --gold:#c7a35a;
+  --gold2:#e0c47c;
+  --cream:#f8f4e8;
+  --cream2:#fffdf8;
+  --text:#17352e;
   --muted:#718078;
-  --line:rgba(11,61,46,.10);
+  --line:rgba(11,61,50,.12);
+  --shadow:0 18px 50px rgba(11,61,50,.10);
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   min-height:100vh;
-  font-family:Tahoma,Arial,sans-serif;
+  font-family:Cairo,Tahoma,sans-serif;
   color:var(--text);
   background:
-    radial-gradient(circle at 50% 0%,rgba(201,162,39,.12),transparent 30%),
-    var(--cream);
+    radial-gradient(circle at 85% 5%,rgba(199,163,90,.13),transparent 28%),
+    linear-gradient(180deg,#fbfaf5 0%,#f5f1e7 100%);
 }
 
-button{
-  font-family:inherit;
-  cursor:pointer;
-}
+a{text-decoration:none;color:inherit}
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-header{
+.top{
   position:sticky;
   top:0;
-  z-index:100;
-  background:rgba(247,243,232,.90);
-  backdrop-filter:blur(18px);
+  z-index:20;
+  background:rgba(248,244,232,.92);
+  backdrop-filter:blur(16px);
   border-bottom:1px solid var(--line);
 }
 
 .nav{
-  max-width:1150px;
-  min-height:74px;
+  width:min(1180px,calc(100% - 28px));
   margin:auto;
-  padding:0 22px;
+  min-height:76px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
-  color:var(--green);
-  font-weight:900;
+  gap:12px;
+  font-weight:800;
 }
 
 .logo{
   width:46px;
   height:46px;
   border-radius:15px;
-  background:linear-gradient(145deg,#145c45,#082c22);
-  color:var(--gold2);
   display:grid;
   place-items:center;
-  font-size:24px;
+  color:var(--gold2);
+  background:linear-gradient(145deg,var(--green),#062d25);
+  box-shadow:0 8px 24px rgba(11,61,50,.18);
+  font-family:Amiri,serif;
+  font-size:28px;
 }
 
-.links{
-  display:flex;
-  gap:5px;
+.brand small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:-2px;
 }
 
-.links a{
-  padding:10px 13px;
-  border-radius:12px;
+.back{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.65);
+  padding:10px 15px;
+  border-radius:14px;
   font-size:13px;
-  font-weight:800;
-  color:#466056;
+  font-weight:700;
 }
 
-.links a:hover{
-  background:#e9e2cf;
-}
-
-.container{
-  max-width:950px;
-  margin:auto;
-  padding:45px 22px 90px;
+.wrap{
+  width:min(1050px,calc(100% - 28px));
+  margin:0 auto;
+  padding:34px 0 70px;
 }
 
 .hero{
-  text-align:center;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(224,196,124,.15),transparent 28%),
+    linear-gradient(145deg,#0b3d32,#174f43);
+  color:white;
+  border-radius:30px;
+  padding:34px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
 }
 
-.hero small{
-  color:#9a7b1c;
-  font-weight:900;
+.hero:after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border:1px solid rgba(224,196,124,.16);
+  border-radius:50%;
+  left:-80px;
+  bottom:-120px;
+}
+
+.eyebrow{
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:7px;
 }
 
 .hero h1{
-  margin:10px 0;
-  color:var(--green);
-  font-size:clamp(40px,7vw,65px);
+  font-size:clamp(27px,5vw,42px);
+  line-height:1.25;
+  margin-bottom:8px;
 }
 
 .hero p{
-  color:var(--muted);
-  line-height:1.9;
-}
-
-.phrase-selector{
-  margin-top:35px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:9px;
-}
-
-.phrase-btn{
-  border:1px solid var(--line);
-  background:white;
-  color:var(--green);
-  padding:12px 16px;
-  border-radius:14px;
-  font-weight:900;
-  transition:.2s;
-}
-
-.phrase-btn.active{
-  background:var(--green);
-  color:white;
-  border-color:var(--green);
-}
-
-.counter-box{
-  margin:30px auto 0;
-  max-width:600px;
-  padding:35px;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:32px;
-  box-shadow:0 20px 60px rgba(11,61,46,.10);
-}
-
-.current-phrase{
-  color:#9a7b1c;
-  font-weight:900;
+  color:rgba(255,255,255,.75);
   font-size:14px;
+  line-height:1.9;
+  max-width:650px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:310px 1fr;
+  gap:22px;
+  margin-top:22px;
+}
+
+.panel{
+  background:rgba(255,253,248,.9);
+  border:1px solid var(--line);
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.selector{
+  padding:22px;
+}
+
+.label{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+select{
+  width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:15px;
+  padding:13px 12px;
+  font-family:inherit;
+  font-size:14px;
+  color:var(--text);
+  outline:none;
+}
+
+select:focus{
+  border-color:var(--gold);
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:16px;
+}
+
+.stat{
+  background:var(--cream);
+  border-radius:16px;
+  padding:13px;
+  text-align:center;
+}
+
+.stat b{
+  display:block;
+  font-size:20px;
+  color:var(--green);
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:10px;
+}
+
+.reset{
+  width:100%;
+  margin-top:12px;
+  min-height:44px;
+  border:1px solid rgba(160,65,50,.18);
+  color:#914b3e;
+  background:#fff8f5;
+  border-radius:14px;
+  font-family:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.counter{
+  min-height:600px;
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.bead-area{
+  position:relative;
+  width:min(340px,80vw);
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  margin-bottom:20px;
+}
+
+.bead-ring{
+  position:absolute;
+  inset:5%;
+  border-radius:50%;
+  border:1px dashed rgba(199,163,90,.55);
+  animation:spin 25s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.bead{
+  position:absolute;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#d8bd79,#a88238);
+  box-shadow:
+    inset -5px -6px 9px rgba(74,48,12,.2),
+    inset 4px 4px 8px rgba(255,255,255,.3),
+    0 5px 14px rgba(65,45,14,.16);
+}
+
+.bead:nth-child(1){top:1%;left:50%;transform:translateX(-50%)}
+.bead:nth-child(2){top:9%;right:19%}
+.bead:nth-child(3){top:29%;right:3%}
+.bead:nth-child(4){top:52%;right:0}
+.bead:nth-child(5){bottom:16%;right:12%}
+.bead:nth-child(6){bottom:3%;left:50%;transform:translateX(-50%)}
+.bead:nth-child(7){bottom:16%;left:12%}
+.bead:nth-child(8){top:52%;left:0}
+.bead:nth-child(9){top:29%;left:3%}
+.bead:nth-child(10){top:9%;left:19%}
+
+.center{
+  width:205px;
+  height:205px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 25%,#1d6856,#0b3d32 65%,#062d25);
+  border:9px solid rgba(199,163,90,.28);
+  box-shadow:
+    inset 0 0 35px rgba(0,0,0,.18),
+    0 18px 40px rgba(11,61,50,.20);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
 }
 
 .count{
-  margin:15px 0;
-  color:var(--green);
-  font-size:85px;
+  font-size:57px;
   line-height:1;
-  font-weight:900;
+  font-weight:800;
+  letter-spacing:-2px;
+}
+
+.count-label{
+  color:rgba(255,255,255,.68);
+  font-size:11px;
+  margin-top:8px;
+}
+
+.phrase{
+  font-family:Amiri,serif;
+  font-size:clamp(23px,5vw,34px);
+  font-weight:700;
+  color:var(--green);
+  margin-bottom:5px;
 }
 
 .target{
   color:var(--muted);
-  font-size:13px;
+  font-size:12px;
 }
 
-.main-button{
-  margin:28px auto 0;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  border:12px solid #e9e2cf;
-  background:
-    radial-gradient(circle at 35% 25%,#26745a,#0b3d2e);
+.tap{
+  margin-top:22px;
+  width:min(430px,100%);
+  min-height:64px;
+  border:0;
+  border-radius:20px;
+  background:linear-gradient(135deg,var(--green),var(--green2));
   color:white;
-  font-size:30px;
-  font-weight:900;
-  box-shadow:
-    0 20px 45px rgba(11,61,46,.20),
-    inset 0 0 0 1px rgba(255,255,255,.10);
-  transition:.12s;
-  user-select:none;
+  font-family:inherit;
+  font-size:17px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 12px 28px rgba(11,61,50,.20);
+  transition:.16s;
 }
 
-.main-button:active{
+.tap:active{
   transform:scale(.96);
 }
 
 .controls{
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
+  width:min(430px,100%);
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:10px;
-  flex-wrap:wrap;
+  margin-top:10px;
 }
 
 .control{
+  min-height:48px;
   border:1px solid var(--line);
-  background:#f6f8f6;
-  color:var(--green);
-  border-radius:13px;
-  padding:12px 17px;
-  font-weight:900;
-}
-
-.control:hover{
-  background:#e9eee9;
+  background:var(--cream);
+  border-radius:15px;
+  color:var(--text);
+  font-family:inherit;
+  font-weight:700;
+  cursor:pointer;
 }
 
 .progress{
-  margin-top:28px;
-}
-
-.progress-line{
-  height:9px;
-  border-radius:999px;
+  width:min(430px,100%);
+  height:7px;
+  background:#e8e4d9;
+  border-radius:99px;
   overflow:hidden;
-  background:#edf1ed;
+  margin-top:18px;
 }
 
-.progress-line span{
+.progress span{
   display:block;
   height:100%;
   width:0;
-  border-radius:inherit;
-  background:linear-gradient(90deg,var(--green2),var(--gold));
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
   transition:.2s;
 }
 
-.progress-text{
-  margin-top:8px;
+.hint{
   color:var(--muted);
   font-size:11px;
+  margin-top:12px;
 }
 
-.hint{
-  margin-top:22px;
-  color:var(--muted);
-  font-size:12px;
+.complete{
+  animation:complete .5s ease;
 }
 
-footer{
-  background:#06271e;
-  color:white;
-  text-align:center;
-  padding:35px 20px;
+@keyframes complete{
+  40%{transform:scale(1.04)}
 }
 
-footer strong{
-  color:var(--gold2);
+@media(max-width:780px){
+  .layout{grid-template-columns:1fr}
+  .counter{min-height:540px}
+  .hero{padding:26px 22px}
+  .bead-area{width:min(315px,82vw)}
 }
 
-footer p{
-  margin-top:7px;
-  color:rgba(255,255,255,.55);
-  font-size:12px;
+@media(max-width:420px){
+  .wrap{width:min(100% - 18px,1050px)}
+  .nav{width:calc(100% - 18px)}
+  .brand span{font-size:14px}
+  .back{padding:9px 11px}
+  .counter{padding:18px 10px}
+  .center{width:180px;height:180px}
+  .count{font-size:48px}
 }
-
-@media(max-width:650px){
-
-  .links{
-    display:none;
-  }
-
-  .counter-box{
-    padding:25px 16px;
-  }
-
-  .count{
-    font-size:70px;
-  }
-
-  .main-button{
-    width:185px;
-    height:185px;
-    font-size:25px;
-  }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<header>
-
-<div class="nav">
-
-<a href="index.html" class="brand">
-
-<div class="logo">هـ</div>
-
-<span>الهداية</span>
-
-</a>
-
-<nav class="links">
-
-<a href="index.html">الرئيسية</a>
-<a href="quran.html">القرآن</a>
-<a href="adhkar.html">الأذكار</a>
-<a href="prayer.html">الصلاة</a>
-<a href="stories.html">القصص</a>
-
-</nav>
-
-</div>
-
+<header class="top">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <div class="logo">هـ</div>
+      <div>
+        <span>الهداية</span>
+        <small>نور يهديك</small>
+      </div>
+    </a>
+    <a href="index.html" class="back">العودة للرئيسية</a>
+  </nav>
 </header>
 
-
-<main class="container">
+<main class="wrap">
 
 <section class="hero">
+  <div class="eyebrow">الذكر والتسبيح</div>
+  <h1>سبّح بهدوء… واجعل لكل تسبيحة أثرًا</h1>
+  <p>
+    سبحة رقمية بتجربة أقرب للسبحة الحقيقية، مع عداد مستقل وحفظ تلقائي لآخر عدد وصلت إليه.
+  </p>
+</section>
 
-<small>اذكر الله</small>
+<section class="layout">
 
-<h1>التسبيح</h1>
+<aside class="panel selector">
+  <div class="label">اختر الذكر</div>
 
-<p>
-اختر الذكر واضغط على الدائرة مع كل مرة.
-سيتم حفظ تقدمك على جهازك.
-</p>
+  <select id="phraseSelect">
+    <option value="subhanallah">سُبْحَانَ اللَّهِ — 33</option>
+    <option value="alhamdulillah">الْحَمْدُ لِلَّهِ — 33</option>
+    <option value="allahuakbar">اللَّهُ أَكْبَرُ — 34</option>
+    <option value="istighfar">أَسْتَغْفِرُ اللَّهَ — 100</option>
+  </select>
+
+  <div class="stats">
+    <div class="stat">
+      <b id="total">0</b>
+      <span>العدد الحالي</span>
+    </div>
+
+    <div class="stat">
+      <b id="remaining">33</b>
+      <span>المتبقي</span>
+    </div>
+  </div>
+
+  <button class="reset" id="resetBtn" type="button">إعادة العداد</button>
+</aside>
+
+<section class="panel counter" id="counterPanel">
+
+  <div class="bead-area">
+
+    <div class="bead-ring"></div>
+
+    <div class="bead"></div>
+    <div class="bead"></div>
+    <div class="bead"></div>
+    <div class="bead"></div>
+    <div class="bead"></div>
+    <div class="bead"></div>
+    <div class="bead"></div>
+    <div class="bead"></div>
+    <div class="bead"></div>
+    <div class="bead"></div>
+
+    <div class="center">
+      <div class="count" id="count">0</div>
+      <div class="count-label">تسبيحة</div>
+    </div>
+
+  </div>
+
+  <div class="phrase" id="phrase">سُبْحَانَ اللَّهِ</div>
+  <div class="target" id="target">الهدف: 33 مرة</div>
+
+  <button class="tap" id="tapBtn" type="button">
+    اضغط للتسبيح
+  </button>
+
+  <div class="controls">
+    <button class="control" id="minusBtn" type="button">− تراجع</button>
+    <button class="control" id="resetBtn2" type="button">↺ تصفير</button>
+  </div>
+
+  <div class="progress">
+    <span id="progress"></span>
+  </div>
+
+  <div class="hint">
+    يمكنك أيضًا استخدام زر المسافة من لوحة المفاتيح للتسبيح.
+  </div>
 
 </section>
 
-
-<div class="phrase-selector">
-
-<button class="phrase-btn active" data-text="سُبْحَانَ اللَّهِ" data-target="33">
-سُبْحَانَ اللَّهِ
-</button>
-
-<button class="phrase-btn" data-text="الْحَمْدُ لِلَّهِ" data-target="33">
-الْحَمْدُ لِلَّهِ
-</button>
-
-<button class="phrase-btn" data-text="اللَّهُ أَكْبَرُ" data-target="34">
-اللَّهُ أَكْبَرُ
-</button>
-
-<button class="phrase-btn" data-text="أَسْتَغْفِرُ اللَّهَ" data-target="100">
-أَسْتَغْفِرُ اللَّهَ
-</button>
-
-</div>
-
-
-<section class="counter-box">
-
-<div id="currentPhrase" class="current-phrase">
-سُبْحَانَ اللَّهِ
-</div>
-
-<div id="count" class="count">
-0
-</div>
-
-<div id="target" class="target">
-الهدف: 33
-</div>
-
-
-<button id="mainButton" class="main-button">
-اذكر
-</button>
-
-
-<div class="controls">
-
-<button id="minus" class="control">
-− مرة
-</button>
-
-<button id="reset" class="control">
-↻ تصفير
-</button>
-
-</div>
-
-
-<div class="progress">
-
-<div class="progress-line">
-<span id="progress"></span>
-</div>
-
-<div id="progressText" class="progress-text">
-0%
-</div>
-
-</div>
-
-
-<div class="hint">
-يمكنك الضغط على زر «اذكر» أو استخدام زر المسافة من لوحة المفاتيح.
-</div>
-
 </section>
-
 </main>
 
-
-<footer>
-
-<strong>الهداية — نور يهديك</strong>
-
-<p>
-تطوير وبرمجة M11 — Mr. Mohamed Hussain © 2026
-</p>
-
-</footer>
-
-
 <script>
+const DATA = {
+  subhanallah:{
+    text:"سُبْحَانَ اللَّهِ",
+    target:33
+  },
+  alhamdulillah:{
+    text:"الْحَمْدُ لِلَّهِ",
+    target:33
+  },
+  allahuakbar:{
+    text:"اللَّهُ أَكْبَرُ",
+    target:34
+  },
+  istighfar:{
+    text:"أَسْتَغْفِرُ اللَّهَ",
+    target:100
+  }
+};
 
-let currentText="سُبْحَانَ اللَّهِ";
-let currentTarget=33;
-let count=0;
+const select = document.getElementById("phraseSelect");
+const countEl = document.getElementById("count");
+const totalEl = document.getElementById("total");
+const remainingEl = document.getElementById("remaining");
+const phraseEl = document.getElementById("phrase");
+const targetEl = document.getElementById("target");
+const progressEl = document.getElementById("progress");
+const tapBtn = document.getElementById("tapBtn");
+const counterPanel = document.getElementById("counterPanel");
 
-function storageKey(){
-  return "alhidayah_tasbeeh_"+currentText;
-}
-
-function loadCount(){
-  count=Number(
-    localStorage.getItem(storageKey()) || 0
-  );
-
-  update();
-}
+let current = select.value;
+let count = Number(localStorage.getItem("hidayah_tasbeeh_" + current)) || 0;
 
 function save(){
-  localStorage.setItem(
-    storageKey(),
-    String(count)
-  );
+  localStorage.setItem("hidayah_tasbeeh_" + current,count);
 }
 
-function update(){
+function render(){
+  const item = DATA[current];
 
-  document.getElementById("currentPhrase").textContent=
-    currentText;
+  count = Math.max(0,count);
 
-  document.getElementById("count").textContent=
-    count;
+  countEl.textContent = count;
+  totalEl.textContent = count;
+  remainingEl.textContent = Math.max(item.target-count,0);
+  phraseEl.textContent = item.text;
+  targetEl.textContent = "الهدف: " + item.target + " مرة";
 
-  document.getElementById("target").textContent=
-    "الهدف: "+currentTarget;
+  const percentage = Math.min((count / item.target) * 100,100);
+  progressEl.style.width = percentage + "%";
 
-  const percent=Math.min(
-    100,
-    Math.round((count/currentTarget)*100)
-  );
-
-  document.getElementById("progress").style.width=
-    percent+"%";
-
-  document.getElementById("progressText").textContent=
-    percent+"%";
-
+  if(count >= item.target){
+    counterPanel.classList.add("complete");
+    tapBtn.textContent = "أكمل التسبيح";
+    setTimeout(()=>counterPanel.classList.remove("complete"),500);
+  }else{
+    tapBtn.textContent = "اضغط للتسبيح";
+  }
 }
 
-document.querySelectorAll(".phrase-btn").forEach(button=>{
+function vibrate(){
+  if("vibrate" in navigator){
+    try{ navigator.vibrate(18); }catch(e){}
+  }
+}
 
-  button.addEventListener("click",()=>{
-
-    document.querySelectorAll(".phrase-btn")
-      .forEach(b=>b.classList.remove("active"));
-
-    button.classList.add("active");
-
-    currentText=button.dataset.text;
-    currentTarget=Number(button.dataset.target);
-
-    loadCount();
-
-  });
-
-});
-
-
-document.getElementById("mainButton")
-.addEventListener("click",()=>{
-
+function increment(){
   count++;
-
   save();
-  update();
+  render();
+  vibrate();
+}
 
-  if(navigator.vibrate){
-    navigator.vibrate(12);
-  }
-
-});
-
-
-document.getElementById("minus")
-.addEventListener("click",()=>{
-
-  count=Math.max(0,count-1);
-
+function decrement(){
+  if(count<=0) return;
+  count--;
   save();
-  update();
+  render();
+}
 
-});
-
-
-document.getElementById("reset")
-.addEventListener("click",()=>{
-
+function reset(){
   count=0;
-
   save();
-  update();
+  render();
+}
 
+tapBtn.addEventListener("click",increment);
+document.getElementById("minusBtn").addEventListener("click",decrement);
+document.getElementById("resetBtn").addEventListener("click",reset);
+document.getElementById("resetBtn2").addEventListener("click",reset);
+
+select.addEventListener("change",()=>{
+  current=select.value;
+  count=Number(localStorage.getItem("hidayah_tasbeeh_" + current)) || 0;
+  render();
 });
 
-
-document.addEventListener("keydown",event=>{
-
-  if(event.code==="Space"){
-
-    event.preventDefault();
-
-    count++;
-
-    save();
-    update();
-
+document.addEventListener("keydown",(e)=>{
+  if(e.code==="Space" && !["INPUT","SELECT","TEXTAREA","BUTTON"].includes(document.activeElement.tagName)){
+    e.preventDefault();
+    increment();
   }
-
 });
 
-
-loadCount();
-
+render();
 </script>
 
 </body>
-</html>
+</html> 
