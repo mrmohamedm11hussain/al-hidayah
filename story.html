@@ -4,26 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>قصة من الهداية</title>
+<title>الهداية | القصة</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
     --green:#123b2a;
-    --green2:#1d5b40;
-    --green3:#287553;
+    --green2:#1d6044;
+    --green3:#2d7c58;
     --gold:#c9a45c;
-    --gold2:#e1c47c;
+    --gold2:#e4ca88;
     --cream:#faf7ef;
-    --paper:#fffdf8;
-    --text:#24332b;
-    --muted:#718077;
-    --border:#e9e1d0;
-    --shadow:0 20px 60px rgba(18,59,42,.10);
+    --white:#fffdf9;
+    --text:#26372e;
+    --muted:#748179;
+    --border:#e8dfcc;
+    --shadow:0 18px 55px rgba(18,59,42,.09);
 }
 
 *{
@@ -37,16 +36,14 @@ html{
 }
 
 body{
-    font-family:"Cairo",sans-serif;
     background:
-        radial-gradient(circle at 10% 10%,rgba(201,164,92,.08),transparent 30%),
-        radial-gradient(circle at 90% 20%,rgba(29,91,64,.08),transparent 30%),
+        radial-gradient(circle at 5% 10%,rgba(201,164,92,.10),transparent 28%),
+        radial-gradient(circle at 95% 20%,rgba(29,96,68,.08),transparent 30%),
         var(--cream);
     color:var(--text);
+    font-family:"Cairo",sans-serif;
     line-height:2;
 }
-
-/* HEADER */
 
 header{
     position:sticky;
@@ -54,17 +51,16 @@ header{
     z-index:1000;
     background:rgba(250,247,239,.94);
     backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(201,164,92,.22);
+    border-bottom:1px solid rgba(201,164,92,.25);
 }
 
 .nav{
     width:min(1200px,92%);
-    margin:auto;
     min-height:78px;
+    margin:auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:25px;
 }
 
 .brand{
@@ -79,117 +75,96 @@ header{
     width:48px;
     height:48px;
     border-radius:16px;
-    background:linear-gradient(135deg,var(--green),var(--green3));
-    color:var(--gold2);
     display:grid;
     place-items:center;
-    font-family:"Amiri",serif;
-    font-size:30px;
-    font-weight:bold;
-    box-shadow:0 8px 25px rgba(18,59,42,.2);
+    color:var(--gold2);
+    background:linear-gradient(135deg,var(--green),var(--green3));
+    font-family:"Amiri";
+    font-size:31px;
+    box-shadow:0 8px 25px rgba(18,59,42,.18);
 }
 
-.brand-text strong{
+.brand strong{
     display:block;
     font-size:17px;
 }
 
-.brand-text span{
+.brand span{
     display:block;
     color:var(--muted);
-    font-size:11px;
+    font-size:10px;
 }
 
-.nav-links{
+.navlinks{
     display:flex;
-    align-items:center;
-    gap:8px;
+    gap:6px;
 }
 
-.nav-links a{
+.navlinks a{
     text-decoration:none;
-    color:#53635a;
+    color:#526159;
     padding:9px 13px;
     border-radius:12px;
     font-size:13px;
-    transition:.25s;
 }
 
-.nav-links a:hover{
-    background:#eee8da;
+.navlinks a:hover{
+    background:#eee7d8;
     color:var(--green);
 }
 
-/* HERO */
-
 .hero{
     width:min(1200px,92%);
-    margin:45px auto 25px;
+    margin:42px auto 25px;
     border-radius:32px;
     overflow:hidden;
     background:
-        radial-gradient(circle at 80% 20%,rgba(225,196,124,.18),transparent 28%),
-        linear-gradient(135deg,#123b2a,#1d5b40);
+        radial-gradient(circle at 85% 15%,rgba(228,202,136,.18),transparent 25%),
+        linear-gradient(135deg,#103726,#246b4d);
     color:white;
     box-shadow:var(--shadow);
-    position:relative;
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    width:280px;
-    height:280px;
-    border:1px solid rgba(225,196,124,.18);
-    border-radius:50%;
-    left:-90px;
-    bottom:-130px;
-}
-
-.hero-inner{
+.heroInner{
     padding:55px;
-    position:relative;
-    z-index:2;
 }
 
-.category{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    color:#f0d99d;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(225,196,124,.22);
+.badge{
+    display:inline-block;
     padding:7px 14px;
     border-radius:50px;
+    color:#f0d995;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(228,202,136,.22);
     font-size:12px;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .hero h1{
     font-family:"Amiri",serif;
-    font-size:clamp(36px,6vw,66px);
+    font-size:clamp(38px,6vw,68px);
     line-height:1.2;
     margin-bottom:15px;
 }
 
-.hero-intro{
+.hero p{
     max-width:800px;
-    color:#e8eee9;
+    color:#e7eee9;
     font-size:16px;
-    line-height:2.1;
 }
 
-.hero-actions{
+.actions{
     display:flex;
     flex-wrap:wrap;
     gap:12px;
-    margin-top:30px;
+    margin-top:27px;
 }
 
 .btn{
+    display:inline-block;
+    text-decoration:none;
     border:0;
     cursor:pointer;
-    text-decoration:none;
     font-family:inherit;
     padding:12px 20px;
     border-radius:14px;
@@ -197,344 +172,267 @@ header{
     transition:.25s;
 }
 
-.btn-main{
+.btnGold{
+    color:#173727;
     background:var(--gold2);
-    color:#183525;
 }
 
-.btn-main:hover{
+.btnGold:hover{
     transform:translateY(-2px);
-    background:#efd795;
+    background:#efd998;
 }
 
-.btn-light{
+.btnLight{
     color:white;
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.18);
 }
 
-.btn-light:hover{
-    background:rgba(255,255,255,.15);
+.btnLight:hover{
+    background:rgba(255,255,255,.17);
 }
-
-/* LAYOUT */
 
 .layout{
     width:min(1200px,92%);
-    margin:35px auto 80px;
+    margin:35px auto 70px;
     display:grid;
     grid-template-columns:minmax(0,1fr) 310px;
     gap:25px;
 }
 
 .card{
-    background:rgba(255,253,248,.92);
+    background:rgba(255,253,249,.95);
     border:1px solid var(--border);
     border-radius:26px;
-    box-shadow:0 12px 40px rgba(18,59,42,.06);
+    box-shadow:0 12px 38px rgba(18,59,42,.055);
 }
 
-/* STORY */
-
-.story-card{
+.story{
     padding:clamp(25px,5vw,55px);
 }
 
-.story-title{
-    font-family:"Amiri",serif;
+.story h2{
+    font-family:"Amiri";
     color:var(--green);
-    font-size:30px;
+    font-size:32px;
     margin-bottom:25px;
 }
 
-.story-content{
+.storyText{
     font-family:"Amiri",serif;
     font-size:22px;
     line-height:2.45;
-    color:#2d3932;
 }
 
-.story-content p{
+.storyText p{
     margin-bottom:25px;
 }
 
-.story-content .highlight{
-    padding:22px 25px;
+.quote{
     margin:30px 0;
-    background:#f3efe4;
+    padding:22px 25px;
     border-right:5px solid var(--gold);
-    border-radius:15px;
-    color:#31463a;
+    border-radius:16px;
+    background:#f4efe3;
 }
 
-/* QURAN */
-
-.quran-box{
-    margin-top:40px;
+.quran{
+    margin-top:35px;
     padding:28px;
     border-radius:22px;
-    background:
-        linear-gradient(135deg,rgba(18,59,42,.96),rgba(29,91,64,.96));
     color:white;
+    background:linear-gradient(135deg,#123b2a,#286d4e);
 }
 
-.quran-label{
-    color:#e1c47c;
+.quranTitle{
+    color:#e4ca88;
     font-size:13px;
     font-weight:bold;
     margin-bottom:10px;
 }
 
-.quran-text{
-    font-family:"Amiri",serif;
+.quranText{
+    font-family:"Amiri";
     font-size:25px;
     line-height:2.1;
 }
 
-.quran-ref{
-    color:#d8e3dc;
+.quranRef{
+    margin-top:12px;
+    color:#d7e4db;
     font-size:13px;
-    margin-top:15px;
 }
 
-/* SIMPLE UNDERSTANDING */
-
-.lesson-box{
+.lesson{
     margin-top:30px;
     padding:28px;
+    border:1px solid #e8d8ad;
+    border-radius:22px;
     background:#fff9e9;
-    border:1px solid #ead9ad;
-    border-radius:22px;
 }
 
-.lesson-box h2{
-    color:var(--green);
-    margin-bottom:12px;
+.lesson h2{
+    font-family:"Cairo";
     font-size:21px;
+    margin-bottom:8px;
 }
 
-.lesson-box p{
-    color:#59645d;
+.lesson p{
+    color:#5d675f;
+    font-family:"Cairo";
+    font-size:14px;
 }
 
-/* AUDIO */
-
-.audio-box{
+.video{
     margin-top:30px;
-    padding:25px;
-    background:#f4f0e6;
-    border:1px solid var(--border);
-    border-radius:22px;
+    padding:30px;
+    text-align:center;
 }
 
-.audio-box h2{
-    font-size:19px;
+.video h2{
     color:var(--green);
     margin-bottom:8px;
 }
 
-.audio-box p{
-    color:var(--muted);
-    font-size:13px;
-}
-
-.audio-controls{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:17px;
-}
-
-.audio-controls button{
-    font-family:inherit;
-    border:0;
-    cursor:pointer;
-    background:var(--green);
-    color:white;
-    padding:10px 16px;
-    border-radius:12px;
-}
-
-.audio-controls button:hover{
-    background:var(--green2);
-}
-
-/* VIDEO */
-
-.video-section{
-    margin-top:30px;
-    padding:28px;
-}
-
-.video-section h2{
-    color:var(--green);
-    margin-bottom:8px;
-}
-
-.video-note{
+.video p{
     color:var(--muted);
     font-size:13px;
     margin-bottom:20px;
 }
 
-.video-frame{
-    position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    border-radius:20px;
-    overflow:hidden;
-    background:#102b20;
-}
-
-.video-frame iframe{
-    width:100%;
-    height:100%;
-    border:0;
-}
-
-.video-fallback{
-    padding:20px;
-    background:#f5f1e7;
+.videoButton{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:15px 24px;
+    background:var(--green);
+    color:white;
+    text-decoration:none;
     border-radius:15px;
-    margin-top:15px;
-    font-size:13px;
+    font-weight:700;
+    transition:.25s;
 }
 
-/* SIDEBAR */
+.videoButton:hover{
+    background:var(--green2);
+    transform:translateY(-2px);
+}
 
-.sidebar{
+.videoSmall{
+    margin-top:13px;
+    color:#8a918c;
+    font-size:11px;
+}
+
+.side{
     display:flex;
     flex-direction:column;
     gap:18px;
 }
 
-.info-card{
+.sideCard{
     padding:25px;
 }
 
-.info-card h3{
+.sideCard h3{
     color:var(--green);
-    margin-bottom:18px;
     font-size:18px;
+    margin-bottom:17px;
 }
 
-.info-row{
+.info{
     display:flex;
     justify-content:space-between;
-    gap:10px;
+    gap:12px;
     padding:11px 0;
-    border-bottom:1px solid #eee8da;
+    border-bottom:1px solid #eee7da;
     font-size:13px;
 }
 
-.info-row:last-child{
+.info:last-child{
     border-bottom:0;
 }
 
-.info-row span:first-child{
+.info span:first-child{
     color:var(--muted);
 }
 
-.info-row span:last-child{
+.info span:last-child{
     color:var(--green);
     font-weight:700;
-    text-align:left;
 }
 
-.source-list{
-    list-style:none;
-}
-
-.source-list li{
-    padding:9px 0;
-    font-size:13px;
-    color:#68756d;
-}
-
-.source-list a{
-    color:var(--green2);
-}
-
-/* NAV STORIES */
-
-.story-navigation{
+.navigation{
     width:min(1200px,92%);
-    margin:0 auto 80px;
-    display:flex;
-    justify-content:space-between;
+    margin:0 auto 75px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:15px;
 }
 
-.story-navigation a{
-    flex:1;
-    text-decoration:none;
-    color:var(--green);
+.navigation a{
+    padding:20px;
+    border-radius:18px;
     background:white;
     border:1px solid var(--border);
-    border-radius:18px;
-    padding:18px;
+    text-decoration:none;
+    color:var(--green);
     transition:.25s;
 }
 
-.story-navigation a:hover{
+.navigation a:hover{
     transform:translateY(-3px);
     box-shadow:var(--shadow);
 }
 
-.story-navigation small{
+.navigation small{
     display:block;
     color:var(--muted);
-    margin-bottom:5px;
+    margin-bottom:4px;
 }
-
-/* FOOTER */
-
-footer{
-    background:#0f3022;
-    color:#dce7df;
-    text-align:center;
-    padding:35px 20px;
-}
-
-footer strong{
-    color:#e1c47c;
-}
-
-footer small{
-    display:block;
-    margin-top:7px;
-    color:#9bb0a3;
-}
-
-/* ERROR */
 
 .error{
-    width:min(900px,92%);
-    margin:80px auto;
-    text-align:center;
+    width:min(850px,92%);
+    margin:90px auto;
     padding:50px;
+    text-align:center;
 }
 
 .error h1{
     color:var(--green);
-    margin-bottom:15px;
 }
 
 .error a{
     display:inline-block;
     margin-top:20px;
-    color:white;
     background:var(--green);
+    color:white;
+    text-decoration:none;
     padding:12px 20px;
     border-radius:13px;
-    text-decoration:none;
 }
 
-/* RESPONSIVE */
+footer{
+    padding:35px 20px;
+    background:#0d3021;
+    color:#dbe6df;
+    text-align:center;
+}
+
+footer strong{
+    color:#e4ca88;
+}
+
+footer small{
+    display:block;
+    color:#99aea2;
+    margin-top:7px;
+}
 
 @media(max-width:900px){
 
-    .nav-links{
+    .navlinks{
         display:none;
     }
 
@@ -542,14 +440,9 @@ footer small{
         grid-template-columns:1fr;
     }
 
-    .hero-inner{
+    .heroInner{
         padding:35px 25px;
     }
-
-    .story-content{
-        font-size:20px;
-    }
-
 }
 
 @media(max-width:600px){
@@ -560,648 +453,537 @@ footer small{
     }
 
     .hero h1{
-        font-size:40px;
+        font-size:41px;
     }
 
-    .story-card{
+    .story{
         padding:22px;
     }
 
-    .story-content{
+    .storyText{
         font-size:19px;
-        line-height:2.2;
+        line-height:2.25;
     }
 
-    .quran-text{
+    .quranText{
         font-size:22px;
     }
 
-    .story-navigation{
-        flex-direction:column;
+    .navigation{
+        grid-template-columns:1fr;
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="nav">
+<div class="nav">
 
-        <a class="brand" href="index.html">
-            <div class="logo">هـ</div>
+<a href="index.html" class="brand">
+<div class="logo">هـ</div>
+<div>
+<strong>الهداية</strong>
+<span>للمعرفة النافعة</span>
+</div>
+</a>
 
-            <div class="brand-text">
-                <strong>الهداية</strong>
-                <span>للمعرفة النافعة</span>
-            </div>
-        </a>
+<nav class="navlinks">
+<a href="index.html">الرئيسية</a>
+<a href="stories.html">القصص</a>
+<a href="quran.html">القرآن</a>
+<a href="adhkar.html">الأذكار</a>
+<a href="prayer.html">الصلاة</a>
+</nav>
 
-        <nav class="nav-links">
-            <a href="index.html">الرئيسية</a>
-            <a href="stories.html">القصص</a>
-            <a href="quran.html">القرآن</a>
-            <a href="adhkar.html">الأذكار</a>
-            <a href="prayer.html">الصلاة</a>
-        </nav>
-
-    </div>
+</div>
 </header>
 
 <main id="app"></main>
 
 <footer>
-    <strong>الهداية</strong>
-    <p>منصة عربية للمعرفة الإسلامية النافعة</p>
-    <small>تطوير وبرمجة M11 — Mr. Mohamed Hussain</small>
+<strong>الهداية</strong>
+<div>منصة عربية للمعرفة الإسلامية النافعة</div>
+<small>تطوير وبرمجة M11 — Mr. Mohamed Hussain</small>
 </footer>
 
 <script>
 
 /* =========================================================
-   قصص الهداية
+   قاعدة القصص
    ========================================================= */
 
 const stories = {
 
 adam:{
-    title:"قصة آدم عليه السلام",
-    category:"قصص الأنبياء",
-    era:"بداية الخلق",
-    reference:"البقرة: 30–37",
-    intro:"قصة بداية خلق الإنسان، وابتلاء آدم عليه السلام، ثم توبته ورجوعه إلى الله.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة البقرة، الأعراف، طه",
-    text:`
-    <p>
-    أخبر الله سبحانه وتعالى الملائكة أنه جاعل في الأرض خليفة، وخلق آدم عليه السلام وعلّمه من العلم ما شاء الله له أن يتعلم.
-    </p>
+title:"آدم عليه السلام",
+category:"قصص الأنبياء",
+era:"بداية الخلق",
+ref:"البقرة 30–37",
+video:"قصة آدم عليه السلام للأطفال قصص الأنبياء باللغة العربية",
+intro:"قصة بداية خلق الإنسان، وخلق آدم عليه السلام، وابتلائه ثم توبته إلى الله.",
+lesson:"نتعلم أن الإنسان قد يخطئ، لكن المؤمن يرجع إلى الله ويتوب ولا يصر على الخطأ.",
+verse:"فَتَلَقَّىٰ آدَمُ مِن رَّبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ",
+verseRef:"البقرة — 37",
+text:`
+<p>أخبر الله سبحانه وتعالى الملائكة أنه جاعل في الأرض خليفة، وخلق آدم عليه السلام وعلّمه ما شاء الله له أن يتعلم.</p>
+<p>وأمر الله الملائكة بالسجود لآدم سجود تكريم، فسجدوا إلا إبليس الذي أبى واستكبر.</p>
+<p>أسكن الله آدم وزوجه الجنة، وأباح لهما نعيمها، ونهاهما عن الاقتراب من شجرة معينة.</p>
+<p>وسوس الشيطان لهما، فوقعا في الخطأ، ثم أدركا خطأهما ورجعا إلى الله.</p>
+<p>فكانت توبة آدم عليه السلام درسًا عظيمًا للإنسان في الرجوع إلى الله وعدم اليأس من رحمته.</p>`
+},
 
-    <p>
-    وأمر الله الملائكة أن يسجدوا لآدم سجود تكريم، فسجدوا جميعًا إلا إبليس، الذي أبى واستكبر، فكان عصيانه سببًا في طرده من رحمة الله.
-    </p>
-
-    <p>
-    وأسكن الله آدم وزوجه الجنة، وأباح لهما نعيمها، ونهاهما عن الاقتراب من شجرة معينة. فوسوس لهما الشيطان، فأكلا منها، ثم شعرا بخطئهما وندما.
-    </p>
-
-    <div class="highlight">
-    لم يصرّ آدم عليه السلام على الخطأ، بل رجع إلى الله وتاب إليه، فتاب الله عليه.
-    </div>
-
-    <p>
-    وهكذا بدأت حياة الإنسان في الأرض، ومعها بدأت رحلة الاختبار والإيمان والعمل الصالح.
-    </p>
-    `,
-    lesson:"الخطأ قد يقع فيه الإنسان، لكن المؤمن لا يتمادى فيه، بل يرجع إلى الله ويطلب المغفرة."
+idris:{
+title:"إدريس عليه السلام",
+category:"قصص الأنبياء",
+era:"من الأنبياء الأوائل",
+ref:"مريم 56–57",
+video:"قصة إدريس عليه السلام للأطفال قصص الأنبياء باللغة العربية",
+intro:"قصة نبي الله إدريس عليه السلام كما ورد ذكره في القرآن.",
+lesson:"الصدق والصلاح من الصفات التي أثنى الله بها على عباده الصالحين.",
+verse:"وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ ۚ إِنَّهُ كَانَ صِدِّيقًا نَّبِيًّا",
+verseRef:"مريم — 56",
+text:`
+<p>ذكر الله إدريس عليه السلام في القرآن، ووصفه بأنه صديق نبي.</p>
+<p>وأثنى الله عليه، وذكر أنه رفعه مكانًا عليًا.</p>
+<p>ولا يذكر القرآن تفاصيل كثيرة عن حياته، ولذلك لا نضيف إليها حكايات غير ثابتة ونكتفي بما ثبت في الوحي.</p>`
 },
 
 nuh:{
-    title:"قصة نوح عليه السلام",
-    category:"قصص الأنبياء",
-    era:"قوم نوح",
-    reference:"هود: 25–49",
-    intro:"قصة نبي الله نوح عليه السلام ودعوته الطويلة لقومه، وبناء السفينة، والنجاة.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة هود، المؤمنون، القمر",
-    text:`
-    <p>
-    أرسل الله نوحًا عليه السلام إلى قومه يدعوهم إلى عبادة الله وحده وترك الشرك.
-    </p>
+title:"نوح عليه السلام",
+category:"قصص الأنبياء",
+era:"قوم نوح",
+ref:"هود 25–49",
+video:"قصة نوح عليه السلام للأطفال قصص الأنبياء باللغة العربية",
+intro:"قصة نبي الله نوح عليه السلام ودعوته قومه وصبره وبناء السفينة.",
+lesson:"الصبر والثبات على الحق حتى عندما يرفض الآخرون النصيحة.",
+verse:"وَاصْنَعِ الْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا",
+verseRef:"هود — 37",
+text:`
+<p>أرسل الله نوحًا عليه السلام إلى قومه يدعوهم إلى عبادة الله وحده وترك الشرك.</p>
+<p>دعاهم نوح ليلًا ونهارًا وسرًا وعلانية، لكن كثيرًا منهم أصروا على الرفض.</p>
+<p>وأوحى الله إليه أن يصنع السفينة، فبدأ في بنائها بأمر ربه.</p>
+<p>ثم جاء أمر الله، وحمل نوح في السفينة من آمن معه، ونجا المؤمنون.</p>`
+},
 
-    <p>
-    دعاهم نوح عليه السلام بطرق مختلفة، في الليل والنهار، سرًا وعلانية، لكن كثيرًا منهم أصروا على الرفض.
-    </p>
+hud:{
+title:"هود عليه السلام وقوم عاد",
+category:"قصص الأنبياء",
+era:"قوم عاد",
+ref:"هود 50–60",
+video:"قصة هود وقوم عاد للأطفال قصص الأنبياء",
+intro:"قصة هود عليه السلام مع قوم عاد ودعوته لهم إلى توحيد الله.",
+lesson:"القوة والقدرة لا تمنع الإنسان من الحساب إذا كفر بالله وظلم.",
+verse:"يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ",
+verseRef:"هود — 50",
+text:`
+<p>أرسل الله هودًا عليه السلام إلى قوم عاد، وكانوا قومًا ذوي قوة وبأس.</p>
+<p>دعاهم هود إلى عبادة الله وحده وترك ما كانوا يعبدونه من دونه.</p>
+<p>لكنهم كذبوه واستكبروا، فكانت عاقبة التكذيب والهلاك.</p>
+<p>أما هود والذين آمنوا معه فنجاهم الله برحمته.</p>`
+},
 
-    <p>
-    وأوحى الله إلى نوح أن يصنع السفينة، فبدأ في بنائها بأمر الله، وكان قومه يمرون به ويسخرون منه.
-    </p>
-
-    <p>
-    ثم جاء أمر الله، ونزل الماء، وحمل نوح عليه السلام في السفينة من آمن معه، وكان ذلك نجاة للمؤمنين.
-    </p>
-
-    <div class="highlight">
-    كانت قصة نوح عليه السلام مثالًا عظيمًا على الصبر والثبات على الحق حتى لو كان عدد المؤمنين قليلًا.
-    </div>
-    `,
-    lesson:"الصبر على الحق مهم، ولا ينبغي للإنسان أن يترك الخير لمجرد أن الآخرين لا يقبلونه."
+salih:{
+title:"صالح عليه السلام وقوم ثمود",
+category:"قصص الأنبياء",
+era:"قوم ثمود",
+ref:"الأعراف 73–79",
+video:"قصة صالح وقوم ثمود للأطفال قصص الأنبياء",
+intro:"قصة صالح عليه السلام وآية الناقة وقوم ثمود.",
+lesson:"احترام آيات الله وعدم الاستهزاء بأوامره.",
+verse:"قَدْ جَاءَتْكُم بَيِّنَةٌ مِّن رَّبِّكُمْ ۖ هَٰذِهِ نَاقَةُ اللَّهِ لَكُمْ آيَةً",
+verseRef:"الأعراف — 73",
+text:`
+<p>أرسل الله صالحًا عليه السلام إلى ثمود يدعوهم إلى توحيد الله.</p>
+<p>وطلبوا آية، فجعل الله لهم الناقة آية واضحة.</p>
+<p>لكنهم اعتدوا على آية الله ولم يستجيبوا لنبيهم.</p>
+<p>فجاءتهم عاقبة التكذيب، ونجّى الله صالحًا والذين آمنوا معه.</p>`
 },
 
 ibrahim:{
-    title:"قصة إبراهيم عليه السلام",
-    category:"قصص الأنبياء",
-    era:"الخليل",
-    reference:"الأنبياء: 51–70",
-    intro:"قصة خليل الله إبراهيم عليه السلام، وثباته على التوحيد ودعوته قومه إلى عبادة الله.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة الأنبياء، البقرة، الصافات",
-    text:`
-    <p>
-    كان إبراهيم عليه السلام من أعظم الأنبياء الذين دعوا إلى توحيد الله وترك عبادة ما سواه.
-    </p>
+title:"إبراهيم عليه السلام",
+category:"قصص الأنبياء",
+era:"الخليل",
+ref:"الأنبياء 51–70",
+video:"قصة إبراهيم عليه السلام للأطفال قصص الأنبياء",
+intro:"قصة خليل الله إبراهيم وثباته على التوحيد.",
+lesson:"الثبات على التوحيد والثقة بالله حتى في أصعب الظروف.",
+verse:"قُلْنَا يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ",
+verseRef:"الأنبياء — 69",
+text:`
+<p>كان إبراهيم عليه السلام من أعظم الداعين إلى توحيد الله.</p>
+<p>واجه قومه بالحجة، وبيّن لهم أن الأصنام لا تنفع ولا تضر.</p>
+<p>ولما رفضوا دعوته وأرادوا إيذاءه، نجاه الله من النار.</p>
+<p>وتظل قصته مثالًا عظيمًا على قوة اليقين بالله.</p>`
+},
 
-    <p>
-    واجه قومه بالحجة، وبيّن لهم أن الأصنام لا تملك لهم نفعًا ولا ضرًا، وأن العبادة لا تكون إلا لله سبحانه وتعالى.
-    </p>
-
-    <p>
-    ولما ازداد قومه رفضًا لدعوته، تعرض إبراهيم عليه السلام للأذى، وأرادوا إلقاءه في النار.
-    </p>
-
-    <p>
-    لكن الله سبحانه وتعالى نجاه، وأمر النار أن تكون بردًا وسلامًا عليه.
-    </p>
-
-    <div class="highlight">
-    من أعظم دروس قصة إبراهيم عليه السلام: قوة اليقين بالله والثبات على الحق.
-    </div>
-    `,
-    lesson:"الثبات على الإيمان يحتاج إلى شجاعة وصبر وثقة بالله."
+lut:{
+title:"لوط عليه السلام",
+category:"قصص الأنبياء",
+era:"قوم لوط",
+ref:"هود 77–83",
+video:"قصة لوط عليه السلام للأطفال قصص الأنبياء",
+intro:"قصة لوط عليه السلام ودعوته قومه إلى الطهارة وترك الفساد.",
+lesson:"الابتعاد عن الفساد والتمسك بالأخلاق التي أمر الله بها.",
+verse:"أَلَيْسَ مِنكُمْ رَجُلٌ رَّشِيدٌ",
+verseRef:"هود — 78",
+text:`
+<p>أرسل الله لوطًا عليه السلام إلى قومه، فدعاهم إلى ترك الفساد والمعاصي.</p>
+<p>لكن قومه أصروا على ما هم عليه.</p>
+<p>وجاءت ملائكة الله إلى لوط عليه السلام، ثم نجا الله لوطًا وأهله المؤمنين.</p>`
 },
 
 ismail:{
-    title:"قصة إسماعيل عليه السلام",
-    category:"قصص الأنبياء",
-    era:"الخليل وابنه",
-    reference:"الصافات: 100–111",
-    intro:"قصة إسماعيل عليه السلام وطاعته لله وبرّه بأبيه إبراهيم عليه السلام.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة الصافات",
-    text:`
-    <p>
-    كان إسماعيل عليه السلام ابن إبراهيم عليه السلام، وقد وصفه الله بالصبر والصدق والوفاء.
-    </p>
-
-    <p>
-    ولما بلغ إسماعيل سنًا يستطيع فيها أن يسعى مع أبيه، رأى إبراهيم في المنام رؤيا فيها أمر عظيم، فقصها على ابنه.
-    </p>
-
-    <p>
-    أظهر إسماعيل عليه السلام طاعة عظيمة لله، وقال لأبيه ما يدل على رضاه بأمر الله وثقته به.
-    </p>
-
-    <p>
-    فلما ظهر صدق الطاعة والإيمان، فداه الله بذبح عظيم.
-    </p>
-    `,
-    lesson:"الطاعة لله، وبر الوالدين، والصبر من أعظم صفات المؤمن."
+title:"إسماعيل عليه السلام",
+category:"قصص الأنبياء",
+era:"إبراهيم وإسماعيل",
+ref:"الصافات 100–111",
+video:"قصة إسماعيل عليه السلام للأطفال قصص الأنبياء",
+intro:"قصة إسماعيل عليه السلام وطاعته وصبره.",
+lesson:"الطاعة والصبر وبر الوالدين من أعظم القيم.",
+verse:"فَلَمَّا أَسْلَمَا وَتَلَّهُ لِلْجَبِينِ",
+verseRef:"الصافات — 103",
+text:`
+<p>كان إسماعيل عليه السلام ابن إبراهيم عليه السلام، ووصفه الله بالصبر والصدق والوفاء.</p>
+<p>وعندما أخبره أبوه برؤياه، ظهر منه الاستسلام لأمر الله والثقة به.</p>
+<p>فلما ظهر صدق الطاعة، فدى الله إسماعيل بذبح عظيم.</p>`
 },
 
 yusuf:{
-    title:"قصة يوسف عليه السلام",
-    category:"قصص الأنبياء",
-    era:"مصر",
-    reference:"سورة يوسف",
-    intro:"من أجمل قصص القرآن: الحسد، والبئر، والسجن، ثم التمكين والعفو.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة يوسف كاملة",
-    text:`
-    <p>
-    بدأت قصة يوسف عليه السلام عندما رأى رؤيا أخبر بها والده يعقوب عليه السلام.
-    </p>
+title:"يوسف عليه السلام",
+category:"قصص الأنبياء",
+era:"مصر",
+ref:"سورة يوسف",
+video:"قصة يوسف عليه السلام للأطفال باللغة العربية كاملة",
+intro:"من أجمل قصص القرآن: الرؤيا، والابتلاء، والسجن، ثم التمكين والعفو.",
+lesson:"الصبر والعفو والثقة بالله قد تجعل بعد الشدة فرجًا.",
+verse:"إِنَّهُ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",
+verseRef:"يوسف — 90",
+text:`
+<p>رأى يوسف عليه السلام رؤيا في صغره وقصها على أبيه يعقوب عليه السلام.</p>
+<p>شعر إخوته بالغيرة منه، فألقوه في الجب، ثم أخذته قافلة وبِيع في مصر.</p>
+<p>مر يوسف بابتلاءات عديدة، ثم دخل السجن ظلمًا، لكنه بقي ثابتًا على الإيمان.</p>
+<p>خرج من السجن ومكّنه الله في الأرض، وأصبح مسؤولًا عن خزائن مصر.</p>
+<p>ثم عاد إخوته إليه، فلم ينتقم منهم، بل عفا عنهم وأكرمهم.</p>`
+},
 
-    <p>
-    شعر إخوة يوسف بالغيرة منه، وتآمروا عليه، ثم ألقوه في الجب، وجاءت قافلة فأخرجته وباعته.
-    </p>
-
-    <p>
-    انتقل يوسف إلى مصر، ومرّ بابتلاءات كثيرة، ثم دخل السجن ظلمًا، لكنه ظل ثابتًا على الإيمان وحسن الخلق.
-    </p>
-
-    <p>
-    وبعد سنوات، خرج يوسف من السجن ومكّنه الله في الأرض، وأصبح مسؤولًا عن خزائن مصر.
-    </p>
-
-    <p>
-    ثم عاد إخوته إليه في وقت احتاجوا فيه إلى الطعام، ولم ينتقم يوسف منهم، بل عفا عنهم.
-    </p>
-
-    <div class="highlight">
-    قصة يوسف تعلمنا أن الابتلاء لا يعني نهاية الطريق، وأن الصبر قد يقود إلى الفرج والتمكين.
-    </div>
-    `,
-    lesson:"الصبر والعفو والثقة بالله قد تحول أصعب الظروف إلى بداية جديدة."
+shuaib:{
+title:"شعيب عليه السلام وأهل مدين",
+category:"قصص الأنبياء",
+era:"مدين",
+ref:"هود 84–95",
+video:"قصة شعيب عليه السلام للأطفال أهل مدين",
+intro:"قصة شعيب عليه السلام ونصحه لقومه بالعدل والأمانة.",
+lesson:"الأمانة في البيع والشراء وترك الغش من أخلاق المسلم.",
+verse:"أَوْفُوا الْكَيْلَ وَالْمِيزَانَ بِالْقِسْطِ",
+verseRef:"هود — 85",
+text:`
+<p>أرسل الله شعيبًا عليه السلام إلى أهل مدين، فدعاهم إلى عبادة الله.</p>
+<p>وكان من أبرز ما أمرهم به أن يوفوا الكيل والميزان وألا يبخسوا الناس حقوقهم.</p>
+<p>لكنهم رفضوا دعوته، فجاءت عاقبة التكذيب.</p>`
 },
 
 musa:{
-    title:"قصة موسى عليه السلام",
-    category:"قصص الأنبياء",
-    era:"بنو إسرائيل",
-    reference:"طه: 9–79",
-    intro:"قصة موسى عليه السلام مع فرعون، ورحلته من الخوف إلى النصر بإذن الله.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة طه، القصص، الشعراء",
-    text:`
-    <p>
-    ولد موسى عليه السلام في وقت كان فرعون يظلم بني إسرائيل، وأوحى الله إلى أم موسى أن تحافظ عليه حتى يأتي أمر الله.
-    </p>
-
-    <p>
-    نشأ موسى عليه السلام، ثم أكرمه الله بالرسالة وأرسله إلى فرعون يدعوه إلى عبادة الله وترك الظلم.
-    </p>
-
-    <p>
-    واجه موسى عليه السلام فرعون بالحجة والآيات، ثم خرج ببني إسرائيل بأمر الله.
-    </p>
-
-    <p>
-    وعندما لحق بهم فرعون وجنوده، كان البحر أمامهم، فكان موقفًا شديدًا، لكن موسى عليه السلام وثق بالله.
-    </p>
-
-    <div class="highlight">
-    قال موسى عليه السلام لقومه: إن الله معه، ولن يتركه.
-    </div>
-
-    <p>
-    ونجّى الله موسى ومن معه، وأغرق فرعون وجنوده.
-    </p>
-    `,
-    lesson:"عندما تضيق الأسباب، يبقى الاعتماد على الله والثقة بوعده."
-},
-
-yunus:{
-    title:"قصة يونس عليه السلام",
-    category:"قصص الأنبياء",
-    era:"قوم يونس",
-    reference:"الأنبياء: 87–88",
-    intro:"قصة نبي الله يونس عليه السلام ودعائه وتوبته ورجوعه إلى الله.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة الأنبياء والصافات",
-    text:`
-    <p>
-    أرسل الله يونس عليه السلام إلى قومه، فدعاهم إلى الإيمان بالله، ثم خرج منهم قبل أن يأتيه الإذن في ذلك.
-    </p>
-
-    <p>
-    ابتلاه الله ابتلاءً شديدًا، ثم ألهمه الدعاء والرجوع إليه.
-    </p>
-
-    <p>
-    دعا يونس عليه السلام ربه معترفًا بخطئه، فاستجاب الله له ونجّاه من الكرب.
-    </p>
-
-    <div class="highlight">
-    يعلّمنا دعاء يونس عليه السلام أن المؤمن يرجع إلى الله في أوقات الشدة ولا يفقد الأمل.
-    </div>
-    `,
-    lesson:"مهما اشتد الكرب، لا تفقد الأمل في رحمة الله."
+title:"موسى عليه السلام وفرعون",
+category:"قصص الأنبياء",
+era:"مصر وبنو إسرائيل",
+ref:"طه 9–79",
+video:"قصة سيدنا موسى للأطفال قصص الأنبياء بالعربية الفصحى",
+intro:"قصة موسى عليه السلام منذ بداية رسالته ومواجهته لفرعون.",
+lesson:"الثقة بالله والشجاعة في قول الحق وعدم الاستسلام للظلم.",
+verse:"قَالَ كَلَّا ۖ إِنَّ مَعِيَ رَبِّي سَيَهْدِينِ",
+verseRef:"الشعراء — 62",
+text:`
+<p>نشأ موسى عليه السلام في ظروف صعبة، ثم أكرمه الله بالرسالة وأرسله إلى فرعون.</p>
+<p>دعاه موسى إلى عبادة الله وترك الظلم، وأيده الله بالآيات.</p>
+<p>ثم خرج موسى ببني إسرائيل، فلحق بهم فرعون وجنوده.</p>
+<p>وعندما اشتد الموقف، وثق موسى بربه، فنجاه الله ومن معه.</p>`
 },
 
 ayoub:{
-    title:"قصة أيوب عليه السلام",
-    category:"قصص الأنبياء",
-    era:"الابتلاء والصبر",
-    reference:"الأنبياء: 83–84",
-    intro:"قصة نبي الله أيوب عليه السلام، أحد أعظم أمثلة الصبر.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة الأنبياء وص",
-    text:`
-    <p>
-    ابتلى الله أيوب عليه السلام ابتلاءً شديدًا، فكان مثالًا عظيمًا للصبر والثبات.
-    </p>
-
-    <p>
-    ومع شدة البلاء، لم ييأس أيوب من رحمة الله، بل دعا ربه بأدب وثقة.
-    </p>
-
-    <p>
-    فاستجاب الله دعاءه وكشف عنه الضر، وأكرمه بعد صبره.
-    </p>
-    `,
-    lesson:"الصبر لا يعني عدم الشعور بالمشقة، بل يعني عدم فقدان الثقة بالله."
-},
-
-sulaiman:{
-    title:"قصة سليمان عليه السلام",
-    category:"قصص الأنبياء",
-    era:"مملكة سليمان",
-    reference:"النمل: 15–44",
-    intro:"قصة سليمان عليه السلام وما آتاه الله من الملك والحكمة.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة النمل، سبأ، ص",
-    text:`
-    <p>
-    ورث سليمان عليه السلام عن أبيه داود عليه السلام النبوة والملك، وآتاه الله علمًا وحكمة.
-    </p>
-
-    <p>
-    علّمه الله منطق الطير، وسخّر له من مخلوقاته ما شاء بإذنه.
-    </p>
-
-    <p>
-    ومن أشهر أحداث قصته قصة الهدهد وملكة سبأ، حيث دعا سليمان إلى توحيد الله.
-    </p>
-
-    <div class="highlight">
-    مع عظمة الملك، بقي سليمان عليه السلام يعرف أن كل النعم من فضل الله.
-    </div>
-    `,
-    lesson:"النعم الحقيقية تحتاج إلى شكر الله وعدم التكبر بها."
-},
-
-dawud:{
-    title:"قصة داود عليه السلام",
-    category:"قصص الأنبياء",
-    era:"بنو إسرائيل",
-    reference:"البقرة: 251",
-    intro:"قصة داود عليه السلام وثباته ونصره لجالوت بإذن الله.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة البقرة، ص",
-    text:`
-    <p>
-    كان داود عليه السلام من عباد الله الصالحين، وآتاه الله النبوة والملك والحكمة.
-    </p>
-
-    <p>
-    وذكر الله في القرآن كيف قتل داود جالوت بإذن الله، وكان ذلك سببًا في ظهور الحق على الباطل.
-    </p>
-
-    <p>
-    ثم آتى الله داود الملك والحكمة وعلمه مما يشاء.
-    </p>
-    `,
-    lesson:"النصر ليس بالقوة وحدها، وإنما بتوفيق الله والعمل بالحق."
-},
-
-kahf:{
-    title:"قصة أصحاب الكهف",
-    category:"قصص القرآن",
-    era:"فتية مؤمنون",
-    reference:"سورة الكهف: 9–26",
-    intro:"قصة مجموعة من الفتية الذين ثبتوا على الإيمان بالله.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة الكهف",
-    text:`
-    <p>
-    كان أصحاب الكهف مجموعة من الفتية آمنوا بربهم ورفضوا الشرك.
-    </p>
-
-    <p>
-    ولما خافوا على دينهم، لجؤوا إلى الكهف، ودعوا الله أن يمنحهم رحمته ويوفر لهم من أمرهم رشدًا.
-    </p>
-
-    <p>
-    فألقى الله عليهم النوم سنين طويلة، ثم بعثهم ليكونوا آية للناس.
-    </p>
-
-    <div class="highlight">
-    القصة تعلمنا قيمة الثبات على الإيمان حتى عندما يكون الطريق صعبًا.
-    </div>
-    `,
-    lesson:"الصحبة الصالحة والثبات على الحق من أسباب قوة الإنسان."
-},
-
-qarun:{
-    title:"قصة قارون",
-    category:"قصص القرآن",
-    era:"بنو إسرائيل",
-    reference:"القصص: 76–83",
-    intro:"قصة قارون وما فيها من درس عن المال والغرور ونسيان فضل الله.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة القصص",
-    text:`
-    <p>
-    كان قارون من قوم موسى، وآتاه الله من الأموال ما إن مفاتحه لتنوء بالعصبة أولي القوة.
-    </p>
-
-    <p>
-    نصحه قومه ألا يفرح فرح غرور، وأن يطلب فيما آتاه الله الدار الآخرة، وأن يحسن كما أحسن الله إليه.
-    </p>
-
-    <p>
-    لكنه اغتر بماله ونسب الفضل إلى نفسه، فكانت عاقبته عبرة للناس.
-    </p>
-    `,
-    lesson:"المال نعمة عندما يُستخدم في الخير، لكنه يصبح فتنة إذا أدى إلى الغرور."
-},
-
-maryam:{
-    title:"قصة مريم عليها السلام",
-    category:"قصص القرآن",
-    era:"آل عمران",
-    reference:"مريم: 16–36",
-    intro:"قصة مريم عليها السلام واختيار الله لها وبشارة عيسى عليه السلام.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة مريم وآل عمران",
-    text:`
-    <p>
-    كانت مريم عليها السلام من النساء الصالحات، واختارها الله واصطفاها.
-    </p>
-
-    <p>
-    بشّرها الله بولادة عيسى عليه السلام بمعجزة عظيمة، إذ وُلد من غير أب.
-    </p>
-
-    <p>
-    كانت ولادة عيسى عليه السلام آية من آيات الله، ودعا عيسى قومه إلى عبادة الله وحده.
-    </p>
-    `,
-    lesson:"الله قادر على كل شيء، والعبد المؤمن يثق بحكمة الله حتى عندما لا يفهم كل الأسباب."
-},
-
-muhammad:{
-    title:"قصة نبينا محمد ﷺ",
-    category:"السيرة النبوية",
-    era:"مكة والمدينة",
-    reference:"الأحزاب: 21",
-    intro:"مختصر من السيرة النبوية: الوحي، الدعوة، الهجرة، وبناء المجتمع المسلم.",
-    video:"https://www.youtube.com/embed/AblKguZX8tI",
-    source:"القرآن الكريم والسيرة النبوية الصحيحة",
-    text:`
-    <p>
-    محمد ﷺ هو خاتم الأنبياء والمرسلين، أرسله الله رحمة للعالمين.
-    </p>
-
-    <p>
-    بدأ نزول الوحي عليه في مكة، ودعا قومه إلى توحيد الله وترك عبادة الأصنام.
-    </p>
-
-    <p>
-    واجه النبي ﷺ وأصحابه أذى شديدًا، ثم أذن الله لهم بالهجرة إلى المدينة.
-    </p>
-
-    <p>
-    وفي المدينة بُني المجتمع المسلم، وانتشرت الدعوة، وأكمل النبي ﷺ تبليغ رسالة ربه حتى توفاه الله.
-    </p>
-
-    <div class="highlight">
-    كان النبي ﷺ قدوة في الصدق والأمانة والصبر والرحمة وحسن التعامل.
-    </div>
-    `,
-    lesson:"نتعلم من سيرة النبي ﷺ الصدق والرحمة والصبر وحسن الخلق."
-},
-
-hijrah:{
-    title:"قصة الهجرة النبوية",
-    category:"السيرة النبوية",
-    era:"من مكة إلى المدينة",
-    reference:"التوبة: 40",
-    intro:"رحلة الهجرة من مكة إلى المدينة وبداية مرحلة جديدة في الدعوة.",
-    video:"https://www.youtube.com/embed/AblKguZX8tI",
-    source:"القرآن الكريم والسيرة النبوية",
-    text:`
-    <p>
-    بعد اشتداد الأذى على المسلمين في مكة، أذن الله للنبي ﷺ وأصحابه بالهجرة إلى المدينة.
-    </p>
-
-    <p>
-    خرج النبي ﷺ مع أبي بكر رضي الله عنه، واتخذا من الغار مكانًا للاختباء فترة من الرحلة.
-    </p>
-
-    <p>
-    ثم واصلا الطريق حتى وصلا إلى المدينة، حيث استقبل المسلمون النبي ﷺ بفرح كبير.
-    </p>
-    `,
-    lesson:"التخطيط والأخذ بالأسباب لا يتعارضان مع التوكل على الله."
-},
-
-bilal:{
-    title:"قصة بلال رضي الله عنه",
-    category:"شخصيات إسلامية",
-    era:"الصحابة",
-    reference:"الحجرات: 13",
-    intro:"قصة بلال رضي الله عنه وثباته على الإيمان.",
-    video:"https://www.youtube.com/embed/AblKguZX8tI",
-    source:"السيرة النبوية والمصادر الإسلامية المعتبرة",
-    text:`
-    <p>
-    كان بلال رضي الله عنه من أوائل من آمنوا بالنبي ﷺ، وثبت على الإسلام رغم ما تعرض له من أذى.
-    </p>
-
-    <p>
-    وبعد أن أصبح المسلمون في المدينة، كان بلال رضي الله عنه من أشهر المؤذنين للنبي ﷺ.
-    </p>
-
-    <p>
-    وأصبحت قصته مثالًا على أن قيمة الإنسان ليست بلونه أو أصله أو ماله، وإنما بتقواه وعمله الصالح.
-    </p>
-    `,
-    lesson:"الإسلام يكرّم الإنسان بتقواه وأخلاقه، وليس بالمال أو اللون أو الأصل."
-},
-
-luqman:{
-    title:"قصة لقمان وحكمته",
-    category:"قصص القرآن",
-    era:"الحكمة",
-    reference:"سورة لقمان: 12–19",
-    intro:"مجموعة من أعظم الوصايا التي ذكرها القرآن على لسان لقمان لابنه.",
-    video:"https://www.youtube.com/embed/AuNcSZD4dK8",
-    source:"القرآن الكريم — سورة لقمان",
-    text:`
-    <p>
-    آتى الله لقمان الحكمة، وذكر القرآن جانبًا من نصائحه لابنه.
-    </p>
-
-    <p>
-    بدأ لقمان بتعليم ابنه التوحيد، ونهاه عن الشرك بالله.
-    </p>
-
-    <p>
-    ثم أوصاه بالصلاة والأمر بالمعروف والنهي عن المنكر والصبر، ونهاه عن التكبر ورفع الصوت.
-    </p>
-
-    <div class="highlight">
-    وصايا لقمان تصلح أن تكون منهجًا جميلًا في تربية الأبناء على الإيمان والأخلاق.
-    </div>
-    `,
-    lesson:"الإيمان والأخلاق والصلاة والتواضع أساس التربية الصالحة."
-}
-
-};
-
-
-/* =========================================================
-   آية لكل قصة
-   ========================================================= */
-
-const verses={
-
-adam:{
-text:"فَتَلَقَّىٰ آدَمُ مِن رَّبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ",
-ref:"البقرة — 37"
-},
-
-nuh:{
-text:"وَاصْنَعِ الْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا",
-ref:"هود — 37"
-},
-
-ibrahim:{
-text:"قُلْنَا يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ",
-ref:"الأنبياء — 69"
-},
-
-ismail:{
-text:"فَلَمَّا أَسْلَمَا وَتَلَّهُ لِلْجَبِينِ",
-ref:"الصافات — 103"
-},
-
-yusuf:{
-text:"إِنَّهُ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",
-ref:"يوسف — 90"
-},
-
-musa:{
-text:"قَالَ كَلَّا ۖ إِنَّ مَعِيَ رَبِّي سَيَهْدِينِ",
-ref:"الشعراء — 62"
+title:"أيوب عليه السلام",
+category:"قصص الأنبياء",
+era:"الصبر",
+ref:"الأنبياء 83–84",
+video:"قصة أيوب عليه السلام للأطفال قصص الأنبياء",
+intro:"قصة أيوب عليه السلام، أحد أشهر أمثلة الصبر والثقة بالله.",
+lesson:"الصبر لا يعني عدم وجود الألم، بل يعني عدم فقدان الثقة بالله.",
+verse:"أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ",
+verseRef:"الأنبياء — 83",
+text:`
+<p>ابتلى الله أيوب عليه السلام، فكان مثالًا عظيمًا للصبر.</p>
+<p>ولم يفقد أيوب ثقته برحمة الله، بل دعا ربه بأدب.</p>
+<p>فاستجاب الله له وكشف عنه الضر وأكرمه.</p>`
 },
 
 yunus:{
-text:"فَاسْتَجَبْنَا لَهُ وَنَجَّيْنَاهُ مِنَ الْغَمِّ ۚ وَكَذَٰلِكَ نُنجِي الْمُؤْمِنِينَ",
-ref:"الأنبياء — 88"
-},
-
-ayoub:{
-text:"وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُ أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ",
-ref:"الأنبياء — 83"
-},
-
-sulaiman:{
-text:"هَٰذَا مِن فَضْلِ رَبِّي لِيَبْلُوَنِي أَأَشْكُرُ أَمْ أَكْفُرُ",
-ref:"النمل — 40"
+title:"يونس عليه السلام",
+category:"قصص الأنبياء",
+era:"قوم يونس",
+ref:"الأنبياء 87–88",
+video:"قصة يونس عليه السلام والحوت للأطفال باللغة العربية",
+intro:"قصة يونس عليه السلام ودعائه ورجوعه إلى الله.",
+lesson:"لا تفقد الأمل في رحمة الله، وارجع إليه في الشدة.",
+verse:"لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",
+verseRef:"الأنبياء — 87",
+text:`
+<p>دعا يونس عليه السلام قومه إلى الإيمان بالله.</p>
+<p>ثم خرج قبل أن يأتيه الإذن، فابتلاه الله ووجد نفسه في كرب شديد.</p>
+<p>دعا ربه واعترف بخطئه، فاستجاب الله له ونجاه من الغم.</p>`
 },
 
 dawud:{
-text:"وَقَتَلَ دَاوُودُ جَالُوتَ وَآتَاهُ اللَّهُ الْمُلْكَ وَالْحِكْمَةَ",
-ref:"البقرة — 251"
+title:"داود عليه السلام",
+category:"قصص الأنبياء",
+era:"بنو إسرائيل",
+ref:"البقرة 251",
+video:"قصة داود عليه السلام للأطفال قصص الأنبياء",
+intro:"قصة داود عليه السلام ونصره على جالوت ثم إكرام الله له بالحكمة والملك.",
+lesson:"النصر من الله، والملك والقدرة يجب أن يقابلهما شكر لله.",
+verse:"وَقَتَلَ دَاوُودُ جَالُوتَ وَآتَاهُ اللَّهُ الْمُلْكَ وَالْحِكْمَةَ",
+verseRef:"البقرة — 251",
+text:`
+<p>كان داود عليه السلام من عباد الله الصالحين.</p>
+<p>وذكر الله أنه قتل جالوت بإذنه، ثم آتاه الملك والحكمة.</p>
+<p>وكان داود مثالًا للعبادة والشكر والحكم بالحق.</p>`
 },
 
-kahf:{
-text:"إِنَّهُمْ فِتْيَةٌ آمَنُوا بِرَبِّهِمْ وَزِدْنَاهُمْ هُدًى",
-ref:"الكهف — 13"
+sulaiman:{
+title:"سليمان عليه السلام وملكة سبأ",
+category:"قصص الأنبياء",
+era:"مملكة سليمان",
+ref:"النمل 15–44",
+video:"قصة سليمان وملكة سبأ للأطفال قصص الأنبياء",
+intro:"قصة سليمان عليه السلام والهدهد وملكة سبأ.",
+lesson:"القوة والملك نعمة، والنعمة الحقيقية أن يشكر الإنسان ربه.",
+verse:"هَٰذَا مِن فَضْلِ رَبِّي لِيَبْلُوَنِي أَأَشْكُرُ أَمْ أَكْفُرُ",
+verseRef:"النمل — 40",
+text:`
+<p>آتَى الله سليمان عليه السلام الملك والحكمة، وعلّمه منطق الطير.</p>
+<p>لاحظ سليمان غياب الهدهد، ثم جاء الهدهد بخبر ملكة سبأ وقومها.</p>
+<p>دعا سليمان ملكة سبأ وقومها إلى عبادة الله.</p>
+<p>وكانت القصة مثالًا على الحكمة وحسن استخدام النعمة.</p>`
 },
 
-qarun:{
-text:"وَابْتَغِ فِيمَا آتَاكَ اللَّهُ الدَّارَ الْآخِرَةَ وَلَا تَنسَ نَصِيبَكَ مِنَ الدُّنْيَا",
-ref:"القصص — 77"
+zakariya:{
+title:"زكريا عليه السلام ويحيى عليه السلام",
+category:"قصص الأنبياء",
+era:"آل عمران",
+ref:"مريم 2–15",
+video:"قصة زكريا ويحيى عليهما السلام للأطفال",
+intro:"قصة دعاء زكريا عليه السلام وبشارة يحيى.",
+lesson:"الدعاء لا يعرف المستحيل، والله قادر على كل شيء.",
+verse:"رَبِّ هَبْ لِي مِن لَّدُنكَ ذُرِّيَّةً طَيِّبَةً",
+verseRef:"آل عمران — 38",
+text:`
+<p>كان زكريا عليه السلام نبيًا صالحًا، ودعا ربه أن يهب له ذرية طيبة.</p>
+<p>فبشره الله بيحيى عليه السلام.</p>
+<p>وذكر الله يحيى بالخير والصلاح والحكمة.</p>`
 },
 
-maryam:{
-text:"إِنَّ اللَّهَ اصْطَفَاكِ وَطَهَّرَكِ وَاصْطَفَاكِ عَلَىٰ نِسَاءِ الْعَالَمِينَ",
-ref:"آل عمران — 42"
+isa:{
+title:"عيسى ابن مريم عليه السلام",
+category:"قصص الأنبياء",
+era:"بنو إسرائيل",
+ref:"مريم 16–36",
+video:"قصة عيسى ابن مريم عليه السلام للأطفال باللغة العربية",
+intro:"قصة مريم عليها السلام وبشارة عيسى عليه السلام.",
+lesson:"الله قادر على كل شيء، وعيسى عليه السلام عبد الله ورسوله.",
+verse:"إِنَّمَا الْمَسِيحُ عِيسَى ابْنُ مَرْيَمَ رَسُولُ اللَّهِ",
+verseRef:"النساء — 171",
+text:`
+<p>اصطفى الله مريم عليها السلام وطهرها، وبشرها بولادة عيسى عليه السلام.</p>
+<p>كانت ولادة عيسى آية من آيات الله، وبدأ عيسى دعوته إلى عبادة الله.</p>
+<p>وأيده الله بآيات ومعجزات بإذنه.</p>`
 },
 
-muhammad:{
-text:"لَّقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ",
-ref:"الأحزاب — 21"
+/* ================= السيرة النبوية ================= */
+
+birth:{
+title:"مولد النبي محمد ﷺ",
+category:"السيرة النبوية",
+era:"مكة",
+ref:"السيرة النبوية",
+video:"مولد النبي محمد ﷺ للأطفال السيرة النبوية",
+intro:"بداية السيرة النبوية والتعريف بنسب النبي ﷺ وولادته.",
+lesson:"معرفة بداية سيرة النبي ﷺ تساعد الطفل على محبته والاقتداء بأخلاقه.",
+text:`
+<p>وُلد محمد ﷺ في مكة من بني هاشم من قريش، ونشأ في بيئة مكة.</p>
+<p>توفي والده عبد الله قبل مولده، ثم عاش في رعاية أمه آمنة.</p>
+<p>وتحكي كتب السيرة تفاصيل مراحل طفولته ونشأته، وينبغي عند عرضها للأطفال التفريق بين ما ثبت وما اختلف فيه.</p>`
+},
+
+childhood:{
+title:"طفولة النبي ﷺ ونشأته",
+category:"السيرة النبوية",
+era:"مكة",
+ref:"السيرة النبوية",
+video:"طفولة النبي محمد ﷺ للأطفال السيرة النبوية",
+intro:"محطات من طفولة النبي ﷺ ونشأته في مكة.",
+lesson:"النبي ﷺ كان معروفًا بحسن الخلق والصدق والأمانة.",
+text:`
+<p>نشأ النبي ﷺ في مكة، وعاش في كنف أسرته ثم في كنف جده وبعده عمه أبي طالب.</p>
+<p>وعُرف بين قومه بالصدق والأمانة وحسن الخلق.</p>
+<p>وتذكر السيرة مراحل من شبابه وعمله وتجارته قبل البعثة.</p>`
+},
+
+khadijah:{
+title:"النبي ﷺ وخديجة رضي الله عنها",
+category:"السيرة النبوية",
+era:"قبل البعثة",
+ref:"السيرة النبوية",
+video:"النبي محمد وخديجة رضي الله عنها للأطفال السيرة النبوية",
+intro:"مرحلة من حياة النبي ﷺ قبل نزول الوحي.",
+lesson:"الصدق والأمانة وحسن التعامل من أسباب محبة الناس وثقتهم.",
+text:`
+<p>عمل النبي ﷺ في التجارة وعُرف بالأمانة والصدق.</p>
+<p>وكانت خديجة رضي الله عنها من النساء الكريمات، وتزوجها النبي ﷺ قبل البعثة.</p>
+<p>وكان بيت النبي ﷺ وخديجة بيتًا له مكانة كبيرة في بدايات الدعوة.</p>`
+},
+
+hira:{
+title:"غار حراء ونزول الوحي",
+category:"السيرة النبوية",
+era:"بداية الرسالة",
+ref:"العلق 1–5",
+video:"نزول الوحي وغار حراء للأطفال السيرة النبوية",
+intro:"المرحلة التي بدأ فيها نزول الوحي على النبي ﷺ.",
+lesson:"بداية الرسالة كانت نقطة التحول الكبرى في حياة النبي ﷺ.",
+verse:"اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+verseRef:"العلق — 1",
+text:`
+<p>كان النبي ﷺ يتعبد في غار حراء، فجاءه جبريل عليه السلام بالوحي.</p>
+<p>وكانت أول آيات نزلت عليه من سورة العلق.</p>
+<p>عاد النبي ﷺ إلى بيته، وبدأت مرحلة الرسالة والدعوة إلى الله.</p>`
+},
+
+makkah:{
+title:"الدعوة في مكة",
+category:"السيرة النبوية",
+era:"مكة",
+ref:"السيرة النبوية",
+video:"الدعوة في مكة للأطفال السيرة النبوية",
+intro:"بداية دعوة النبي ﷺ لقومه في مكة وثبات المؤمنين.",
+lesson:"الدعوة تحتاج إلى الصبر والحكمة والثبات.",
+text:`
+<p>بدأ النبي ﷺ دعوته إلى توحيد الله، فآمن به عدد من السابقين إلى الإسلام.</p>
+<p>ثم جهر بالدعوة، وواجه هو وأصحابه أذى المشركين.</p>
+<p>ومع شدة الأذى، استمر النبي ﷺ في الدعوة والصبر.</p>`
 },
 
 hijrah:{
-text:"لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا",
-ref:"التوبة — 40"
+title:"الهجرة النبوية",
+category:"السيرة النبوية",
+era:"من مكة إلى المدينة",
+ref:"التوبة 40",
+video:"قصة الهجرة النبوية للأطفال السيرة النبوية",
+intro:"رحلة النبي ﷺ وأبي بكر رضي الله عنه من مكة إلى المدينة.",
+lesson:"التوكل على الله لا يمنع التخطيط والأخذ بالأسباب.",
+verse:"لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا",
+verseRef:"التوبة — 40",
+text:`
+<p>بعد اشتداد الأذى على المسلمين، أذن الله للنبي ﷺ بالهجرة إلى المدينة.</p>
+<p>خرج النبي ﷺ مع أبي بكر رضي الله عنه، واختبآ في الغار فترة من الرحلة.</p>
+<p>ثم تابعا الطريق حتى وصلا إلى المدينة، وبدأت مرحلة جديدة في الدعوة.</p>`
 },
 
-bilal:{
-text:"إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ",
-ref:"الحجرات — 13"
+madinah:{
+title:"النبي ﷺ في المدينة",
+category:"السيرة النبوية",
+era:"المدينة",
+ref:"السيرة النبوية",
+video:"النبي محمد ﷺ في المدينة للأطفال السيرة النبوية",
+intro:"بداية المجتمع المسلم في المدينة وبناء المسجد والمؤاخاة.",
+lesson:"المجتمع القوي يقوم على التعاون والأخوة والعدل.",
+text:`
+<p>وصل النبي ﷺ إلى المدينة، وبدأ المسلمون مرحلة جديدة.</p>
+<p>كان بناء المسجد من الأعمال المهمة، كما آخى النبي ﷺ بين المسلمين.</p>
+<p>وبُني المجتمع على العبادة والتعاون والعدل وتحمل المسؤولية.</p>`
 },
 
-luqman:{
-text:"وَلَقَدْ آتَيْنَا لُقْمَانَ الْحِكْمَةَ أَنِ اشْكُرْ لِلَّهِ",
-ref:"لقمان — 12"
+badr:{
+title:"غزوة بدر",
+category:"السيرة النبوية",
+era:"المدينة",
+ref:"الأنفال",
+video:"غزوة بدر للأطفال السيرة النبوية",
+intro:"حدث مهم في السيرة النبوية وقع في السنة الثانية للهجرة.",
+lesson:"النصر لا يعتمد على العدد وحده، بل على الإيمان والعمل والطاعة.",
+text:`
+<p>وقعت بدر في السنة الثانية للهجرة، وكانت من الأحداث المهمة في تاريخ المسلمين.</p>
+<p>واجه المسلمون موقفًا صعبًا، وثبتوا مع النبي ﷺ.</p>
+<p>وذكر القرآن أحداث بدر وما فيها من دروس في الإيمان والطاعة.</p>`
+},
+
+khandaq:{
+title:"غزوة الخندق",
+category:"السيرة النبوية",
+era:"المدينة",
+ref:"الأحزاب",
+video:"غزوة الخندق للأطفال السيرة النبوية",
+intro:"قصة الخندق والتعاون والدفاع عن المدينة.",
+lesson:"التعاون والتخطيط من أسباب تجاوز الأزمات.",
+text:`
+<p>اجتمعت قوى متعددة لمحاصرة المدينة، فاستشار النبي ﷺ أصحابه.</p>
+<p>وأخذ المسلمون بفكرة حفر الخندق حول المدينة في المناطق المناسبة.</p>
+<p>وكانت الغزوة درسًا في الشورى والتعاون والصبر.</p>`
+},
+
+hudaybiyah:{
+title:"صلح الحديبية",
+category:"السيرة النبوية",
+era:"المدينة",
+ref:"الفتح",
+video:"صلح الحديبية للأطفال السيرة النبوية",
+intro:"حدث مهم انتهى بعواقب كبيرة لصالح المسلمين.",
+lesson:"قد يبدو بعض القرارات صعبًا في البداية، لكن الحكمة تظهر مع الوقت.",
+text:`
+<p>خرج النبي ﷺ وأصحابه يريدون العمرة، فمنعتهم قريش من دخول مكة.</p>
+<p>ثم جرت المفاوضات وانتهت بصلح الحديبية.</p>
+<p>كان الصلح مرحلة مهمة ساعدت على انتشار الدعوة وظهور آثارها.</p>`
+},
+
+makkahVictory:{
+title:"فتح مكة",
+category:"السيرة النبوية",
+era:"العام الثامن للهجرة",
+ref:"الفتح",
+video:"فتح مكة للأطفال السيرة النبوية",
+intro:"عودة النبي ﷺ إلى مكة في حدث عظيم من أحداث السيرة.",
+lesson:"العفو عند القدرة من أعظم الأخلاق.",
+text:`
+<p>دخل النبي ﷺ مكة في العام الثامن للهجرة بعد نقض قريش وحلفائها للصلح.</p>
+<p>كان فتح مكة حدثًا كبيرًا في تاريخ الدعوة.</p>
+<p>وأظهر النبي ﷺ في هذا اليوم خلقًا عظيمًا في التعامل والعفو.</p>`
+},
+
+farewell:{
+title:"حجة الوداع",
+category:"السيرة النبوية",
+era:"العام العاشر للهجرة",
+ref:"السيرة النبوية",
+video:"حجة الوداع للأطفال السيرة النبوية",
+intro:"آخر حج للنبي ﷺ وأهم الوصايا التي أوصى بها المسلمين.",
+lesson:"الرحمة والعدل وحفظ الحقوق من أهم القيم التي تعلمناها من سيرة النبي ﷺ.",
+text:`
+<p>حج النبي ﷺ في السنة العاشرة للهجرة، واجتمع حوله عدد كبير من المسلمين.</p>
+<p>وفي حجة الوداع خطب النبي ﷺ وذكّر المسلمين بحقوق بعضهم على بعض.</p>
+<p>وكانت هذه المرحلة من آخر مراحل حياته ﷺ.</p>`
+},
+
+companions:{
+title:"أصحاب النبي ﷺ",
+category:"السيرة النبوية",
+era:"الصحابة",
+ref:"الحشر 8–9",
+video:"قصص الصحابة للأطفال باللغة العربية",
+intro:"تعرف على نماذج من أصحاب النبي ﷺ وما تعلموه منه.",
+lesson:"الصحابة تعلموا من النبي ﷺ الصدق والتضحية والرحمة وحسن الخلق.",
+text:`
+<p>كان أصحاب النبي ﷺ جيلًا تربى على القرآن وتعاليم النبي ﷺ.</p>
+<p>ومنهم أبو بكر وعمر وعثمان وعلي رضي الله عنهم، وغيرهم من الصحابة.</p>
+<p>وتختلف قصصهم، لكن يجمعها الإيمان والصبر ونصرة الحق.</p>`
 }
 
 };
@@ -1212,393 +994,231 @@ ref:"لقمان — 12"
    ========================================================= */
 
 const order=[
-"adam",
-"nuh",
-"ibrahim",
-"ismail",
-"yusuf",
-"musa",
-"yunus",
-"ayoub",
-"sulaiman",
-"dawud",
-"kahf",
-"qarun",
-"maryam",
-"muhammad",
-"hijrah",
-"bilal",
-"luqman"
+"adam","idris","nuh","hud","salih","ibrahim","lut",
+"ismail","yusuf","shuaib","musa","ayoub","yunus",
+"dawud","sulaiman","zakariya","isa",
+"birth","childhood","khadijah","hira","makkah",
+"hijrah","madinah","badr","khandaq","hudaybiyah",
+"makkahVictory","farewell","companions"
 ];
 
 
 /* =========================================================
-   قراءة ID من الرابط
+   فتح القصة
    ========================================================= */
 
-const params=new URLSearchParams(window.location.search);
+const params=new URLSearchParams(location.search);
 const id=params.get("id") || "adam";
-
-const app=document.getElementById("app");
-
 const story=stories[id];
+const app=document.getElementById("app");
 
 if(!story){
 
-    app.innerHTML=`
-        <div class="card error">
-            <h1>القصة غير موجودة</h1>
-            <p>يبدو أن رابط القصة غير صحيح أو أن القصة لم تتم إضافتها بعد.</p>
-            <a href="stories.html">العودة إلى القصص</a>
-        </div>
-    `;
+app.innerHTML=`
+<div class="card error">
+<h1>القصة غير موجودة</h1>
+<p>الرابط غير صحيح أو أن هذه القصة لم تتم إضافتها.</p>
+<a href="stories.html">العودة إلى القصص</a>
+</div>
+`;
 
 }else{
 
-    document.title=story.title+" | الهداية";
+document.title=story.title+" | الهداية";
 
-    const index=order.indexOf(id);
+const index=order.indexOf(id);
+const previous=index>0?order[index-1]:null;
+const next=index<order.length-1?order[index+1]:null;
 
-    const previousId=index>0 ? order[index-1] : null;
-    const nextId=index<order.length-1 ? order[index+1] : null;
+const videoQuery=encodeURIComponent(
+story.video+" للأطفال عربي"
+);
 
-    const verse=verses[id];
+app.innerHTML=`
 
-    app.innerHTML=`
+<section class="hero">
+<div class="heroInner">
 
-        <section class="hero">
+<div class="badge">
+✦ ${story.category}
+</div>
 
-            <div class="hero-inner">
+<h1>${story.title}</h1>
 
-                <div class="category">
-                    ✦ ${story.category}
-                </div>
+<p>${story.intro}</p>
 
-                <h1>${story.title}</h1>
+<div class="actions">
 
-                <p class="hero-intro">
-                    ${story.intro}
-                </p>
+<a class="btn btnGold"
+href="https://www.youtube.com/results?search_query=${videoQuery}"
+target="_blank"
+rel="noopener">
+🎬 مشاهدة فيديو القصة
+</a>
 
-                <div class="hero-actions">
+<a class="btn btnLight" href="stories.html">
+← كل القصص
+</a>
 
-                    <button class="btn btn-main" onclick="startReading()">
-                        🔊 قراءة القصة
-                    </button>
+</div>
 
-                    <button class="btn btn-light" onclick="stopReading()">
-                        ■ إيقاف القراءة
-                    </button>
+</div>
+</section>
 
-                    <a class="btn btn-light" href="stories.html">
-                        ← كل القصص
-                    </a>
 
-                </div>
+<section class="layout">
 
-            </div>
+<article class="card story">
 
-        </section>
+<h2>القصة كاملة</h2>
 
+<div class="storyText">
+${story.text}
+</div>
 
-        <section class="layout">
 
-            <article class="card story-card">
+<div class="quran">
 
-                <h2 class="story-title">
-                    القصة كاملة
-                </h2>
+<div class="quranTitle">
+آية مرتبطة بالقصة
+</div>
 
-                <div id="storyText" class="story-content">
-                    ${story.text}
-                </div>
+<div class="quranText">
+${story.verse || "راجع الآيات الواردة في السورة المرتبطة بالقصة."}
+</div>
 
+<div class="quranRef">
+${story.verseRef || story.ref}
+</div>
 
-                ${
-                    verse
-                    ?
-                    `
-                    <div class="quran-box">
+</div>
 
-                        <div class="quran-label">
-                            آية من القرآن الكريم
-                        </div>
 
-                        <div class="quran-text">
-                            ${verse.text}
-                        </div>
+<div class="lesson">
 
-                        <div class="quran-ref">
-                            سورة ${verse.ref}
-                        </div>
+<h2>💡 فهم مبسط</h2>
 
-                    </div>
-                    `
-                    :
-                    ""
-                }
+<p>${story.lesson}</p>
 
+<br>
 
-                <div class="lesson-box">
+<small>
+هذا شرح تربوي مبسط للعبرة من القصة، وليس تفسيرًا مستقلًا للقرآن.
+</small>
 
-                    <h2>
-                        💡 فهم مبسط
-                    </h2>
+</div>
 
-                    <p>
-                        ${story.lesson}
-                    </p>
 
-                    <br>
+<div class="card video">
 
-                    <small style="color:#8a806c">
-                        هذا شرح تعليمي مبسط للعبرة من القصة، وليس تفسيرًا مستقلًا للقرآن.
-                    </small>
+<h2>🎬 فيديو مناسب للأطفال</h2>
 
-                </div>
+<p>
+ابحثنا عن فيديو عربي متعلق بهذه القصة. افتح النتائج واختر فيديوًّا مناسبًا للطفل.
+</p>
 
+<a class="videoButton"
+href="https://www.youtube.com/results?search_query=${videoQuery}"
+target="_blank"
+rel="noopener">
+▶ مشاهدة فيديو ${story.title}
+</a>
 
-                <div class="audio-box">
+<div class="videoSmall">
+يُفضّل أن يختار ولي الأمر الفيديو المناسب قبل مشاهدته الطفل.
+</div>
 
-                    <h2>
-                        🔊 الاستماع إلى القصة
-                    </h2>
+</div>
 
-                    <p>
-                        يمكن للطفل الاستماع إلى نص القصة باللغة العربية باستخدام قارئ الجهاز.
-                    </p>
+</article>
 
-                    <div class="audio-controls">
 
-                        <button onclick="startReading()">
-                            ▶ بدء القراءة
-                        </button>
+<aside class="side">
 
-                        <button onclick="pauseReading()">
-                            ⏸ إيقاف مؤقت
-                        </button>
+<div class="card sideCard">
 
-                        <button onclick="resumeReading()">
-                            ▶ متابعة
-                        </button>
+<h3>معلومات القصة</h3>
 
-                        <button onclick="stopReading()">
-                            ■ إيقاف
-                        </button>
+<div class="info">
+<span>القسم</span>
+<span>${story.category}</span>
+</div>
 
-                    </div>
+<div class="info">
+<span>الفترة</span>
+<span>${story.era}</span>
+</div>
 
-                </div>
+<div class="info">
+<span>المرجع</span>
+<span>${story.ref}</span>
+</div>
 
+</div>
 
-                <div class="card video-section">
 
-                    <h2>
-                        🎬 شاهد القصة
-                    </h2>
+<div class="card sideCard">
 
-                    <p class="video-note">
-                        فيديو عربي مناسب للعائلة والأطفال. قد تتغير الفيديوهات الخارجية أو تتوقف حسب صاحبها.
-                    </p>
+<h3>📚 منهج الهداية</h3>
 
-                    <div class="video-frame">
+<p style="font-size:13px;color:#718078">
+نلتزم في القصص بعدم تقديم الروايات الضعيفة أو التفاصيل غير الثابتة على أنها حقائق.
+</p>
 
-                        <iframe
-                            src="${story.video}"
-                            title="فيديو ${story.title}"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
+</div>
 
-                    </div>
 
-                    <div class="video-fallback">
-                        إذا لم يعمل الفيديو، يمكنك العودة إلى القصص واختيار قصة أخرى.
-                    </div>
+<div class="card sideCard">
 
-                </div>
+<h3>👦 للأطفال</h3>
 
-            </article>
+<p style="font-size:13px;color:#718078">
+اقرأ القصة، ثم شاهد الفيديو المناسب، وبعدها ناقش مع أسرتك أهم درس تعلمته.
+</p>
 
+</div>
 
-            <aside class="sidebar">
+</aside>
 
-                <div class="card info-card">
+</section>
 
-                    <h3>معلومات القصة</h3>
 
-                    <div class="info-row">
-                        <span>القسم</span>
-                        <span>${story.category}</span>
-                    </div>
+<div class="navigation">
 
-                    <div class="info-row">
-                        <span>الفترة</span>
-                        <span>${story.era}</span>
-                    </div>
-
-                    <div class="info-row">
-                        <span>المرجع</span>
-                        <span>${story.reference}</span>
-                    </div>
-
-                </div>
-
-
-                <div class="card info-card">
-
-                    <h3>مصادر القصة</h3>
-
-                    <ul class="source-list">
-
-                        <li>
-                            📖 ${story.source}
-                        </li>
-
-                        <li>
-                            📚 الآيات المرتبطة بالقصة
-                        </li>
-
-                        <li>
-                            ✓ تم تجنب إضافة أحداث غير ثابتة في النص القرآني قدر الإمكان
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <div class="card info-card">
-
-                    <h3>للأطفال 👦👧</h3>
-
-                    <p style="font-size:13px;color:#718077">
-                        اقرأ القصة بهدوء، ثم شاهد الفيديو، وبعدها حاول أن تذكر أهم درس تعلمته منها.
-                    </p>
-
-                </div>
-
-            </aside>
-
-        </section>
-
-
-        <div class="story-navigation">
-
-            ${
-                previousId
-                ?
-                `
-                <a href="story.html?id=${previousId}">
-                    <small>← القصة السابقة</small>
-                    ${stories[previousId].title}
-                </a>
-                `
-                :
-                `
-                <a href="stories.html">
-                    <small>العودة</small>
-                    كل القصص
-                </a>
-                `
-            }
-
-
-            ${
-                nextId
-                ?
-                `
-                <a href="story.html?id=${nextId}">
-                    <small>القصة التالية →</small>
-                    ${stories[nextId].title}
-                </a>
-                `
-                :
-                `
-                <a href="stories.html">
-                    <small>اكتملت المجموعة</small>
-                    استكشف باقي القصص
-                </a>
-                `
-            }
-
-        </div>
-
-    `;
+${
+previous
+?
+`<a href="story.html?id=${previous}">
+<small>← القصة السابقة</small>
+${stories[previous].title}
+</a>`
+:
+`<a href="stories.html">
+<small>البداية</small>
+كل القصص
+</a>`
 }
 
-
-/* =========================================================
-   قارئ القصة
-   ========================================================= */
-
-let speech=null;
-
-function getReadingText(){
-
-    const title=story ? story.title : "";
-
-    const content=document.getElementById("storyText");
-
-    const lesson=story ? story.lesson : "";
-
-    return `
-    ${title}
-
-    ${content ? content.innerText : ""}
-
-    الفهم المبسط:
-
-    ${lesson}
-    `;
-
+${
+next
+?
+`<a href="story.html?id=${next}">
+<small>القصة التالية →</small>
+${stories[next].title}
+</a>`
+:
+`<a href="stories.html">
+<small>انتهت المجموعة</small>
+استكشف القصص
+</a>`
 }
 
-function startReading(){
-
-    if(!("speechSynthesis" in window)){
-        alert("المتصفح لا يدعم القراءة الصوتية.");
-        return;
-    }
-
-    speechSynthesis.cancel();
-
-    speech=new SpeechSynthesisUtterance(getReadingText());
-
-    speech.lang="ar-SA";
-    speech.rate=.82;
-    speech.pitch=1;
-    speech.volume=1;
-
-    speechSynthesis.speak(speech);
-
-}
-
-function pauseReading(){
-
-    if("speechSynthesis" in window){
-        speechSynthesis.pause();
-    }
-
-}
-
-function resumeReading(){
-
-    if("speechSynthesis" in window){
-        speechSynthesis.resume();
-    }
-
-}
-
-function stopReading(){
-
-    if("speechSynthesis" in window){
-        speechSynthesis.cancel();
-    }
+</div>
+`;
 
 }
 
 </script>
 
 </body>
-  </html>
+    </html>
