@@ -1,639 +1,727 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>القصص الإسلامية — الهداية</title>
-<meta name="description" content="مكتبة القصص الإسلامية في منصة الهداية">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-.stories-page{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 10% 10%,rgba(201,164,92,.09),transparent 25%),
-    radial-gradient(circle at 90% 30%,rgba(23,107,76,.08),transparent 28%),
-    #f8f3e7;
-}
+  <title>القصص — الهداية</title>
+  <meta name="description" content="قصص الأنبياء والسيرة النبوية في منصة الهداية">
 
-.library-wrap{
-  width:min(1180px,calc(100% - 28px));
-  margin:auto;
-  padding:55px 0 100px;
-}
+  <style>
+    :root{
+      --green:#0b3d2e;
+      --green2:#145c45;
+      --gold:#c9a227;
+      --gold2:#e5c75b;
+      --cream:#f7f3e8;
+      --white:#fff;
+      --text:#17362b;
+      --muted:#708078;
+      --line:rgba(11,61,46,.10);
+    }
 
-.library-tools{
-  position:relative;
-  z-index:5;
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:15px;
-  align-items:center;
-  padding:14px;
-  margin-top:-35px;
-  border-radius:24px;
-  background:rgba(255,253,248,.94);
-  border:1px solid rgba(255,255,255,.9);
-  box-shadow:0 25px 70px rgba(7,27,20,.13);
-  backdrop-filter:blur(20px);
-}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-.search-box{
-  height:58px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:0 18px;
-  border-radius:16px;
-  background:#f5f2e9;
-  border:1px solid rgba(23,107,76,.07);
-}
+    body{
+      font-family:Tahoma,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%,rgba(201,162,39,.09),transparent 25%),
+        var(--cream);
+      color:var(--text);
+      min-height:100vh;
+    }
 
-.search-box span{
-  font-size:20px;
-  color:#8c9a92;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.search-box input{
-  width:100%;
-  height:100%;
-  border:0;
-  outline:0;
-  background:transparent;
-  color:#17382b;
-  font-size:13px;
-}
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(247,243,232,.90);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
 
-.filter-row{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
+    .nav{
+      max-width:1250px;
+      min-height:74px;
+      margin:auto;
+      padding:0 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
 
-.filter{
-  padding:11px 15px;
-  border-radius:13px;
-  background:#f5f2e9;
-  color:#718078;
-  font-size:11px;
-  font-weight:800;
-  transition:.3s;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-weight:900;
+      color:var(--green);
+    }
 
-.filter:hover{
-  color:#176b4c;
-  transform:translateY(-2px);
-}
+    .logo{
+      width:46px;
+      height:46px;
+      border-radius:15px;
+      background:linear-gradient(145deg,#145c45,#082c22);
+      color:#e5c75b;
+      display:grid;
+      place-items:center;
+      font-size:24px;
+    }
 
-.filter.active{
-  color:white;
-  background:linear-gradient(135deg,#176b4c,#08271b);
-  box-shadow:0 8px 20px rgba(7,45,32,.18);
-}
+    .links{
+      display:flex;
+      gap:5px;
+    }
 
-.library-info{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:20px;
-  margin:55px 0 25px;
-}
+    .links a{
+      padding:10px 13px;
+      border-radius:12px;
+      color:#466056;
+      font-weight:700;
+      font-size:14px;
+    }
 
-.library-info h2{
-  font-family:"Amiri",serif;
-  font-size:40px;
-  color:#071b14;
-}
+    .links a:hover{
+      background:#e9e3d2;
+    }
 
-.library-info p{
-  margin-top:5px;
-  color:#78857f;
-  font-size:11px;
-}
+    .container{
+      max-width:1250px;
+      margin:auto;
+      padding:45px 22px 90px;
+    }
 
-.counter{
-  padding:9px 14px;
-  border-radius:12px;
-  background:rgba(201,164,92,.1);
-  color:#7b6435;
-  font-size:11px;
-  font-weight:800;
-}
+    .heading{
+      padding:35px;
+      border-radius:30px;
+      color:white;
+      background:
+        radial-gradient(circle at 80% 20%,rgba(229,199,91,.18),transparent 25%),
+        linear-gradient(135deg,#082c22,#0e513b);
+      box-shadow:0 25px 60px rgba(11,61,46,.18);
+      position:relative;
+      overflow:hidden;
+    }
 
-.stories-grid-new{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
+    .heading:after{
+      content:"✦";
+      position:absolute;
+      left:50px;
+      top:20px;
+      font-size:130px;
+      color:rgba(229,199,91,.06);
+      transform:rotate(15deg);
+    }
 
-.story-item{
-  min-height:310px;
-  position:relative;
-  overflow:hidden;
-  padding:27px;
-  border-radius:25px;
-  background:rgba(255,255,255,.82);
-  border:1px solid rgba(23,107,76,.07);
-  box-shadow:0 12px 35px rgba(4,25,18,.07);
-  transition:.45s cubic-bezier(.2,.8,.2,1);
-}
+    .heading small{
+      color:#e5c75b;
+      font-weight:900;
+    }
 
-.story-item:hover{
-  transform:translateY(-9px);
-  box-shadow:0 30px 70px rgba(4,25,18,.14);
-  border-color:rgba(201,164,92,.35);
-}
+    .heading h1{
+      font-size:clamp(35px,5vw,58px);
+      margin:10px 0;
+    }
 
-.story-item::before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  left:-90px;
-  bottom:-90px;
-  background:rgba(23,107,76,.045);
-  transition:.5s;
-}
+    .heading p{
+      color:rgba(255,255,255,.72);
+      line-height:1.9;
+      max-width:700px;
+    }
 
-.story-item:hover::before{
-  transform:scale(1.5);
-}
+    .tools{
+      margin-top:25px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
 
-.story-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+    .search{
+      flex:1;
+      min-width:240px;
+      height:52px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:0 18px;
+      background:white;
+      color:var(--text);
+      outline:none;
+      font-family:inherit;
+      box-shadow:0 8px 25px rgba(11,61,46,.05);
+    }
 
-.story-tag{
-  padding:6px 10px;
-  border-radius:9px;
-  color:#806735;
-  background:rgba(201,164,92,.1);
-  font-size:9px;
-  font-weight:800;
-}
+    .search:focus{
+      border-color:rgba(201,162,39,.55);
+      box-shadow:0 0 0 4px rgba(201,162,39,.08);
+    }
 
-.story-video{
-  padding:6px 10px;
-  border-radius:9px;
-  color:#176b4c;
-  background:rgba(23,107,76,.08);
-  font-size:9px;
-  font-weight:800;
-}
+    .filters{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
 
-.story-index{
-  position:absolute;
-  left:22px;
-  top:20px;
-  color:rgba(23,107,76,.12);
-  font-family:"Amiri",serif;
-  font-size:40px;
-  font-weight:bold;
-}
+    .filter{
+      height:52px;
+      border:1px solid var(--line);
+      background:white;
+      border-radius:15px;
+      padding:0 17px;
+      color:#456055;
+      font-weight:800;
+      cursor:pointer;
+      font-family:inherit;
+      transition:.22s;
+    }
 
-.story-item h3{
-  margin-top:30px;
-  font-family:"Amiri",serif;
-  font-size:29px;
-  color:#0b2b20;
-}
+    .filter.active,
+    .filter:hover{
+      background:var(--green);
+      color:white;
+      border-color:var(--green);
+      transform:translateY(-2px);
+    }
 
-.story-item p{
-  margin-top:10px;
-  color:#78857f;
-  font-size:11px;
-  line-height:2;
-}
+    .section-title{
+      margin:55px 0 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:15px;
+    }
 
-.story-open{
-  position:absolute;
-  bottom:23px;
-  right:27px;
-  left:27px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding-top:15px;
-  border-top:1px solid rgba(23,107,76,.07);
-}
+    .section-title h2{
+      color:var(--green);
+      font-size:28px;
+    }
 
-.story-open span{
-  color:#9aa49f;
-  font-size:9px;
-}
+    .count{
+      color:var(--muted);
+      font-size:13px;
+    }
 
-.story-open a{
-  color:#176b4c;
-  font-size:10px;
-  font-weight:800;
-  transition:.3s;
-}
+    .stories{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
 
-.story-open a:hover{
-  color:#c9a45c;
-  transform:translateX(-4px);
-}
+    .story-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:25px;
+      padding:24px;
+      min-height:230px;
+      box-shadow:0 12px 40px rgba(11,61,46,.06);
+      transition:.3s;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
 
-.empty{
-  display:none;
-  padding:70px 20px;
-  text-align:center;
-  border-radius:25px;
-  background:white;
-}
+    .story-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 25px 55px rgba(11,61,46,.13);
+    }
 
-.empty.show{
-  display:block;
-}
+    .story-card:after{
+      content:"";
+      position:absolute;
+      left:-45px;
+      bottom:-60px;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      background:#e5c75b;
+      opacity:.07;
+    }
 
-.empty strong{
-  display:block;
-  font-family:"Amiri",serif;
-  font-size:28px;
-  color:#0b2b20;
-}
+    .badge{
+      display:inline-flex;
+      width:max-content;
+      padding:7px 11px;
+      border-radius:999px;
+      background:#edf3ee;
+      color:var(--green2);
+      font-size:11px;
+      font-weight:900;
+      margin-bottom:15px;
+    }
 
-.empty p{
-  margin-top:8px;
-  color:#7c8983;
-  font-size:11px;
-}
+    .story-card h3{
+      font-size:22px;
+      color:var(--green);
+      margin-bottom:9px;
+    }
 
-.last-read{
-  display:none;
-  margin:0 0 25px;
-  padding:17px 20px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#0d422f,#08251a);
-  color:white;
-  box-shadow:0 15px 35px rgba(7,45,32,.16);
-}
+    .story-card p{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:14px;
+      flex:1;
+    }
 
-.last-read.show{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
+    .read{
+      margin-top:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      color:#987719;
+      font-weight:900;
+      font-size:13px;
+    }
 
-.last-read small{
-  display:block;
-  color:#d8c48d;
-  font-size:9px;
-}
+    .empty{
+      display:none;
+      padding:45px;
+      background:white;
+      border-radius:22px;
+      text-align:center;
+      color:var(--muted);
+      border:1px solid var(--line);
+    }
 
-.last-read strong{
-  display:block;
-  margin-top:4px;
-  font-family:"Amiri",serif;
-  font-size:20px;
-}
+    footer{
+      background:#082c22;
+      color:white;
+      text-align:center;
+      padding:35px 20px;
+    }
 
-.last-read a{
-  padding:10px 14px;
-  border-radius:11px;
-  color:#17382b;
-  background:#e4c982;
-  font-size:10px;
-  font-weight:800;
-}
+    footer strong{
+      color:#e5c75b;
+    }
 
-@media(max-width:850px){
-  .library-tools{
-    grid-template-columns:1fr;
-  }
+    footer p{
+      color:rgba(255,255,255,.60);
+      margin-top:8px;
+      font-size:13px;
+    }
 
-  .stories-grid-new{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
+    @media(max-width:900px){
+      .stories{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
 
-@media(max-width:600px){
-  .stories-grid-new{
-    grid-template-columns:1fr;
-  }
+    @media(max-width:620px){
+      .links{
+        display:none;
+      }
 
-  .library-info{
-    flex-direction:column;
-    align-items:start;
-  }
+      .container{
+        padding-top:25px;
+      }
 
-  .library-info h2{
-    font-size:34px;
-  }
+      .heading{
+        padding:28px 22px;
+      }
 
-  .last-read.show{
-    flex-direction:column;
-    align-items:stretch;
-  }
+      .stories{
+        grid-template-columns:1fr;
+      }
 
-  .last-read a{
-    text-align:center;
-  }
-}
-</style>
+      .section-title h2{
+        font-size:24px;
+      }
+    }
+  </style>
 </head>
 
-<body class="stories-page">
+<body>
 
-<header class="site-nav">
+<header>
+  <div class="nav">
 
-<a href="index.html" class="brand">
-<div class="brand-mark">هـ</div>
-<div class="brand-text">
-<strong>الهداية</strong>
-<span>نور يهديك</span>
-</div>
-</a>
+    <a class="brand" href="index.html">
+      <div class="logo">هـ</div>
+      <span>الهداية</span>
+    </a>
 
-<nav class="nav-links">
-<a href="index.html">الرئيسية</a>
-<a href="stories.html">القصص</a>
-<a href="quran.html">القرآن</a>
-<a href="adhkar.html">الأذكار</a>
-<a href="prayer.html">الصلاة</a>
-</nav>
+    <nav class="links">
+      <a href="index.html">الرئيسية</a>
+      <a href="quran.html">القرآن</a>
+      <a href="adhkar.html">الأذكار</a>
+      <a href="prayer.html">الصلاة</a>
+      <a href="tasbeeh.html">التسبيح</a>
+    </nav>
 
-<a href="quran.html" class="nav-cta">القرآن الكريم</a>
-
+  </div>
 </header>
 
+<main class="container">
 
-<section class="page-hero">
+  <section class="heading">
+    <small>مكتبة الهداية</small>
+    <h1>قصص وعبر</h1>
+    <p>
+      قصص الأنبياء وما ثبت من أحداث السيرة النبوية،
+      مرتبة في مكتبة واحدة ليسهل الوصول إليها والقراءة منها.
+    </p>
+  </section>
 
-<div class="story-orbit"></div>
+  <section class="tools">
 
-<div class="page-hero-inner">
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="ابحث عن قصة..."
+      autocomplete="off"
+    >
 
-<div class="page-hero-kicker">✦ مكتبة الهداية</div>
+    <div class="filters">
+      <button class="filter active" data-filter="all">الكل</button>
+      <button class="filter" data-filter="prophets">الأنبياء</button>
+      <button class="filter" data-filter="quran">قصص القرآن</button>
+      <button class="filter" data-filter="seerah">السيرة</button>
+    </div>
 
-<h1>قصص تهدي القلب</h1>
+  </section>
 
-<p>
-قصص الأنبياء وقصص القرآن والسيرة النبوية
-في تجربة قراءة مرتبة وهادئة.
-</p>
+  <section class="section-title">
+    <h2>مكتبة القصص</h2>
+    <span id="count" class="count"></span>
+  </section>
 
-</div>
+  <section id="stories" class="stories"></section>
 
-</section>
-
-
-<main class="library-wrap">
-
-<div class="library-tools">
-
-<div class="search-box">
-<span>⌕</span>
-<input id="search" type="search" placeholder="ابحث عن اسم القصة...">
-</div>
-
-<div class="filter-row">
-
-<button class="filter active" data-filter="all">الكل</button>
-<button class="filter" data-filter="prophets">الأنبياء</button>
-<button class="filter" data-filter="quran">القرآن</button>
-<button class="filter" data-filter="seerah">السيرة</button>
-
-</div>
-
-</div>
-
-
-<div class="last-read" id="lastRead">
-
-<div>
-<small>آخر قصة قرأتها</small>
-<strong id="lastTitle"></strong>
-</div>
-
-<a id="lastLink" href="#">متابعة القراءة ←</a>
-
-</div>
-
-
-<div class="library-info">
-
-<div>
-<h2>مكتبة القصص</h2>
-<p>اختر قصة وابدأ رحلتك</p>
-</div>
-
-<div class="counter" id="counter">0 قصة</div>
-
-</div>
-
-
-<div class="stories-grid-new" id="grid"></div>
-
-
-<div class="empty" id="empty">
-<strong>لم نجد هذه القصة</strong>
-<p>جرّب البحث بكلمة مختلفة أو غيّر التصنيف.</p>
-</div>
+  <div id="empty" class="empty">
+    لا توجد قصة مطابقة للبحث.
+  </div>
 
 </main>
 
-
-<footer class="site-footer">
-
-<div class="footer-inner">
-
-<div>
-<div class="footer-brand">الهداية</div>
-<div class="footer-credit">تطوير وبرمجة M11 — Mr. Mohamed Hussain</div>
-</div>
-
-<div class="footer-links">
-<a href="index.html">الرئيسية</a>
-<a href="stories.html">القصص</a>
-<a href="quran.html">القرآن</a>
-<a href="adhkar.html">الأذكار</a>
-<a href="prayer.html">الصلاة</a>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-© 2026 الهداية — نور يهديك
-</div>
-
+<footer>
+  <strong>الهداية — نور يهديك</strong>
+  <p>تطوير وبرمجة M11 — Mr. Mohamed Hussain © 2026</p>
 </footer>
 
-
 <script>
-
-/*
-  مهم:
-  هذه القائمة تستخدم IDs موحدة مع story.html.
-*/
-
 const stories = [
-
-["adam","آدم عليه السلام","prophets","قصص الأنبياء","بداية خلق الإنسان وقصة آدم عليه السلام.",true],
-["idris","إدريس عليه السلام","prophets","قصص الأنبياء","ما ورد عن إدريس عليه السلام في القرآن.",false],
-["nuh","نوح عليه السلام","prophets","قصص الأنبياء","دعوة نوح عليه السلام لقومه.",true],
-["hud","هود عليه السلام","prophets","قصص الأنبياء","قصة هود عليه السلام مع قوم عاد.",false],
-["salih","صالح عليه السلام","prophets","قصص الأنبياء","قصة صالح عليه السلام مع ثمود.",false],
-["ibrahim","إبراهيم عليه السلام","prophets","قصص الأنبياء","قصة خليل الله إبراهيم عليه السلام.",true],
-["ismail","إسماعيل عليه السلام","prophets","قصص الأنبياء","الصبر والطاعة في قصة إسماعيل عليه السلام.",false],
-["yusuf","يوسف عليه السلام","prophets","قصص الأنبياء","قصة يوسف عليه السلام والصبر والعفو.",false],
-["musa","موسى عليه السلام","prophets","قصص الأنبياء","قصة موسى عليه السلام مع فرعون.",true],
-["ayoub","أيوب عليه السلام","prophets","قصص الأنبياء","قصة أيوب عليه السلام والصبر.",false],
-["yunus","يونس عليه السلام","prophets","قصص الأنبياء","قصة يونس عليه السلام ودعائه.",true],
-["dawud","داود عليه السلام","prophets","قصص الأنبياء","قصة داود عليه السلام.",false],
-["sulaiman","سليمان عليه السلام","prophets","قصص الأنبياء","قصة سليمان عليه السلام وملكه.",false],
-["zakariya","زكريا عليه السلام","prophets","قصص الأنبياء","دعاء زكريا عليه السلام ورجاؤه.",false],
-["isa","عيسى عليه السلام","prophets","قصص الأنبياء","قصة عيسى عليه السلام في القرآن.",false],
-["lut","لوط عليه السلام","prophets","قصص الأنبياء","قصة لوط عليه السلام ودعوته.",false],
-["shuaib","شعيب عليه السلام","prophets","قصص الأنبياء","قصة شعيب عليه السلام مع مدين.",false],
-
-["kahf","أصحاب الكهف","quran","قصص القرآن","قصة الفتية الذين آمنوا بربهم.",true],
-["qarun","قارون","quran","قصص القرآن","قصة قارون والتحذير من الاغترار بالمال.",false],
-["pharaoh","فرعون","quran","قصص القرآن","قصة فرعون وموقفه من دعوة موسى.",false],
-["maryam","مريم عليها السلام","quran","قصص القرآن","قصة مريم عليها السلام كما وردت في القرآن.",false],
-["two_gardens","صاحب الجنتين","quran","قصص القرآن","العبرة من قصة صاحب الجنتين.",false],
-
-["birth","مولد النبي ﷺ","seerah","السيرة النبوية","بداية السيرة النبوية ومولد النبي ﷺ.",false],
-["childhood","طفولة النبي ﷺ","seerah","السيرة النبوية","محطات من طفولة النبي ﷺ.",false],
-["khadijah","خديجة رضي الله عنها","seerah","السيرة النبوية","من حياة أم المؤمنين خديجة رضي الله عنها.",false],
-["hira","غار حراء ونزول الوحي","seerah","السيرة النبوية","بداية نزول الوحي وبداية الدعوة.",true],
-["makkah","الدعوة في مكة","seerah","السيرة النبوية","مرحلة الدعوة في مكة.",false],
-["hijrah","الهجرة النبوية","seerah","السيرة النبوية","الهجرة من مكة إلى المدينة.",false],
-["madinah","المدينة المنورة","seerah","السيرة النبوية","بناء المجتمع المسلم في المدينة.",false],
-["badr","غزوة بدر","seerah","السيرة النبوية","محطة مهمة من أحداث السيرة.",false],
-["khandaq","غزوة الخندق","seerah","السيرة النبوية","أحداث غزوة الخندق.",false],
-["hudaybiyah","صلح الحديبية","seerah","السيرة النبوية","قصة صلح الحديبية.",false],
-["makkahVictory","فتح مكة","seerah","السيرة النبوية","فتح مكة والعفو والتسامح.",false],
-["farewell","حجة الوداع","seerah","السيرة النبوية","من أهم المحطات الأخيرة في السيرة.",false]
-
+  {
+    id:"adam",
+    title:"آدم عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة خلق آدم عليه السلام وبداية حياة الإنسان، وما فيها من دروس عن الطاعة والتوبة."
+  },
+  {
+    id:"idris",
+    title:"إدريس عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة نبي الله إدريس عليه السلام كما ورد ذكره في القرآن الكريم."
+  },
+  {
+    id:"nuh",
+    title:"نوح عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة نوح عليه السلام ودعوته الطويلة لقومه وما تحمله من دروس في الصبر."
+  },
+  {
+    id:"hud",
+    title:"هود عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة هود عليه السلام مع قوم عاد ودعوته إلى التوحيد."
+  },
+  {
+    id:"salih",
+    title:"صالح عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة صالح عليه السلام وقوم ثمود والناقة التي كانت آية لهم."
+  },
+  {
+    id:"ibrahim",
+    title:"إبراهيم عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة خليل الله إبراهيم عليه السلام ومواقفه العظيمة في الدعوة والتوحيد."
+  },
+  {
+    id:"ismail",
+    title:"إسماعيل عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة إسماعيل عليه السلام وبرّه بوالده وطاعته لله."
+  },
+  {
+    id:"yusuf",
+    title:"يوسف عليه السلام",
+    category:"quran",
+    categoryName:"من قصص القرآن",
+    description:"قصة يوسف عليه السلام من الابتلاء إلى التمكين، وما فيها من الصبر والعفو."
+  },
+  {
+    id:"musa",
+    title:"موسى عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة موسى عليه السلام ومواجهته لفرعون ورسالته إلى بني إسرائيل."
+  },
+  {
+    id:"ayoub",
+    title:"أيوب عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة أيوب عليه السلام وما فيها من معاني الصبر والرجوع إلى الله."
+  },
+  {
+    id:"yunus",
+    title:"يونس عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة يونس عليه السلام ودعاؤه وتوبته ورجوعه إلى الله."
+  },
+  {
+    id:"dawud",
+    title:"داود عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة داود عليه السلام وعبادته وما آتاه الله من فضل."
+  },
+  {
+    id:"sulaiman",
+    title:"سليمان عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة سليمان عليه السلام وما منّ الله عليه من الملك والعلم."
+  },
+  {
+    id:"zakariya",
+    title:"زكريا عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة دعاء زكريا عليه السلام وبشارة الله له بيحيى."
+  },
+  {
+    id:"isa",
+    title:"عيسى عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة عيسى عليه السلام كما وردت في القرآن الكريم."
+  },
+  {
+    id:"lut",
+    title:"لوط عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة لوط عليه السلام ودعوته لقومه."
+  },
+  {
+    id:"shuaib",
+    title:"شعيب عليه السلام",
+    category:"prophets",
+    categoryName:"نبي من الأنبياء",
+    description:"قصة شعيب عليه السلام مع قوم مدين ودعوته إلى العدل."
+  },
+  {
+    id:"kahf",
+    title:"أصحاب الكهف",
+    category:"quran",
+    categoryName:"من قصص القرآن",
+    description:"قصة الفتية الذين آمنوا بربهم وحفظهم الله في الكهف."
+  },
+  {
+    id:"qarun",
+    title:"قارون",
+    category:"quran",
+    categoryName:"من قصص القرآن",
+    description:"قصة قارون وما فيها من التحذير من الغرور بالمال."
+  },
+  {
+    id:"pharaoh",
+    title:"فرعون",
+    category:"quran",
+    categoryName:"من قصص القرآن",
+    description:"قصة فرعون مع موسى عليه السلام وما فيها من عبر."
+  },
+  {
+    id:"maryam",
+    title:"مريم عليها السلام",
+    category:"quran",
+    categoryName:"من قصص القرآن",
+    description:"قصة مريم عليها السلام وبشارة الملائكة لها."
+  },
+  {
+    id:"two_gardens",
+    title:"صاحب الجنتين",
+    category:"quran",
+    categoryName:"من قصص القرآن",
+    description:"قصة الرجلين وصاحب الجنتين وما فيها من عبر عن الشكر والغرور."
+  },
+  {
+    id:"birth",
+    title:"مولد النبي ﷺ",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"بداية قصة حياة النبي محمد ﷺ وما ثبت من أحداث مولده."
+  },
+  {
+    id:"childhood",
+    title:"طفولة النبي ﷺ",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"محطات من طفولة النبي ﷺ ونشأته."
+  },
+  {
+    id:"khadijah",
+    title:"خديجة رضي الله عنها",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"قصة أم المؤمنين خديجة رضي الله عنها ومكانتها في بداية الدعوة."
+  },
+  {
+    id:"hira",
+    title:"غار حراء وبداية الوحي",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"بداية نزول الوحي على النبي ﷺ في غار حراء."
+  },
+  {
+    id:"makkah",
+    title:"الدعوة في مكة",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"مرحلة الدعوة في مكة وما واجهه المسلمون من ابتلاء."
+  },
+  {
+    id:"hijrah",
+    title:"الهجرة النبوية",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"هجرة النبي ﷺ وأصحابه من مكة إلى المدينة."
+  },
+  {
+    id:"madinah",
+    title:"بناء المجتمع في المدينة",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"مرحلة بناء المجتمع المسلم في المدينة المنورة."
+  },
+  {
+    id:"badr",
+    title:"غزوة بدر",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"غزوة بدر وأبرز الدروس المستفادة منها."
+  },
+  {
+    id:"khandaq",
+    title:"غزوة الخندق",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"أحداث غزوة الخندق وما ظهر فيها من صبر وثبات."
+  },
+  {
+    id:"hudaybiyah",
+    title:"صلح الحديبية",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"صلح الحديبية وما ترتب عليه من أحداث مهمة في السيرة."
+  },
+  {
+    id:"makkahVictory",
+    title:"فتح مكة",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"فتح مكة والعفو الذي ظهر فيه خُلُق النبي ﷺ."
+  },
+  {
+    id:"farewell",
+    title:"حجة الوداع",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"حجة الوداع وأبرز الوصايا التي جاءت في خطبة النبي ﷺ."
+  }
 ];
 
-const grid=document.getElementById("grid");
-const counter=document.getElementById("counter");
-const empty=document.getElementById("empty");
-const search=document.getElementById("search");
+const container = document.getElementById("stories");
+const search = document.getElementById("search");
+const count = document.getElementById("count");
+const empty = document.getElementById("empty");
 
-let filter="all";
-let query="";
+let currentFilter = "all";
 
 function render(){
 
-const result=stories.filter(s=>{
+  const term = search.value.trim().toLowerCase();
 
-const categoryOK=filter==="all" || s[2]===filter;
+  const filtered = stories.filter(item => {
 
-const text=(s[1]+" "+s[4]).toLowerCase();
+    const matchesCategory =
+      currentFilter === "all" ||
+      item.category === currentFilter;
 
-const searchOK=!query || text.includes(query.toLowerCase());
+    const text =
+      (item.title + " " + item.description + " " + item.categoryName)
+      .toLowerCase();
 
-return categoryOK && searchOK;
+    const matchesSearch =
+      !term || text.includes(term);
 
-});
+    return matchesCategory && matchesSearch;
+  });
 
-grid.innerHTML="";
+  container.innerHTML = filtered.map(item => `
+    <a class="story-card"
+       href="story.html?id=${encodeURIComponent(item.id)}">
 
-counter.textContent=result.length+" قصة";
+      <span class="badge">${item.categoryName}</span>
 
-empty.classList.toggle("show",result.length===0);
+      <h3>${item.title}</h3>
 
-result.forEach((s,i)=>{
+      <p>${item.description}</p>
 
-const article=document.createElement("article");
+      <div class="read">
+        <span>اقرأ القصة</span>
+        <span>←</span>
+      </div>
 
-article.className="story-item";
+    </a>
+  `).join("");
 
-article.innerHTML=`
+  count.textContent = `${filtered.length} قصة`;
 
-<div class="story-index">
-${String(i+1).padStart(2,"0")}
-</div>
-
-<div class="story-top">
-
-<span class="story-tag">
-${s[3]}
-</span>
-
-${s[5]?`<span class="story-video">▶ فيديو</span>`:""}
-
-</div>
-
-<h3>${s[1]}</h3>
-
-<p>${s[4]}</p>
-
-<div class="story-open">
-
-<span>📖 قراءة</span>
-
-<a href="story.html?id=${encodeURIComponent(s[0])}">
-فتح القصة ←
-</a>
-
-</div>
-
-`;
-
-grid.appendChild(article);
-
-});
-
+  empty.style.display =
+    filtered.length === 0 ? "block" : "none";
 }
 
-document.querySelectorAll(".filter").forEach(btn=>{
+document.querySelectorAll(".filter").forEach(button => {
 
-btn.addEventListener("click",()=>{
+  button.addEventListener("click", () => {
 
-document.querySelectorAll(".filter")
-.forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll(".filter")
+      .forEach(x => x.classList.remove("active"));
 
-btn.classList.add("active");
+    button.classList.add("active");
 
-filter=btn.dataset.filter;
+    currentFilter = button.dataset.filter;
 
-render();
-
-});
-
-});
-
-search.addEventListener("input",e=>{
-
-query=e.target.value.trim();
-
-render();
+    render();
+  });
 
 });
 
-
-/* آخر قصة */
-
-const lastId=localStorage.getItem("hidayah_last_story");
-
-if(lastId){
-
-const found=stories.find(s=>s[0]===lastId);
-
-if(found){
-
-document.getElementById("lastRead").classList.add("show");
-
-document.getElementById("lastTitle").textContent=found[1];
-
-document.getElementById("lastLink").href=
-"story.html?id="+encodeURIComponent(found[0]);
-
-}
-
-}
+search.addEventListener("input", render);
 
 render();
-
 </script>
 
 </body>
-  </html>
+</html>
