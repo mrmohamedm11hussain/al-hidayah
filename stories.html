@@ -2,9 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0f3d2e">
-<title>القصص | الهداية</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073b2a">
+<title>قصص إسلامية | الهداية</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,17 +12,16 @@
 
 <style>
 :root{
-  --green:#0f3d2e;
-  --green2:#14543f;
-  --green3:#1c6b50;
-  --gold:#c7a15a;
-  --gold2:#e4c98a;
-  --cream:#fbf8f0;
-  --paper:#fffdf8;
-  --text:#19382d;
-  --muted:#718078;
-  --line:#e8e2d4;
-  --shadow:0 18px 45px rgba(15,61,46,.10);
+  --green:#073b2a;
+  --green2:#0b5940;
+  --gold:#caa85e;
+  --gold2:#e4c983;
+  --cream:#f8f3e7;
+  --white:#fffdf8;
+  --text:#18352c;
+  --muted:#6b7d74;
+  --line:#e8dfca;
+  --shadow:0 18px 50px rgba(7,59,42,.10);
 }
 
 *{
@@ -31,400 +30,417 @@
   padding:0;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  font-family:"Cairo",sans-serif;
-  color:var(--text);
+  font-family:"Cairo",Arial,sans-serif;
   background:
-    radial-gradient(circle at 8% 0%,rgba(199,161,90,.10),transparent 27%),
-    linear-gradient(180deg,#fdfbf6,#f5f2e9);
-  min-height:100vh;
+    radial-gradient(circle at 8% 5%,rgba(202,168,94,.13),transparent 25%),
+    radial-gradient(circle at 90% 20%,rgba(11,89,64,.08),transparent 28%),
+    var(--cream);
+  color:var(--text);
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button,
-input{
-  font:inherit;
-}
-
-.topbar{
+.header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(253,251,246,.92);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line);
+  background:rgba(7,59,42,.96);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(228,201,131,.18);
 }
 
 .nav{
-  width:min(1180px,calc(100% - 32px));
-  min-height:74px;
+  max-width:1250px;
+  min-height:76px;
   margin:auto;
+  padding:12px 22px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:15px;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:12px;
+  text-decoration:none;
+  color:white;
 }
 
-.brand-mark{
+.logo{
   width:46px;
   height:46px;
   border-radius:15px;
   display:grid;
   place-items:center;
+  background:linear-gradient(145deg,#124e3a,#062e22);
+  border:1px solid rgba(228,201,131,.45);
   color:var(--gold2);
-  background:linear-gradient(145deg,var(--green),var(--green3));
   font-family:"Amiri",serif;
-  font-size:28px;
-  box-shadow:0 8px 22px rgba(15,61,46,.18);
+  font-size:29px;
 }
 
 .brand strong{
   display:block;
-  color:var(--green);
-  font-size:17px;
+  font-size:18px;
 }
 
 .brand span{
-  color:var(--muted);
+  display:block;
+  color:#cbdcd4;
   font-size:11px;
 }
 
-.back{
-  color:var(--green);
-  font-weight:800;
-  font-size:13px;
-  padding:10px 14px;
+.nav-links{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.nav-links a{
+  color:#e7f0eb;
+  padding:9px 13px;
   border-radius:12px;
-  transition:.2s;
+  font-size:13px;
+  text-decoration:none;
+  transition:.25s;
 }
 
-.back:hover{
-  background:#f0ede4;
-}
-
-.container{
-  width:min(1180px,calc(100% - 32px));
-  margin:auto;
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--gold2);
+  background:rgba(202,168,94,.14);
 }
 
 .hero{
-  margin-top:38px;
-  padding:42px;
-  border-radius:30px;
-  background:linear-gradient(135deg,var(--green),#174b3a);
-  color:#fff;
-  position:relative;
-  overflow:hidden;
-  box-shadow:var(--shadow);
+  max-width:1250px;
+  margin:auto;
+  padding:55px 22px 30px;
 }
 
-.hero:before,
-.hero:after{
+.hero-box{
+  min-height:300px;
+  border-radius:32px;
+  padding:42px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 25%,rgba(228,201,131,.16),transparent 22%),
+    linear-gradient(135deg,#0b6045,#052d21);
+  box-shadow:var(--shadow);
+  color:white;
+}
+
+.hero-box::before,
+.hero-box::after{
   content:"";
   position:absolute;
-  border:1px solid rgba(228,201,138,.20);
+  border:1px solid rgba(228,201,131,.15);
   border-radius:50%;
 }
 
-.hero:before{
-  width:300px;
-  height:300px;
-  left:-140px;
-  top:-170px;
+.hero-box::before{
+  width:310px;
+  height:310px;
+  left:-100px;
+  bottom:-160px;
 }
 
-.hero:after{
-  width:220px;
-  height:220px;
-  right:-110px;
-  bottom:-140px;
+.hero-box::after{
+  width:430px;
+  height:430px;
+  right:-160px;
+  top:-220px;
 }
 
-.kicker{
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:700px;
+}
+
+.eyebrow{
   color:var(--gold2);
   font-size:13px;
   font-weight:800;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .hero h1{
   font-family:"Amiri",serif;
-  font-size:clamp(38px,5vw,58px);
-  line-height:1.15;
-  margin-bottom:10px;
+  font-size:clamp(40px,6vw,65px);
+  line-height:1.1;
 }
 
 .hero p{
-  color:rgba(255,255,255,.78);
-  line-height:1.9;
-  max-width:700px;
-  font-size:15px;
+  color:#d4e1db;
+  line-height:2;
+  font-size:14px;
+  margin-top:14px;
+}
+
+.ornament{
+  position:absolute;
+  left:70px;
+  top:50%;
+  transform:translateY(-50%);
+  width:150px;
+  height:150px;
+  border:1px solid rgba(228,201,131,.25);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  z-index:1;
+}
+
+.ornament::before{
+  content:"✦";
+  color:var(--gold2);
+  font-size:75px;
 }
 
 .tools{
-  margin-top:22px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+  max-width:1250px;
+  margin:auto;
+  padding:0 22px 25px;
 }
 
 .search{
-  flex:1;
-  min-width:240px;
-  height:54px;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:16px;
-  background:rgba(255,255,255,.10);
-  color:#fff;
-  padding:0 18px;
-  outline:none;
+  height:58px;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:0 20px;
+  box-shadow:0 8px 25px rgba(7,59,42,.05);
 }
 
-.search::placeholder{
-  color:rgba(255,255,255,.62);
-}
-
-.search:focus{
-  border-color:var(--gold2);
-  background:rgba(255,255,255,.14);
+.search input{
+  width:100%;
+  height:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--text);
+  font-family:inherit;
+  font-size:14px;
 }
 
 .categories{
   display:flex;
   gap:8px;
-  flex-wrap:wrap;
-  margin:26px 0;
+  overflow-x:auto;
+  padding:12px 0 2px;
+  scrollbar-width:none;
 }
 
-.filter{
+.categories::-webkit-scrollbar{
+  display:none;
+}
+
+.category{
+  flex:0 0 auto;
   border:1px solid var(--line);
-  background:var(--paper);
+  background:var(--white);
   color:var(--green);
-  padding:11px 17px;
-  border-radius:14px;
+  border-radius:999px;
+  padding:9px 16px;
+  font-family:inherit;
+  font-size:12px;
   cursor:pointer;
-  font-weight:800;
-  font-size:13px;
   transition:.2s;
 }
 
-.filter:hover{
-  transform:translateY(-1px);
+.category.active,
+.category:hover{
+  background:var(--green);
+  border-color:var(--green);
+  color:white;
 }
 
-.filter.active{
-  background:var(--green);
-  color:#fff;
-  border-color:var(--green);
+.main{
+  max-width:1250px;
+  margin:auto;
+  padding:0 22px 75px;
 }
 
 .section-head{
   display:flex;
-  align-items:flex-end;
+  align-items:end;
   justify-content:space-between;
   gap:15px;
-  margin-bottom:17px;
+  margin:8px 0 20px;
 }
 
 .section-head h2{
-  font-family:"Amiri",serif;
-  font-size:31px;
   color:var(--green);
+  font-size:24px;
 }
 
 .section-head p{
   color:var(--muted);
-  font-size:13px;
+  font-size:12px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:17px;
 }
 
-.story-card{
-  background:var(--paper);
+.card{
+  background:rgba(255,253,248,.94);
   border:1px solid var(--line);
   border-radius:23px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(15,61,46,.06);
-  transition:.25s ease;
+  padding:20px;
+  box-shadow:0 10px 30px rgba(7,59,42,.06);
+  transition:.28s;
   display:flex;
   flex-direction:column;
+  min-height:300px;
 }
 
-.story-card:hover{
+.card:hover{
   transform:translateY(-5px);
-  box-shadow:0 18px 38px rgba(15,61,46,.12);
-  border-color:#d9c58e;
+  box-shadow:0 18px 40px rgba(7,59,42,.12);
+  border-color:#d9c48d;
 }
 
-.card-top{
-  min-height:150px;
-  padding:22px;
-  background:
-    radial-gradient(circle at 85% 20%,rgba(228,201,138,.25),transparent 28%),
-    linear-gradient(145deg,#edf4ef,#f8f5ec);
-  position:relative;
-  display:flex;
-  align-items:flex-end;
-}
-
-.number{
-  position:absolute;
-  top:16px;
-  left:17px;
-  width:34px;
-  height:34px;
-  border-radius:50%;
+.card-icon{
+  width:56px;
+  height:56px;
+  border-radius:17px;
+  background:#edf3ef;
+  color:#9a7739;
   display:grid;
   place-items:center;
-  background:rgba(15,61,46,.08);
+  font-size:25px;
+  margin-bottom:17px;
+}
+
+.card h3{
   color:var(--green);
-  font-weight:800;
-  font-size:12px;
-}
-
-.icon{
-  width:55px;
-  height:55px;
-  border-radius:18px;
-  display:grid;
-  place-items:center;
-  background:var(--green);
-  color:var(--gold2);
   font-family:"Amiri",serif;
   font-size:27px;
-  box-shadow:0 8px 18px rgba(15,61,46,.15);
 }
 
-.card-body{
-  padding:20px;
-  display:flex;
-  flex-direction:column;
+.card .subtitle{
+  color:#a17d38;
+  font-size:11px;
+  margin-top:2px;
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:12px;
+  margin:12px 0 18px;
   flex:1;
+}
+
+.card-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
 }
 
 .tag{
-  color:var(--gold);
+  color:#8e743d;
+  background:#f3eddd;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:10px;
+}
+
+.read{
+  text-decoration:none;
+  background:var(--green);
+  color:white;
+  border-radius:12px;
+  padding:9px 13px;
   font-size:11px;
-  font-weight:800;
-  margin-bottom:6px;
-}
-
-.story-card h3{
-  color:var(--green);
-  font-family:"Amiri",serif;
-  font-size:25px;
-  margin-bottom:7px;
-}
-
-.story-card p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.9;
-  flex:1;
-}
-
-.open{
-  margin-top:17px;
-  width:100%;
-  min-height:48px;
-  border-radius:14px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#f1eee5;
-  color:var(--green);
-  font-size:13px;
-  font-weight:800;
   transition:.2s;
 }
 
-.story-card:hover .open{
-  background:var(--green);
-  color:#fff;
+.read:hover{
+  background:#0d674a;
 }
 
 .empty{
-  display:none;
+  grid-column:1/-1;
   text-align:center;
-  padding:55px 20px;
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:25px;
+  padding:60px 20px;
   color:var(--muted);
-}
-
-.empty strong{
-  display:block;
-  color:var(--green);
-  font-family:"Amiri",serif;
-  font-size:28px;
-  margin-bottom:7px;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:23px;
 }
 
 .footer{
+  background:var(--green);
+  color:#cbdcd4;
   text-align:center;
-  padding:35px 0 48px;
-  color:#8b918c;
-  font-size:12px;
+  padding:30px 20px;
+  font-size:11px;
+  line-height:2;
 }
 
-@media(max-width:900px){
+.footer strong{
+  color:var(--gold2);
+}
+
+@media(max-width:950px){
   .grid{
     grid-template-columns:repeat(2,1fr);
   }
+
+  .ornament{
+    opacity:.35;
+  }
 }
 
-@media(max-width:560px){
-  .container,
+@media(max-width:650px){
   .nav{
-    width:min(100% - 20px,1180px);
+    min-height:68px;
+    padding:9px 14px;
   }
 
-  .hero{
-    margin-top:20px;
-    padding:28px 21px;
-    border-radius:23px;
-  }
-
-  .brand span{
+  .nav-links{
     display:none;
   }
 
-  .back{
-    font-size:12px;
-    padding:8px 10px;
+  .hero,
+  .tools,
+  .main{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .hero-box{
+    padding:30px 23px;
+    min-height:260px;
+  }
+
+  .hero h1{
+    font-size:43px;
+  }
+
+  .ornament{
+    left:-50px;
+    opacity:.22;
   }
 
   .grid{
     grid-template-columns:1fr;
   }
 
-  .categories{
-    overflow-x:auto;
-    flex-wrap:nowrap;
-    padding-bottom:4px;
-  }
-
-  .filter{
-    flex:0 0 auto;
-  }
-
-  .search{
-    min-width:100%;
+  .section-head{
+    align-items:start;
+    flex-direction:column;
   }
 }
 </style>
@@ -432,313 +448,298 @@ input{
 
 <body>
 
-<header class="topbar">
-  <nav class="nav">
+<header class="header">
+<nav class="nav">
 
-    <a href="index.html" class="brand">
-      <div class="brand-mark">هـ</div>
-      <div>
-        <strong>الهداية</strong>
-        <span>نور يهديك</span>
-      </div>
-    </a>
+<a href="index.html" class="brand">
+  <div class="logo">هـ</div>
+  <div>
+    <strong>الهداية</strong>
+    <span>نور يهديك</span>
+  </div>
+</a>
 
-    <a href="index.html" class="back">العودة للرئيسية ←</a>
+<div class="nav-links">
+  <a href="index.html">الرئيسية</a>
+  <a href="quran.html">القرآن</a>
+  <a href="adhkar.html">الأذكار</a>
+  <a href="stories.html" class="active">القصص</a>
+  <a href="prayer.html">الصلاة</a>
+  <a href="tasbeeh.html">التسبيح</a>
+</div>
 
-  </nav>
+</nav>
 </header>
 
-<main class="container">
 
-  <section class="hero">
+<section class="hero">
 
-    <div class="kicker">مكتبة القصص الإسلامية</div>
+<div class="hero-box">
 
-    <h1>قصص تحمل العبرة</h1>
+<div class="hero-content">
 
-    <p>
-      اقرأ قصص الأنبياء والسيرة وقصص القرآن بأسلوب واضح وهادئ،
-      مع صفحات مخصصة للقراءة والتأمل.
-    </p>
+<div class="eyebrow">قصص من القرآن والسيرة</div>
 
-    <div class="tools">
-      <input
-        id="search"
-        class="search"
-        type="search"
-        placeholder="ابحث عن قصة..."
-        autocomplete="off"
-      >
-    </div>
+<h1>قصص تهدي القلب</h1>
 
-  </section>
+<p>
+رحلة بين قصص الأنبياء والصالحين، نتعلم منها الإيمان والصبر
+والثبات وحسن التوكل على الله.
+</p>
 
-  <div class="categories">
-    <button class="filter active" data-filter="all">الكل</button>
-    <button class="filter" data-filter="prophets">قصص الأنبياء</button>
-    <button class="filter" data-filter="quran">قصص القرآن</button>
-    <button class="filter" data-filter="seerah">السيرة</button>
+</div>
+
+<div class="ornament"></div>
+
+</div>
+
+</section>
+
+
+<section class="tools">
+
+<div class="search">
+  <input
+    id="searchInput"
+    type="search"
+    placeholder="ابحث عن قصة..."
+  >
+</div>
+
+<div class="categories">
+
+<button class="category active" data-category="all">
+  الكل
+</button>
+
+<button class="category" data-category="prophets">
+  الأنبياء
+</button>
+
+<button class="category" data-category="quran">
+  من القرآن
+</button>
+
+<button class="category" data-category="seerah">
+  السيرة
+</button>
+
+</div>
+
+</section>
+
+
+<main class="main">
+
+<div class="section-head">
+  <div>
+    <h2>مكتبة القصص</h2>
+    <p id="countText">جاري تحميل القصص...</p>
   </div>
+</div>
 
-  <section>
-
-    <div class="section-head">
-      <div>
-        <h2>اختر قصتك</h2>
-        <p id="resultCount">7 قصص متاحة</p>
-      </div>
-    </div>
-
-    <div id="grid" class="grid">
-
-      <article class="story-card"
-        data-category="prophets"
-        data-title="آدم عليه السلام"
-        data-keywords="ادم آدم بداية الخلق الأنبياء">
-
-        <div class="card-top">
-          <span class="number">01</span>
-          <div class="icon">آ</div>
-        </div>
-
-        <div class="card-body">
-          <div class="tag">قصص الأنبياء</div>
-          <h3>آدم عليه السلام</h3>
-          <p>
-            بداية قصة الإنسان، وما نتعلمه من قصة آدم عليه السلام
-            من التوبة والطاعة والرجوع إلى الله.
-          </p>
-          <a class="open" href="story.html?id=adam">قراءة القصة ←</a>
-        </div>
-
-      </article>
-
-
-      <article class="story-card"
-        data-category="prophets"
-        data-title="نوح عليه السلام"
-        data-keywords="نوح السفينة الطوفان الأنبياء">
-
-        <div class="card-top">
-          <span class="number">02</span>
-          <div class="icon">ن</div>
-        </div>
-
-        <div class="card-body">
-          <div class="tag">قصص الأنبياء</div>
-          <h3>نوح عليه السلام</h3>
-          <p>
-            قصة نبي الله نوح عليه السلام، والدعوة والصبر والثبات
-            أمام تكذيب قومه.
-          </p>
-          <a class="open" href="story.html?id=nuh">قراءة القصة ←</a>
-        </div>
-
-      </article>
-
-
-      <article class="story-card"
-        data-category="prophets"
-        data-title="إبراهيم عليه السلام"
-        data-keywords="ابراهيم إبراهيم الخليل التوحيد الأنبياء">
-
-        <div class="card-top">
-          <span class="number">03</span>
-          <div class="icon">إ</div>
-        </div>
-
-        <div class="card-body">
-          <div class="tag">قصص الأنبياء</div>
-          <h3>إبراهيم عليه السلام</h3>
-          <p>
-            قصة خليل الرحمن إبراهيم عليه السلام، وما فيها من
-            التوحيد واليقين والابتلاء والطاعة.
-          </p>
-          <a class="open" href="story.html?id=ibrahim">قراءة القصة ←</a>
-        </div>
-
-      </article>
-
-
-      <article class="story-card"
-        data-category="prophets"
-        data-title="موسى عليه السلام"
-        data-keywords="موسى فرعون البحر بني إسرائيل الأنبياء">
-
-        <div class="card-top">
-          <span class="number">04</span>
-          <div class="icon">م</div>
-        </div>
-
-        <div class="card-body">
-          <div class="tag">قصص الأنبياء</div>
-          <h3>موسى عليه السلام</h3>
-          <p>
-            من أعظم قصص الأنبياء: مواجهة فرعون، والثبات على الحق،
-            ورحلة بني إسرائيل.
-          </p>
-          <a class="open" href="story.html?id=musa">قراءة القصة ←</a>
-        </div>
-
-      </article>
-
-
-      <article class="story-card"
-        data-category="prophets"
-        data-title="يونس عليه السلام"
-        data-keywords="يونس الحوت الدعاء التوبة الأنبياء">
-
-        <div class="card-top">
-          <span class="number">05</span>
-          <div class="icon">ي</div>
-        </div>
-
-        <div class="card-body">
-          <div class="tag">قصص الأنبياء</div>
-          <h3>يونس عليه السلام</h3>
-          <p>
-            قصة يونس عليه السلام وما تحمله من معاني الرجوع إلى الله
-            والدعاء والصبر.
-          </p>
-          <a class="open" href="story.html?id=yunus">قراءة القصة ←</a>
-        </div>
-
-      </article>
-
-
-      <article class="story-card"
-        data-category="quran"
-        data-title="أصحاب الكهف"
-        data-keywords="الكهف اصحاب الكهف الفتية القرآن">
-
-        <div class="card-top">
-          <span class="number">06</span>
-          <div class="icon">ك</div>
-        </div>
-
-        <div class="card-body">
-          <div class="tag">قصص القرآن</div>
-          <h3>أصحاب الكهف</h3>
-          <p>
-            قصة الفتية الذين آمنوا بربهم، وما تحمله قصتهم من معاني
-            الثبات على الإيمان.
-          </p>
-          <a class="open" href="story.html?id=kahf">قراءة القصة ←</a>
-        </div>
-
-      </article>
-
-
-      <article class="story-card"
-        data-category="seerah"
-        data-title="بداية الوحي"
-        data-keywords="الوحي غار حراء محمد السيرة النبوية">
-
-        <div class="card-top">
-          <span class="number">07</span>
-          <div class="icon">و</div>
-        </div>
-
-        <div class="card-body">
-          <div class="tag">السيرة النبوية</div>
-          <h3>بداية الوحي</h3>
-          <p>
-            بداية نزول الوحي على النبي محمد ﷺ في غار حراء،
-            وهي من أهم محطات السيرة النبوية.
-          </p>
-          <a class="open" href="story.html?id=hira">قراءة القصة ←</a>
-        </div>
-
-      </article>
-
-    </div>
-
-    <div id="empty" class="empty">
-      <strong>لم نجد قصة بهذا الاسم</strong>
-      جرّب البحث بكلمة أخرى.
-    </div>
-
-  </section>
+<div class="grid" id="storiesGrid"></div>
 
 </main>
 
+
 <footer class="footer">
-  الهداية — نور يهديك
+  <strong>الهداية</strong> — نور يهديك
   <br>
   تطوير وبرمجة M11 — Mr. Mohamed Hussain
 </footer>
 
+
 <script>
-const cards = [...document.querySelectorAll(".story-card")];
-const filters = [...document.querySelectorAll(".filter")];
-const search = document.getElementById("search");
-const empty = document.getElementById("empty");
-const resultCount = document.getElementById("resultCount");
 
-let currentFilter = "all";
+const stories=[
 
-function normalize(text){
-  return String(text || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .replace(/[أإآ]/g,"ا")
-    .replace(/ة/g,"ه")
-    .replace(/ى/g,"ي");
+{
+ id:"adam",
+ title:"آدم عليه السلام",
+ subtitle:"بداية خلق الإنسان",
+ category:"prophets",
+ tag:"نبي",
+ icon:"☘",
+ description:"قصة خلق آدم عليه السلام، وسجود الملائكة، وإبليس، وبداية حياة الإنسان.",
+},
+
+{
+ id:"nuh",
+ title:"نوح عليه السلام",
+ subtitle:"الصبر والثبات",
+ category:"prophets",
+ tag:"نبي",
+ icon:"◈",
+ description:"قصة نوح عليه السلام ودعوته الطويلة لقومه وثباته على طاعة الله.",
+},
+
+{
+ id:"ibrahim",
+ title:"إبراهيم عليه السلام",
+ subtitle:"الخليل والثبات على التوحيد",
+ category:"prophets",
+ tag:"نبي",
+ icon:"✦",
+ description:"قصة إبراهيم عليه السلام في دعوته إلى التوحيد وثقته بالله.",
+},
+
+{
+ id:"musa",
+ title:"موسى عليه السلام",
+ subtitle:"مواجهة فرعون",
+ category:"prophets",
+ tag:"نبي",
+ icon:"⌁",
+ description:"قصة موسى عليه السلام ورسالته إلى فرعون وما فيها من صبر وثبات.",
+},
+
+{
+ id:"yunus",
+ title:"يونس عليه السلام",
+ subtitle:"التوبة والرجوع إلى الله",
+ category:"prophets",
+ tag:"نبي",
+ icon:"≈",
+ description:"قصة يونس عليه السلام وما نتعلمه منها عن التوبة والدعاء والرجوع إلى الله.",
+},
+
+{
+ id:"kahf",
+ title:"أصحاب الكهف",
+ subtitle:"الثبات على الإيمان",
+ category:"quran",
+ tag:"من القرآن",
+ icon:"◉",
+ description:"قصة الفتية الذين آمنوا بربهم وثبتوا على إيمانهم.",
+},
+
+{
+ id:"hira",
+ title:"بداية الوحي",
+ subtitle:"غار حراء",
+ category:"seerah",
+ tag:"السيرة",
+ icon:"☾",
+ description:"قصة بداية نزول الوحي على النبي محمد ﷺ في غار حراء.",
+}
+
+];
+
+const grid=document.getElementById("storiesGrid");
+const searchInput=document.getElementById("searchInput");
+const countText=document.getElementById("countText");
+const categoryButtons=document.querySelectorAll(".category");
+
+let activeCategory="all";
+
+function escapeHTML(value){
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 }
 
 function render(){
-  const query = normalize(search.value.trim());
-  let visible = 0;
 
-  cards.forEach(card => {
-    const category = card.dataset.category;
-    const text = normalize(
-      card.dataset.title + " " + card.dataset.keywords
-    );
+  const query=searchInput.value.trim().toLowerCase();
 
-    const categoryMatch =
-      currentFilter === "all" ||
-      category === currentFilter;
+  const filtered=stories.filter(story=>{
 
-    const searchMatch =
+    const categoryMatch=
+      activeCategory==="all" ||
+      story.category===activeCategory;
+
+    const searchMatch=
       !query ||
-      text.includes(query);
+      story.title.toLowerCase().includes(query) ||
+      story.subtitle.toLowerCase().includes(query) ||
+      story.description.toLowerCase().includes(query);
 
-    const show = categoryMatch && searchMatch;
+    return categoryMatch && searchMatch;
 
-    card.style.display = show ? "flex" : "none";
-
-    if(show) visible++;
   });
 
-  resultCount.textContent =
-    visible === 1
-      ? "قصة واحدة متاحة"
-      : visible + " قصص متاحة";
+  countText.textContent=
+    `${filtered.length} ${filtered.length===1?"قصة":"قصص"}`;
 
-  empty.style.display = visible ? "none" : "block";
+  if(!filtered.length){
+
+    grid.innerHTML=`
+      <div class="empty">
+        لا توجد قصة مطابقة للبحث الحالي.
+      </div>
+    `;
+
+    return;
+  }
+
+  grid.innerHTML=filtered.map(story=>`
+
+    <article class="card">
+
+      <div class="card-icon">
+        ${story.icon}
+      </div>
+
+      <h3>
+        ${escapeHTML(story.title)}
+      </h3>
+
+      <div class="subtitle">
+        ${escapeHTML(story.subtitle)}
+      </div>
+
+      <p>
+        ${escapeHTML(story.description)}
+      </p>
+
+      <div class="card-footer">
+
+        <span class="tag">
+          ${escapeHTML(story.tag)}
+        </span>
+
+        <a
+          class="read"
+          href="story.html?id=${encodeURIComponent(story.id)}"
+        >
+          اقرأ القصة
+        </a>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
 }
 
-filters.forEach(button => {
-  button.addEventListener("click", () => {
+categoryButtons.forEach(button=>{
 
-    filters.forEach(item =>
-      item.classList.remove("active")
-    );
+  button.addEventListener("click",()=>{
+
+    categoryButtons.forEach(item=>{
+      item.classList.remove("active");
+    });
 
     button.classList.add("active");
 
-    currentFilter = button.dataset.filter;
+    activeCategory=button.dataset.category;
 
     render();
+
   });
+
 });
 
-search.addEventListener("input", render);
+searchInput.addEventListener("input",render);
 
 render();
+
 </script>
 
 </body>
-  </html> 
+                                     </html>
