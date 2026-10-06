@@ -1,801 +1,956 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0c3b2e">
-<title>القصص — الهداية</title>
 
-<style>
-:root{
-  --green:#0c3b2e;
-  --green2:#145943;
-  --gold:#c8a85a;
-  --cream:#f7f3e8;
-  --white:#fff;
-  --text:#17352c;
-  --muted:#718078;
-  --shadow:0 18px 50px rgba(12,59,46,.10);
-}
+  <meta charset="UTF-8">
 
-*{box-sizing:border-box;margin:0;padding:0}
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+  >
 
-body{
-  font-family:Tahoma,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 10% 10%,rgba(200,168,90,.12),transparent 25%),
-    linear-gradient(180deg,#fbfaf5,#f3f0e7);
-  color:var(--text);
-  min-height:100vh;
-}
+  <title>القصص الإسلامية — الهداية</title>
 
-a{text-decoration:none;color:inherit}
+  <meta
+    name="description"
+    content="مكتبة القصص الإسلامية في منصة الهداية."
+  >
 
-.nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(12,59,46,.96);
-  backdrop-filter:blur(15px);
-  box-shadow:0 5px 25px rgba(0,0,0,.12);
-}
+  <link rel="stylesheet" href="style.css">
 
-.nav-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  color:#fff;
-  font-weight:900;
-  font-size:21px;
-}
-
-.logo-mark{
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  color:var(--gold);
-  border:1px solid rgba(200,168,90,.45);
-  background:rgba(255,255,255,.07);
-  font-size:24px;
-}
-
-.nav-links{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
-
-.nav-links a{
-  color:#e9eee9;
-  padding:9px 13px;
-  border-radius:12px;
-  font-size:14px;
-  transition:.25s;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-  background:rgba(200,168,90,.18);
-  color:#f0d891;
-}
-
-.hero{
-  max-width:1200px;
-  margin:35px auto 25px;
-  padding:55px 25px;
-  border-radius:30px;
-  background:
-    radial-gradient(circle at 85% 20%,rgba(200,168,90,.25),transparent 25%),
-    linear-gradient(135deg,#0c3b2e,#145943);
-  color:white;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-}
-
-.hero:before,
-.hero:after{
-  content:"";
-  position:absolute;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:50%;
-}
-
-.hero:before{
-  width:330px;
-  height:330px;
-  left:-130px;
-  top:-170px;
-}
-
-.hero:after{
-  width:250px;
-  height:250px;
-  right:-100px;
-  bottom:-150px;
-}
-
-.hero .small{
-  color:#e5cc83;
-  font-size:14px;
-  margin-bottom:12px;
-  font-weight:bold;
-}
-
-.hero h1{
-  font-size:clamp(32px,5vw,54px);
-  margin-bottom:13px;
-}
-
-.hero p{
-  max-width:700px;
-  margin:auto;
-  line-height:1.9;
-  color:#e5eee9;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 20px 50px;
-}
-
-.tools{
-  background:#fff;
-  border:1px solid #e8e3d5;
-  border-radius:22px;
-  padding:17px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  box-shadow:0 10px 30px rgba(0,0,0,.05);
-  margin-bottom:28px;
-}
-
-.search{
-  flex:1;
-  min-width:220px;
-  border:1px solid #dedbd0;
-  border-radius:14px;
-  padding:14px 16px;
-  font-family:inherit;
-  font-size:15px;
-  outline:none;
-  background:#fbfaf7;
-}
-
-.search:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 0 4px rgba(200,168,90,.12);
-}
-
-.filters{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
-
-.filter{
-  border:1px solid #ddd8ca;
-  background:#f8f6ef;
-  color:var(--text);
-  padding:11px 14px;
-  border-radius:12px;
-  cursor:pointer;
-  font-family:inherit;
-  transition:.2s;
-}
-
-.filter:hover,
-.filter.active{
-  background:var(--green);
-  border-color:var(--green);
-  color:#fff;
-}
-
-.section-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin:25px 0 15px;
-}
-
-.section-title h2{
-  font-size:23px;
-}
-
-.section-title span{
-  color:var(--muted);
-  font-size:13px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:17px;
-}
-
-.card{
-  background:#fff;
-  border:1px solid #e9e4d7;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 8px 30px rgba(12,59,46,.06);
-  transition:.28s ease;
-  display:flex;
-  flex-direction:column;
-}
-
-.card:hover{
-  transform:translateY(-7px);
-  box-shadow:0 20px 40px rgba(12,59,46,.13);
-  border-color:rgba(200,168,90,.5);
-}
-
-.card-top{
-  height:125px;
-  background:
-    radial-gradient(circle at 20% 30%,rgba(200,168,90,.23),transparent 30%),
-    linear-gradient(135deg,#0c3b2e,#1b624d);
-  display:grid;
-  place-items:center;
-  position:relative;
-}
-
-.card-icon{
-  font-size:48px;
-  filter:drop-shadow(0 8px 15px rgba(0,0,0,.2));
-}
-
-.card-type{
-  position:absolute;
-  top:10px;
-  right:10px;
-  font-size:11px;
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.2);
-  color:#fff;
-  padding:5px 9px;
-  border-radius:20px;
-}
-
-.card-body{
-  padding:17px;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-}
-
-.card h3{
-  font-size:17px;
-  margin-bottom:8px;
-  color:var(--green);
-}
-
-.card p{
-  color:var(--muted);
-  line-height:1.75;
-  font-size:13px;
-  flex:1;
-  margin-bottom:15px;
-}
-
-.open{
-  background:var(--green);
-  color:#fff;
-  padding:11px;
-  border-radius:12px;
-  text-align:center;
-  font-size:13px;
-  font-weight:bold;
-  transition:.2s;
-}
-
-.open:hover{
-  background:#092e24;
-}
-
-.empty{
-  display:none;
-  text-align:center;
-  padding:50px 20px;
-  background:#fff;
-  border-radius:20px;
-  border:1px solid #e8e3d5;
-  color:var(--muted);
-}
-
-footer{
-  background:var(--green);
-  color:#dfe9e4;
-  text-align:center;
-  padding:28px 20px;
-  margin-top:20px;
-}
-
-footer strong{
-  color:#e1c773;
-}
-
-@media(max-width:950px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-}
-
-@media(max-width:700px){
-  .nav-inner{
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .logo{
-    justify-content:center;
-  }
-
-  .nav-links{
-    justify-content:center;
-  }
-
-  .hero{
-    margin:20px 12px;
-    padding:42px 18px;
-  }
-
-  .container{
-    padding:0 12px 40px;
-  }
-
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:450px){
-  .grid{grid-template-columns:1fr}
-  .card-top{height:140px}
-}
-</style>
 </head>
+
 
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
 
-    <a class="logo" href="index.html">
-      <span class="logo-mark">هـ</span>
-      <span>الهداية</span>
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="site-nav">
+
+  <a href="index.html" class="brand">
+
+    <div class="brand-mark">
+      هـ
+    </div>
+
+    <div class="brand-text">
+      <strong>الهداية</strong>
+      <span>نور يهديك</span>
+    </div>
+
+  </a>
+
+
+  <nav class="nav-links">
+
+    <a href="index.html">
+      الرئيسية
     </a>
 
-    <div class="nav-links">
-      <a href="index.html">الرئيسية</a>
-      <a href="stories.html" class="active">القصص</a>
-      <a href="quran.html">القرآن</a>
-      <a href="adhkar.html">الأذكار</a>
-      <a href="prayer.html">الصلاة</a>
-    </div>
+    <a href="stories.html">
+      القصص
+    </a>
 
-  </div>
-</nav>
+    <a href="quran.html">
+      القرآن
+    </a>
 
-<header class="hero">
-  <div class="small">قصص من القرآن والسيرة</div>
-  <h1>قصص الهداية</h1>
-  <p>
-    قصص الأنبياء، وقصص القرآن، ومحطات من السيرة النبوية
-    بأسلوب واضح يساعد على الفهم والتأمل واستخلاص الدروس.
-  </p>
+    <a href="adhkar.html">
+      الأذكار
+    </a>
+
+    <a href="prayer.html">
+      الصلاة
+    </a>
+
+  </nav>
+
+
+  <a href="quran.html" class="nav-cta">
+    القرآن الكريم
+  </a>
+
 </header>
 
-<main class="container">
 
-  <div class="tools">
 
-    <input
-      id="search"
-      class="search"
-      type="search"
-      placeholder="ابحث عن قصة..."
-      oninput="filterStories()"
-    >
+<!-- =========================
+     PAGE HERO
+========================= -->
 
-    <div class="filters">
-      <button class="filter active" data-filter="all" onclick="setFilter('all',this)">الكل</button>
-      <button class="filter" data-filter="prophets" onclick="setFilter('prophets',this)">الأنبياء</button>
-      <button class="filter" data-filter="quran" onclick="setFilter('quran',this)">قصص القرآن</button>
-      <button class="filter" data-filter="seerah" onclick="setFilter('seerah',this)">السيرة النبوية</button>
+<section class="page-hero">
+
+  <div class="story-orbit"></div>
+
+  <div class="page-hero-inner">
+
+    <div class="page-hero-kicker">
+      ✦ مكتبة الهداية
+    </div>
+
+    <h1>
+      قصص تهدي القلب
+    </h1>
+
+    <p>
+      رحلة بين قصص الأنبياء وقصص القرآن ومحطات من
+      السيرة النبوية، مكتوبة في صفحات مستقلة
+      تساعدك على القراءة والتدبر.
+    </p>
+
+
+    <div class="story-search">
+
+      <span class="story-search-icon">
+        ⌕
+      </span>
+
+      <input
+        id="storySearch"
+        type="search"
+        placeholder="ابحث عن قصة..."
+        autocomplete="off"
+      >
+
+      <button
+        id="searchButton"
+        type="button"
+      >
+        بحث
+      </button>
+
     </div>
 
   </div>
 
-  <div class="section-title" id="seerah">
-    <h2>مكتبة القصص</h2>
-    <span id="count">30 قصة</span>
-  </div>
+</section>
 
-  <div class="grid" id="storiesGrid">
 
-    <article class="card" data-id="adam" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🌿</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>آدم عليه السلام</h3>
-        <p>قصة خلق آدم عليه السلام، وتكريم الله له، وبداية رحلة الإنسان.</p>
-        <a class="open" href="story.html?id=adam">اقرأ القصة</a>
-      </div>
-    </article>
 
-    <article class="card" data-id="nuh" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🌊</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>نوح عليه السلام</h3>
-        <p>قصة الصبر والدعوة إلى الله، وسفينة نوح عليه السلام.</p>
-        <a class="open" href="story.html?id=nuh">اقرأ القصة</a>
-      </div>
-    </article>
+<!-- =========================
+     LIBRARY
+========================= -->
 
-    <article class="card" data-id="hud" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🏜️</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>هود عليه السلام</h3>
-        <p>قصة هود مع قوم عاد ودعوته إلى التوحيد.</p>
-        <a class="open" href="story.html?id=hud">اقرأ القصة</a>
-      </div>
-    </article>
+<main class="section story-library">
 
-    <article class="card" data-id="salih" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🐪</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>صالح عليه السلام</h3>
-        <p>قصة نبي الله صالح وقوم ثمود وآية الناقة.</p>
-        <a class="open" href="story.html?id=salih">اقرأ القصة</a>
-      </div>
-    </article>
 
-    <article class="card" data-id="ibrahim" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🔥</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>إبراهيم عليه السلام</h3>
-        <p>رحلة إبراهيم في التوحيد والثبات والثقة بالله.</p>
-        <a class="open" href="story.html?id=ibrahim">اقرأ القصة</a>
-      </div>
-    </article>
+  <!-- FILTERS -->
 
-    <article class="card" data-id="ismail" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🕋</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>إسماعيل عليه السلام</h3>
-        <p>قصة إسماعيل عليه السلام وما ارتبط بسيرته من طاعة وصبر.</p>
-        <a class="open" href="story.html?id=ismail">اقرأ القصة</a>
-      </div>
-    </article>
+  <div class="story-filters">
 
-    <article class="card" data-id="yusuf" data-category="prophets">
-      <div class="card-top"><span class="card-icon">⭐</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>يوسف عليه السلام</h3>
-        <p>قصة يوسف من الابتلاء إلى التمكين والعفو.</p>
-        <a class="open" href="story.html?id=yusuf">اقرأ القصة</a>
-      </div>
-    </article>
+    <button
+      class="story-filter active"
+      data-filter="all"
+    >
+      كل القصص
+    </button>
 
-    <article class="card" data-id="musa" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🌊</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>موسى عليه السلام</h3>
-        <p>من نشأته إلى دعوته لفرعون ورحلته مع بني إسرائيل.</p>
-        <a class="open" href="story.html?id=musa">اقرأ القصة</a>
-      </div>
-    </article>
+    <button
+      class="story-filter"
+      data-filter="prophets"
+    >
+      قصص الأنبياء
+    </button>
 
-    <article class="card" data-id="ayoub" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🌱</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>أيوب عليه السلام</h3>
-        <p>قصة الصبر والدعاء والرجوع إلى الله.</p>
-        <a class="open" href="story.html?id=ayoub">اقرأ القصة</a>
-      </div>
-    </article>
+    <button
+      class="story-filter"
+      data-filter="quran"
+    >
+      قصص القرآن
+    </button>
 
-    <article class="card" data-id="yunus" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🐋</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>يونس عليه السلام</h3>
-        <p>قصة يونس عليه السلام ودعائه وتوبة قومه.</p>
-        <a class="open" href="story.html?id=yunus">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="dawud" data-category="prophets">
-      <div class="card-top"><span class="card-icon">👑</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>داود عليه السلام</h3>
-        <p>قصة نبي الله داود وما آتاه الله من فضل وحكمة.</p>
-        <a class="open" href="story.html?id=dawud">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="sulaiman" data-category="prophets">
-      <div class="card-top"><span class="card-icon">👑</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>سليمان عليه السلام</h3>
-        <p>قصة الملك والنبي سليمان وتسخير الله له من فضله.</p>
-        <a class="open" href="story.html?id=sulaiman">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="zakariya" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🤲</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>زكريا عليه السلام</h3>
-        <p>قصة الدعاء والرجاء في رحمة الله.</p>
-        <a class="open" href="story.html?id=zakariya">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="isa" data-category="prophets">
-      <div class="card-top"><span class="card-icon">✨</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>عيسى عليه السلام</h3>
-        <p>قصة عيسى عليه السلام كما وردت في القرآن الكريم.</p>
-        <a class="open" href="story.html?id=isa">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="lut" data-category="prophets">
-      <div class="card-top"><span class="card-icon">🏘️</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>لوط عليه السلام</h3>
-        <p>دعوة لوط عليه السلام لقومه وثباته على الحق.</p>
-        <a class="open" href="story.html?id=lut">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="shuaib" data-category="prophets">
-      <div class="card-top"><span class="card-icon">⚖️</span><span class="card-type">نبي</span></div>
-      <div class="card-body">
-        <h3>شعيب عليه السلام</h3>
-        <p>قصة شعيب عليه السلام ودعوته إلى العدل في التعامل.</p>
-        <a class="open" href="story.html?id=shuaib">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="kahf" data-category="quran">
-      <div class="card-top"><span class="card-icon">🕯️</span><span class="card-type">القرآن</span></div>
-      <div class="card-body">
-        <h3>أصحاب الكهف</h3>
-        <p>قصة الفتية الذين آمنوا بربهم وثبتوا على الإيمان.</p>
-        <a class="open" href="story.html?id=kahf">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="qarun" data-category="quran">
-      <div class="card-top"><span class="card-icon">💰</span><span class="card-type">القرآن</span></div>
-      <div class="card-body">
-        <h3>قارون</h3>
-        <p>قصة قارون والتحذير من الغرور بالمال والنعمة.</p>
-        <a class="open" href="story.html?id=qarun">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="pharaoh" data-category="quran">
-      <div class="card-top"><span class="card-icon">🏛️</span><span class="card-type">القرآن</span></div>
-      <div class="card-body">
-        <h3>فرعون</h3>
-        <p>قصة موسى مع فرعون وما فيها من دروس في الإيمان والثبات.</p>
-        <a class="open" href="story.html?id=pharaoh">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="maryam" data-category="quran">
-      <div class="card-top"><span class="card-icon">🌸</span><span class="card-type">القرآن</span></div>
-      <div class="card-body">
-        <h3>مريم عليها السلام</h3>
-        <p>قصة مريم عليها السلام كما عرضها القرآن الكريم.</p>
-        <a class="open" href="story.html?id=maryam">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="two_gardens" data-category="quran">
-      <div class="card-top"><span class="card-icon">🌳</span><span class="card-type">القرآن</span></div>
-      <div class="card-body">
-        <h3>صاحب الجنتين</h3>
-        <p>قصة صاحب الجنتين والتذكير بأن النعمة من الله.</p>
-        <a class="open" href="story.html?id=two_gardens">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="birth" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🌙</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>مولد النبي ﷺ</h3>
-        <p>محطة من بداية سيرة خاتم الأنبياء محمد ﷺ.</p>
-        <a class="open" href="story.html?id=birth">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="childhood" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🌿</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>نشأة النبي ﷺ</h3>
-        <p>لمحات موثوقة من طفولة النبي ﷺ وشبابه قبل البعثة.</p>
-        <a class="open" href="story.html?id=childhood">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="khadijah" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🤍</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>خديجة رضي الله عنها</h3>
-        <p>من أوائل من آمن بالنبي ﷺ ومواقفها في بداية الدعوة.</p>
-        <a class="open" href="story.html?id=khadijah">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="hira" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🌙</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>بداية الوحي</h3>
-        <p>نزول أول الوحي وبداية الرسالة المحمدية.</p>
-        <a class="open" href="story.html?id=hira">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="makkah" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🕋</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>الدعوة في مكة</h3>
-        <p>بداية الدعوة الإسلامية ومواقف النبي ﷺ وأصحابه في مكة.</p>
-        <a class="open" href="story.html?id=makkah">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="hijrah" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🐪</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>الهجرة إلى المدينة</h3>
-        <p>الهجرة النبوية وبداية مرحلة جديدة من تاريخ المسلمين.</p>
-        <a class="open" href="story.html?id=hijrah">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="madinah" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🌴</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>بناء المجتمع في المدينة</h3>
-        <p>محطات من تأسيس المجتمع المسلم في المدينة المنورة.</p>
-        <a class="open" href="story.html?id=madinah">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="badr" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🛡️</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>غزوة بدر</h3>
-        <p>محطة مهمة من السيرة النبوية وما ارتبط بها من معانٍ إيمانية.</p>
-        <a class="open" href="story.html?id=badr">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="khandaq" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🕌</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>غزوة الخندق</h3>
-        <p>قصة الثبات والتعاون في مواجهة الأحزاب.</p>
-        <a class="open" href="story.html?id=khandaq">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="hudaybiyah" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🤝</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>صلح الحديبية</h3>
-        <p>محطة عظيمة في السيرة وما ترتب عليها من آثار.</p>
-        <a class="open" href="story.html?id=hudaybiyah">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="makkahVictory" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🕋</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>فتح مكة</h3>
-        <p>فتح مكة وما ظهر فيه من العفو والتواضع وإتمام الرسالة.</p>
-        <a class="open" href="story.html?id=makkahVictory">اقرأ القصة</a>
-      </div>
-    </article>
-
-    <article class="card" data-id="farewell" data-category="seerah">
-      <div class="card-top"><span class="card-icon">🌙</span><span class="card-type">السيرة</span></div>
-      <div class="card-body">
-        <h3>حجة الوداع</h3>
-        <p>من آخر المحطات الكبرى في حياة النبي ﷺ.</p>
-        <a class="open" href="story.html?id=farewell">اقرأ القصة</a>
-      </div>
-    </article>
+    <button
+      class="story-filter"
+      data-filter="seerah"
+    >
+      السيرة النبوية
+    </button>
 
   </div>
 
-  <div class="empty" id="empty">
-    <h3>لم نجد قصة بهذا الاسم</h3>
-    <p>جرّب كلمة بحث أخرى أو اختر تصنيفًا مختلفًا.</p>
+
+
+  <!-- HEAD -->
+
+  <div class="story-library-head">
+
+    <div>
+
+      <h2>
+        مكتبة القصص
+      </h2>
+
+      <p>
+        اختر قصة وابدأ القراءة
+      </p>
+
+    </div>
+
+    <div
+      class="story-count"
+      id="storyCount"
+    >
+      0 قصة
+    </div>
+
   </div>
+
+
+
+  <!-- FEATURED -->
+
+  <a
+    href="story.html?id=yusuf"
+    class="featured-story reveal"
+  >
+
+    <div class="featured-content">
+
+      <div class="featured-label">
+        ✦ قصة مميزة
+      </div>
+
+      <h3>
+        قصة يوسف عليه السلام
+      </h3>
+
+      <p>
+        قصة مليئة بالصبر والثبات والعفو،
+        من أجمل القصص التي تحمل دروسًا كثيرة
+        في مواجهة الشدائد وحسن الظن بالله.
+      </p>
+
+      <span class="featured-btn">
+        اقرأ القصة ←
+      </span>
+
+    </div>
+
+    <div class="featured-symbol">
+      يوسف
+    </div>
+
+  </a>
+
+
+
+  <!-- STORIES -->
+
+  <div
+    class="stories-grid"
+    id="storiesGrid"
+  ></div>
+
+
+  <div
+    class="no-results"
+    id="noResults"
+  >
+
+    <div class="no-results-icon">
+      🔎
+    </div>
+
+    <h3>
+      لم نجد قصة بهذا الاسم
+    </h3>
+
+    <p>
+      جرّب البحث باسم آخر أو اختر تصنيفًا مختلفًا.
+    </p>
+
+  </div>
+
 
 </main>
 
-<footer>
-  <div>الهداية — نور يهديك</div>
-  <div style="margin-top:8px;font-size:13px">
-    تطوير وبرمجة <strong>M11 — Mr. Mohamed Hussain</strong>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+
+  <div class="footer-inner">
+
+    <div>
+
+      <div class="footer-brand">
+        الهداية
+      </div>
+
+      <div class="footer-credit">
+        تطوير وبرمجة M11 — Mr. Mohamed Hussain
+      </div>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        الرئيسية
+      </a>
+
+      <a href="stories.html">
+        القصص
+      </a>
+
+      <a href="quran.html">
+        القرآن
+      </a>
+
+      <a href="adhkar.html">
+        الأذكار
+      </a>
+
+      <a href="prayer.html">
+        الصلاة
+      </a>
+
+    </div>
+
   </div>
+
+
+  <div class="footer-bottom">
+    © 2026 الهداية — نور يهديك
+  </div>
+
 </footer>
 
+
+
 <script>
+
+/* =====================================
+   STORY DATABASE
+===================================== */
+
+const stories = [
+
+  {
+    id:"adam",
+    title:"آدم عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة آدم عليه السلام وبداية خلق الإنسان.",
+    video:true
+  },
+
+  {
+    id:"idris",
+    title:"إدريس عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة إدريس عليه السلام وما ورد عنه في القرآن.",
+    video:false
+  },
+
+  {
+    id:"nuh",
+    title:"نوح عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة نبي الله نوح عليه السلام ودعوته لقومه.",
+    video:true
+  },
+
+  {
+    id:"hud",
+    title:"هود عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة هود عليه السلام مع قوم عاد.",
+    video:false
+  },
+
+  {
+    id:"salih",
+    title:"صالح عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة صالح عليه السلام مع ثمود.",
+    video:false
+  },
+
+  {
+    id:"ibrahim",
+    title:"إبراهيم عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة خليل الله إبراهيم عليه السلام.",
+    video:true
+  },
+
+  {
+    id:"ismail",
+    title:"إسماعيل عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة إسماعيل عليه السلام والصبر والطاعة.",
+    video:false
+  },
+
+  {
+    id:"yusuf",
+    title:"يوسف عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة يوسف عليه السلام وما فيها من الصبر والعفو.",
+    video:false
+  },
+
+  {
+    id:"musa",
+    title:"موسى عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة موسى عليه السلام ومواجهته لفرعون.",
+    video:true
+  },
+
+  {
+    id:"ayoub",
+    title:"أيوب عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة أيوب عليه السلام والصبر على البلاء.",
+    video:false
+  },
+
+  {
+    id:"yunus",
+    title:"يونس عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة يونس عليه السلام ودعاؤه وتوبته.",
+    video:true
+  },
+
+  {
+    id:"dawud",
+    title:"داود عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة داود عليه السلام وما آتاه الله من فضل.",
+    video:false
+  },
+
+  {
+    id:"sulaiman",
+    title:"سليمان عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة سليمان عليه السلام وملكه العظيم.",
+    video:false
+  },
+
+  {
+    id:"zakariya",
+    title:"زكريا عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة زكريا عليه السلام ودعائه لله.",
+    video:false
+  },
+
+  {
+    id:"isa",
+    title:"عيسى عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة عيسى عليه السلام كما وردت في القرآن.",
+    video:false
+  },
+
+  {
+    id:"lut",
+    title:"لوط عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة لوط عليه السلام ودعوته لقومه.",
+    video:false
+  },
+
+  {
+    id:"shuaib",
+    title:"شعيب عليه السلام",
+    category:"prophets",
+    categoryName:"قصص الأنبياء",
+    description:"قصة شعيب عليه السلام مع قوم مدين.",
+    video:false
+  },
+
+  {
+    id:"kahf",
+    title:"أصحاب الكهف",
+    category:"quran",
+    categoryName:"قصص القرآن",
+    description:"قصة الفتية الذين آمنوا بربهم وثبتوا على الإيمان.",
+    video:true
+  },
+
+  {
+    id:"qarun",
+    title:"قارون",
+    category:"quran",
+    categoryName:"قصص القرآن",
+    description:"قصة قارون والتحذير من الغرور بالمال.",
+    video:false
+  },
+
+  {
+    id:"pharaoh",
+    title:"فرعون",
+    category:"quran",
+    categoryName:"قصص القرآن",
+    description:"قصة فرعون وموقفه من دعوة موسى عليه السلام.",
+    video:false
+  },
+
+  {
+    id:"maryam",
+    title:"مريم عليها السلام",
+    category:"quran",
+    categoryName:"قصص القرآن",
+    description:"قصة مريم عليها السلام كما وردت في القرآن.",
+    video:false
+  },
+
+  {
+    id:"two_gardens",
+    title:"صاحب الجنتين",
+    category:"quran",
+    categoryName:"قصص القرآن",
+    description:"قصة صاحب الجنتين والعبرة من الاغترار بالدنيا.",
+    video:false
+  },
+
+  {
+    id:"birth",
+    title:"مولد النبي ﷺ",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"بداية قصة النبي محمد ﷺ ومولده.",
+    video:false
+  },
+
+  {
+    id:"childhood",
+    title:"طفولة النبي ﷺ",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"محطات من طفولة النبي ﷺ ونشأته.",
+    video:false
+  },
+
+  {
+    id:"khadijah",
+    title:"خديجة رضي الله عنها",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"محطات مهمة من حياة أم المؤمنين خديجة رضي الله عنها.",
+    video:false
+  },
+
+  {
+    id:"hira",
+    title:"غار حراء ونزول الوحي",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"بداية نزول الوحي وبداية الدعوة.",
+    video:true
+  },
+
+  {
+    id:"makkah",
+    title:"الدعوة في مكة",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"مرحلة الدعوة في مكة وما واجهه المسلمون.",
+    video:false
+  },
+
+  {
+    id:"hijrah",
+    title:"الهجرة النبوية",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"الهجرة من مكة إلى المدينة وبداية مرحلة جديدة.",
+    video:false
+  },
+
+  {
+    id:"madinah",
+    title:"المدينة المنورة",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"بناء المجتمع المسلم في المدينة المنورة.",
+    video:false
+  },
+
+  {
+    id:"badr",
+    title:"غزوة بدر",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"محطة مهمة من أحداث السيرة النبوية.",
+    video:false
+  },
+
+  {
+    id:"khandaq",
+    title:"غزوة الخندق",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"أحداث غزوة الخندق والدروس المستفادة منها.",
+    video:false
+  },
+
+  {
+    id:"hudaybiyah",
+    title:"صلح الحديبية",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"قصة صلح الحديبية وما ترتب عليه من أحداث.",
+    video:false
+  },
+
+  {
+    id:"makkahVictory",
+    title:"فتح مكة",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"فتح مكة والعفو والتسامح في السيرة النبوية.",
+    video:false
+  },
+
+  {
+    id:"farewell",
+    title:"حجة الوداع",
+    category:"seerah",
+    categoryName:"السيرة النبوية",
+    description:"من أهم المحطات الأخيرة في السيرة النبوية.",
+    video:false
+  }
+
+];
+
+
+/* =====================================
+   ELEMENTS
+===================================== */
+
+const grid =
+  document.getElementById("storiesGrid");
+
+const searchInput =
+  document.getElementById("storySearch");
+
+const countElement =
+  document.getElementById("storyCount");
+
+const noResults =
+  document.getElementById("noResults");
+
+const filterButtons =
+  document.querySelectorAll(".story-filter");
+
+
 let currentFilter = "all";
+let currentSearch = "";
 
-function setFilter(filter, button){
-  currentFilter = filter;
 
-  document.querySelectorAll(".filter").forEach(btn=>{
-    btn.classList.remove("active");
+/* =====================================
+   RENDER
+===================================== */
+
+function renderStories(){
+
+  const filtered =
+    stories.filter(story => {
+
+      const categoryMatch =
+        currentFilter === "all" ||
+        story.category === currentFilter;
+
+      const searchMatch =
+        story.title
+          .toLowerCase()
+          .includes(currentSearch.toLowerCase()) ||
+
+        story.description
+          .toLowerCase()
+          .includes(currentSearch.toLowerCase());
+
+      return categoryMatch && searchMatch;
+
+    });
+
+
+  grid.innerHTML = "";
+
+
+  countElement.textContent =
+    `${filtered.length} قصة`;
+
+
+  if(filtered.length === 0){
+
+    noResults.classList.add("show");
+
+    return;
+
+  }
+
+
+  noResults.classList.remove("show");
+
+
+  filtered.forEach((story,index) => {
+
+    const card =
+      document.createElement("article");
+
+    card.className =
+      "story-card reveal";
+
+    card.style.animationDelay =
+      `${Math.min(index * 0.035,.35)}s`;
+
+
+    card.innerHTML = `
+
+      <div class="story-number">
+        ${String(index + 1).padStart(2,"0")}
+      </div>
+
+      <div class="story-card-top">
+
+        <span class="story-category">
+          ${story.categoryName}
+        </span>
+
+        ${
+          story.video
+          ?
+          `<span class="video-badge">
+             ▶ فيديو
+           </span>`
+          :
+          ""
+        }
+
+      </div>
+
+
+      <h3>
+        ${story.title}
+      </h3>
+
+
+      <p>
+        ${story.description}
+      </p>
+
+
+      <div class="story-card-footer">
+
+        <span class="read-time">
+          📖 قراءة
+        </span>
+
+        <a
+          class="read-story"
+          href="story.html?id=${story.id}"
+        >
+          اقرأ القصة ←
+        </a>
+
+      </div>
+
+    `;
+
+
+    grid.appendChild(card);
+
   });
 
-  button.classList.add("active");
-  filterStories();
+
+  observeReveal();
+
 }
 
-function filterStories(){
 
-  const query = document
-    .getElementById("search")
-    .value
-    .trim()
-    .toLowerCase();
+/* =====================================
+   FILTERS
+===================================== */
 
-  const cards = document.querySelectorAll(".card");
+filterButtons.forEach(button => {
 
-  let visible = 0;
+  button.addEventListener("click",() => {
 
-  cards.forEach(card=>{
+    filterButtons.forEach(btn => {
+      btn.classList.remove("active");
+    });
 
-    const title = card.querySelector("h3").textContent.toLowerCase();
-    const description = card.querySelector("p").textContent.toLowerCase();
-    const category = card.dataset.category;
+    button.classList.add("active");
 
-    const matchesSearch =
-      !query ||
-      title.includes(query) ||
-      description.includes(query);
+    currentFilter =
+      button.dataset.filter;
 
-    const matchesCategory =
-      currentFilter === "all" ||
-      category === currentFilter;
+    renderStories();
 
-    if(matchesSearch && matchesCategory){
-      card.style.display = "flex";
-      visible++;
-    }else{
-      card.style.display = "none";
+  });
+
+});
+
+
+/* =====================================
+   SEARCH
+===================================== */
+
+searchInput.addEventListener(
+  "input",
+  event => {
+
+    currentSearch =
+      event.target.value.trim();
+
+    renderStories();
+
+  }
+);
+
+
+document
+  .getElementById("searchButton")
+  .addEventListener("click",() => {
+
+    currentSearch =
+      searchInput.value.trim();
+
+    renderStories();
+
+  });
+
+
+/* =====================================
+   ENTER SEARCH
+===================================== */
+
+searchInput.addEventListener(
+  "keydown",
+  event => {
+
+    if(event.key === "Enter"){
+
+      currentSearch =
+        searchInput.value.trim();
+
+      renderStories();
+
     }
 
+  }
+);
+
+
+/* =====================================
+   REVEAL ANIMATION
+===================================== */
+
+let revealObserver;
+
+function observeReveal(){
+
+  if(revealObserver){
+    revealObserver.disconnect();
+  }
+
+
+  revealObserver =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if(entry.isIntersecting){
+
+            entry.target.classList.add("visible");
+
+            revealObserver.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {
+        threshold:.08
+      }
+    );
+
+
+  document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+      revealObserver.observe(element);
+
+    });
+
+}
+
+
+/* =====================================
+   URL CATEGORY
+===================================== */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const urlCategory =
+  params.get("category");
+
+
+if(
+  urlCategory &&
+  ["prophets","quran","seerah"].includes(urlCategory)
+){
+
+  currentFilter =
+    urlCategory;
+
+
+  filterButtons.forEach(button => {
+
+    button.classList.toggle(
+      "active",
+      button.dataset.filter === urlCategory
+    );
+
   });
 
-  document.getElementById("count").textContent =
-    visible + " قصة";
-
-  document.getElementById("empty").style.display =
-    visible === 0 ? "block" : "none";
 }
+
+
+/* =====================================
+   INITIAL
+===================================== */
+
+renderStories();
+
 </script>
 
 </body>
