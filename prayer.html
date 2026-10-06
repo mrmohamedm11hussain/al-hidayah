@@ -3,19 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073b2a">
+<title>مواقيت الصلاة | الهداية</title>
 
-<title>أوقات الصلاة — الهداية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --green:#0b3d2e;
-  --green2:#145c45;
-  --gold:#c9a227;
-  --gold2:#e5c75b;
-  --cream:#f7f3e8;
-  --text:#18352b;
-  --muted:#718078;
-  --line:rgba(11,61,46,.10);
+  --green:#073b2a;
+  --green2:#0b5940;
+  --gold:#caa85e;
+  --gold2:#e4c983;
+  --cream:#f8f3e7;
+  --white:#fffdf8;
+  --text:#18352c;
+  --muted:#6b7d74;
+  --line:#e8dfca;
+  --shadow:0 18px 50px rgba(7,59,42,.10);
 }
 
 *{
@@ -25,255 +31,392 @@
 }
 
 body{
-  font-family:Tahoma,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 15% 10%,rgba(201,162,39,.10),transparent 25%),
-    var(--cream);
+  font-family:"Cairo",Arial,sans-serif;
   color:var(--text);
+  background:
+    radial-gradient(circle at 10% 5%,rgba(202,168,94,.13),transparent 25%),
+    radial-gradient(circle at 90% 20%,rgba(11,89,64,.08),transparent 28%),
+    var(--cream);
+  min-height:100vh;
 }
 
-header{
+.header{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(247,243,232,.9);
+  z-index:100;
+  background:rgba(7,59,42,.96);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid rgba(228,201,131,.18);
 }
 
 .nav{
-  max-width:1200px;
+  max-width:1250px;
+  min-height:76px;
   margin:auto;
-  min-height:74px;
-  padding:0 22px;
+  padding:12px 22px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
-  color:var(--green);
-  font-weight:900;
+  gap:12px;
+  color:white;
+  text-decoration:none;
 }
 
 .logo{
   width:46px;
   height:46px;
   border-radius:15px;
-  background:linear-gradient(145deg,#145c45,#082c22);
-  color:var(--gold2);
   display:grid;
   place-items:center;
-  font-size:24px;
+  background:linear-gradient(145deg,#124e3a,#062e22);
+  border:1px solid rgba(228,201,131,.45);
+  color:var(--gold2);
+  font-family:"Amiri",serif;
+  font-size:29px;
 }
 
-.links{
+.brand strong{
+  display:block;
+  font-size:18px;
+}
+
+.brand span{
+  display:block;
+  color:#cbdcd4;
+  font-size:11px;
+}
+
+.nav-links{
   display:flex;
-  gap:5px;
+  gap:6px;
+  flex-wrap:wrap;
 }
 
-.links a{
-  padding:10px 13px;
+.nav-links a{
+  color:#e7f0eb;
+  padding:9px 13px;
   border-radius:12px;
-  color:#466056;
-  font-size:14px;
-  font-weight:800;
+  font-size:13px;
+  text-decoration:none;
+  transition:.2s;
 }
 
-.links a:hover{
-  background:#e9e3d2;
-}
-
-.container{
-  max-width:1150px;
-  margin:auto;
-  padding:42px 22px 90px;
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--gold2);
+  background:rgba(202,168,94,.14);
 }
 
 .hero{
-  border-radius:32px;
-  padding:40px;
-  background:
-    radial-gradient(circle at 80% 15%,rgba(229,199,91,.17),transparent 25%),
-    linear-gradient(135deg,#082c22,#0d503a);
-  color:white;
-  box-shadow:0 25px 70px rgba(11,61,46,.18);
+  max-width:1250px;
+  margin:auto;
+  padding:50px 22px 25px;
 }
 
-.hero small{
+.hero-box{
+  min-height:290px;
+  border-radius:32px;
+  padding:40px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 75% 25%,rgba(228,201,131,.17),transparent 24%),
+    linear-gradient(135deg,#0b6045,#052d21);
+  color:white;
+  box-shadow:var(--shadow);
+}
+
+.hero-box::before,
+.hero-box::after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(228,201,131,.14);
+  border-radius:50%;
+}
+
+.hero-box::before{
+  width:330px;
+  height:330px;
+  left:-120px;
+  bottom:-190px;
+}
+
+.hero-box::after{
+  width:420px;
+  height:420px;
+  right:-180px;
+  top:-240px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:650px;
+}
+
+.eyebrow{
   color:var(--gold2);
-  font-weight:900;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:8px;
 }
 
 .hero h1{
-  font-size:clamp(38px,6vw,62px);
-  margin:10px 0;
+  font-family:"Amiri",serif;
+  font-size:clamp(42px,6vw,64px);
+  line-height:1.1;
 }
 
 .hero p{
-  color:rgba(255,255,255,.72);
-  line-height:1.9;
+  color:#d4e1db;
+  line-height:2;
+  font-size:14px;
+  margin-top:13px;
 }
 
 .location{
-  display:inline-flex;
   margin-top:20px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
   padding:10px 14px;
-  border-radius:12px;
-  background:rgba(255,255,255,.08);
-  color:rgba(255,255,255,.78);
-  font-size:12px;
+  border:1px solid rgba(228,201,131,.25);
+  border-radius:13px;
+  background:rgba(255,255,255,.06);
+  font-size:11px;
+}
+
+.main{
+  max-width:1250px;
+  margin:auto;
+  padding:0 22px 70px;
+}
+
+.top-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:17px;
+  margin-bottom:17px;
+}
+
+.panel{
+  background:rgba(255,253,248,.94);
+  border:1px solid var(--line);
+  border-radius:23px;
+  box-shadow:0 10px 30px rgba(7,59,42,.06);
 }
 
 .next{
-  margin-top:22px;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:25px;
   padding:25px;
-  box-shadow:0 15px 45px rgba(11,61,46,.08);
+  background:
+    linear-gradient(145deg,#0b6045,#073b2a);
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+.next::after{
+  content:"☾";
+  position:absolute;
+  left:25px;
+  bottom:-30px;
+  font-family:"Amiri",serif;
+  font-size:150px;
+  color:rgba(228,201,131,.08);
 }
 
 .next-label{
-  color:#9b7b1d;
-  font-weight:900;
-  font-size:12px;
+  color:var(--gold2);
+  font-size:11px;
+  font-weight:800;
 }
 
-.next h2{
-  color:var(--green);
-  margin:8px 0;
-  font-size:28px;
+.next-name{
+  font-family:"Amiri",serif;
+  font-size:36px;
+  margin-top:5px;
 }
 
 .next-time{
-  font-size:44px;
+  font-size:46px;
+  font-weight:800;
+  line-height:1.1;
+  margin-top:8px;
+  position:relative;
+  z-index:2;
+}
+
+.next-date{
+  color:#cbdcd4;
+  font-size:11px;
+  margin-top:7px;
+}
+
+.info{
+  padding:25px;
+}
+
+.info h3{
   color:var(--green);
-  font-weight:900;
+  font-size:16px;
+  margin-bottom:12px;
 }
 
-.next-countdown{
+.info p{
   color:var(--muted);
-  margin-top:6px;
+  font-size:12px;
+  line-height:2;
 }
 
-.times{
-  margin-top:22px;
+.refresh{
+  margin-top:14px;
+  border:0;
+  background:var(--green);
+  color:white;
+  border-radius:12px;
+  padding:10px 15px;
+  font-family:inherit;
+  font-size:11px;
+}
+
+.prayer-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:14px;
 }
 
-.time-card{
-  background:white;
+.prayer-card{
+  background:rgba(255,253,248,.94);
   border:1px solid var(--line);
-  border-radius:22px;
+  border-radius:21px;
   padding:22px;
-  text-align:center;
-  box-shadow:0 10px 32px rgba(11,61,46,.05);
+  min-height:155px;
+  box-shadow:0 10px 30px rgba(7,59,42,.05);
   transition:.25s;
 }
 
-.time-card:hover{
-  transform:translateY(-5px);
+.prayer-card:hover{
+  transform:translateY(-4px);
 }
 
-.time-card.active{
+.prayer-card.active{
   background:var(--green);
+  border-color:var(--green);
   color:white;
 }
 
-.time-icon{
-  font-size:25px;
-  margin-bottom:8px;
+.prayer-icon{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:#eef3ef;
+  color:#9a7739;
+  margin-bottom:14px;
+  font-size:18px;
 }
 
-.time-name{
-  font-weight:900;
-  color:var(--green);
-}
-
-.time-card.active .time-name{
-  color:white;
-}
-
-.time{
-  margin-top:7px;
-  font-size:25px;
-  font-weight:900;
-}
-
-.info{
-  margin-top:25px;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:22px;
-  color:var(--muted);
-  line-height:1.9;
-}
-
-.error{
-  margin-top:20px;
-  display:none;
-  padding:20px;
-  background:#fff8ed;
-  border:1px solid rgba(201,162,39,.25);
-  border-radius:18px;
-  color:#725b1c;
-}
-
-footer{
-  background:#082c22;
-  color:white;
-  text-align:center;
-  padding:35px 20px;
-}
-
-footer strong{
+.prayer-card.active .prayer-icon{
+  background:rgba(255,255,255,.12);
   color:var(--gold2);
 }
 
-footer p{
-  color:rgba(255,255,255,.58);
-  font-size:13px;
-  margin-top:8px;
+.prayer-name{
+  font-family:"Amiri",serif;
+  font-size:24px;
 }
 
-@media(max-width:750px){
-  .links{
-    display:none;
+.prayer-time{
+  margin-top:2px;
+  font-size:24px;
+  font-weight:800;
+}
+
+.prayer-card small{
+  color:var(--muted);
+  font-size:9px;
+}
+
+.prayer-card.active small{
+  color:#cbdcd4;
+}
+
+.loading,
+.error{
+  grid-column:1/-1;
+  text-align:center;
+  padding:50px 20px;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:22px;
+  color:var(--muted);
+  line-height:2;
+}
+
+.error{
+  color:#934848;
+}
+
+.footer{
+  background:var(--green);
+  color:#cbdcd4;
+  text-align:center;
+  padding:30px 20px;
+  font-size:11px;
+  line-height:2;
+}
+
+.footer strong{
+  color:var(--gold2);
+}
+
+@media(max-width:850px){
+  .top-grid{
+    grid-template-columns:1fr;
   }
 
-  .hero{
-    padding:30px 22px;
-    border-radius:27px;
-  }
-
-  .times{
+  .prayer-grid{
     grid-template-columns:repeat(2,1fr);
   }
 }
 
-@media(max-width:450px){
-  .times{
-    grid-template-columns:1fr 1fr;
-    gap:9px;
+@media(max-width:650px){
+  .nav{
+    min-height:68px;
+    padding:9px 14px;
   }
 
-  .time-card{
-    padding:17px 10px;
+  .nav-links{
+    display:none;
   }
 
-  .time{
-    font-size:21px;
+  .hero,
+  .main{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .hero-box{
+    padding:30px 22px;
+  }
+
+  .hero h1{
+    font-size:44px;
+  }
+
+  .prayer-grid{
+    grid-template-columns:1fr;
   }
 
   .next-time{
-    font-size:37px;
+    font-size:40px;
   }
 }
 </style>
@@ -281,273 +424,289 @@ footer p{
 
 <body>
 
-<header>
-<div class="nav">
+<header class="header">
+<nav class="nav">
 
 <a href="index.html" class="brand">
   <div class="logo">هـ</div>
-  <span>الهداية</span>
+  <div>
+    <strong>الهداية</strong>
+    <span>نور يهديك</span>
+  </div>
 </a>
 
-<nav class="links">
+<div class="nav-links">
   <a href="index.html">الرئيسية</a>
   <a href="quran.html">القرآن</a>
   <a href="adhkar.html">الأذكار</a>
   <a href="stories.html">القصص</a>
+  <a href="prayer.html" class="active">الصلاة</a>
   <a href="tasbeeh.html">التسبيح</a>
-</nav>
-
 </div>
+
+</nav>
 </header>
 
-<main class="container">
 
 <section class="hero">
 
-  <small>مواقيت اليوم</small>
+<div class="hero-box">
 
-  <h1>أوقات الصلاة</h1>
+<div class="hero-content">
 
-  <p>
-    مواقيت الصلاة حسب موقعك الحالي، مع إبراز الصلاة القادمة
-    والوقت المتبقي عليها.
-  </p>
+<div class="eyebrow">مواقيت الصلاة</div>
 
-  <div id="location" class="location">
-    جاري تحديد موقعك...
-  </div>
+<h1>صلاتك في وقتها</h1>
 
-</section>
+<p>
+اعرف مواقيت الصلوات اليومية حسب موقعك،
+وتابع الصلاة القادمة بسهولة.
+</p>
 
-<section class="next">
-
-  <div class="next-label">
-    الصلاة القادمة
-  </div>
-
-  <h2 id="nextName">—</h2>
-
-  <div id="nextTime" class="next-time">—</div>
-
-  <div id="countdown" class="next-countdown">
-    جاري الحساب...
-  </div>
-
-</section>
-
-<section id="times" class="times"></section>
-
-<div id="error" class="error"></div>
-
-<div class="info">
-  يتم تحديد المواقيت بناءً على موقع جهازك. إذا رفضت صلاحية الموقع،
-  يمكنك السماح بها من إعدادات المتصفح ثم إعادة تحميل الصفحة.
+<div class="location" id="locationText">
+  📍 جاري تحديد موقعك...
 </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<main class="main">
+
+<div class="top-grid">
+
+<section class="panel next">
+
+<div class="next-label">الصلاة القادمة</div>
+
+<div class="next-name" id="nextName">
+  —
+</div>
+
+<div class="next-time" id="nextTime">
+  --:--
+</div>
+
+<div class="next-date" id="nextDate">
+  جاري الحساب...
+</div>
+
+</section>
+
+
+<section class="panel info">
+
+<h3>مواقيت اليوم</h3>
+
+<p>
+يتم حساب المواقيت باستخدام موقع جهازك
+وطريقة الهيئة المصرية العامة للمساحة.
+</p>
+
+<button class="refresh" id="refreshBtn">
+  تحديث المواقيت
+</button>
+
+</section>
+
+</div>
+
+
+<section class="prayer-grid" id="prayerGrid">
+
+<div class="loading">
+  جاري تحميل مواقيت الصلاة...
+</div>
+
+</section>
 
 </main>
 
-<footer>
-<strong>الهداية — نور يهديك</strong>
-<p>تطوير وبرمجة M11 — Mr. Mohamed Hussain © 2026</p>
+
+<footer class="footer">
+<strong>الهداية</strong> — نور يهديك
+<br>
+تطوير وبرمجة M11 — Mr. Mohamed Hussain
 </footer>
+
 
 <script>
 
+const prayerGrid=document.getElementById("prayerGrid");
+const locationText=document.getElementById("locationText");
+const nextName=document.getElementById("nextName");
+const nextTime=document.getElementById("nextTime");
+const nextDate=document.getElementById("nextDate");
+const refreshBtn=document.getElementById("refreshBtn");
+
 const prayers=[
-  ["Fajr","الفجر","🌅"],
-  ["Sunrise","الشروق","☀️"],
-  ["Dhuhr","الظهر","☀️"],
-  ["Asr","العصر","🌤️"],
-  ["Maghrib","المغرب","🌇"],
-  ["Isha","العشاء","🌙"]
+  {key:"Fajr",name:"الفجر",icon:"☀"},
+  {key:"Sunrise",name:"الشروق",icon:"◌"},
+  {key:"Dhuhr",name:"الظهر",icon:"☀"},
+  {key:"Asr",name:"العصر",icon:"◐"},
+  {key:"Maghrib",name:"المغرب",icon:"◒"},
+  {key:"Isha",name:"العشاء",icon:"☾"}
 ];
 
 let timings=null;
-let timer=null;
 
-function showError(message){
-  const el=document.getElementById("error");
-  el.style.display="block";
-  el.textContent=message;
+function pad(number){
+  return String(number).padStart(2,"0");
 }
 
-function getToday(){
-  const d=new Date();
+function todayString(){
 
-  const day=String(d.getDate()).padStart(2,"0");
-  const month=String(d.getMonth()+1).padStart(2,"0");
-  const year=d.getFullYear();
+  const now=new Date();
 
-  return `${day}-${month}-${year}`;
+  return {
+    day:pad(now.getDate()),
+    month:pad(now.getMonth()+1),
+    year:now.getFullYear()
+  };
+
 }
 
 function cleanTime(value){
-  return value.split(" ")[0];
-}
 
-function minutesFromTime(value){
+  if(!value){
+    return "--:--";
+  }
 
-  const [h,m]=cleanTime(value).split(":").map(Number);
-
-  return h*60+m;
-}
-
-function renderTimes(){
-
-  const container=document.getElementById("times");
-
-  container.innerHTML=prayers.map(([key,name,icon])=>`
-
-    <div class="time-card" id="card-${key}">
-
-      <div class="time-icon">${icon}</div>
-
-      <div class="time-name">${name}</div>
-
-      <div class="time">
-        ${cleanTime(timings[key])}
-      </div>
-
-    </div>
-
-  `).join("");
+  return String(value).split(" ")[0];
 
 }
 
-function findNextPrayer(){
+function toMinutes(time){
+
+  const clean=cleanTime(time);
+
+  const parts=clean.split(":");
+
+  if(parts.length!==2){
+    return Infinity;
+  }
+
+  return Number(parts[0])*60+Number(parts[1]);
+
+}
+
+function currentMinutes(){
 
   const now=new Date();
 
-  const nowMinutes=
-    now.getHours()*60+now.getMinutes();
+  return now.getHours()*60+now.getMinutes();
+
+}
+
+function renderTimings(){
+
+  if(!timings){
+    return;
+  }
+
+  const nowMinutes=currentMinutes();
 
   let next=null;
 
-  for(const [key,name,icon] of prayers){
+  prayers.forEach(prayer=>{
 
-    const value=minutesFromTime(timings[key]);
+    const value=toMinutes(timings[prayer.key]);
 
-    if(value>nowMinutes){
-
-      next={
-        key,
-        name,
-        icon,
-        value
-      };
-
-      break;
+    if(value>nowMinutes && !next){
+      next=prayer;
     }
 
-  }
+  });
 
   if(!next){
-
-    const first=prayers[0];
-
-    next={
-      key:first[0],
-      name:first[1],
-      icon:first[2],
-      value:minutesFromTime(timings[first[0]])
-    };
-
-    next.tomorrow=true;
+    next=prayers[0];
   }
 
-  document.querySelectorAll(".time-card")
-    .forEach(card=>card.classList.remove("active"));
+  nextName.textContent=next.name;
+  nextTime.textContent=cleanTime(timings[next.key]);
 
-  const active=document.getElementById(
-    "card-"+next.key
-  );
+  const today=new Date();
 
-  if(active) active.classList.add("active");
+  nextDate.textContent=
+    today.toLocaleDateString("ar-EG",{
+      weekday:"long",
+      day:"numeric",
+      month:"long"
+    });
 
-  document.getElementById("nextName").textContent=
-    next.icon+" "+next.name;
+  prayerGrid.innerHTML=prayers.map(prayer=>{
 
-  document.getElementById("nextTime").textContent=
-    cleanTime(timings[next.key]);
+    const active=prayer.key===next.key;
 
-  updateCountdown(next);
+    return`
+
+      <article class="prayer-card ${active?"active":""}">
+
+        <div class="prayer-icon">
+          ${prayer.icon}
+        </div>
+
+        <div class="prayer-name">
+          ${prayer.name}
+        </div>
+
+        <div class="prayer-time">
+          ${cleanTime(timings[prayer.key])}
+        </div>
+
+        <small>
+          ${active?"الصلاة القادمة":"موعد الصلاة"}
+        </small>
+
+      </article>
+
+    `;
+
+  }).join("");
 
 }
 
-function updateCountdown(next){
+async function fetchPrayerTimes(latitude,longitude){
 
-  const now=new Date();
+  const date=todayString();
 
-  let target=new Date();
+  const url=
+    `https://api.aladhan.com/v1/timings/${date.day}-${date.month}-${date.year}`+
+    `?latitude=${encodeURIComponent(latitude)}`+
+    `&longitude=${encodeURIComponent(longitude)}`+
+    `&method=5`;
 
-  const [h,m]=cleanTime(
-    timings[next.key]
-  ).split(":").map(Number);
+  const response=await fetch(url);
 
-  target.setHours(h,m,0,0);
-
-  if(target<=now){
-    target.setDate(target.getDate()+1);
+  if(!response.ok){
+    throw new Error("Prayer API error");
   }
 
-  const diff=target-now;
+  const data=await response.json();
 
-  const hours=Math.floor(diff/3600000);
+  if(!data?.data?.timings){
+    throw new Error("Invalid prayer data");
+  }
 
-  const minutes=Math.floor(
-    (diff%3600000)/60000
-  );
+  timings=data.data.timings;
 
-  const seconds=Math.floor(
-    (diff%60000)/1000
-  );
-
-  document.getElementById("countdown").textContent=
-    `متبقي ${hours} ساعة و ${minutes} دقيقة و ${seconds} ثانية`;
+  renderTimings();
 
 }
 
-async function loadPrayerTimes(lat,lon){
+function showError(message){
 
-  try{
+  prayerGrid.innerHTML=`
+    <div class="error">
+      ${message}
+    </div>
+  `;
 
-    const date=getToday();
-
-    const url=
-      `https://api.aladhan.com/v1/timings/${date}`+
-      `?latitude=${lat}`+
-      `&longitude=${lon}`+
-      `&method=5`;
-
-    const response=await fetch(url);
-
-    if(!response.ok){
-      throw new Error("فشل الاتصال بخدمة المواقيت");
-    }
-
-    const data=await response.json();
-
-    if(data.code!==200){
-      throw new Error("تعذر الحصول على المواقيت");
-    }
-
-    timings=data.data.timings;
-
-    renderTimes();
-    findNextPrayer();
-
-    if(timer) clearInterval(timer);
-
-    timer=setInterval(findNextPrayer,1000);
-
-  }catch(error){
-
-    showError(
-      "حدث خطأ أثناء تحميل مواقيت الصلاة. تأكد من اتصال الإنترنت ثم أعد المحاولة."
-    );
-
-  }
-
+  nextName.textContent="—";
+  nextTime.textContent="--:--";
 }
 
 function locate(){
@@ -555,33 +714,47 @@ function locate(){
   if(!navigator.geolocation){
 
     showError(
-      "المتصفح لا يدعم تحديد الموقع."
+      "المتصفح لا يدعم تحديد الموقع. يمكنك السماح للموقع من متصفح يدعم تحديد الموقع."
     );
+
+    locationText.textContent="📍 تحديد الموقع غير متاح";
 
     return;
   }
 
+  locationText.textContent="📍 جاري تحديد موقعك...";
+
   navigator.geolocation.getCurrentPosition(
 
-    position=>{
+    async position=>{
 
-      const lat=position.coords.latitude;
-      const lon=position.coords.longitude;
+      const latitude=position.coords.latitude;
+      const longitude=position.coords.longitude;
 
-      document.getElementById("location").textContent=
-        "📍 تم تحديد موقعك بنجاح";
+      locationText.textContent=
+        "📍 تم تحديد موقعك وحساب المواقيت";
 
-      loadPrayerTimes(lat,lon);
+      try{
+
+        await fetchPrayerTimes(latitude,longitude);
+
+      }catch(error){
+
+        showError(
+          "تعذر تحميل مواقيت الصلاة حاليًا. تحقق من اتصال الإنترنت ثم حاول مرة أخرى."
+        );
+
+      }
 
     },
 
-    ()=>{
+    error=>{
 
-      document.getElementById("location").textContent=
-        "📍 لم يتم السماح بالموقع";
+      locationText.textContent=
+        "📍 لم يتم السماح بالوصول إلى الموقع";
 
       showError(
-        "لم نتمكن من تحديد موقعك. اسمح للموقع بالوصول إلى موقعك ثم أعد تحميل الصفحة."
+        "لإظهار المواقيت بدقة، اسمح للموقع الجغرافي من إعدادات المتصفح ثم اضغط «تحديث المواقيت»."
       );
 
     },
@@ -596,9 +769,11 @@ function locate(){
 
 }
 
+refreshBtn.addEventListener("click",locate);
+
 locate();
 
 </script>
 
 </body>
-</html>
+  </html>
