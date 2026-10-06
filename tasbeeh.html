@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>التسبيح — الهداية</title>
+
+  <style>
+    :root{
+      --green:#0b3d2e;
+      --green2:#145c45;
+      --gold:#c9a227;
+      --cream:#f7f3e8;
+      --text:#18352b;
+      --muted:#718078;
+      --line:rgba(11,61,46,.10);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:Tahoma,Arial,sans-serif;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 20% 10%,rgba(201,162,39,.12),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(20,92,69,.10),transparent 30%),
+        var(--cream);
+      color:var(--text);
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(247,243,232,.9);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      max-width:1150px;
+      margin:auto;
+      min-height:74px;
+      padding:0 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      color:var(--green);
+    }
+
+    .logo{
+      width:45px;
+      height:45px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(145deg,#145c45,#082c22);
+      color:#e5c75b;
+      font-size:23px;
+    }
+
+    .links{
+      display:flex;
+      gap:5px;
+    }
+
+    .links a{
+      padding:10px 13px;
+      border-radius:12px;
+      color:#466056;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .links a:hover{
+      background:#e9e3d2;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+      padding:45px 22px 90px;
+    }
+
+    .intro{
+      text-align:center;
+      margin-bottom:28px;
+    }
+
+    .intro small{
+      color:#a17e16;
+      font-weight:900;
+    }
+
+    .intro h1{
+      color:var(--green);
+      font-size:42px;
+      margin:8px 0;
+    }
+
+    .intro p{
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .choices{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:9px;
+      margin-bottom:25px;
+    }
+
+    .choice{
+      border:1px solid var(--line);
+      background:white;
+      color:var(--green);
+      border-radius:14px;
+      padding:11px 15px;
+      font-family:inherit;
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .choice.active,
+    .choice:hover{
+      background:var(--green);
+      color:white;
+      transform:translateY(-2px);
+    }
+
+    .counter{
+      background:
+        radial-gradient(circle at 50% 30%,rgba(229,199,91,.13),transparent 28%),
+        linear-gradient(145deg,#082c22,#0c4a36);
+      color:white;
+      border-radius:35px;
+      padding:50px 25px;
+      text-align:center;
+      box-shadow:0 30px 70px rgba(11,61,46,.22);
+    }
+
+    .current-label{
+      color:#e5c75b;
+      font-size:14px;
+      font-weight:900;
+      margin-bottom:20px;
+    }
+
+    .dhikr{
+      font-size:clamp(28px,6vw,52px);
+      line-height:1.7;
+      font-weight:900;
+      margin-bottom:25px;
+    }
+
+    .number{
+      font-size:76px;
+      font-weight:900;
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    .target{
+      color:rgba(255,255,255,.65);
+      font-size:14px;
+    }
+
+    .progress{
+      max-width:500px;
+      height:9px;
+      background:rgba(255,255,255,.12);
+      border-radius:999px;
+      margin:25px auto;
+      overflow:hidden;
+    }
+
+    .progress span{
+      display:block;
+      height:100%;
+      width:0%;
+      background:#e5c75b;
+      border-radius:inherit;
+      transition:.2s;
+    }
+
+    .tap{
+      width:190px;
+      height:190px;
+      margin:25px auto;
+      border:8px solid rgba(229,199,91,.20);
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 30%,#e8d071,#c9a227 55%,#8e711b);
+      color:#17362b;
+      font-size:24px;
+      font-weight:900;
+      font-family:inherit;
+      cursor:pointer;
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.25),
+        inset 0 5px 15px rgba(255,255,255,.18);
+      transition:.12s;
+    }
+
+    .tap:active{
+      transform:scale(.94);
+    }
+
+    .actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .action{
+      min-height:45px;
+      padding:0 18px;
+      border-radius:13px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.07);
+      color:white;
+      font-family:inherit;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .action:hover{
+      background:rgba(255,255,255,.12);
+    }
+
+    .completed{
+      display:none;
+      margin-top:20px;
+      padding:13px;
+      border-radius:14px;
+      background:rgba(229,199,91,.13);
+      color:#f1d873;
+      font-weight:900;
+    }
+
+    .info{
+      margin-top:20px;
+      padding:22px;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:22px;
+      color:var(--muted);
+      line-height:1.9;
+      text-align:center;
+    }
+
+    footer{
+      background:#082c22;
+      color:white;
+      text-align:center;
+      padding:35px 20px;
+    }
+
+    footer strong{
+      color:#e5c75b;
+    }
+
+    footer p{
+      margin-top:8px;
+      color:rgba(255,255,255,.6);
+      font-size:13px;
+    }
+
+    @media(max-width:620px){
+      .links{
+        display:none;
+      }
+
+      .container{
+        padding-top:30px;
+      }
+
+      .intro h1{
+        font-size:34px;
+      }
+
+      .counter{
+        border-radius:28px;
+        padding:38px 18px;
+      }
+
+      .tap{
+        width:165px;
+        height:165px;
+      }
+
+      .number{
+        font-size:64px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <a href="index.html" class="brand">
+      <div class="logo">هـ</div>
+      <span>الهداية</span>
+    </a>
+
+    <nav class="links">
+      <a href="index.html">الرئيسية</a>
+      <a href="quran.html">القرآن</a>
+      <a href="adhkar.html">الأذكار</a>
+      <a href="prayer.html">الصلاة</a>
+      <a href="stories.html">القصص</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="intro">
+    <small>سبّح واذكر الله</small>
+    <h1>عداد التسبيح</h1>
+    <p>
+      اختر الذكر، ثم اضغط على الدائرة. سيتم حفظ تقدمك تلقائيًا على جهازك.
+    </p>
+  </section>
+
+  <div class="choices">
+
+    <button class="choice active" data-id="subhanallah">
+      سبحان الله
+    </button>
+
+    <button class="choice" data-id="alhamdulillah">
+      الحمد لله
+    </button>
+
+    <button class="choice" data-id="allahuakbar">
+      الله أكبر
+    </button>
+
+    <button class="choice" data-id="istighfar">
+      أستغفر الله
+    </button>
+
+    <button class="choice" data-id="hawqala">
+      لا حول ولا قوة إلا بالله
+    </button>
+
+  </div>
+
+  <section class="counter">
+
+    <div id="currentLabel" class="current-label">
+      الذكر الحالي
+    </div>
+
+    <div id="dhikr" class="dhikr">
+      سبحان الله
+    </div>
+
+    <div id="number" class="number">0</div>
+
+    <div class="target">
+      الهدف: <span id="target">100</span>
+    </div>
+
+    <div class="progress">
+      <span id="progress"></span>
+    </div>
+
+    <button id="tap" class="tap">
+      اضغط
+    </button>
+
+    <div class="actions">
+      <button id="reset" class="action">
+        إعادة العداد
+      </button>
+
+      <button id="complete" class="action">
+        إنهاء الذكر
+      </button>
+    </div>
+
+    <div id="completed" class="completed">
+      ✓ تم إكمال هذا الذكر
+    </div>
+
+  </section>
+
+  <div class="info">
+    العداد يعمل محليًا على جهازك، لذلك يمكنك إغلاق الصفحة والعودة إليها
+    دون فقدان العدد المحفوظ.
+  </div>
+
+</main>
+
+<footer>
+  <strong>الهداية — نور يهديك</strong>
+  <p>تطوير وبرمجة M11 — Mr. Mohamed Hussain © 2026</p>
+</footer>
+
+<script>
+
+const dhikrData = {
+
+  subhanallah:{
+    text:"سبحان الله",
+    target:100
+  },
+
+  alhamdulillah:{
+    text:"الحمد لله",
+    target:100
+  },
+
+  allahuakbar:{
+    text:"الله أكبر",
+    target:100
+  },
+
+  istighfar:{
+    text:"أستغفر الله",
+    target:100
+  },
+
+  hawqala:{
+    text:"لا حول ولا قوة إلا بالله",
+    target:100
+  }
+
+};
+
+let current = "subhanallah";
+
+const dhikrEl = document.getElementById("dhikr");
+const numberEl = document.getElementById("number");
+const targetEl = document.getElementById("target");
+const progressEl = document.getElementById("progress");
+const completedEl = document.getElementById("completed");
+
+function key(){
+  return "alhidayah_tasbeeh_" + current;
+}
+
+function getCount(){
+  return Number(localStorage.getItem(key()) || 0);
+}
+
+function saveCount(value){
+  localStorage.setItem(key(), String(value));
+}
+
+function render(){
+
+  const data = dhikrData[current];
+  const count = getCount();
+
+  dhikrEl.textContent = data.text;
+  numberEl.textContent = count;
+  targetEl.textContent = data.target;
+
+  const percentage =
+    Math.min(100, (count / data.target) * 100);
+
+  progressEl.style.width = percentage + "%";
+
+  completedEl.style.display =
+    count >= data.target ? "block" : "none";
+}
+
+document.querySelectorAll(".choice").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    document.querySelectorAll(".choice")
+      .forEach(x => x.classList.remove("active"));
+
+    button.classList.add("active");
+
+    current = button.dataset.id;
+
+    render();
+  });
+
+});
+
+document.getElementById("tap").addEventListener("click", () => {
+
+  const data = dhikrData[current];
+
+  let count = getCount();
+
+  if(count < data.target){
+    count++;
+    saveCount(count);
+    render();
+  }
+
+  if(navigator.vibrate){
+    navigator.vibrate(18);
+  }
+
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+
+  saveCount(0);
+  render();
+
+});
+
+document.getElementById("complete").addEventListener("click", () => {
+
+  const data = dhikrData[current];
+
+  saveCount(data.target);
+  render();
+
+});
+
+render();
+
+</script>
+
+</body>
+  </html>
