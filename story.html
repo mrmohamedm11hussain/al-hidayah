@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073b2a">
-<title>القصة | الهداية</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>القصة | الهداية</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
 :root{
   --green:#073b2a;
   --green2:#0b5940;
@@ -253,8 +248,7 @@ body{
 .quran-box{
   margin:28px 0;
   padding:25px;
-  background:
-    linear-gradient(135deg,#f5efdf,#fffdf8);
+  background:linear-gradient(135deg,#f5efdf,#fffdf8);
   border:1px solid #dfd2ad;
   border-radius:20px;
   position:relative;
@@ -510,85 +504,42 @@ body{
     grid-template-columns:1fr;
   }
 }
-</style>
-</head>
-
-<body>
-
-<div class="progress" id="progress"></div>
-
-<header class="header">
-<nav class="nav">
-
-<a href="index.html" class="brand">
+</style></head><body><div class="progress" id="progress"></div><header class="header">
+<nav class="nav"><a href="index.html" class="brand">
   <div class="logo">هـ</div>
   <div>
     <strong>الهداية</strong>
     <span>نور يهديك</span>
   </div>
-</a>
-
-<div class="nav-links">
+</a><div class="nav-links">
   <a href="stories.html">← القصص</a>
   <a href="quran.html">القرآن</a>
   <a href="adhkar.html">الأذكار</a>
-</div>
-
-</nav>
-</header>
-
-
-<main class="container">
-
-<div class="breadcrumb">
+</div></nav>
+</header><main class="container"><div class="breadcrumb">
   <a href="index.html">الهداية</a>
   <span>›</span>
   <a href="stories.html">القصص</a>
   <span>›</span>
   <span id="crumb">القصة</span>
-</div>
-
-
-<section class="hero">
-
-<div class="hero-content">
+</div><section class="hero"><div class="hero-content">
   <div class="eyebrow">قصة من قصص الهداية</div>
   <h1 id="storyTitle">جاري التحميل...</h1>
   <p id="storySubtitle"></p>
-</div>
-
-</section>
-
-
-<article class="article">
-
-<div class="article-inner" id="articleContent">
-
-<div style="text-align:center;padding:50px;color:#6b7d74">
+</div></section><article class="article"><div class="article-inner" id="articleContent"><div style="text-align:center;padding:50px;color:#6b7d74">
   جاري تحميل القصة...
-</div>
-
-</div>
-
-</article>
-
-</main>
-
-
-<footer class="footer">
+</div></div></article></main><footer class="footer">
   <strong>الهداية</strong> — نور يهديك
   <br>
   تطوير وبرمجة M11 — Mr. Mohamed Hussain
-</footer>
-
-
-<script>
+</footer><script>
 
 const API="https://api.alquran.cloud/v1";
 
 const stories={
 
 adam:{
+  id:"adam",
   title:"آدم عليه السلام",
   subtitle:"بداية خلق الإنسان",
   ayah:[2,30],
@@ -627,6 +578,7 @@ adam:{
 },
 
 nuh:{
+  id:"nuh",
   title:"نوح عليه السلام",
   subtitle:"الصبر والثبات على الدعوة",
   ayah:[11,36],
@@ -665,6 +617,7 @@ nuh:{
 },
 
 ibrahim:{
+  id:"ibrahim",
   title:"إبراهيم عليه السلام",
   subtitle:"الخليل والثبات على التوحيد",
   ayah:[2,124],
@@ -703,10 +656,11 @@ ibrahim:{
 },
 
 musa:{
+  id:"musa",
   title:"موسى عليه السلام",
   subtitle:"مواجهة فرعون والثبات",
   ayah:[20,24],
-  video:"ZubVqCRp_Kc",
+  video:"NTrws_givIw",
   chapters:[
     {
       title:"مولد موسى",
@@ -741,6 +695,7 @@ musa:{
 },
 
 yunus:{
+  id:"yunus",
   title:"يونس عليه السلام",
   subtitle:"التوبة والرجوع إلى الله",
   ayah:[21,87],
@@ -778,7 +733,47 @@ yunus:{
   sources:["القرآن الكريم: سورة الأنبياء، وسورة الصافات، وسورة يونس."]
 },
 
+sulaiman:{
+  id:"sulaiman",
+  title:"سليمان عليه السلام",
+  subtitle:"النبي الملك وشكر نعم الله",
+  ayah:[27,15],
+  video:"SeI78w6qzG8",
+  chapters:[
+    {
+      title:"سليمان عليه السلام",
+      paragraphs:[
+        "كان سليمان عليه السلام نبيًا من أنبياء الله، وورث الملك عن أبيه داود عليه السلام.",
+        "آتاه الله ملكًا عظيمًا، وسخّر له من النعم والقدرات ما لم يعطه لكثير من الناس."
+      ]
+    },
+    {
+      title:"فهم ما حوله",
+      paragraphs:[
+        "علّم الله سليمان عليه السلام وفهّمه منطق الطير، وسخّر له الجن والريح بإذن الله.",
+        "وكان مع هذا الملك العظيم عبدًا شاكرًا لله، يعلم أن ما عنده من فضل الله سبحانه وتعالى."
+      ]
+    },
+    {
+      title:"قصة الهدهد وملكة سبأ",
+      paragraphs:[
+        "تفقد سليمان عليه السلام الطير، فوجد الهدهد غائبًا، ثم جاءه الهدهد بخبر قوم في سبأ لهم ملكة وكانوا يعبدون الشمس.",
+        "أرسل سليمان عليه السلام كتابًا يدعوهم فيه إلى الحق، ثم انتهت القصة بإسلام ملكة سبأ لله رب العالمين."
+      ]
+    }
+  ],
+  simple:"قصة سليمان عليه السلام تعلمنا أن كثرة النعم والقوة لا ينبغي أن تجعل الإنسان متكبرًا، بل تزيده شكرًا لله واستعمالًا للنعم في الخير.",
+  lessons:[
+    "شكر نعم الله.",
+    "التواضع مع القوة والقدرة.",
+    "استعمال النعم في الخير.",
+    "الدعوة إلى عبادة الله وحده."
+  ],
+  sources:["القرآن الكريم: سورة النمل، وسورة سبأ، وسورة ص."]
+},
+
 kahf:{
+  id:"kahf",
   title:"أصحاب الكهف",
   subtitle:"الثبات على الإيمان",
   ayah:[18,13],
@@ -817,6 +812,7 @@ kahf:{
 },
 
 hira:{
+  id:"hira",
   title:"بداية الوحي",
   subtitle:"غار حراء",
   ayah:[96,1],
@@ -862,6 +858,7 @@ const order=[
   "ibrahim",
   "musa",
   "yunus",
+  "sulaiman",
   "kahf",
   "hira"
 ];
@@ -950,7 +947,6 @@ function renderStory(){
 
     </section>
 
-
     <section class="simple">
 
       <h3>فهم مبسط</h3>
@@ -965,7 +961,6 @@ function renderStory(){
       </p>
 
     </section>
-
 
     <section class="chapter">
 
@@ -993,7 +988,6 @@ function renderStory(){
 
     </section>
 
-
     <section class="sources">
 
       <h3>المصادر</h3>
@@ -1005,7 +999,6 @@ function renderStory(){
       </ul>
 
     </section>
-
 
     ${story.video ? `
 
@@ -1031,7 +1024,6 @@ function renderStory(){
       </section>
 
     `:""}
-
 
     ${renderNavigation()}
 
@@ -1076,14 +1068,24 @@ function renderNavigation(){
 
   const index=order.indexOf(id);
 
-  const previous=
+  const previousId=
     index>0
-      ? stories[order[index-1]]
+      ? order[index-1]
+      : null;
+
+  const nextId=
+    index<order.length-1
+      ? order[index+1]
+      : null;
+
+  const previous=
+    previousId
+      ? stories[previousId]
       : null;
 
   const next=
-    index<order.length-1
-      ? stories[order[index+1]]
+    nextId
+      ? stories[nextId]
       : null;
 
   return`
@@ -1095,7 +1097,7 @@ function renderNavigation(){
         ? `
           <a
             class="nav-btn"
-            href="story.html?id=${previous.id}"
+            href="story.html?id=${encodeURIComponent(previousId)}"
           >
             <small>القصة السابقة</small>
             <strong>← ${escapeHTML(previous.title)}</strong>
@@ -1109,19 +1111,17 @@ function renderNavigation(){
         `
       }
 
-
       <a class="nav-btn back" href="stories.html">
         <small>مكتبة القصص</small>
         <strong>كل القصص</strong>
       </a>
-
 
       ${
         next
         ? `
           <a
             class="nav-btn"
-            href="story.html?id=${next.id}"
+            href="story.html?id=${encodeURIComponent(nextId)}"
           >
             <small>القصة التالية</small>
             <strong>${escapeHTML(next.title)} →</strong>
@@ -1159,7 +1159,5 @@ window.addEventListener("scroll",()=>{
 
 });
 
-</script>
-
-</body>
-  </html>
+</script></body>
+                                   </html>
